@@ -1,0 +1,47 @@
+{
+  "scanDate": "2025-10-29T14:37:36.533Z",
+  "totalMatches": 5,
+  "filesAffected": 3,
+  "matches": [
+    {
+      "file": "src/components/RfqQuoteComparison.vue",
+      "matches": [
+        {
+          "line": 888,
+          "content": "downloadUrl = `${API_BASE_URL}/uploads/rfq-attachments/${storedFileName}`;",
+          "pattern": "模板字符串中的 /uploads/"
+        }
+      ]
+    },
+    {
+      "file": "src/utils/fileDownload.ts",
+      "matches": [
+        {
+          "line": 45,
+          "content": "return `${baseUrl}/uploads/${category}/${storedFileName}`;",
+          "pattern": "模板字符串中的 /uploads/"
+        }
+      ]
+    },
+    {
+      "file": "src/views/RfqDetailView.vue",
+      "matches": [
+        {
+          "line": 858,
+          "content": "downloadUrl = `/uploads/rfq-attachments/${encodeURIComponent(fileName)}`;",
+          "pattern": "硬编码 /uploads/ URL"
+        },
+        {
+          "line": 858,
+          "content": "downloadUrl = `/uploads/rfq-attachments/${encodeURIComponent(fileName)}`;",
+          "pattern": "模板字符串中的 /uploads/"
+        },
+        {
+          "line": 858,
+          "content": "downloadUrl = `/uploads/rfq-attachments/${encodeURIComponent(fileName)}`;",
+          "pattern": "downloadUrl 属性使用 /uploads/"
+        }
+      ]
+    }
+  ]
+}

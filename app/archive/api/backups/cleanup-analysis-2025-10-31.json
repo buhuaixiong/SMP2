@@ -1,0 +1,575 @@
+{
+  "timestamp": "2025-10-31T00:27:28.338Z",
+  "summary": {
+    "totalFiles": 71,
+    "totalDirectories": 2,
+    "totalSize": 57336293,
+    "riskDistribution": {
+      "HIGH": 3,
+      "MEDIUM": 3,
+      "LOW": 5
+    },
+    "needsConfirmationCount": 5
+  },
+  "gitignoreCoverage": {
+    "covered": [
+      {
+        "category": "extracted_backend 冗余副本",
+        "pattern": "extracted_backend/"
+      }
+    ],
+    "missing": [
+      {
+        "category": "临时 Python 脚本",
+        "pattern": "tmp_*.py"
+      },
+      {
+        "category": "临时 Vue 文件",
+        "pattern": "tmp_*.vue"
+      },
+      {
+        "category": "中文批处理脚本",
+        "pattern": "*.bat"
+      },
+      {
+        "category": "运行期日志文件",
+        "pattern": "supplier-backend/backend*.log"
+      },
+      {
+        "category": "数据库备份文件",
+        "pattern": "*.backup-*"
+      },
+      {
+        "category": "审计日志归档",
+        "pattern": "supplier-backend/audit-archive/"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "category": "临时 Python 脚本",
+      "risk": "LOW",
+      "action": "DELETE",
+      "requiresConfirmation": false,
+      "files": [
+        {
+          "name": "tmp_add_pg_payload.py",
+          "path": "C:\\supplier-system\\tmp_add_pg_payload.py",
+          "relativePath": "tmp_add_pg_payload.py",
+          "size": 1202
+        },
+        {
+          "name": "tmp_modify_auth_payload.py",
+          "path": "C:\\supplier-system\\tmp_modify_auth_payload.py",
+          "relativePath": "tmp_modify_auth_payload.py",
+          "size": 1319
+        },
+        {
+          "name": "tmp_modify_backend.py",
+          "path": "C:\\supplier-system\\tmp_modify_backend.py",
+          "relativePath": "tmp_modify_backend.py",
+          "size": 1414
+        }
+      ]
+    },
+    {
+      "category": "临时 Vue 文件",
+      "risk": "LOW",
+      "action": "DELETE",
+      "requiresConfirmation": false,
+      "files": [
+        {
+          "name": "tmp_head.vue",
+          "path": "C:\\supplier-system\\tmp_head.vue",
+          "relativePath": "tmp_head.vue",
+          "size": 62186
+        }
+      ]
+    },
+    {
+      "category": "一次性测试脚本（非正式测试套件）",
+      "risk": "MEDIUM",
+      "action": "REVIEW",
+      "requiresConfirmation": true,
+      "note": "部分脚本可能有复用价值，建议先移至 scripts/archive/diagnostic/",
+      "files": [
+        {
+          "name": "check-active-db.js",
+          "path": "C:\\supplier-system\\supplier-backend\\check-active-db.js",
+          "relativePath": "supplier-backend\\check-active-db.js",
+          "size": 2174
+        },
+        {
+          "name": "check-all-rfq-data.js",
+          "path": "C:\\supplier-system\\supplier-backend\\check-all-rfq-data.js",
+          "relativePath": "supplier-backend\\check-all-rfq-data.js",
+          "size": 2535
+        },
+        {
+          "name": "check-backend-logs.js",
+          "path": "C:\\supplier-system\\supplier-backend\\check-backend-logs.js",
+          "relativePath": "supplier-backend\\check-backend-logs.js",
+          "size": 3591
+        },
+        {
+          "name": "check-endpoints.js",
+          "path": "C:\\supplier-system\\supplier-backend\\check-endpoints.js",
+          "relativePath": "supplier-backend\\check-endpoints.js",
+          "size": 351
+        },
+        {
+          "name": "check-routes.js",
+          "path": "C:\\supplier-system\\supplier-backend\\check-routes.js",
+          "relativePath": "supplier-backend\\check-routes.js",
+          "size": 2212
+        },
+        {
+          "name": "check-schema.js",
+          "path": "C:\\supplier-system\\supplier-backend\\check-schema.js",
+          "relativePath": "supplier-backend\\check-schema.js",
+          "size": 1010
+        },
+        {
+          "name": "check-table-columns.js",
+          "path": "C:\\supplier-system\\supplier-backend\\check-table-columns.js",
+          "relativePath": "supplier-backend\\check-table-columns.js",
+          "size": 569
+        },
+        {
+          "name": "check-templates.js",
+          "path": "C:\\supplier-system\\supplier-backend\\check-templates.js",
+          "relativePath": "supplier-backend\\check-templates.js",
+          "size": 8378
+        },
+        {
+          "name": "check-user.js",
+          "path": "C:\\supplier-system\\supplier-backend\\check-user.js",
+          "relativePath": "supplier-backend\\check-user.js",
+          "size": 2095
+        },
+        {
+          "name": "debug-auth.js",
+          "path": "C:\\supplier-system\\supplier-backend\\debug-auth.js",
+          "relativePath": "supplier-backend\\debug-auth.js",
+          "size": 1482
+        },
+        {
+          "name": "debug-supplier.js",
+          "path": "C:\\supplier-system\\supplier-backend\\debug-supplier.js",
+          "relativePath": "supplier-backend\\debug-supplier.js",
+          "size": 1555
+        },
+        {
+          "name": "diagnose-rfq-submission.js",
+          "path": "C:\\supplier-system\\supplier-backend\\diagnose-rfq-submission.js",
+          "relativePath": "supplier-backend\\diagnose-rfq-submission.js",
+          "size": 9344
+        },
+        {
+          "name": "diagnose-rfq.js",
+          "path": "C:\\supplier-system\\supplier-backend\\diagnose-rfq.js",
+          "relativePath": "supplier-backend\\diagnose-rfq.js",
+          "size": 5189
+        },
+        {
+          "name": "test-api-direct.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-api-direct.js",
+          "relativePath": "supplier-backend\\test-api-direct.js",
+          "size": 2416
+        },
+        {
+          "name": "test-api-login.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-api-login.js",
+          "relativePath": "supplier-backend\\test-api-login.js",
+          "size": 1740
+        },
+        {
+          "name": "test-audit-logging.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-audit-logging.js",
+          "relativePath": "supplier-backend\\test-audit-logging.js",
+          "size": 7786
+        },
+        {
+          "name": "test-direct-db.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-direct-db.js",
+          "relativePath": "supplier-backend\\test-direct-db.js",
+          "size": 459
+        },
+        {
+          "name": "test-evaluate-invitation.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-evaluate-invitation.js",
+          "relativePath": "supplier-backend\\test-evaluate-invitation.js",
+          "size": 4212
+        },
+        {
+          "name": "test-financial-module.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-financial-module.js",
+          "relativePath": "supplier-backend\\test-financial-module.js",
+          "size": 5207
+        },
+        {
+          "name": "test-invitation-query.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-invitation-query.js",
+          "relativePath": "supplier-backend\\test-invitation-query.js",
+          "size": 1103
+        },
+        {
+          "name": "test-login-correct.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-login-correct.js",
+          "relativePath": "supplier-backend\\test-login-correct.js",
+          "size": 1555
+        },
+        {
+          "name": "test-p0-security-fixes.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-p0-security-fixes.js",
+          "relativePath": "supplier-backend\\test-p0-security-fixes.js",
+          "size": 9081
+        },
+        {
+          "name": "test-permissions.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-permissions.js",
+          "relativePath": "supplier-backend\\test-permissions.js",
+          "size": 1744
+        },
+        {
+          "name": "test-phase2-auth.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-phase2-auth.js",
+          "relativePath": "supplier-backend\\test-phase2-auth.js",
+          "size": 4633
+        },
+        {
+          "name": "test-real-api.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-real-api.js",
+          "relativePath": "supplier-backend\\test-real-api.js",
+          "size": 2168
+        },
+        {
+          "name": "test-real-token.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-real-token.js",
+          "relativePath": "supplier-backend\\test-real-token.js",
+          "size": 1775
+        },
+        {
+          "name": "test-rfq-api.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-rfq-api.js",
+          "relativePath": "supplier-backend\\test-rfq-api.js",
+          "size": 1904
+        },
+        {
+          "name": "test-rfq-data.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-rfq-data.js",
+          "relativePath": "supplier-backend\\test-rfq-data.js",
+          "size": 2030
+        },
+        {
+          "name": "test-rfq-detail.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-rfq-detail.js",
+          "relativePath": "supplier-backend\\test-rfq-detail.js",
+          "size": 964
+        },
+        {
+          "name": "test-rfq-endpoint.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-rfq-endpoint.js",
+          "relativePath": "supplier-backend\\test-rfq-endpoint.js",
+          "size": 15871
+        },
+        {
+          "name": "test-rfq-invitations.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-rfq-invitations.js",
+          "relativePath": "supplier-backend\\test-rfq-invitations.js",
+          "size": 1676
+        },
+        {
+          "name": "test-submit-review.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-submit-review.js",
+          "relativePath": "supplier-backend\\test-submit-review.js",
+          "size": 3625
+        },
+        {
+          "name": "test-users.js",
+          "path": "C:\\supplier-system\\supplier-backend\\test-users.js",
+          "relativePath": "supplier-backend\\test-users.js",
+          "size": 404
+        }
+      ]
+    },
+    {
+      "category": "中文批处理脚本",
+      "risk": "LOW",
+      "action": "DELETE",
+      "requiresConfirmation": false,
+      "note": "建议改写为跨平台 Node 脚本后替换",
+      "files": [
+        {
+          "name": "诊断RFQ提交问题.bat",
+          "path": "C:\\supplier-system\\supplier-backend\\诊断RFQ提交问题.bat",
+          "relativePath": "supplier-backend\\诊断RFQ提交问题.bat",
+          "size": 1178
+        },
+        {
+          "name": "重启后端并查看日志.bat",
+          "path": "C:\\supplier-system\\supplier-backend\\重启后端并查看日志.bat",
+          "relativePath": "supplier-backend\\重启后端并查看日志.bat",
+          "size": 1153
+        }
+      ]
+    },
+    {
+      "category": "运行期日志文件",
+      "risk": "MEDIUM",
+      "action": "DELETE",
+      "requiresConfirmation": false,
+      "files": [
+        {
+          "name": "backend-debug.log",
+          "path": "C:\\supplier-system\\supplier-backend\\backend-debug.log",
+          "relativePath": "supplier-backend\\backend-debug.log",
+          "size": 1213
+        },
+        {
+          "name": "backend-new.log",
+          "path": "C:\\supplier-system\\supplier-backend\\backend-new.log",
+          "relativePath": "supplier-backend\\backend-new.log",
+          "size": 4684
+        },
+        {
+          "name": "backend.log",
+          "path": "C:\\supplier-system\\supplier-backend\\backend.log",
+          "relativePath": "supplier-backend\\backend.log",
+          "size": 5485
+        }
+      ]
+    },
+    {
+      "category": "数据库备份文件",
+      "risk": "HIGH",
+      "action": "ARCHIVE_THEN_DELETE",
+      "requiresConfirmation": true,
+      "note": "包含生产数据，删除前确保已有外部备份",
+      "files": [
+        {
+          "name": "database.db.backup-20251030",
+          "path": "C:\\supplier-system\\supplier-backend\\database.db.backup-20251030",
+          "relativePath": "supplier-backend\\database.db.backup-20251030",
+          "size": 458752
+        }
+      ]
+    },
+    {
+      "category": "根目录重复文档",
+      "risk": "LOW",
+      "action": "MOVE",
+      "requiresConfirmation": false,
+      "targetDir": "docs/implementation-reports/",
+      "files": [
+        {
+          "name": "ADVANCED-SECURITY-TEST-REPORT.md",
+          "path": "C:\\supplier-system\\ADVANCED-SECURITY-TEST-REPORT.md",
+          "relativePath": "ADVANCED-SECURITY-TEST-REPORT.md",
+          "size": 22141
+        },
+        {
+          "name": "AUDIT-LOG-ENHANCEMENT-SUMMARY.md",
+          "path": "C:\\supplier-system\\AUDIT-LOG-ENHANCEMENT-SUMMARY.md",
+          "relativePath": "AUDIT-LOG-ENHANCEMENT-SUMMARY.md",
+          "size": 11348
+        },
+        {
+          "name": "BATCH-TAG-AND-BUYER-ASSIGNMENT-IMPLEMENTATION.md",
+          "path": "C:\\supplier-system\\BATCH-TAG-AND-BUYER-ASSIGNMENT-IMPLEMENTATION.md",
+          "relativePath": "BATCH-TAG-AND-BUYER-ASSIGNMENT-IMPLEMENTATION.md",
+          "size": 15073
+        },
+        {
+          "name": "BATCH-TAG-BUYER-FEATURES-GUIDE.md",
+          "path": "C:\\supplier-system\\BATCH-TAG-BUYER-FEATURES-GUIDE.md",
+          "relativePath": "BATCH-TAG-BUYER-FEATURES-GUIDE.md",
+          "size": 11051
+        },
+        {
+          "name": "BROWSER-CACHE-CLEAR-GUIDE.md",
+          "path": "C:\\supplier-system\\BROWSER-CACHE-CLEAR-GUIDE.md",
+          "relativePath": "BROWSER-CACHE-CLEAR-GUIDE.md",
+          "size": 5899
+        },
+        {
+          "name": "BROWSER-COMPATIBILITY-GUIDE.md",
+          "path": "C:\\supplier-system\\BROWSER-COMPATIBILITY-GUIDE.md",
+          "relativePath": "BROWSER-COMPATIBILITY-GUIDE.md",
+          "size": 19657
+        },
+        {
+          "name": "BROWSER-TEST-CHECKLIST.md",
+          "path": "C:\\supplier-system\\BROWSER-TEST-CHECKLIST.md",
+          "relativePath": "BROWSER-TEST-CHECKLIST.md",
+          "size": 15342
+        },
+        {
+          "name": "BROWSER-TESTING-SUMMARY.md",
+          "path": "C:\\supplier-system\\BROWSER-TESTING-SUMMARY.md",
+          "relativePath": "BROWSER-TESTING-SUMMARY.md",
+          "size": 11829
+        },
+        {
+          "name": "BULK-DOCUMENT-IMPORT-IMPLEMENTATION.md",
+          "path": "C:\\supplier-system\\BULK-DOCUMENT-IMPORT-IMPLEMENTATION.md",
+          "relativePath": "BULK-DOCUMENT-IMPORT-IMPLEMENTATION.md",
+          "size": 7628
+        },
+        {
+          "name": "EMAIL-SETTINGS-GUIDE.md",
+          "path": "C:\\supplier-system\\EMAIL-SETTINGS-GUIDE.md",
+          "relativePath": "EMAIL-SETTINGS-GUIDE.md",
+          "size": 12946
+        },
+        {
+          "name": "EMAIL-SETTINGS-IMPLEMENTATION-SUMMARY.md",
+          "path": "C:\\supplier-system\\EMAIL-SETTINGS-IMPLEMENTATION-SUMMARY.md",
+          "relativePath": "EMAIL-SETTINGS-IMPLEMENTATION-SUMMARY.md",
+          "size": 18624
+        },
+        {
+          "name": "EMERGENCY-LOCKDOWN-IMPLEMENTATION.md",
+          "path": "C:\\supplier-system\\EMERGENCY-LOCKDOWN-IMPLEMENTATION.md",
+          "relativePath": "EMERGENCY-LOCKDOWN-IMPLEMENTATION.md",
+          "size": 16087
+        },
+        {
+          "name": "FILE-UPLOAD-APPROVAL-IMPLEMENTATION.md",
+          "path": "C:\\supplier-system\\FILE-UPLOAD-APPROVAL-IMPLEMENTATION.md",
+          "relativePath": "FILE-UPLOAD-APPROVAL-IMPLEMENTATION.md",
+          "size": 11123
+        },
+        {
+          "name": "FILE-VALIDATION-IMPLEMENTATION.md",
+          "path": "C:\\supplier-system\\FILE-VALIDATION-IMPLEMENTATION.md",
+          "relativePath": "FILE-VALIDATION-IMPLEMENTATION.md",
+          "size": 22627
+        },
+        {
+          "name": "FILE-VALIDITY-AND-REMINDER-IMPLEMENTATION.md",
+          "path": "C:\\supplier-system\\FILE-VALIDITY-AND-REMINDER-IMPLEMENTATION.md",
+          "relativePath": "FILE-VALIDITY-AND-REMINDER-IMPLEMENTATION.md",
+          "size": 15478
+        },
+        {
+          "name": "FINAL-PERFORMANCE-TEST-SUMMARY.md",
+          "path": "C:\\supplier-system\\FINAL-PERFORMANCE-TEST-SUMMARY.md",
+          "relativePath": "FINAL-PERFORMANCE-TEST-SUMMARY.md",
+          "size": 7737
+        },
+        {
+          "name": "FRONTEND-IMPLEMENTATION-COMPLETE.md",
+          "path": "C:\\supplier-system\\FRONTEND-IMPLEMENTATION-COMPLETE.md",
+          "relativePath": "FRONTEND-IMPLEMENTATION-COMPLETE.md",
+          "size": 13451
+        },
+        {
+          "name": "fix-template-download.md",
+          "path": "C:\\supplier-system\\fix-template-download.md",
+          "relativePath": "fix-template-download.md",
+          "size": 5239
+        }
+      ]
+    },
+    {
+      "category": "临时中文文档",
+      "risk": "LOW",
+      "action": "DELETE",
+      "requiresConfirmation": false,
+      "note": "有价值的内容应先整合到正式文档",
+      "files": [
+        {
+          "name": "如何查看后端日志.md",
+          "path": "C:\\supplier-system\\如何查看后端日志.md",
+          "relativePath": "如何查看后端日志.md",
+          "size": 7151
+        },
+        {
+          "name": "修复清单.md",
+          "path": "C:\\supplier-system\\修复清单.md",
+          "relativePath": "修复清单.md",
+          "size": 9436
+        },
+        {
+          "name": "README-问题已修复.txt",
+          "path": "C:\\supplier-system\\README-问题已修复.txt",
+          "relativePath": "README-问题已修复.txt",
+          "size": 8936
+        },
+        {
+          "name": "RFQ-提交问题-解决方案.md",
+          "path": "C:\\supplier-system\\RFQ-提交问题-解决方案.md",
+          "relativePath": "RFQ-提交问题-解决方案.md",
+          "size": 5364
+        },
+        {
+          "name": "SOLUTION-SUMMARY.md",
+          "path": "C:\\supplier-system\\SOLUTION-SUMMARY.md",
+          "relativePath": "SOLUTION-SUMMARY.md",
+          "size": 9359
+        },
+        {
+          "name": "QUICK-START-GUIDE.md",
+          "path": "C:\\supplier-system\\QUICK-START-GUIDE.md",
+          "relativePath": "QUICK-START-GUIDE.md",
+          "size": 9347
+        },
+        {
+          "name": "PORT-CONFLICT-FIX.md",
+          "path": "C:\\supplier-system\\PORT-CONFLICT-FIX.md",
+          "relativePath": "PORT-CONFLICT-FIX.md",
+          "size": 6914
+        },
+        {
+          "name": "migration-report.json",
+          "path": "C:\\supplier-system\\migration-report.json",
+          "relativePath": "migration-report.json",
+          "size": 1331
+        }
+      ]
+    },
+    {
+      "category": "特定迁移运行器",
+      "risk": "MEDIUM",
+      "action": "ARCHIVE",
+      "requiresConfirmation": true,
+      "targetDir": "supplier-backend/scripts/archive/migration-runners/",
+      "note": "迁移已应用，保留仅供历史参考",
+      "files": [
+        {
+          "name": "run-migration-009.js",
+          "path": "C:\\supplier-system\\supplier-backend\\run-migration-009.js",
+          "relativePath": "supplier-backend\\run-migration-009.js",
+          "size": 833
+        },
+        {
+          "name": "run-migration-010.js",
+          "path": "C:\\supplier-system\\supplier-backend\\run-migration-010.js",
+          "relativePath": "supplier-backend\\run-migration-010.js",
+          "size": 1780
+        }
+      ]
+    },
+    {
+      "category": "extracted_backend 冗余副本",
+      "risk": "HIGH",
+      "action": "REVIEW_THEN_DELETE",
+      "requiresConfirmation": true,
+      "note": "完整的 supplier-backend 副本（含 node_modules），删除前确认无独有代码",
+      "path": "C:\\supplier-system\\extracted_backend",
+      "relativePath": "extracted_backend",
+      "size": 56375711
+    },
+    {
+      "category": "审计日志归档",
+      "risk": "HIGH",
+      "action": "ARCHIVE_EXTERNALLY",
+      "requiresConfirmation": true,
+      "note": "敏感审计记录，应先备份到安全存储再删除",
+      "path": "C:\\supplier-system\\supplier-backend\\audit-archive",
+      "relativePath": "supplier-backend\\audit-archive",
+      "size": 7427
+    }
+  ]
+}

@@ -1,0 +1,1772 @@
+﻿PRAGMA table_info(supplier_registration_applications):
+
+=== DATABASE INITIALIZATION ===
+[db] Database path resolved to: C:\supplier-system\apps\api\supplier.db
+[db] DB_FILE env var: not set
+[db] DATABASE_PATH env var: not set
+[db] 鉁?SQLite 鏁版嵁搴撳凡鎵撳紑
+[db] 鉁?WAL 妯″紡: wal
+[db] Database file size: 62.64 MB
+[db] Total tables in database: 94
+[
+  {
+    "cid": 0,
+    "name": "id",
+    "type": "INTEGER",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 1
+  },
+  {
+    "cid": 1,
+    "name": "companyName",
+    "type": "TEXT",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 2,
+    "name": "englishName",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 3,
+    "name": "chineseName",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 4,
+    "name": "companyType",
+    "type": "TEXT",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 5,
+    "name": "companyTypeOther",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 6,
+    "name": "authorizedCapital",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 7,
+    "name": "issuedCapital",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 8,
+    "name": "directors",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 9,
+    "name": "owners",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 10,
+    "name": "registeredOffice",
+    "type": "TEXT",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 11,
+    "name": "businessRegistrationNumber",
+    "type": "TEXT",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 12,
+    "name": "businessAddress",
+    "type": "TEXT",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 13,
+    "name": "businessPhone",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 14,
+    "name": "businessFax",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 15,
+    "name": "contactName",
+    "type": "TEXT",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 16,
+    "name": "contactEmail",
+    "type": "TEXT",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 17,
+    "name": "contactPhone",
+    "type": "TEXT",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 18,
+    "name": "financeContactName",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 19,
+    "name": "financeContactEmail",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 20,
+    "name": "financeContactPhone",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 21,
+    "name": "businessNature",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 22,
+    "name": "operatingCurrency",
+    "type": "TEXT",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 23,
+    "name": "deliveryLocation",
+    "type": "TEXT",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 24,
+    "name": "shipCode",
+    "type": "TEXT",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 25,
+    "name": "productOrigin",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 26,
+    "name": "productTypes",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 27,
+    "name": "invoiceType",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 28,
+    "name": "paymentTermsDays",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 29,
+    "name": "paymentMethods",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 30,
+    "name": "paymentMethodsOther",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 31,
+    "name": "bankName",
+    "type": "TEXT",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 32,
+    "name": "bankAddress",
+    "type": "TEXT",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 33,
+    "name": "bankAccountNumber",
+    "type": "TEXT",
+    "notnull": 1,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 34,
+    "name": "swiftCode",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 35,
+    "name": "notes",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 36,
+    "name": "supplierClassification",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 37,
+    "name": "supplierCode",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 38,
+    "name": "businessLicenseFileName",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 39,
+    "name": "businessLicenseFilePath",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 40,
+    "name": "businessLicenseFileMime",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 41,
+    "name": "businessLicenseFileSize",
+    "type": "INTEGER",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 42,
+    "name": "bankAccountFileName",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 43,
+    "name": "bankAccountFilePath",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 44,
+    "name": "bankAccountFileMime",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 45,
+    "name": "bankAccountFileSize",
+    "type": "INTEGER",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 46,
+    "name": "procurementEmail",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 47,
+    "name": "supplierId",
+    "type": "INTEGER",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 48,
+    "name": "tempAccountUserId",
+    "type": "INTEGER",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 49,
+    "name": "draftToken",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 50,
+    "name": "baselineVersion",
+    "type": "INTEGER",
+    "notnull": 0,
+    "dflt_value": "0",
+    "pk": 0
+  },
+  {
+    "cid": 51,
+    "name": "status",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": "'pending_purchaser'",
+    "pk": 0
+  },
+  {
+    "cid": 52,
+    "name": "assignedPurchaserEmail",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 53,
+    "name": "assignedPurchaserId",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 54,
+    "name": "trackingAccountId",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 55,
+    "name": "activationToken",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 56,
+    "name": "activationTokenExpiry",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 57,
+    "name": "activatedAt",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 58,
+    "name": "qualityManagerId",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 59,
+    "name": "qualityApprovalTime",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 60,
+    "name": "qualityApprovalComment",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 61,
+    "name": "qualityApprovalStatus",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 62,
+    "name": "purchaserId",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 63,
+    "name": "purchaserApprovalTime",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 64,
+    "name": "purchaserApprovalComment",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 65,
+    "name": "purchaserApprovalStatus",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 66,
+    "name": "procurementManagerId",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 67,
+    "name": "procurementManagerApprovalTime",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 68,
+    "name": "procurementManagerApprovalComment",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 69,
+    "name": "procurementManagerApprovalStatus",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 70,
+    "name": "procurementDirectorId",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 71,
+    "name": "procurementDirectorApprovalTime",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 72,
+    "name": "procurementDirectorApprovalComment",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 73,
+    "name": "procurementDirectorApprovalStatus",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 74,
+    "name": "financeDirectorId",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 75,
+    "name": "financeDirectorApprovalTime",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 76,
+    "name": "financeDirectorApprovalComment",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 77,
+    "name": "financeDirectorApprovalStatus",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 78,
+    "name": "financeAccountantId",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 79,
+    "name": "financeAccountantApprovalTime",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 80,
+    "name": "financeAccountantApprovalComment",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 81,
+    "name": "financeAccountantApprovalStatus",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 82,
+    "name": "rejectedBy",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 83,
+    "name": "rejectedAt",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 84,
+    "name": "rejectionReason",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 85,
+    "name": "createdAt",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": "CURRENT_TIMESTAMP",
+    "pk": 0
+  },
+  {
+    "cid": 86,
+    "name": "updatedAt",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": "CURRENT_TIMESTAMP",
+    "pk": 0
+  },
+  {
+    "cid": 87,
+    "name": "trackingAccountCreated",
+    "type": "INTEGER",
+    "notnull": 0,
+    "dflt_value": "0",
+    "pk": 0
+  },
+  {
+    "cid": 88,
+    "name": "supplierCodeBoundAt",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  },
+  {
+    "cid": 89,
+    "name": "supplierCodeBoundBy",
+    "type": "TEXT",
+    "notnull": 0,
+    "dflt_value": null,
+    "pk": 0
+  }
+]
+Indexes:
+
+=== DATABASE INITIALIZATION ===
+[db] Database path resolved to: C:\supplier-system\apps\api\supplier.db
+[db] DB_FILE env var: not set
+[db] DATABASE_PATH env var: not set
+[db] 鉁?SQLite 鏁版嵁搴撳凡鎵撳紑
+[db] 鉁?WAL 妯″紡: wal
+[db] Database file size: 62.64 MB
+[db] Total tables in database: 94
+[
+  {
+    "name": "idx_access_cache_buyer",
+    "tbl_name": "buyer_supplier_access_cache"
+  },
+  {
+    "name": "idx_access_cache_group",
+    "tbl_name": "buyer_supplier_access_cache"
+  },
+  {
+    "name": "idx_access_cache_supplier",
+    "tbl_name": "buyer_supplier_access_cache"
+  },
+  {
+    "name": "idx_access_cache_type",
+    "tbl_name": "buyer_supplier_access_cache"
+  },
+  {
+    "name": "idx_approval_comments_approval_id",
+    "tbl_name": "approval_comments"
+  },
+  {
+    "name": "idx_approval_history_supplier",
+    "tbl_name": "approval_history"
+  },
+  {
+    "name": "idx_archive_audit_log",
+    "tbl_name": "audit_archive_metadata"
+  },
+  {
+    "name": "idx_archive_date",
+    "tbl_name": "audit_archive_metadata"
+  },
+  {
+    "name": "idx_audit_actor_entity",
+    "tbl_name": "audit_log"
+  },
+  {
+    "name": "idx_audit_created",
+    "tbl_name": "audit_log"
+  },
+  {
+    "name": "idx_audit_entity",
+    "tbl_name": "audit_log"
+  },
+  {
+    "name": "idx_audit_ip_action",
+    "tbl_name": "audit_log"
+  },
+  {
+    "name": "idx_audit_logs_resource",
+    "tbl_name": "audit_logs"
+  },
+  {
+    "name": "idx_audit_search",
+    "tbl_name": "audit_log"
+  },
+  {
+    "name": "idx_audit_sensitive",
+    "tbl_name": "audit_log"
+  },
+  {
+    "name": "idx_blacklist_active",
+    "tbl_name": "supplier_registration_blacklist"
+  },
+  {
+    "name": "idx_blacklist_type",
+    "tbl_name": "supplier_registration_blacklist"
+  },
+  {
+    "name": "idx_blacklist_value",
+    "tbl_name": "supplier_registration_blacklist"
+  },
+  {
+    "name": "idx_buyer_assignments_buyer",
+    "tbl_name": "buyer_supplier_assignments"
+  },
+  {
+    "name": "idx_buyer_assignments_supplier",
+    "tbl_name": "buyer_supplier_assignments"
+  },
+  {
+    "name": "idx_buyer_permissions_buyer",
+    "tbl_name": "buyer_supplier_permissions"
+  },
+  {
+    "name": "idx_buyer_permissions_supplier",
+    "tbl_name": "buyer_supplier_permissions"
+  },
+  {
+    "name": "idx_change_requests_status",
+    "tbl_name": "supplier_change_requests"
+  },
+  {
+    "name": "idx_change_requests_supplier",
+    "tbl_name": "supplier_change_requests"
+  },
+  {
+    "name": "idx_completion_history_supplier",
+    "tbl_name": "supplier_completion_history"
+  },
+  {
+    "name": "idx_contract_reminder_settings_scope",
+    "tbl_name": "contract_reminder_settings"
+  },
+  {
+    "name": "idx_contracts_effective",
+    "tbl_name": "contracts"
+  },
+  {
+    "name": "idx_contracts_mandatory_expiry",
+    "tbl_name": "contracts"
+  },
+  {
+    "name": "idx_contracts_supplier",
+    "tbl_name": "contracts"
+  },
+  {
+    "name": "idx_exchange_rate_currency_date",
+    "tbl_name": "exchange_rate_history"
+  },
+  {
+    "name": "idx_expires_at",
+    "tbl_name": "token_blacklist"
+  },
+  {
+    "name": "idx_external_invitations_email",
+    "tbl_name": "external_supplier_invitations"
+  },
+  {
+    "name": "idx_external_invitations_rfq",
+    "tbl_name": "external_supplier_invitations"
+  },
+  {
+    "name": "idx_external_invitations_status",
+    "tbl_name": "external_supplier_invitations"
+  },
+  {
+    "name": "idx_external_invitations_token",
+    "tbl_name": "external_supplier_invitations"
+  },
+  {
+    "name": "idx_file_access_tokens_expires",
+    "tbl_name": "file_access_tokens"
+  },
+  {
+    "name": "idx_file_access_tokens_resource",
+    "tbl_name": "file_access_tokens"
+  },
+  {
+    "name": "idx_file_access_tokens_token",
+    "tbl_name": "file_access_tokens"
+  },
+  {
+    "name": "idx_file_access_tokens_used",
+    "tbl_name": "file_access_tokens"
+  },
+  {
+    "name": "idx_file_access_tokens_user",
+    "tbl_name": "file_access_tokens"
+  },
+  {
+    "name": "idx_file_approvals_upload",
+    "tbl_name": "supplier_file_approvals"
+  },
+  {
+    "name": "idx_file_configs_scenario",
+    "tbl_name": "file_upload_configs"
+  },
+  {
+    "name": "idx_file_uploads_status",
+    "tbl_name": "supplier_file_uploads"
+  },
+  {
+    "name": "idx_file_uploads_supplier",
+    "tbl_name": "supplier_file_uploads"
+  },
+  {
+    "name": "idx_files_supplier",
+    "tbl_name": "files"
+  },
+  {
+    "name": "idx_group_members_buyer",
+    "tbl_name": "purchasing_group_members"
+  },
+  {
+    "name": "idx_group_members_buyer_group",
+    "tbl_name": "purchasing_group_members"
+  },
+  {
+    "name": "idx_group_members_group",
+    "tbl_name": "purchasing_group_members"
+  },
+  {
+    "name": "idx_group_suppliers_group",
+    "tbl_name": "purchasing_group_suppliers"
+  },
+  {
+    "name": "idx_group_suppliers_group_supplier",
+    "tbl_name": "purchasing_group_suppliers"
+  },
+  {
+    "name": "idx_group_suppliers_primary",
+    "tbl_name": "purchasing_group_suppliers"
+  },
+  {
+    "name": "idx_group_suppliers_supplier",
+    "tbl_name": "purchasing_group_suppliers"
+  },
+  {
+    "name": "idx_invitation_email",
+    "tbl_name": "supplier_rfq_invitations"
+  },
+  {
+    "name": "idx_invitation_rfq_email",
+    "tbl_name": "supplier_rfq_invitations"
+  },
+  {
+    "name": "idx_invitation_token",
+    "tbl_name": "supplier_rfq_invitations"
+  },
+  {
+    "name": "idx_invoice_files_reconciliation",
+    "tbl_name": "invoice_files"
+  },
+  {
+    "name": "idx_invoice_files_supplier",
+    "tbl_name": "invoice_files"
+  },
+  {
+    "name": "idx_invoice_files_uploaded_at",
+    "tbl_name": "invoice_files"
+  },
+  {
+    "name": "idx_invoice_match_invoice",
+    "tbl_name": "invoice_reconciliation_match"
+  },
+  {
+    "name": "idx_invoice_match_reconciliation",
+    "tbl_name": "invoice_reconciliation_match"
+  },
+  {
+    "name": "idx_invoice_match_warehouse_receipt",
+    "tbl_name": "invoice_reconciliation_match"
+  },
+  {
+    "name": "idx_invoice_restore_status",
+    "tbl_name": "invoice_restore_requests"
+  },
+  {
+    "name": "idx_invoices_status",
+    "tbl_name": "invoices"
+  },
+  {
+    "name": "idx_invoices_supplier",
+    "tbl_name": "invoices"
+  },
+  {
+    "name": "idx_invoices_type",
+    "tbl_name": "invoices"
+  },
+  {
+    "name": "idx_line_approval_history_decision",
+    "tbl_name": "rfq_line_item_approval_history"
+  },
+  {
+    "name": "idx_line_approval_history_item",
+    "tbl_name": "rfq_line_item_approval_history"
+  },
+  {
+    "name": "idx_line_approval_history_step",
+    "tbl_name": "rfq_line_item_approval_history"
+  },
+  {
+    "name": "idx_notifications_created",
+    "tbl_name": "notifications"
+  },
+  {
+    "name": "idx_notifications_supplier",
+    "tbl_name": "notifications"
+  },
+  {
+    "name": "idx_notifications_user",
+    "tbl_name": "notifications"
+  },
+  {
+    "name": "idx_order_confirmations_decision",
+    "tbl_name": "department_order_confirmations"
+  },
+  {
+    "name": "idx_order_confirmations_department",
+    "tbl_name": "department_order_confirmations"
+  },
+  {
+    "name": "idx_order_confirmations_requisition",
+    "tbl_name": "department_order_confirmations"
+  },
+  {
+    "name": "idx_order_confirmations_rfq",
+    "tbl_name": "department_order_confirmations"
+  },
+  {
+    "name": "idx_org_unit_contracts_contract",
+    "tbl_name": "organizational_unit_contracts"
+  },
+  {
+    "name": "idx_org_unit_contracts_tenant",
+    "tbl_name": "organizational_unit_contracts"
+  },
+  {
+    "name": "idx_org_unit_contracts_unit",
+    "tbl_name": "organizational_unit_contracts"
+  },
+  {
+    "name": "idx_org_unit_members_role",
+    "tbl_name": "organizational_unit_members"
+  },
+  {
+    "name": "idx_org_unit_members_tenant",
+    "tbl_name": "organizational_unit_members"
+  },
+  {
+    "name": "idx_org_unit_members_unit",
+    "tbl_name": "organizational_unit_members"
+  },
+  {
+    "name": "idx_org_unit_members_user",
+    "tbl_name": "organizational_unit_members"
+  },
+  {
+    "name": "idx_org_unit_suppliers_primary",
+    "tbl_name": "organizational_unit_suppliers"
+  },
+  {
+    "name": "idx_org_unit_suppliers_supplier",
+    "tbl_name": "organizational_unit_suppliers"
+  },
+  {
+    "name": "idx_org_unit_suppliers_tenant",
+    "tbl_name": "organizational_unit_suppliers"
+  },
+  {
+    "name": "idx_org_unit_suppliers_unit",
+    "tbl_name": "organizational_unit_suppliers"
+  },
+  {
+    "name": "idx_org_units_code",
+    "tbl_name": "organizational_units"
+  },
+  {
+    "name": "idx_org_units_level",
+    "tbl_name": "organizational_units"
+  },
+  {
+    "name": "idx_org_units_parent",
+    "tbl_name": "organizational_units"
+  },
+  {
+    "name": "idx_org_units_path",
+    "tbl_name": "organizational_units"
+  },
+  {
+    "name": "idx_org_units_tenant",
+    "tbl_name": "organizational_units"
+  },
+  {
+    "name": "idx_org_units_type",
+    "tbl_name": "organizational_units"
+  },
+  {
+    "name": "idx_org_units_type_active",
+    "tbl_name": "organizational_units"
+  },
+  {
+    "name": "idx_price_comparison_rfq_id",
+    "tbl_name": "price_comparison_attachments"
+  },
+  {
+    "name": "idx_price_comparisons_platform",
+    "tbl_name": "quote_price_comparisons"
+  },
+  {
+    "name": "idx_price_comparisons_quote",
+    "tbl_name": "quote_price_comparisons"
+  },
+  {
+    "name": "idx_price_comparisons_rfq",
+    "tbl_name": "quote_price_comparisons"
+  },
+  {
+    "name": "idx_purchase_orders_created_by",
+    "tbl_name": "purchase_orders"
+  },
+  {
+    "name": "idx_purchase_orders_number",
+    "tbl_name": "purchase_orders"
+  },
+  {
+    "name": "idx_purchase_orders_rfq",
+    "tbl_name": "purchase_orders"
+  },
+  {
+    "name": "idx_purchase_orders_status",
+    "tbl_name": "purchase_orders"
+  },
+  {
+    "name": "idx_purchase_orders_supplier",
+    "tbl_name": "purchase_orders"
+  },
+  {
+    "name": "idx_purchasing_groups_active",
+    "tbl_name": "purchasing_groups"
+  },
+  {
+    "name": "idx_purchasing_groups_category",
+    "tbl_name": "purchasing_groups"
+  },
+  {
+    "name": "idx_purchasing_groups_code",
+    "tbl_name": "purchasing_groups"
+  },
+  {
+    "name": "idx_purchasing_groups_region",
+    "tbl_name": "purchasing_groups"
+  },
+  {
+    "name": "idx_quote_attachments_quote_id",
+    "tbl_name": "quote_attachments"
+  },
+  {
+    "name": "idx_quote_items_quote_id",
+    "tbl_name": "rfq_quote_items"
+  },
+  {
+    "name": "idx_quote_items_rfq_item_id",
+    "tbl_name": "rfq_quote_items"
+  },
+  {
+    "name": "idx_quote_line_items_quote_id",
+    "tbl_name": "quote_line_items"
+  },
+  {
+    "name": "idx_quote_line_items_rfq_line_item_id",
+    "tbl_name": "quote_line_items"
+  },
+  {
+    "name": "idx_quote_versions_quote",
+    "tbl_name": "quote_versions"
+  },
+  {
+    "name": "idx_quote_versions_version",
+    "tbl_name": "quote_versions"
+  },
+  {
+    "name": "idx_quotes_rfq",
+    "tbl_name": "quotes"
+  },
+  {
+    "name": "idx_quotes_status",
+    "tbl_name": "quotes"
+  },
+  {
+    "name": "idx_quotes_supplier",
+    "tbl_name": "quotes"
+  },
+  {
+    "name": "idx_reconciliation_period",
+    "tbl_name": "reconciliation"
+  },
+  {
+    "name": "idx_reconciliation_status",
+    "tbl_name": "reconciliation"
+  },
+  {
+    "name": "idx_reconciliation_supplier",
+    "tbl_name": "reconciliation"
+  },
+  {
+    "name": "idx_reconciliation_warehouse_receipt",
+    "tbl_name": "reconciliation"
+  },
+  {
+    "name": "idx_reminder_queue_due",
+    "tbl_name": "reminder_queue"
+  },
+  {
+    "name": "idx_requisition_attachments_requisition",
+    "tbl_name": "material_requisition_attachments"
+  },
+  {
+    "name": "idx_requisition_items_requisition",
+    "tbl_name": "material_requisition_items"
+  },
+  {
+    "name": "idx_requisition_items_rfq",
+    "tbl_name": "material_requisition_items"
+  },
+  {
+    "name": "idx_requisition_items_type",
+    "tbl_name": "material_requisition_items"
+  },
+  {
+    "name": "idx_requisitions_department",
+    "tbl_name": "material_requisitions"
+  },
+  {
+    "name": "idx_requisitions_number",
+    "tbl_name": "material_requisitions"
+  },
+  {
+    "name": "idx_requisitions_requester",
+    "tbl_name": "material_requisitions"
+  },
+  {
+    "name": "idx_requisitions_required_date",
+    "tbl_name": "material_requisitions"
+  },
+  {
+    "name": "idx_requisitions_status",
+    "tbl_name": "material_requisitions"
+  },
+  {
+    "name": "idx_rfq_approvals_rfq_id",
+    "tbl_name": "rfq_approvals"
+  },
+  {
+    "name": "idx_rfq_approvals_status",
+    "tbl_name": "rfq_approvals"
+  },
+  {
+    "name": "idx_rfq_attachments_line_item_id",
+    "tbl_name": "rfq_attachments"
+  },
+  {
+    "name": "idx_rfq_attachments_rfq_id",
+    "tbl_name": "rfq_attachments"
+  },
+  {
+    "name": "idx_rfq_external_inv_rfq_id",
+    "tbl_name": "rfq_external_invitations"
+  },
+  {
+    "name": "idx_rfq_items_rfq_id",
+    "tbl_name": "rfq_items"
+  },
+  {
+    "name": "idx_rfq_line_items_approver",
+    "tbl_name": "rfq_line_items"
+  },
+  {
+    "name": "idx_rfq_line_items_po",
+    "tbl_name": "rfq_line_items"
+  },
+  {
+    "name": "idx_rfq_line_items_rfq_id",
+    "tbl_name": "rfq_line_items"
+  },
+  {
+    "name": "idx_rfq_line_items_status",
+    "tbl_name": "rfq_line_items"
+  },
+  {
+    "name": "idx_rfq_pr_records_confirmer_status",
+    "tbl_name": "rfq_pr_records"
+  },
+  {
+    "name": "idx_rfq_pr_records_rfq_id",
+    "tbl_name": "rfq_pr_records"
+  },
+  {
+    "name": "idx_rfq_pr_records_status",
+    "tbl_name": "rfq_pr_records"
+  },
+  {
+    "name": "idx_rfq_project_suppliers_project",
+    "tbl_name": "rfq_project_suppliers"
+  },
+  {
+    "name": "idx_rfq_project_suppliers_supplier",
+    "tbl_name": "rfq_project_suppliers"
+  },
+  {
+    "name": "idx_rfq_quotes_project",
+    "tbl_name": "rfq_quotes"
+  },
+  {
+    "name": "idx_rfq_quotes_supplier",
+    "tbl_name": "rfq_quotes"
+  },
+  {
+    "name": "idx_rfq_reviews_rfq",
+    "tbl_name": "rfq_reviews"
+  },
+  {
+    "name": "idx_rfqs_created_by",
+    "tbl_name": "rfqs"
+  },
+  {
+    "name": "idx_rfqs_material_type",
+    "tbl_name": "rfqs"
+  },
+  {
+    "name": "idx_rfqs_status",
+    "tbl_name": "rfqs"
+  },
+  {
+    "name": "idx_risk_alerts_supplier",
+    "tbl_name": "risk_alerts"
+  },
+  {
+    "name": "idx_risk_alerts_type",
+    "tbl_name": "risk_alerts"
+  },
+  {
+    "name": "idx_risk_assessments_date",
+    "tbl_name": "supplier_risk_assessments"
+  },
+  {
+    "name": "idx_risk_assessments_level",
+    "tbl_name": "supplier_risk_assessments"
+  },
+  {
+    "name": "idx_risk_assessments_supplier",
+    "tbl_name": "supplier_risk_assessments"
+  },
+  {
+    "name": "idx_scan_records_clean",
+    "tbl_name": "file_scan_records"
+  },
+  {
+    "name": "idx_scan_records_scenario",
+    "tbl_name": "file_scan_records"
+  },
+  {
+    "name": "idx_scan_records_status",
+    "tbl_name": "file_scan_records"
+  },
+  {
+    "name": "idx_scan_records_user",
+    "tbl_name": "file_scan_records"
+  },
+  {
+    "name": "idx_settlements_status",
+    "tbl_name": "settlements"
+  },
+  {
+    "name": "idx_settlements_supplier",
+    "tbl_name": "settlements"
+  },
+  {
+    "name": "idx_settlements_type",
+    "tbl_name": "settlements"
+  },
+  {
+    "name": "idx_status_history_changed_at",
+    "tbl_name": "reconciliation_status_history"
+  },
+  {
+    "name": "idx_status_history_reconciliation",
+    "tbl_name": "reconciliation_status_history"
+  },
+  {
+    "name": "idx_supplier_baselines_supplier",
+    "tbl_name": "supplier_baselines"
+  },
+  {
+    "name": "idx_supplier_documents_expiry",
+    "tbl_name": "supplier_documents"
+  },
+  {
+    "name": "idx_supplier_documents_supplier",
+    "tbl_name": "supplier_documents"
+  },
+  {
+    "name": "idx_supplier_ratings_period",
+    "tbl_name": "supplier_ratings"
+  },
+  {
+    "name": "idx_supplier_ratings_supplier",
+    "tbl_name": "supplier_ratings"
+  },
+  {
+    "name": "idx_supplier_registration_applications_trackingAccountId",
+    "tbl_name": "supplier_registration_applications"
+  },
+  {
+    "name": "idx_supplier_registration_code",
+    "tbl_name": "supplier_registration_applications"
+  },
+  {
+    "name": "idx_supplier_registration_drafts_contact",
+    "tbl_name": "supplier_registration_drafts"
+  },
+  {
+    "name": "idx_supplier_registration_drafts_token",
+    "tbl_name": "supplier_registration_drafts"
+  },
+  {
+    "name": "idx_supplier_rfq_invitations_rfq",
+    "tbl_name": "supplier_rfq_invitations"
+  },
+  {
+    "name": "idx_supplier_rfq_invitations_supplier",
+    "tbl_name": "supplier_rfq_invitations"
+  },
+  {
+    "name": "idx_supplier_tags_supplier",
+    "tbl_name": "supplier_tags"
+  },
+  {
+    "name": "idx_suppliers_category",
+    "tbl_name": "suppliers"
+  },
+  {
+    "name": "idx_suppliers_company",
+    "tbl_name": "suppliers"
+  },
+  {
+    "name": "idx_suppliers_importance",
+    "tbl_name": "suppliers"
+  },
+  {
+    "name": "idx_suppliers_region",
+    "tbl_name": "suppliers"
+  },
+  {
+    "name": "idx_suppliers_stage",
+    "tbl_name": "suppliers"
+  },
+  {
+    "name": "idx_suppliers_status",
+    "tbl_name": "suppliers"
+  },
+  {
+    "name": "idx_suppliers_updated",
+    "tbl_name": "suppliers"
+  },
+  {
+    "name": "idx_tariff_country_group",
+    "tbl_name": "tariff_rates"
+  },
+  {
+    "name": "idx_temp_supplier_users_status",
+    "tbl_name": "temp_supplier_users"
+  },
+  {
+    "name": "idx_temp_supplier_users_supplier",
+    "tbl_name": "temp_supplier_users"
+  },
+  {
+    "name": "idx_template_documents_active",
+    "tbl_name": "template_documents"
+  },
+  {
+    "name": "idx_template_documents_uploaded_at",
+    "tbl_name": "template_documents"
+  },
+  {
+    "name": "idx_token_hash",
+    "tbl_name": "token_blacklist"
+  },
+  {
+    "name": "idx_upgrade_applications_status",
+    "tbl_name": "supplier_upgrade_applications"
+  },
+  {
+    "name": "idx_upgrade_applications_supplier",
+    "tbl_name": "supplier_upgrade_applications"
+  },
+  {
+    "name": "idx_upgrade_documents_application",
+    "tbl_name": "supplier_upgrade_documents"
+  },
+  {
+    "name": "idx_upgrade_reviews_application",
+    "tbl_name": "supplier_upgrade_reviews"
+  },
+  {
+    "name": "idx_user_blacklist",
+    "tbl_name": "token_blacklist"
+  },
+  {
+    "name": "idx_users_department",
+    "tbl_name": "users"
+  },
+  {
+    "name": "idx_users_email",
+    "tbl_name": "users"
+  },
+  {
+    "name": "idx_users_role",
+    "tbl_name": "users"
+  },
+  {
+    "name": "idx_users_supplier",
+    "tbl_name": "users"
+  },
+  {
+    "name": "idx_users_supplierId",
+    "tbl_name": "users"
+  },
+  {
+    "name": "idx_users_tenant",
+    "tbl_name": "users"
+  },
+  {
+    "name": "idx_users_username",
+    "tbl_name": "users"
+  },
+  {
+    "name": "idx_variance_analysis_reconciliation",
+    "tbl_name": "reconciliation_variance_analysis"
+  },
+  {
+    "name": "idx_variance_analysis_severity",
+    "tbl_name": "reconciliation_variance_analysis"
+  },
+  {
+    "name": "idx_variance_analysis_status",
+    "tbl_name": "reconciliation_variance_analysis"
+  },
+  {
+    "name": "idx_warehouse_receipt_details_receipt",
+    "tbl_name": "warehouse_receipt_details"
+  },
+  {
+    "name": "idx_warehouse_receipts_receipt_date",
+    "tbl_name": "warehouse_receipts"
+  },
+  {
+    "name": "idx_warehouse_receipts_status",
+    "tbl_name": "warehouse_receipts"
+  },
+  {
+    "name": "idx_warehouse_receipts_supplier",
+    "tbl_name": "warehouse_receipts"
+  },
+  {
+    "name": "idx_whitelist_active",
+    "tbl_name": "supplier_document_whitelist"
+  },
+  {
+    "name": "idx_whitelist_document_type",
+    "tbl_name": "supplier_document_whitelist"
+  },
+  {
+    "name": "idx_whitelist_supplier",
+    "tbl_name": "supplier_document_whitelist"
+  },
+  {
+    "name": "idx_workflow_steps_workflow",
+    "tbl_name": "workflow_steps"
+  },
+  {
+    "name": "sqlite_autoindex_buyer_supplier_access_cache_1",
+    "tbl_name": "buyer_supplier_access_cache"
+  },
+  {
+    "name": "sqlite_autoindex_buyer_supplier_assignments_1",
+    "tbl_name": "buyer_supplier_assignments"
+  },
+  {
+    "name": "sqlite_autoindex_buyer_supplier_permissions_1",
+    "tbl_name": "buyer_supplier_permissions"
+  },
+  {
+    "name": "sqlite_autoindex_contract_versions_1",
+    "tbl_name": "contract_versions"
+  },
+  {
+    "name": "sqlite_autoindex_contracts_1",
+    "tbl_name": "contracts"
+  },
+  {
+    "name": "sqlite_autoindex_document_type_defs_1",
+    "tbl_name": "document_type_defs"
+  },
+  {
+    "name": "sqlite_autoindex_external_supplier_invitations_1",
+    "tbl_name": "external_supplier_invitations"
+  },
+  {
+    "name": "sqlite_autoindex_external_supplier_invitations_2",
+    "tbl_name": "external_supplier_invitations"
+  },
+  {
+    "name": "sqlite_autoindex_file_access_tokens_1",
+    "tbl_name": "file_access_tokens"
+  },
+  {
+    "name": "sqlite_autoindex_file_upload_configs_1",
+    "tbl_name": "file_upload_configs"
+  },
+  {
+    "name": "sqlite_autoindex_invoice_files_1",
+    "tbl_name": "invoice_files"
+  },
+  {
+    "name": "sqlite_autoindex_invoices_1",
+    "tbl_name": "invoices"
+  },
+  {
+    "name": "sqlite_autoindex_material_requisitions_1",
+    "tbl_name": "material_requisitions"
+  },
+  {
+    "name": "sqlite_autoindex_orders_1",
+    "tbl_name": "orders"
+  },
+  {
+    "name": "sqlite_autoindex_organizational_unit_contracts_1",
+    "tbl_name": "organizational_unit_contracts"
+  },
+  {
+    "name": "sqlite_autoindex_organizational_unit_members_1",
+    "tbl_name": "organizational_unit_members"
+  },
+  {
+    "name": "sqlite_autoindex_organizational_unit_suppliers_1",
+    "tbl_name": "organizational_unit_suppliers"
+  },
+  {
+    "name": "sqlite_autoindex_organizational_units_1",
+    "tbl_name": "organizational_units"
+  },
+  {
+    "name": "sqlite_autoindex_purchase_orders_1",
+    "tbl_name": "purchase_orders"
+  },
+  {
+    "name": "sqlite_autoindex_purchasing_group_members_1",
+    "tbl_name": "purchasing_group_members"
+  },
+  {
+    "name": "sqlite_autoindex_purchasing_group_suppliers_1",
+    "tbl_name": "purchasing_group_suppliers"
+  },
+  {
+    "name": "sqlite_autoindex_purchasing_groups_1",
+    "tbl_name": "purchasing_groups"
+  },
+  {
+    "name": "sqlite_autoindex_quote_versions_1",
+    "tbl_name": "quote_versions"
+  },
+  {
+    "name": "sqlite_autoindex_reconciliation_1",
+    "tbl_name": "reconciliation"
+  },
+  {
+    "name": "sqlite_autoindex_reconciliation_thresholds_1",
+    "tbl_name": "reconciliation_thresholds"
+  },
+  {
+    "name": "sqlite_autoindex_rfq_projects_1",
+    "tbl_name": "rfq_projects"
+  },
+  {
+    "name": "sqlite_autoindex_settlements_1",
+    "tbl_name": "settlements"
+  },
+  {
+    "name": "sqlite_autoindex_supplier_baselines_1",
+    "tbl_name": "supplier_baselines"
+  },
+  {
+    "name": "sqlite_autoindex_supplier_document_whitelist_1",
+    "tbl_name": "supplier_document_whitelist"
+  },
+  {
+    "name": "sqlite_autoindex_supplier_registration_applications_1",
+    "tbl_name": "supplier_registration_applications"
+  },
+  {
+    "name": "sqlite_autoindex_supplier_registration_applications_2",
+    "tbl_name": "supplier_registration_applications"
+  },
+  {
+    "name": "sqlite_autoindex_supplier_registration_blacklist_1",
+    "tbl_name": "supplier_registration_blacklist"
+  },
+  {
+    "name": "sqlite_autoindex_supplier_registration_drafts_1",
+    "tbl_name": "supplier_registration_drafts"
+  },
+  {
+    "name": "sqlite_autoindex_supplier_rfq_invitations_1",
+    "tbl_name": "supplier_rfq_invitations"
+  },
+  {
+    "name": "sqlite_autoindex_supplier_rfq_invitations_2",
+    "tbl_name": "supplier_rfq_invitations"
+  },
+  {
+    "name": "sqlite_autoindex_supplier_tags_1",
+    "tbl_name": "supplier_tags"
+  },
+  {
+    "name": "sqlite_autoindex_suppliers_1",
+    "tbl_name": "suppliers"
+  },
+  {
+    "name": "sqlite_autoindex_system_config_1",
+    "tbl_name": "system_config"
+  },
+  {
+    "name": "sqlite_autoindex_tag_defs_1",
+    "tbl_name": "tag_defs"
+  },
+  {
+    "name": "sqlite_autoindex_temp_account_sequences_1",
+    "tbl_name": "temp_account_sequences"
+  },
+  {
+    "name": "sqlite_autoindex_temp_supplier_users_1",
+    "tbl_name": "temp_supplier_users"
+  },
+  {
+    "name": "sqlite_autoindex_token_blacklist_1",
+    "tbl_name": "token_blacklist"
+  },
+  {
+    "name": "sqlite_autoindex_users_1",
+    "tbl_name": "users"
+  },
+  {
+    "name": "sqlite_autoindex_warehouse_receipts_1",
+    "tbl_name": "warehouse_receipts"
+  }
+]
