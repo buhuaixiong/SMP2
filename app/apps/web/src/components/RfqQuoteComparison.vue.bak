@@ -1,0 +1,2497 @@
+<template>
+  <div class="rfq-quote-comparison">
+    <div class="comparison-header">
+      <h3>{{ t("rfq.quotes.comparison") }}</h3>
+      <el-text type="info">{{ t("rfq.quotes.totalQuotes", { count: quotes.length }) }}</el-text>
+    </div>
+
+    <div v-if="quotes.length === 0" class="empty-state">
+      <el-empty :description="t('rfq.quotes.noQuotes')" />
+    </div>
+
+    <div v-else class="comparison-content">
+      <!-- Quote Comparison Cards (New Design) -->
+      <div class="quote-cards-section">
+        <div class="cards-wrapper">
+          <!-- Detail Button (Left) -->
+          <div class="detail-button-container">
+            <el-button type="primary" text @click="quoteDetailDialogVisible = true">
+              {{ t('rfq.quoteComparison.viewDetails') }}
+              <el-icon><ArrowRight /></el-icon>
+            </el-button>
+          </div>
+
+          <!-- Supplier Cards -->
+          <div class="supplier-cards-grid">
+            <div
+              v-for="quote in quotes"
+              :key="quote.id"
+              class="supplier-card"
+              :class="{
+                'selected': selectedQuoteIdForComparison === quote.id,
+                'has-special-tariff': standardCostInfoMap[quote.id]?.hasSpecialTariff
+              }"
+              @click="handleSelectQuoteForComparison(quote.id)"
+            >
+              <!-- Company Name -->
+              <div class="company-name" :title="quote.companyName || quote.supplierName">
+                {{ quote.companyName || quote.supplierName }}
+              </div>
+
+              <!-- Unit Standard Cost (Option B: Price/Unit) -->
+              <div class="unit-price-display">
+                <template v-if="quote.quoteItems && quote.quoteItems[0]">
+                  <template v-if="quote.quoteItems[0].standardUnitCostLocal !== null && quote.quoteItems[0].standardUnitCostLocal !== undefined">
+                    {{ formatUnitPrice(
+                      quote.quoteItems[0].standardUnitCostLocal,
+                      quote.quoteItems[0].currency || 'CNY',
+                      quote.quoteItems[0].unit || 'EA'
+                    ) }}
+                  </template>
+                  <template v-else-if="quote.quoteItems[0].standardUnitCostUsd !== null && quote.quoteItems[0].standardUnitCostUsd !== undefined">
+                    {{ formatUnitPrice(
+                      quote.quoteItems[0].standardUnitCostUsd,
+                      'USD',
+                      quote.quoteItems[0].unit || 'EA'
+                    ) }}
+                  </template>
+                  <template v-else>
+                    {{ formatUnitPrice(
+                      quote.quoteItems[0].unitPrice,
+                      quote.quoteItems[0].currency || 'CNY',
+                      quote.quoteItems[0].unit || 'EA'
+                    ) }}
+                  </template>
+                </template>
+                <template v-else>
+                  {{ formatUnitPrice(
+                    getQuoteUnitPrice(quote),
+                    quote.currency || 'CNY',
+                    getQuoteUnit(quote)
+                  ) }}
+                </template>
+              </div>
+
+              <!-- Radio Dot -->
+              <div class="radio-dot" :class="{ 'selected': selectedQuoteIdForComparison === quote.id }"></div>
+
+              <!-- Special Tariff Badge -->
+              <el-tag
+                v-if="standardCostInfoMap[quote.id]?.hasSpecialTariff"
+                type="warning"
+                size="small"
+                class="tariff-badge"
+              >
+                {{ t('rfq.quote.specialTariffTag') }}
+              </el-tag>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Original Table (Keep below for reference) -->
+      <el-table
+        v-show="false"
+        :data="quotes"
+        style="width: 100%"
+        :row-class-name="getRowClassName"
+        @row-click="handleRowClick"
+      >
+        <el-table-column type="selection" width="55" v-if="selectable" />
+
+        <el-table-column :label="t('supplier.companyName')" min-width="180">
+          <template #default="{ row }">
+            <div class="supplier-cell">
+              <strong>{{ row.companyName }}</strong>
+              <el-tag
+                v-if="row.status === 'selected'"
+                type="success"
+                size="small"
+                style="margin-left: 8px"
+              >
+                {{ t("rfq.quotes.selected") }}
+              </el-tag>
+            </div>
+          </template>
+        </el-table-column>
+
+        <el-table-column :label="t('rfq.quotes.unitPrice')" width="150" sortable>
+          <template #default="{ row }">
+            <div class="price-cell">
+              <strong>{{ formatCurrencyValue(getQuoteUnitPrice(row), row.currency || "CNY") }}</strong>
+              <el-tag
+                v-if="
+                  getQuoteUnitPrice(row) !== null &&
+                  lowestPrice !== null &&
+                  getQuoteUnitPrice(row) === lowestPrice
+                "
+                type="success"
+                size="small"
+                effect="dark"
+              >
+                {{ t("rfq.quotes.lowest") }}
+              </el-tag>
+            </div>
+          </template>
+        </el-table-column>
+
+        <el-table-column :label="t('rfq.quotes.totalAmount')" width="150" sortable>
+          <template #default="{ row }">
+            {{ formatCurrencyValue(row.totalAmount, row.currency || "CNY") }}
+          </template>
+        </el-table-column>
+
+        <el-table-column :label="t('rfq.quotes.standardCost')" width="220" sortable>
+          <template #default="{ row }">
+            <div
+              class="price-cell standard-cost-cell"
+              v-if="standardCostInfoMap[row.id]?.total.amount !== null"
+            >
+              <strong>
+                {{ formatCurrencyValue(
+                  standardCostInfoMap[row.id]?.total.amount ?? null,
+                  standardCostInfoMap[row.id]?.total.currency || "USD"
+                ) }}
+              </strong>
+              <el-tag
+                v-if="standardCostInfoMap[row.id]?.hasSpecialTariff"
+                type="warning"
+                size="small"
+                effect="dark"
+              >
+                {{ t("rfq.quote.specialTariffTag") }}
+              </el-tag>
+              <div class="price-meta">
+                {{ t("rfq.quotes.unitStandardCost", {
+                  value: formatCurrencyValue(
+                    standardCostInfoMap[row.id]?.unit.amount ?? null,
+                    standardCostInfoMap[row.id]?.unit.currency || "USD"
+                  )
+                }) }}
+              </div>
+            </div>
+            <div v-else class="price-cell standard-cost-cell">
+              <span>-</span>
+            </div>
+          </template>
+        </el-table-column>
+
+        <el-table-column :label="t('rfq.quotes.brand')" width="120">
+          <template #default="{ row }">
+            {{ getQuoteBrand(row) }}
+          </template>
+        </el-table-column>
+
+        <el-table-column :label="t('rfq.quotes.taxStatus')" width="110">
+          <template #default="{ row }">
+            <el-tag :type="row.taxStatus === 'inclusive' ? 'success' : 'warning'" size="small">
+              {{ t(`rfq.taxStatus.${row.taxStatus || "inclusive"}`) }}
+            </el-tag>
+          </template>
+        </el-table-column>
+
+        <el-table-column :label="t('rfq.quotes.version')" width="100" align="center">
+          <template #default="{ row }">
+            <el-text v-if="row.version > 1" type="warning" size="small">
+              v{{ row.version }} ({{ row.modifiedCount }} {{ t("rfq.quotes.modifications") }})
+            </el-text>
+            <el-text v-else type="info" size="small"> v1 </el-text>
+          </template>
+        </el-table-column>
+
+        <el-table-column :label="t('rfq.quotes.deliveryDate')" width="140">
+          <template #default="{ row }">
+            {{ formatDateValue(row.deliveryDate) }}
+          </template>
+        </el-table-column>
+
+        <el-table-column :label="t('rfq.quotes.paymentTerms')" width="150">
+          <template #default="{ row }">
+            {{ row.paymentTerms || "-" }}
+          </template>
+        </el-table-column>
+
+        <el-table-column :label="t('rfq.quotes.status')" width="120">
+          <template #default="{ row }">
+            <el-tag :type="getStatusType(row.status)" size="small">
+              {{ t(`rfq.quoteStatus.${row.status}`) }}
+            </el-tag>
+          </template>
+        </el-table-column>
+
+        <el-table-column :label="t('rfq.quotes.submittedAt')" width="160">
+          <template #default="{ row }">
+            {{ formatDateTimeValue(row.submittedAt) }}
+          </template>
+        </el-table-column>
+
+        <el-table-column :label="t('common.actions')" width="200" align="center" fixed="right">
+          <template #default="{ row }">
+            <el-button type="primary" size="small" link @click.stop="viewDetails(row)">
+              {{ t("common.view") }}
+            </el-button>
+            <el-button type="info" size="small" link @click.stop="viewSupplierProfile(row)">
+              {{ t("rfq.quotes.viewSupplierProfile") }}
+            </el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+
+      <!-- Summary Cards -->
+      <div class="comparison-summary">
+        <el-row :gutter="16">
+          <el-col :span="6">
+            <el-card shadow="hover">
+              <div class="summary-card">
+                <div class="summary-label">{{ t("rfq.quotes.lowestPrice") }}</div>
+                <div class="summary-value">
+                  {{ lowestPrice !== null ? formatCurrencyValue(lowestPrice, "CNY") : "-" }}
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+          <el-col :span="6">
+            <el-card shadow="hover">
+              <div class="summary-card">
+                <div class="summary-label">{{ t("rfq.quotes.highestPrice") }}</div>
+                <div class="summary-value">
+                  {{ highestPrice !== null ? formatCurrencyValue(highestPrice, "CNY") : "-" }}
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+          <el-col :span="6">
+            <el-card shadow="hover">
+              <div class="summary-card">
+                <div class="summary-label">{{ t("rfq.quotes.averagePrice") }}</div>
+                <div class="summary-value">
+                  {{ averagePrice !== null ? formatCurrencyValue(averagePrice, "CNY") : "-" }}
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+          <el-col :span="6">
+            <el-card shadow="hover">
+              <div class="summary-card">
+                <div class="summary-label">{{ t("rfq.quotes.priceRange") }}</div>
+                <div class="summary-value">{{ formatPercentageValue(priceRangePercentage) }}</div>
+              </div>
+            </el-card>
+          </el-col>
+        </el-row>
+        <el-row :gutter="16" style="margin-top: 16px">
+          <el-col :span="6">
+            <el-card shadow="hover">
+              <div class="summary-card">
+                <div class="summary-label">{{ t("rfq.quotes.lowestStandardCost") }}</div>
+                <div class="summary-value">
+                  {{ lowestStandardCost !== null ? formatCurrencyValue(lowestStandardCost, "USD") : "-" }}
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+          <el-col :span="6">
+            <el-card shadow="hover">
+              <div class="summary-card">
+                <div class="summary-label">{{ t("rfq.quotes.highestStandardCost") }}</div>
+                <div class="summary-value">
+                  {{ highestStandardCost !== null ? formatCurrencyValue(highestStandardCost, "USD") : "-" }}
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+          <el-col :span="6">
+            <el-card shadow="hover">
+              <div class="summary-card">
+                <div class="summary-label">{{ t("rfq.quotes.averageStandardCost") }}</div>
+                <div class="summary-value">
+                  {{ averageStandardCost !== null ? formatCurrencyValue(averageStandardCost, "USD") : "-" }}
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+          <el-col :span="6">
+            <el-card shadow="hover">
+              <div class="summary-card">
+                <div class="summary-label">{{ t("rfq.quotes.specialTariffCount") }}</div>
+                <div class="summary-value">
+                  {{ quotesWithSpecialTariff }}
+                </div>
+              </div>
+            </el-card>
+          </el-col>
+        </el-row>
+      </div>
+
+      <!-- Standard Cost Comparison Cards (Sorted) -->
+      <div v-if="sortedQuotesByStandardCost.length > 0" class="standard-cost-comparison">
+        <el-divider content-position="left">
+          <span style="font-size: 16px; font-weight: 600;">{{ t('rfq.priceComparison.standardCostComparison') }}</span>
+          <span style="font-size: 13px; color: #909399; margin-left: 8px;">({{ t('rfq.priceComparison.sortedByStandardCost') }})</span>
+        </el-divider>
+
+        <div class="cost-cards-container">
+          <div
+            v-for="(quote, index) in sortedQuotesByStandardCost"
+            :key="quote.id"
+            class="cost-card"
+            :class="{ 'recommended': index === 0 }"
+          >
+            <el-tag
+              v-if="index === 0"
+              type="success"
+              size="small"
+              class="recommend-tag"
+            >
+              {{ t('rfq.priceComparison.recommended') }}
+            </el-tag>
+
+            <div class="supplier-name">{{ quote.companyName || quote.supplierName }}</div>
+
+            <div class="cost-amount">
+              <div class="usd-cost">{{ formatStandardCost(quote, 'USD') }}</div>
+              <div class="local-cost">({{ formatStandardCost(quote, 'local') }})</div>
+            </div>
+
+            <el-button
+              type="primary"
+              size="small"
+              @click="showStandardCostDetail(quote)"
+            >
+              {{ t('rfq.priceComparison.viewDetail') }}
+            </el-button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Price Comparison Section (IDM Materials Only) -->
+      <div v-if="requiresPriceComparison" class="price-comparison-section">
+        <el-divider content-position="left">
+          <span style="font-size: 16px; font-weight: 600;">{{ t('rfq.priceComparison.title') }}</span>
+        </el-divider>
+        <el-alert
+          :title="t('rfq.priceComparison.alert')"
+          type="info"
+          :closable="false"
+          style="margin-bottom: 20px"
+        />
+
+        <el-row :gutter="20">
+          <!-- 1688 Platform -->
+          <el-col :span="8">
+            <el-card shadow="hover" :class="{ 'uploaded-card': priceComparisons['1688'].uploaded }">
+              <template #header>
+                <div class="platform-header">
+                  <span class="platform-name">{{ t('rfq.priceComparison.1688') }}</span>
+                  <el-tag v-if="priceComparisons['1688'].uploaded" type="success" size="small">
+                    {{ t('rfq.priceComparison.uploaded') }}
+                  </el-tag>
+                </div>
+              </template>
+              <div
+                v-if="priceComparisons['1688'].records.length"
+                class="uploaded-info"
+              >
+                <div
+                  v-for="(record, index) in priceComparisons['1688'].records"
+                  :key="'1688-' + (record.id ?? record.fileName ?? index)"
+                  class="uploaded-item"
+                >
+                  <el-link
+                    v-if="record.downloadUrl"
+                    :href="String(record.downloadUrl)"
+                    target="_blank"
+                    :underline="false"
+                  >
+                    {{ record.fileName || t('rfq.priceComparison.screenshot') }}
+                  </el-link>
+                  <span v-else>{{ record.fileName || t('rfq.priceComparison.screenshot') }}</span>
+                  <div class="uploaded-meta">
+                    <span
+                      v-if="record.platformPrice !== null && record.platformPrice !== undefined"
+                    >
+                      {{ t('rfq.priceComparison.pricePlaceholder') }}:
+                      {{ formatCurrencyValue(record.platformPrice, 'CNY') }}
+                    </span>
+                    <el-link
+                      v-if="record.productUrl"
+                      :href="String(record.productUrl)"
+                      target="_blank"
+                      type="primary"
+                      :underline="false"
+                    >
+                      {{ t('rfq.priceComparison.urlPlaceholder') }}
+                    </el-link>
+                  </div>
+                  <div
+                    v-if="record.uploadedAt"
+                    class="uploaded-meta uploaded-meta--timestamp"
+                  >
+                    {{ formatDateTimeValue(String(record.uploadedAt)) }}
+                  </div>
+                </div>
+              </div>
+              <el-form label-position="top" size="small">
+                <el-form-item :label="t('rfq.priceComparison.screenshot')">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    @change="(e) => handlePriceComparisonFileChange('1688', e)"
+                    :disabled="priceComparisons['1688'].uploaded"
+                    style="width: 100%"
+                  />
+                  <div v-if="priceComparisons['1688'].file" style="margin-top: 4px; font-size: 12px; color: #909399;">
+                    {{ priceComparisons['1688'].file?.name }}
+                  </div>
+                </el-form-item>
+                <el-form-item :label="t('rfq.priceComparison.urlPlaceholder')">
+                  <el-input
+                    v-model="priceComparisons['1688'].url"
+                    :placeholder="t('rfq.priceComparison.urlPlaceholder')"
+                    :disabled="priceComparisons['1688'].uploaded"
+                  />
+                </el-form-item>
+                <el-form-item :label="t('rfq.priceComparison.pricePlaceholder')">
+                  <el-input
+                    v-model.number="priceComparisons['1688'].price"
+                    type="number"
+                    :placeholder="t('rfq.priceComparison.pricePlaceholder')"
+                    :disabled="priceComparisons['1688'].uploaded"
+                  >
+                    <template #prepend>��</template>
+                  </el-input>
+                </el-form-item>
+                <el-button
+                  v-if="!priceComparisons['1688'].uploaded"
+                  type="primary"
+                  size="small"
+                  @click="handleUploadPriceComparison('1688')"
+                  :loading="uploading"
+                  :disabled="!priceComparisons['1688'].file || !priceComparisons['1688'].url || priceComparisons['1688'].price === null"
+                  style="width: 100%"
+                >
+                  {{ t('rfq.priceComparison.upload') }}
+                </el-button>
+              </el-form>
+            </el-card>
+          </el-col>
+
+          <!-- JD Platform -->
+          <el-col :span="8">
+            <el-card shadow="hover" :class="{ 'uploaded-card': priceComparisons['jd'].uploaded }">
+              <template #header>
+                <div class="platform-header">
+                  <span class="platform-name">{{ t('rfq.priceComparison.jd') }}</span>
+                  <el-tag v-if="priceComparisons['jd'].uploaded" type="success" size="small">
+                    {{ t('rfq.priceComparison.uploaded') }}
+                  </el-tag>
+                </div>
+              </template>
+              <div
+                v-if="priceComparisons['jd'].records.length"
+                class="uploaded-info"
+              >
+                <div
+                  v-for="(record, index) in priceComparisons['jd'].records"
+                  :key="'jd-' + (record.id ?? record.fileName ?? index)"
+                  class="uploaded-item"
+                >
+                  <el-link
+                    v-if="record.downloadUrl"
+                    :href="String(record.downloadUrl)"
+                    target="_blank"
+                    :underline="false"
+                  >
+                    {{ record.fileName || t('rfq.priceComparison.screenshot') }}
+                  </el-link>
+                  <span v-else>{{ record.fileName || t('rfq.priceComparison.screenshot') }}</span>
+                  <div class="uploaded-meta">
+                    <span
+                      v-if="record.platformPrice !== null && record.platformPrice !== undefined"
+                    >
+                      {{ t('rfq.priceComparison.pricePlaceholder') }}:
+                      {{ formatCurrencyValue(record.platformPrice, 'CNY') }}
+                    </span>
+                    <el-link
+                      v-if="record.productUrl"
+                      :href="String(record.productUrl)"
+                      target="_blank"
+                      type="primary"
+                      :underline="false"
+                    >
+                      {{ t('rfq.priceComparison.urlPlaceholder') }}
+                    </el-link>
+                  </div>
+                  <div
+                    v-if="record.uploadedAt"
+                    class="uploaded-meta uploaded-meta--timestamp"
+                  >
+                    {{ formatDateTimeValue(String(record.uploadedAt)) }}
+                  </div>
+                </div>
+              </div>
+              <el-form label-position="top" size="small">
+                <el-form-item :label="t('rfq.priceComparison.screenshot')">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    @change="(e) => handlePriceComparisonFileChange('jd', e)"
+                    :disabled="priceComparisons['jd'].uploaded"
+                    style="width: 100%"
+                  />
+                  <div v-if="priceComparisons['jd'].file" style="margin-top: 4px; font-size: 12px; color: #909399;">
+                    {{ priceComparisons['jd'].file?.name }}
+                  </div>
+                </el-form-item>
+                <el-form-item :label="t('rfq.priceComparison.urlPlaceholder')">
+                  <el-input
+                    v-model="priceComparisons['jd'].url"
+                    :placeholder="t('rfq.priceComparison.urlPlaceholder')"
+                    :disabled="priceComparisons['jd'].uploaded"
+                  />
+                </el-form-item>
+                <el-form-item :label="t('rfq.priceComparison.pricePlaceholder')">
+                  <el-input
+                    v-model.number="priceComparisons['jd'].price"
+                    type="number"
+                    :placeholder="t('rfq.priceComparison.pricePlaceholder')"
+                    :disabled="priceComparisons['jd'].uploaded"
+                  >
+                    <template #prepend>��</template>
+                  </el-input>
+                </el-form-item>
+                <el-button
+                  v-if="!priceComparisons['jd'].uploaded"
+                  type="primary"
+                  size="small"
+                  @click="handleUploadPriceComparison('jd')"
+                  :loading="uploading"
+                  :disabled="!priceComparisons['jd'].file || !priceComparisons['jd'].url || priceComparisons['jd'].price === null"
+                  style="width: 100%"
+                >
+                  {{ t('rfq.priceComparison.upload') }}
+                </el-button>
+              </el-form>
+            </el-card>
+          </el-col>
+
+          <!-- ZKH Platform -->
+          <el-col :span="8">
+            <el-card shadow="hover" :class="{ 'uploaded-card': priceComparisons['zkh'].uploaded }">
+              <template #header>
+                <div class="platform-header">
+                  <span class="platform-name">{{ t('rfq.priceComparison.zkh') }}</span>
+                  <el-tag v-if="priceComparisons['zkh'].uploaded" type="success" size="small">
+                    {{ t('rfq.priceComparison.uploaded') }}
+                  </el-tag>
+                </div>
+              </template>
+              <div
+                v-if="priceComparisons['zkh'].records.length"
+                class="uploaded-info"
+              >
+                <div
+                  v-for="(record, index) in priceComparisons['zkh'].records"
+                  :key="'zkh-' + (record.id ?? record.fileName ?? index)"
+                  class="uploaded-item"
+                >
+                  <el-link
+                    v-if="record.downloadUrl"
+                    :href="String(record.downloadUrl)"
+                    target="_blank"
+                    :underline="false"
+                  >
+                    {{ record.fileName || t('rfq.priceComparison.screenshot') }}
+                  </el-link>
+                  <span v-else>{{ record.fileName || t('rfq.priceComparison.screenshot') }}</span>
+                  <div class="uploaded-meta">
+                    <span
+                      v-if="record.platformPrice !== null && record.platformPrice !== undefined"
+                    >
+                      {{ t('rfq.priceComparison.pricePlaceholder') }}:
+                      {{ formatCurrencyValue(record.platformPrice, 'CNY') }}
+                    </span>
+                    <el-link
+                      v-if="record.productUrl"
+                      :href="String(record.productUrl)"
+                      target="_blank"
+                      type="primary"
+                      :underline="false"
+                    >
+                      {{ t('rfq.priceComparison.urlPlaceholder') }}
+                    </el-link>
+                  </div>
+                  <div
+                    v-if="record.uploadedAt"
+                    class="uploaded-meta uploaded-meta--timestamp"
+                  >
+                    {{ formatDateTimeValue(String(record.uploadedAt)) }}
+                  </div>
+                </div>
+              </div>
+              <el-form label-position="top" size="small">
+                <el-form-item :label="t('rfq.priceComparison.screenshot')">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    @change="(e) => handlePriceComparisonFileChange('zkh', e)"
+                    :disabled="priceComparisons['zkh'].uploaded"
+                    style="width: 100%"
+                  />
+                  <div v-if="priceComparisons['zkh'].file" style="margin-top: 4px; font-size: 12px; color: #909399;">
+                    {{ priceComparisons['zkh'].file?.name }}
+                  </div>
+                </el-form-item>
+                <el-form-item :label="t('rfq.priceComparison.urlPlaceholder')">
+                  <el-input
+                    v-model="priceComparisons['zkh'].url"
+                    :placeholder="t('rfq.priceComparison.urlPlaceholder')"
+                    :disabled="priceComparisons['zkh'].uploaded"
+                  />
+                </el-form-item>
+                <el-form-item :label="t('rfq.priceComparison.pricePlaceholder')">
+                  <el-input
+                    v-model.number="priceComparisons['zkh'].price"
+                    type="number"
+                    :placeholder="t('rfq.priceComparison.pricePlaceholder')"
+                    :disabled="priceComparisons['zkh'].uploaded"
+                  >
+                    <template #prepend>��</template>
+                  </el-input>
+                </el-form-item>
+                <el-button
+                  v-if="!priceComparisons['zkh'].uploaded"
+                  type="primary"
+                  size="small"
+                  @click="handleUploadPriceComparison('zkh')"
+                  :loading="uploading"
+                  :disabled="!priceComparisons['zkh'].file || !priceComparisons['zkh'].url || priceComparisons['zkh'].price === null"
+                  style="width: 100%"
+                >
+                  {{ t('rfq.priceComparison.upload') }}
+                </el-button>
+              </el-form>
+            </el-card>
+          </el-col>
+        </el-row>
+      </div>
+    </div>
+
+    <!-- Quote Detail Dialog -->
+    <el-dialog v-model="showDetailDialog" :title="t('rfq.quotes.quoteDetail')" width="600px">
+      <div v-if="selectedQuote" class="quote-detail">
+        <el-descriptions :column="1" border>
+          <el-descriptions-item :label="t('supplier.companyName')">
+            {{ selectedQuote.companyName }}
+          </el-descriptions-item>
+          <el-descriptions-item :label="t('rfq.quotes.unitPrice')">
+            {{ formatCurrencyValue(selectedQuote.unitPrice, selectedQuote.currency || "CNY") }}
+          </el-descriptions-item>
+          <el-descriptions-item :label="t('rfq.quotes.totalAmount')">
+            {{ formatCurrencyValue(selectedQuote.totalAmount, selectedQuote.currency || "CNY") }}
+          </el-descriptions-item>
+          <el-descriptions-item :label="t('rfq.quotes.brand')">
+            {{ getQuoteBrand(selectedQuote) }}
+          </el-descriptions-item>
+          <el-descriptions-item :label="t('rfq.quotes.taxStatus')">
+            <el-tag
+              :type="selectedQuote.taxStatus === 'inclusive' ? 'success' : 'warning'"
+              size="small"
+            >
+              {{ t(`rfq.taxStatus.${selectedQuote.taxStatus || "inclusive"}`) }}
+            </el-tag>
+          </el-descriptions-item>
+          <el-descriptions-item :label="t('rfq.quotes.parameters')">
+            <pre
+              v-if="selectedQuote.parameters"
+              style="margin: 0; white-space: pre-wrap; word-break: break-word"
+              >{{ selectedQuote.parameters }}</pre
+            >
+            <span v-else>-</span>
+          </el-descriptions-item>
+          <el-descriptions-item :label="t('rfq.quotes.optionalConfig')">
+            <pre
+              v-if="selectedQuote.optionalConfig"
+              style="margin: 0; white-space: pre-wrap; word-break: break-word"
+              >{{ selectedQuote.optionalConfig }}</pre
+            >
+            <span v-else>-</span>
+          </el-descriptions-item>
+          <el-descriptions-item :label="t('rfq.quotes.deliveryDate')">
+            {{ formatDateValue(selectedQuote.deliveryDate) }}
+          </el-descriptions-item>
+          <el-descriptions-item :label="t('rfq.quotes.paymentTerms')">
+            {{ selectedQuote.paymentTerms || "-" }}
+          </el-descriptions-item>
+          <el-descriptions-item :label="t('rfq.quote.deliveryTerms')">
+            {{ selectedQuote.deliveryTerms || "-" }}
+          </el-descriptions-item>
+          <el-descriptions-item :label="t('rfq.quote.shippingCountry')">
+            {{
+              selectedQuote.shippingCountry ||
+                (selectedQuote as any).shipping_country ||
+                "-"
+            }}
+          </el-descriptions-item>
+          <el-descriptions-item :label="t('rfq.quote.shippingLocation')">
+            {{ selectedQuote.shippingLocation || "-" }}
+          </el-descriptions-item>
+          <el-descriptions-item :label="t('rfq.quotes.version')">
+            <div>
+              <el-text type="primary">v{{ selectedQuote.version || 1 }}</el-text>
+              <el-text
+                v-if="(selectedQuote.modifiedCount || 0) > 0"
+                type="info"
+                size="small"
+                style="margin-left: 8px"
+              >
+                ({{ selectedQuote.modifiedCount }} {{ t("rfq.quotes.modifications") }})
+              </el-text>
+            </div>
+          </el-descriptions-item>
+          <el-descriptions-item :label="t('rfq.quotes.submittedAt')">
+            {{ formatDateTimeValue(selectedQuote.submittedAt) }}
+          </el-descriptions-item>
+          <el-descriptions-item :label="t('rfq.quotes.notes')">
+            {{ selectedQuote.notes || "-" }}
+          </el-descriptions-item>
+        </el-descriptions>
+
+        <el-table
+          v-if="selectedQuoteItems.length"
+          :data="selectedQuoteItems"
+          border
+          size="small"
+          style="margin-top: 16px"
+        >
+          <el-table-column type="index" width="60" />
+          <el-table-column :label="t('rfq.quote.summaryColumns.item')" min-width="160">
+            <template #default="{ row }">
+              <div class="item-name">{{ row.itemName }}</div>
+              <div v-if="row.specifications" class="item-spec">{{ row.specifications }}</div>
+            </template>
+          </el-table-column>
+          <el-table-column :label="t('rfq.quote.summaryColumns.quantity')" width="140">
+            <template #default="{ row }">
+              {{ row.quantityLabel }}
+            </template>
+          </el-table-column>
+          <el-table-column :label="t('rfq.quote.summaryColumns.brand')" width="160">
+            <template #default="{ row }">
+              {{ row.brandLabel || "-" }}
+            </template>
+          </el-table-column>
+          <el-table-column :label="t('rfq.quote.productGroupLabel')" width="160">
+            <template #default="{ row }">
+              {{ row.productGroup || "-" }}
+            </template>
+          </el-table-column>
+          <el-table-column :label="t('rfq.quote.productOriginLabel')" width="160">
+            <template #default="{ row }">
+              {{ row.productOrigin || "-" }}
+            </template>
+          </el-table-column>
+          <el-table-column :label="t('rfq.quote.summaryColumns.unitPrice')" width="150">
+            <template #default="{ row }">
+              {{ formatCurrencyValue(row.unitPrice, selectedQuote?.currency || "CNY") }}
+            </template>
+          </el-table-column>
+          <el-table-column :label="t('rfq.quote.summaryColumns.totalPrice')" width="150">
+            <template #default="{ row }">
+              {{ formatCurrencyValue(row.totalPrice, selectedQuote?.currency || "CNY") }}
+            </template>
+          </el-table-column>
+          <el-table-column :label="t('rfq.quote.standardUnitCost')" width="180">
+            <template #default="{ row }">
+              <div v-if="row.standardUnitCost !== null">
+                <div class="tariff-detail-value">
+                  {{ formatCurrencyValue(row.standardUnitCost, row.standardUnitCostCurrency || "USD") }}
+                  <el-tag
+                    v-if="row.hasSpecialTariff"
+                    type="warning"
+                    size="small"
+                    effect="dark"
+                    style="margin-left: 8px"
+                  >
+                    {{ t("rfq.quote.specialTariffTag") }}
+                  </el-tag>
+                </div>
+                <div class="tariff-detail-meta" v-if="row.tariffRate !== null">
+                  {{ t("rfq.quote.tariffRateLabel", { rate: formatRatePercentage(row.tariffRate) }) }}
+                </div>
+                <div class="tariff-detail-meta" v-if="row.specialTariffRate !== null">
+                  {{
+                    t("rfq.quote.specialTariffRateLabel", {
+                      rate: formatRatePercentage(row.specialTariffRate),
+                    })
+                  }}
+                </div>
+              </div>
+              <span v-else>-</span>
+            </template>
+          </el-table-column>
+          <el-table-column :label="t('rfq.quote.standardLineTotalColumn')" width="180">
+            <template #default="{ row }">
+              <span v-if="row.standardLineTotal !== null">
+                {{ formatCurrencyValue(row.standardLineTotal, row.standardUnitCostCurrency || "USD") }}
+              </span>
+              <span v-else>-</span>
+            </template>
+          </el-table-column>
+          <el-table-column :label="t('rfq.quote.deliveryDate')" width="160">
+            <template #default="{ row }">
+              {{ formatDateValue(row.deliveryDate) }}
+            </template>
+          </el-table-column>
+        </el-table>
+        <el-alert
+          v-else
+          :title="t('rfq.quotes.noLineItems')"
+          type="info"
+          :closable="false"
+          style="margin-top: 16px"
+        />
+
+        <el-divider content-position="left">{{ t("rfq.quotes.attachments") }}</el-divider>
+        <div v-if="selectedQuoteAttachments.length">
+          <el-table :data="selectedQuoteAttachments" border size="small">
+            <el-table-column :label="t('rfq.quotes.fileName')" min-width="220">
+              <template #default="{ row }">
+                <el-link
+                  v-if="row.downloadUrl"
+                  :href="row.downloadUrl"
+                  type="primary"
+                  target="_blank"
+                  download
+                >
+                  {{ row.originalName || row.storedName || "-" }}
+                </el-link>
+                <span v-else>{{ row.originalName || row.storedName || "-" }}</span>
+              </template>
+            </el-table-column>
+            <el-table-column :label="t('rfq.quotes.fileSize')" width="130">
+              <template #default="{ row }">
+                {{ formatFileSize(row.fileSize) }}
+              </template>
+            </el-table-column>
+            <el-table-column :label="t('rfq.quotes.uploadedAt')" width="180">
+              <template #default="{ row }">
+                {{ formatDateTimeValue(row.uploadedAt ?? null) }}
+              </template>
+            </el-table-column>
+          </el-table>
+        </div>
+        <el-alert
+          v-else
+          :title="t('rfq.quotes.noAttachments')"
+          type="info"
+          :closable="false"
+        />
+      </div>
+    </el-dialog>
+
+    <!-- Supplier Profile Dialog -->
+    <el-dialog
+      v-model="showSupplierProfileDialog"
+      :title="t('rfq.quotes.supplierProfile')"
+      width="700px"
+    >
+      <div v-if="selectedSupplierQuote" class="supplier-profile">
+        <el-tabs type="border-card">
+          <el-tab-pane :label="t('rfq.quotes.basicInfo')">
+            <el-descriptions :column="2" border>
+              <el-descriptions-item :label="t('supplier.companyName')">
+                {{ selectedSupplierQuote.companyName }}
+              </el-descriptions-item>
+              <el-descriptions-item :label="t('supplier.companyId')">
+                {{ selectedSupplierQuote.companyId || "-" }}
+              </el-descriptions-item>
+              <el-descriptions-item :label="t('supplier.stage')">
+                <el-tag :type="selectedSupplierQuote.stage === 'formal' ? 'success' : 'warning'">
+                  {{ t(`supplier.stages.${selectedSupplierQuote.stage ?? "null"}`) }}
+                </el-tag>
+              </el-descriptions-item>
+              <el-descriptions-item :label="t('supplier.category')">
+                {{ selectedSupplierQuote.category || "-" }}
+              </el-descriptions-item>
+              <el-descriptions-item :label="t('supplier.region')">
+                {{ selectedSupplierQuote.region || "-" }}
+              </el-descriptions-item>
+              <el-descriptions-item :label="t('supplier.address')">
+                {{ selectedSupplierQuote.address || "-" }}
+              </el-descriptions-item>
+            </el-descriptions>
+          </el-tab-pane>
+
+          <el-tab-pane :label="t('rfq.quotes.financialInfo')">
+            <el-descriptions :column="2" border>
+              <el-descriptions-item :label="t('supplier.registeredCapital')">
+                <el-text v-if="selectedSupplierQuote.registeredCapital" type="primary" size="large">
+                  {{ formatCurrencyValue(selectedSupplierQuote.registeredCapital, "CNY") }}
+                </el-text>
+                <span v-else>-</span>
+              </el-descriptions-item>
+              <el-descriptions-item :label="t('supplier.registrationDate')">
+                {{
+                  selectedSupplierQuote.registrationDate
+                    ? formatDateValue(selectedSupplierQuote.registrationDate)
+                    : "-"
+                }}
+              </el-descriptions-item>
+              <el-descriptions-item :label="t('supplier.paymentTerms')">
+                {{ selectedSupplierQuote.paymentTerms || "-" }}
+              </el-descriptions-item>
+              <el-descriptions-item :label="t('supplier.paymentCurrency')">
+                {{ selectedSupplierQuote.paymentCurrency || "-" }}
+              </el-descriptions-item>
+              <el-descriptions-item :label="t('supplier.bankName')">
+                {{ selectedSupplierQuote.bankName || "-" }}
+              </el-descriptions-item>
+              <el-descriptions-item :label="t('supplier.bankAccount')">
+                {{ selectedSupplierQuote.bankAccount || "-" }}
+              </el-descriptions-item>
+              <el-descriptions-item :label="t('supplier.taxRegistrationNumber')">
+                {{ selectedSupplierQuote.taxRegistrationNumber || "-" }}
+              </el-descriptions-item>
+            </el-descriptions>
+          </el-tab-pane>
+
+          <el-tab-pane :label="t('rfq.quotes.legalInfo')">
+            <el-descriptions :column="2" border>
+              <el-descriptions-item :label="t('supplier.businessRegistrationNumber')">
+                <el-text type="primary">
+                  {{ selectedSupplierQuote.businessRegistrationNumber || "-" }}
+                </el-text>
+              </el-descriptions-item>
+              <el-descriptions-item :label="t('supplier.legalRepresentative')">
+                {{ selectedSupplierQuote.legalRepresentative || "-" }}
+              </el-descriptions-item>
+            </el-descriptions>
+          </el-tab-pane>
+
+          <el-tab-pane :label="t('rfq.quotes.contactInfo')">
+            <el-descriptions :column="2" border>
+              <el-descriptions-item :label="t('supplier.contactPerson')">
+                {{ selectedSupplierQuote.contactPerson || "-" }}
+              </el-descriptions-item>
+              <el-descriptions-item :label="t('supplier.contactPhone')">
+                {{ selectedSupplierQuote.contactPhone || "-" }}
+              </el-descriptions-item>
+              <el-descriptions-item :label="t('supplier.contactEmail')" :span="2">
+                {{ selectedSupplierQuote.contactEmail || "-" }}
+              </el-descriptions-item>
+            </el-descriptions>
+          </el-tab-pane>
+
+          <el-tab-pane
+            :label="t('rfq.quotes.documentsInfo')"
+            v-if="selectedSupplierQuote.supplierDocuments?.length"
+          >
+            <el-table :data="selectedSupplierQuote.supplierDocuments" border>
+              <el-table-column :label="t('supplier.documentCategory')" width="180">
+                <template #default="{ row }">
+                  <el-tag size="small">{{
+                    t(`supplier.documentCategories.${row.category}`)
+                  }}</el-tag>
+                </template>
+              </el-table-column>
+              <el-table-column :label="t('supplier.fileName')" prop="file_name" />
+              <el-table-column :label="t('supplier.uploadedAt')" width="160">
+                <template #default="{ row }">
+                  {{ formatDateValue(row.uploaded_at) }}
+                </template>
+              </el-table-column>
+              <el-table-column :label="t('supplier.expiryDate')" width="120">
+                <template #default="{ row }">
+                  <span v-if="row.expiry_date">{{ formatDateValue(row.expiry_date) }}</span>
+                  <span v-else>-</span>
+                </template>
+              </el-table-column>
+              <el-table-column :label="t('supplier.verified')" width="100" align="center">
+                <template #default="{ row }">
+                  <el-icon v-if="row.verified" color="green" size="20">
+                    <component :is="'CircleCheck'" />
+                  </el-icon>
+                  <el-icon v-else color="gray" size="20">
+                    <component :is="'Clock'" />
+                  </el-icon>
+                </template>
+              </el-table-column>
+            </el-table>
+          </el-tab-pane>
+        </el-tabs>
+      </div>
+    </el-dialog>
+
+    <!-- Quote Comparison Detail Dialog -->
+    <el-dialog
+      v-model="quoteDetailDialogVisible"
+      :title="t('rfq.quoteComparison.detailDialogTitle')"
+      width="1200px"
+      :close-on-click-modal="false"
+      class="quote-detail-comparison-dialog"
+    >
+      <el-table :data="detailComparisonData" border stripe>
+        <el-table-column :label="t('rfq.quoteComparison.comparisonField')" prop="field" width="160" fixed>
+          <template #default="{ row }">
+            <strong>{{ t(row.field) }}</strong>
+          </template>
+        </el-table-column>
+
+        <el-table-column
+          v-for="quote in quotes"
+          :key="quote.id"
+          :label="quote.companyName || quote.supplierName"
+          align="center"
+          min-width="150"
+        >
+          <template #default="{ row }">
+            <div :class="{ 'best-value': row.bestQuoteId === quote.id }">
+              {{ row.values[quote.id] }}
+            </div>
+          </template>
+        </el-table-column>
+      </el-table>
+
+      <template #footer>
+        <el-button @click="quoteDetailDialogVisible = false">{{ t('common.close') }}</el-button>
+      </template>
+    </el-dialog>
+  </div>
+</template>
+
+<script setup lang="ts">
+
+
+
+
+import { computed, ref, reactive, watch } from "vue";
+import { useI18n } from "vue-i18n";
+
+import { ArrowRight } from "@element-plus/icons-vue";
+import type { Quote, QuoteAttachment, QuoteTariffSummary, RfqQuoteItem } from "@/types";
+import { useLocaleFormatters } from "@/utils/intl";
+import { uploadPriceComparison } from "@/api/rfq";
+import { resolveUploadDownloadUrl } from "@/utils/fileDownload";
+
+
+import { useNotification } from "@/composables";
+
+const notification = useNotification();
+const { t } = useI18n();
+const {
+  formatCurrency: intlFormatCurrency,
+  formatDate: intlFormatDate,
+  formatNumber: intlFormatNumber,
+} = useLocaleFormatters();
+
+type RfqReferenceItem = {
+  id?: number;
+  rfqId?: number;
+  rfqItemId?: number;
+  rfqLineItemId?: number;
+  lineNumber?: number;
+  itemName?: string;
+  materialCategory?: string;
+  specifications?: string;
+  parameters?: string;
+  quantity?: number | string | null;
+  unit?: string | null;
+  brand?: string | null;
+};
+
+type PriceComparisonRecord = {
+  id?: number;
+  platform: string;
+  fileName?: string;
+  productUrl?: string | null;
+  platformPrice?: number | null;
+  downloadUrl?: string | null;
+  uploadedAt?: string | null;
+  notes?: string | null;
+};
+
+type StandardCostInfo = {
+  total: { amount: number | null; currency: string };
+  unit: { amount: number | null; currency: string };
+  summary: QuoteTariffSummary | null;
+  hasSpecialTariff: boolean;
+};
+
+const PRICE_COMPARISON_PLATFORMS = ['1688', 'jd', 'zkh'] as const;
+type PriceComparisonPlatform = (typeof PRICE_COMPARISON_PLATFORMS)[number];
+
+type PriceComparisonState = {
+  file: File | null;
+  url: string;
+  price: number | null;
+  uploaded: boolean;
+  uploadedData?: any;
+  records: PriceComparisonRecord[];
+};
+interface Props {
+  quotes: Quote[];
+  selectable?: boolean;
+  rfqItems?: RfqReferenceItem[];
+  rfqId?: number;
+  materialCategoryType?: string;
+  distributionCategory?: string;
+  existingPriceComparisons?: any[];
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  selectable: false,
+  rfqItems: () => [],
+  rfqId: undefined,
+  materialCategoryType: undefined,
+  distributionCategory: undefined,
+  existingPriceComparisons: () => [],
+});
+
+const showDetailDialog = ref(false);
+const selectedQuote = ref<Quote | null>(null);
+const showSupplierProfileDialog = ref(false);
+const selectedSupplierQuote = ref<Quote | null>(null);
+const selectedQuoteAttachments = computed<QuoteAttachment[]>(() => selectedQuote.value?.attachments ?? []);
+
+// Quote comparison cards state
+const selectedQuoteIdForComparison = ref<number | null>(null);
+const quoteDetailDialogVisible = ref(false);
+
+// Price comparison state
+const createEmptyComparisonState = (): PriceComparisonState => ({
+  file: null,
+  url: '',
+  price: null,
+  uploaded: false,
+  records: [],
+});
+
+const priceComparisons = reactive<Record<PriceComparisonPlatform, PriceComparisonState>>({
+  '1688': createEmptyComparisonState(),
+  'jd': createEmptyComparisonState(),
+  'zkh': createEmptyComparisonState(),
+});
+const resolvePlatformKey = (value: unknown): PriceComparisonPlatform | null => {
+  if (typeof value !== 'string' && typeof value !== 'number') {
+    return null;
+  }
+  const normalized = String(value).toLowerCase();
+  if (normalized === '1688') return '1688';
+  if (normalized === 'jd') return 'jd';
+  if (normalized === 'zkh' || normalized === '������' || normalized === 'zhenkunxing') return 'zkh';
+  return null;
+};
+
+const normalizeComparisonRecord = (record: any): PriceComparisonRecord => {
+  const platformKey = resolvePlatformKey(record?.platform ?? record?.platformKey ?? record?.platform_key);
+  const platform = platformKey ?? String(record?.platform ?? '');
+
+  // Fix: Use original_file_name first (correct display name), fall back to file_name (legacy)
+  const fileName = record?.original_file_name ?? record?.originalFileName ?? record?.file_name ?? record?.fileName ?? '';
+  const rawPath = record?.filePath ?? record?.file_path ?? '';
+  const storedFileName =
+    record?.stored_file_name ??
+    record?.storedFileName ??
+    (typeof rawPath === 'string' ? rawPath.split('/').pop() : '') ??
+    '';
+
+  const productUrl = record?.productUrl ?? record?.product_url ?? null;
+  const platformPriceRaw = record?.platformPrice ?? record?.platform_price ?? null;
+
+  // P0 Security Fix: Use secure download URL with authentication
+  // 使用带认证的安全下载URL
+  const downloadUrl = resolveUploadDownloadUrl(rawPath, storedFileName, 'rfq_price_comparison');
+
+  const platformPrice = typeof platformPriceRaw === 'number'
+    ? platformPriceRaw
+    : platformPriceRaw != null && !Number.isNaN(Number(platformPriceRaw))
+      ? Number(platformPriceRaw)
+      : null;
+  return {
+    ...record,
+    platform,
+    fileName,  // Display name (original file name, may contain Chinese)
+    storedFileName,  // Stored name (pure ASCII for download)
+    productUrl,
+    platformPrice,
+    downloadUrl,  // Complete backend URL with API base
+  };
+};
+
+const populateExistingComparisons = (records: any[] | undefined | null) => {
+  PRICE_COMPARISON_PLATFORMS.forEach((platform) => {
+    const state = priceComparisons[platform];
+    state.uploaded = false;
+    state.records = [];
+    if (!state.file) {
+      state.url = '';
+      state.price = null;
+    }
+  });
+
+  if (!Array.isArray(records)) {
+    return;
+  }
+
+  records
+    .map((record) => normalizeComparisonRecord(record))
+    .forEach((record) => {
+      const key = resolvePlatformKey(record.platform);
+      if (!key) {
+        return;
+      }
+      const state = priceComparisons[key];
+      state.uploaded = true;
+      state.records.push(record);
+      if (record.productUrl) {
+        state.url = String(record.productUrl);
+      }
+      if (record.platformPrice !== null && record.platformPrice !== undefined) {
+        const numericPrice = typeof record.platformPrice === 'number'
+          ? record.platformPrice
+          : Number(record.platformPrice);
+        if (Number.isFinite(numericPrice)) {
+          state.price = numericPrice;
+        }
+      }
+    });
+};
+
+watch(
+  () => props.existingPriceComparisons,
+  (records) => {
+    populateExistingComparisons(records);
+  },
+  { immediate: true, deep: true }
+);
+
+const uploading = ref(false);
+
+// Check if price comparison is required (IDM materials)
+const requiresPriceComparison = computed(() => {
+  console.log('[RfqQuoteComparison] Price comparison check:', {
+    rfqId: props.rfqId,
+    materialCategoryType: props.materialCategoryType,
+    distributionCategory: props.distributionCategory,
+    shouldShow: props.rfqId && props.materialCategoryType === 'IDM'
+  });
+
+  // Show price comparison section for all IDM (Indirect Materials) RFQs
+  if (!props.rfqId) return false;
+
+  // Check if material category type is IDM (Indirect Materials)
+  return props.materialCategoryType === 'IDM';
+});
+
+const toNumeric = (value: unknown): number | null => {
+  if (typeof value === "number" && Number.isFinite(value)) {
+    return value;
+  }
+  if (typeof value === "string") {
+    // Remove currency symbols, commas, and whitespace before parsing
+    const cleaned = value.replace(/[��$���,\s]/g, '');
+    const parsed = Number(cleaned);
+    if (Number.isFinite(parsed)) {
+      return parsed;
+    }
+  }
+  return null;
+};
+
+// Helper function to get unit price from quote (either direct or calculated from line items)
+const getQuoteUnitPrice = (quote: Quote): number | null => {
+  // Try direct unit price first
+  let priceValue = quote.unitPrice ?? (quote as any).unit_price ?? null;
+
+  // If no direct unit price, calculate from quoteItems
+  if (!priceValue && quote.quoteItems && Array.isArray(quote.quoteItems) && quote.quoteItems.length > 0) {
+    const validPrices = quote.quoteItems
+      .map((item: any) => toNumeric(item.unitPrice ?? item.unit_price))
+      .filter((p): p is number => p !== null);
+
+    if (validPrices.length > 0) {
+      priceValue = validPrices.reduce((sum, p) => sum + p, 0) / validPrices.length;
+    }
+  }
+
+  return toNumeric(priceValue);
+};
+
+const getQuoteTariffSummary = (quote: Quote): QuoteTariffSummary | null => {
+  const summary =
+    (quote.tariffSummary as QuoteTariffSummary | undefined) ??
+    ((quote as unknown as { tariff_summary?: QuoteTariffSummary }).tariff_summary) ??
+    null;
+  return summary ?? null;
+};
+
+const getQuoteTotalQuantity = (quote: Quote): number => {
+  if (!quote.quoteItems || quote.quoteItems.length === 0) {
+    return 0;
+  }
+  return quote.quoteItems.reduce((sum, item: RfqQuoteItem) => {
+    const quantity =
+      Number(item.quantity ?? (item as any).rfqQuantity ?? item.lineQuantity ?? item.minimumOrderQuantity ?? 0);
+    if (!Number.isFinite(quantity)) {
+      return sum;
+    }
+    return sum + quantity;
+  }, 0);
+};
+
+const getQuoteStandardCost = (
+  quote: Quote,
+): { amount: number | null; currency: string } => {
+  const summary = getQuoteTariffSummary(quote);
+  if (summary) {
+    if (summary.standardCostCurrency === "USD" && summary.totalStandardCostUsd !== null) {
+      return { amount: summary.totalStandardCostUsd, currency: "USD" };
+    }
+    if (summary.totalStandardCostLocal !== null) {
+      const currency =
+        summary.standardCostCurrency || summary.currency || quote.currency || "CNY";
+      return { amount: summary.totalStandardCostLocal, currency };
+    }
+  }
+
+  if (quote.quoteItems && quote.quoteItems.length > 0) {
+    let usdTotal = 0;
+    let usdFound = false;
+    const localTotals: Record<string, number> = {};
+
+    quote.quoteItems.forEach((item: RfqQuoteItem) => {
+      const usdValue = toNumeric(
+        (item as any).tariffLineTotalUsd ??
+          item.standardLineCostUsd ??
+          item.standardUnitCostUsd,
+      );
+      const localValue = toNumeric(
+        (item as any).tariffLineTotal ??
+          item.standardLineCostLocal ??
+          item.standardUnitCostLocal,
+      );
+
+      if (usdValue !== null) {
+        usdTotal += usdValue;
+        usdFound = true;
+      } else if (localValue !== null) {
+        const currency =
+          item.tariffCalculation?.standardCostCurrency ??
+          (item as any).standardCostCurrency ??
+          quote.currency ??
+          "CNY";
+        localTotals[currency] = (localTotals[currency] || 0) + localValue;
+      }
+    });
+
+    if (usdFound) {
+      return { amount: usdTotal, currency: "USD" };
+    }
+
+    const [currency, amount] = Object.entries(localTotals)[0] ?? [];
+    if (currency && amount !== undefined) {
+      return { amount, currency };
+    }
+  }
+
+  return { amount: null, currency: quote.currency || "CNY" };
+};
+
+const getQuoteStandardUnitCost = (
+  quote: Quote,
+): { amount: number | null; currency: string } => {
+  const total = getQuoteStandardCost(quote);
+  const quantity = getQuoteTotalQuantity(quote);
+
+  if (!total.amount || !quantity) {
+    return { amount: null, currency: total.currency };
+  }
+
+  return { amount: total.amount / quantity, currency: total.currency };
+};
+
+const quoteHasSpecialTariff = (quote: Quote): boolean => {
+  const summary = getQuoteTariffSummary(quote);
+  if (summary?.hasSpecialTariff) {
+    return true;
+  }
+  if (quote.quoteItems && quote.quoteItems.length > 0) {
+    return quote.quoteItems.some((item) => Boolean(item.tariffCalculation?.hasSpecialTariff));
+  }
+  return false;
+};
+
+const numericUnitPrices = computed(() => {
+  console.log('[RfqQuoteComparison] Computing numeric unit prices from quotes:', props.quotes);
+  const prices = props.quotes
+    .map((quote) => {
+      const numericValue = getQuoteUnitPrice(quote);
+      console.log(`[RfqQuoteComparison] Quote ${quote.id}:`, {
+        unitPrice: quote.unitPrice,
+        unit_price: (quote as any).unit_price,
+        totalAmount: quote.totalAmount,
+        quoteItemsCount: quote.quoteItems?.length || 0,
+        calculated: numericValue
+      });
+      return numericValue;
+    })
+    .filter((value): value is number => value !== null);
+  console.log('[RfqQuoteComparison] Final numeric prices:', prices);
+  return prices;
+});
+
+const lowestPrice = computed(() => {
+  if (numericUnitPrices.value.length === 0) return null;
+  return Math.min(...numericUnitPrices.value);
+});
+
+const highestPrice = computed(() => {
+  if (numericUnitPrices.value.length === 0) return null;
+  return Math.max(...numericUnitPrices.value);
+});
+
+const averagePrice = computed(() => {
+  if (numericUnitPrices.value.length === 0) return null;
+  const sum = numericUnitPrices.value.reduce((acc, price) => acc + price, 0);
+  return sum / numericUnitPrices.value.length;
+});
+
+const priceRangePercentage = computed(() => {
+  if (
+    lowestPrice.value === null ||
+    highestPrice.value === null ||
+    lowestPrice.value <= 0 ||
+    highestPrice.value <= 0
+  ) {
+    return null;
+  }
+  return ((highestPrice.value - lowestPrice.value) / lowestPrice.value) * 100;
+});
+
+const standardCostInfoMap = computed<Record<number, StandardCostInfo>>(() => {
+  return props.quotes.reduce((acc, quote) => {
+    acc[quote.id] = {
+      total: getQuoteStandardCost(quote),
+      unit: getQuoteStandardUnitCost(quote),
+      summary: getQuoteTariffSummary(quote),
+      hasSpecialTariff: quoteHasSpecialTariff(quote),
+    };
+    return acc;
+  }, {} as Record<number, StandardCostInfo>);
+});
+
+const standardCostUsdValues = computed(() => {
+  return Object.values(standardCostInfoMap.value)
+    .map((info) => {
+      if (info.summary?.totalStandardCostUsd !== null && info.summary?.totalStandardCostUsd !== undefined) {
+        return info.summary.totalStandardCostUsd;
+      }
+      if (info.total.currency === "USD" && info.total.amount !== null) {
+        return info.total.amount;
+      }
+      return null;
+    })
+    .filter((value): value is number => value !== null);
+});
+
+const lowestStandardCost = computed(() => {
+  if (standardCostUsdValues.value.length === 0) return null;
+  return Math.min(...standardCostUsdValues.value);
+});
+
+const highestStandardCost = computed(() => {
+  if (standardCostUsdValues.value.length === 0) return null;
+  return Math.max(...standardCostUsdValues.value);
+});
+
+const averageStandardCost = computed(() => {
+  if (standardCostUsdValues.value.length === 0) return null;
+  const sum = standardCostUsdValues.value.reduce((acc, value) => acc + value, 0);
+  return sum / standardCostUsdValues.value.length;
+});
+
+const lowestStandardCostQuoteId = computed(() => {
+  let minValue: number | null = null;
+  let quoteId: number | null = null;
+  Object.entries(standardCostInfoMap.value).forEach(([id, info]) => {
+    const value = info.summary?.totalStandardCostUsd ?? (info.total.currency === "USD" ? info.total.amount : null);
+    if (value === null || value === undefined) {
+      return;
+    }
+    if (minValue === null || value < minValue) {
+      minValue = value;
+      quoteId = Number(id);
+    }
+  });
+  return quoteId;
+});
+
+const quotesWithSpecialTariff = computed(() => {
+  return Object.values(standardCostInfoMap.value).filter((info) => info.hasSpecialTariff).length;
+});
+
+// Sorted quotes by standard cost (lowest to highest)
+const sortedQuotesByStandardCost = computed(() => {
+  return [...props.quotes]
+    .filter((quote) => {
+      const info = standardCostInfoMap.value[quote.id];
+      if (!info) return false;
+      const usdValue = info.summary?.totalStandardCostUsd ?? (info.total.currency === "USD" ? info.total.amount : null);
+      return usdValue !== null && usdValue !== undefined;
+    })
+    .sort((a, b) => {
+      const infoA = standardCostInfoMap.value[a.id];
+      const infoB = standardCostInfoMap.value[b.id];
+      const valueA = infoA.summary?.totalStandardCostUsd ?? infoA.total.amount;
+      const valueB = infoB.summary?.totalStandardCostUsd ?? infoB.total.amount;
+      return (valueA ?? 0) - (valueB ?? 0);
+    });
+});
+
+const getStandardCostInfo = (quote: Quote): StandardCostInfo | undefined => {
+  return standardCostInfoMap.value[quote.id];
+};
+
+// Format standard cost for display
+const formatStandardCost = (quote: Quote, type: 'USD' | 'local'): string => {
+  const info = standardCostInfoMap.value[quote.id];
+  if (!info) return '-';
+
+  if (type === 'USD') {
+    const usdValue = info.summary?.totalStandardCostUsd ?? (info.total.currency === "USD" ? info.total.amount : null);
+    if (usdValue === null || usdValue === undefined) return '-';
+    return `US${usdValue.toFixed(2)}`;
+  } else {
+    // local currency
+    const localValue = info.summary?.totalStandardCostLocal ?? info.total.amount;
+    const currency = info.summary?.standardCostCurrency ?? info.total.currency ?? 'CNY';
+    if (localValue === null || localValue === undefined) return '-';
+    return `¥${localValue.toFixed(2)}`;
+  }
+};
+
+// Dialog state for standard cost details
+const standardCostDetailDialogVisible = ref(false);
+const selectedQuoteForStandardCost = ref<Quote | null>(null);
+
+const showStandardCostDetail = (quote: Quote) => {
+  selectedQuoteForStandardCost.value = quote;
+  standardCostDetailDialogVisible.value = true;
+};
+
+const formatCurrencyValue = (value: unknown, currency = "CNY"): string => {
+  const numeric = toNumeric(value);
+  if (numeric === null) {
+    return "-";
+  }
+  return intlFormatCurrency(numeric, currency);
+};
+
+const formatDateValue = (value: string | null): string => {
+  if (!value) {
+    return "-";
+  }
+  return intlFormatDate(value, {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+};
+
+const formatDateTimeValue = (value: string | null): string => {
+  if (!value) {
+    return "-";
+  }
+  return intlFormatDate(value, {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+};
+
+const getStatusType = (status: string): "success" | "warning" | "info" | "danger" => {
+  const statusMap: Record<string, "success" | "warning" | "info" | "danger"> = {
+    submitted: "info",
+    under_review: "warning",
+    selected: "success",
+    rejected: "danger",
+    withdrawn: "info",
+  };
+  return statusMap[status] || "info";
+};
+
+const rfqItemLookup = computed(() => {
+  const map = new Map<number, RfqReferenceItem>();
+  props.rfqItems.forEach((item) => {
+    const key =
+      item.id ??
+      (item.rfqLineItemId != null ? Number(item.rfqLineItemId) : undefined) ??
+      (item.rfqItemId != null ? Number(item.rfqItemId) : undefined);
+    if (key != null) {
+      map.set(key, item);
+    }
+  });
+  return map;
+});
+
+type EnrichedQuoteItem = {
+  key: string;
+  itemName: string;
+  specifications?: string;
+  quantityLabel: string;
+  unitPrice: number | null;
+  totalPrice: number | null;
+  deliveryDate: string | null;
+  brandLabel: string;
+  productGroup?: string | null;
+  productOrigin?: string | null;
+  standardUnitCost?: number | null;
+  standardUnitCostCurrency?: string | null;
+  standardLineTotal?: number | null;
+  tariffRate?: number | null;
+  specialTariffRate?: number | null;
+  hasSpecialTariff?: boolean;
+};
+
+const selectedQuoteItems = computed<EnrichedQuoteItem[]>(() => {
+  const quote = selectedQuote.value;
+  if (!quote?.quoteItems || quote.quoteItems.length === 0) {
+    return [];
+  }
+
+  return quote.quoteItems.map((item: RfqQuoteItem, index) => {
+    const rawItem = item as RfqQuoteItem & Record<string, unknown>;
+    const referenceKey =
+      item.rfqLineItemId ??
+      item.rfqItemId ??
+      (typeof rawItem.rfq_line_item_id === "number"
+        ? rawItem.rfq_line_item_id
+        : rawItem.rfq_line_item_id != null && !Number.isNaN(Number(rawItem.rfq_line_item_id))
+        ? Number(rawItem.rfq_line_item_id)
+        : undefined) ??
+      (typeof rawItem.rfq_item_id === "number"
+        ? rawItem.rfq_item_id
+        : rawItem.rfq_item_id != null && !Number.isNaN(Number(rawItem.rfq_item_id))
+        ? Number(rawItem.rfq_item_id)
+        : undefined);
+    const reference = referenceKey != null ? rfqItemLookup.value.get(referenceKey) : undefined;
+
+    const quantitySource =
+      item.quantity ??
+      (typeof rawItem.quantity === "number" ? rawItem.quantity : undefined) ??
+      reference?.quantity ??
+      null;
+    const unitSource = reference?.unit ?? null;
+    const numericQuantity =
+      typeof quantitySource === "number"
+        ? quantitySource
+        : quantitySource != null && !Number.isNaN(Number(quantitySource))
+        ? Number(quantitySource)
+        : null;
+    const quantityLabel =
+      numericQuantity != null
+        ? unitSource
+          ? `${numericQuantity} ${unitSource}`
+          : `${numericQuantity}`
+        : unitSource || "-";
+
+    const unitPrice = toNumeric(item.unitPrice);
+    const totalPrice = toNumeric(item.totalPrice ?? item.totalAmount);
+
+    const itemName =
+      reference?.itemName ??
+      reference?.materialCategory ??
+      t("rfq.quotes.items.unknownItem", { index: index + 1 });
+
+    const specs =
+      reference?.specifications ??
+      reference?.parameters ??
+      (typeof item.parameters === "string"
+        ? item.parameters
+        : typeof rawItem.parameters === "string"
+        ? (rawItem.parameters as string)
+        : undefined);
+
+    const brandLabel =
+      typeof item.brand === "string" && item.brand.trim().length > 0
+        ? item.brand.trim()
+        : reference?.brand
+        ? String(reference.brand)
+        : "";
+
+    const productGroup =
+      (item.productGroup as string | undefined) ??
+      (rawItem.product_group as string | undefined) ??
+      reference?.materialCategory ??
+      null;
+
+    const productOrigin =
+      (item.productOrigin as string | undefined) ??
+      (rawItem.product_origin as string | undefined) ??
+      null;
+
+    const tariffCalculation =
+      item.tariffCalculation ??
+      ((rawItem.tariffCalculation || rawItem.tariff_calculation) as Record<string, unknown> | null) ??
+      null;
+    const tariffCalc = tariffCalculation as Record<string, unknown> | null;
+
+    let standardUnitCost = toNumeric(tariffCalc?.standardCost as number | undefined);
+    let standardUnitCostCurrency =
+      tariffCalc?.standardCostCurrency?.toString() ??
+      (rawItem.standard_cost_currency as string | undefined) ??
+      (standardUnitCost !== null ? quote.currency ?? "CNY" : "USD");
+
+    let standardLineTotal = toNumeric(
+      (item as unknown as Record<string, unknown>).standardLineCostUsd as number | undefined ??
+        (item as unknown as Record<string, unknown>).standardLineCostLocal as number | undefined ??
+        (rawItem.standard_line_cost_usd as number | undefined) ??
+        (rawItem.standard_line_cost_local as number | undefined),
+    );
+
+    if (tariffCalc && typeof tariffCalc.standardCostUsd !== "undefined" && tariffCalc.standardCostUsd !== null) {
+      const usdUnit = toNumeric(tariffCalc.standardCostUsd as number | undefined);
+      if (usdUnit !== null) {
+        standardUnitCost = usdUnit;
+        standardUnitCostCurrency = "USD";
+        if (numericQuantity != null) {
+          standardLineTotal = Number((usdUnit * numericQuantity).toFixed(2));
+        }
+      }
+    } else if (
+      standardUnitCost !== null &&
+      numericQuantity != null &&
+      (standardLineTotal === null || Number.isNaN(standardLineTotal))
+    ) {
+      standardLineTotal = Number((standardUnitCost * numericQuantity).toFixed(2));
+    }
+
+    if (standardUnitCost === null && standardLineTotal !== null && numericQuantity) {
+      standardUnitCost = Number((standardLineTotal / numericQuantity).toFixed(4));
+    }
+
+    const tariffRate =
+      tariffCalc && typeof tariffCalc.tariffRate === "number" ? (tariffCalc.tariffRate as number) : null;
+    const specialTariffRate =
+      tariffCalc && typeof tariffCalc.specialTariffRate === "number"
+        ? (tariffCalc.specialTariffRate as number)
+        : null;
+    const hasSpecialTariffFlag = Boolean(tariffCalc?.hasSpecialTariff) ?? false;
+
+    standardUnitCostCurrency = standardUnitCostCurrency || quote.currency || "CNY";
+
+    return {
+      key: `${quote.id}-${index}`,
+      itemName,
+      specifications: specs || undefined,
+      quantityLabel,
+      unitPrice,
+      totalPrice,
+      deliveryDate: item.deliveryDate ?? null,
+      brandLabel,
+      productGroup: productGroup || null,
+      productOrigin: productOrigin || null,
+      standardUnitCost,
+      standardUnitCostCurrency,
+      standardLineTotal,
+      tariffRate,
+      specialTariffRate,
+      hasSpecialTariff: hasSpecialTariffFlag,
+    };
+  });
+});
+
+const hasUnitPrice = (value: unknown): boolean => toNumeric(value) !== null;
+
+const formatPercentageValue = (value: number | null): string => {
+  if (value === null) {
+    return "-";
+  }
+  return `${intlFormatNumber(value, {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  })}%`;
+};
+
+const formatRatePercentage = (value: number | null): string => {
+  if (value === null) {
+    return "-";
+  }
+  return formatPercentageValue(value * 100);
+};
+
+const collectQuoteItemBrands = (quote?: Quote | null): string[] => {
+  if (!quote?.quoteItems || quote.quoteItems.length === 0) {
+    return [];
+  }
+  const set = new Set<string>();
+  quote.quoteItems.forEach((item) => {
+    const brandValue = (item as RfqQuoteItem & Record<string, unknown>).brand;
+    if (typeof brandValue === "string" && brandValue.trim().length > 0) {
+      set.add(brandValue.trim());
+    }
+  });
+  return Array.from(set);
+};
+
+const getQuoteBrand = (quote: Quote): string => {
+  const base = typeof quote.brand === "string" && quote.brand.trim().length > 0 ? quote.brand.trim() : "";
+  const itemBrands = collectQuoteItemBrands(quote);
+  const combined = new Set<string>();
+  if (base) {
+    base.split(",").map((part) => part.trim()).forEach((part) => {
+      if (part.length > 0) combined.add(part);
+    });
+  }
+  itemBrands.forEach((brand) => {
+    if (brand.length > 0) combined.add(brand);
+  });
+  if (combined.size === 0) {
+    return "-";
+  }
+  return Array.from(combined).join(", ");
+};
+
+const formatFileSize = (value: number | null | undefined): string => {
+  if (value == null || Number.isNaN(value)) {
+    return "-";
+  }
+  if (value < 1024) {
+    return `${value} B`;
+  }
+  const kb = value / 1024;
+  if (kb < 1024) {
+    return `${intlFormatNumber(kb, { maximumFractionDigits: 1 })} KB`;
+  }
+  const mb = kb / 1024;
+  if (mb < 1024) {
+    return `${intlFormatNumber(mb, { maximumFractionDigits: 1 })} MB`;
+  }
+  const gb = mb / 1024;
+  return `${intlFormatNumber(gb, { maximumFractionDigits: 1 })} GB`;
+};
+
+const getRowClassName = ({ row }: { row: Quote }): string => {
+  const classes: string[] = [];
+
+  if (row.status === "selected") {
+    classes.push("selected-row");
+  }
+
+  const rowUnitPrice = toNumeric(row.unitPrice ?? (row as any).unit_price);
+  if (rowUnitPrice !== null && lowestPrice.value !== null && rowUnitPrice === lowestPrice.value) {
+    classes.push("lowest-price-row");
+  }
+
+  if (lowestStandardCostQuoteId.value !== null && row.id === lowestStandardCostQuoteId.value) {
+    classes.push("lowest-standard-row");
+  }
+
+  if (getStandardCostInfo(row)?.hasSpecialTariff) {
+    classes.push("special-tariff-row");
+  }
+
+  return classes.join(" ");
+};
+
+const handleRowClick = (row: Quote) => {
+  viewDetails(row);
+};
+
+const viewDetails = (quote: Quote) => {
+  selectedQuote.value = quote;
+  showDetailDialog.value = true;
+};
+
+const viewSupplierProfile = (quote: Quote) => {
+  selectedSupplierQuote.value = quote;
+  showSupplierProfileDialog.value = true;
+};
+
+// Quote comparison cards functions
+const handleSelectQuoteForComparison = (quoteId: number) => {
+  selectedQuoteIdForComparison.value = quoteId;
+  // Can emit event here if needed for parent component
+  // emit('quote-selected', quoteId);
+};
+
+// Detailed comparison data for dialog
+const detailComparisonData = computed(() => {
+  if (props.quotes.length === 0) return [];
+
+  const fields = [
+    { key: 'standardCost', label: 'rfq.priceComparison.detailLabels.standardCost' },
+    { key: 'originalPrice', label: 'rfq.priceComparison.detailLabels.originalPrice' },
+    { key: 'shippingFee', label: 'rfq.quoteComparison.shippingFee' },
+    { key: 'specialTariff', label: 'rfq.priceComparison.detailLabels.specialTariff' },
+    { key: 'moq', label: 'rfq.priceComparison.detailLabels.moq' },
+    { key: 'spq', label: 'rfq.priceComparison.detailLabels.spq' },
+    { key: 'deliveryTime', label: 'rfq.priceComparison.detailLabels.leadTime' },
+    { key: 'productOrigin', label: 'rfq.priceComparison.detailLabels.productOrigin' },
+  ];
+
+  return fields.map(field => {
+    const values: Record<number, any> = {};
+    let bestQuoteId: number | null = null;
+    let bestValue: number | null = null;
+
+    props.quotes.forEach(quote => {
+      const info = standardCostInfoMap.value[quote.id];
+      let value: any = null;
+
+      switch (field.key) {
+        case 'standardCost':
+          value = info?.total.amount !== null
+            ? formatCurrencyValue(info.total.amount, info.total.currency || 'USD')
+            : '-';
+          if (info?.total.amount !== null) {
+            if (bestValue === null || info.total.amount < bestValue) {
+              bestValue = info.total.amount;
+              bestQuoteId = quote.id;
+            }
+          }
+          break;
+        case 'originalPrice':
+          value = formatCurrencyValue(getQuoteUnitPrice(quote), quote.currency || 'CNY');
+          const originalPrice = getQuoteUnitPrice(quote);
+          if (originalPrice !== null) {
+            if (bestValue === null || originalPrice < bestValue) {
+              bestValue = originalPrice;
+              bestQuoteId = quote.id;
+            }
+          }
+          break;
+        case 'shippingFee':
+          // Placeholder - need actual shipping fee data
+          value = '-';
+          break;
+        case 'specialTariff':
+          if (quote.quoteItems && quote.quoteItems[0]?.tariffCalculation) {
+            const tariff = quote.quoteItems[0].tariffCalculation.specialTariffRate;
+            value = tariff !== null && tariff !== undefined ? formatRatePercentage(tariff) : '-';
+          } else {
+            value = '-';
+          }
+          break;
+        case 'moq':
+          if (quote.quoteItems && quote.quoteItems[0]) {
+            const moq = quote.quoteItems[0].minimumOrderQuantity || quote.quoteItems[0].moq;
+            value = moq !== null && moq !== undefined ? formatQuantity(moq) : '-';
+            if (moq !== null && moq !== undefined) {
+              if (bestValue === null || moq < bestValue) {
+                bestValue = moq;
+                bestQuoteId = quote.id;
+              }
+            }
+          } else {
+            value = '-';
+          }
+          break;
+        case 'spq':
+          if (quote.quoteItems && quote.quoteItems[0]) {
+            const spq = quote.quoteItems[0].standardPackageQuantity || quote.quoteItems[0].spq;
+            value = spq !== null && spq !== undefined ? formatQuantity(spq) : '-';
+          } else {
+            value = '-';
+          }
+          break;
+        case 'deliveryTime':
+          if (quote.quoteItems && quote.quoteItems[0]) {
+            const deliveryDate = quote.quoteItems[0].deliveryDate || quote.deliveryDate;
+            value = deliveryDate ? formatDateValue(deliveryDate) : '-';
+          } else if (quote.deliveryDate) {
+            value = formatDateValue(quote.deliveryDate);
+          } else {
+            value = '-';
+          }
+          break;
+        case 'productOrigin':
+          if (quote.quoteItems && quote.quoteItems[0]) {
+            value = quote.quoteItems[0].productOrigin || quote.shippingCountry || '-';
+          } else {
+            value = quote.shippingCountry || '-';
+          }
+          break;
+      }
+
+      values[quote.id] = value;
+    });
+
+    return {
+      field: field.label,
+      values,
+      bestQuoteId: ['standardCost', 'originalPrice', 'moq'].includes(field.key) ? bestQuoteId : null,
+    };
+  });
+});
+
+const formatQuantity = (value: any): string => {
+  if (value === null || value === undefined) {
+    return '-';
+  }
+  const numericValue = toNumeric(value);
+  if (numericValue !== null) {
+    return new Intl.NumberFormat().format(numericValue);
+  }
+  if (typeof value === 'string') {
+    return value;
+  }
+  return String(value);
+};
+
+// Format unit price with currency and unit (Option B: ¥7.05/EA)
+const formatUnitPrice = (price: number | null | undefined, currency: string, unit: string = 'EA'): string => {
+  if (price === null || price === undefined) {
+    return '-';
+  }
+
+  const currencySymbol: Record<string, string> = {
+    CNY: "¥",
+    USD: "$",
+    EUR: "€",
+    JPY: "¥",
+    THB: "฿",
+  };
+
+  const symbol = currencySymbol[currency] || currency;
+
+  const formattedPrice = new Intl.NumberFormat('zh-CN', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  }).format(price);
+
+  return `${symbol}${formattedPrice}/${unit}`;
+};
+
+// Get unit for a quote (from first quote item)
+const getQuoteUnit = (quote: Quote): string => {
+  if (quote.quoteItems && quote.quoteItems.length > 0) {
+    return quote.quoteItems[0].unit || 'EA';
+  }
+  return 'EA';
+};
+
+// Price comparison functions
+const handlePriceComparisonFileChange = (platform: '1688' | 'jd' | 'zkh', event: Event) => {
+  const target = event.target as HTMLInputElement;
+  if (target.files && target.files.length > 0) {
+    priceComparisons[platform].file = target.files[0];
+  }
+};
+
+const handleUploadPriceComparison = async (platform: '1688' | 'jd' | 'zkh') => {
+  if (!props.rfqId) {
+    notification.error('RFQ ID is missing');
+    return;
+  }
+
+  const comparison = priceComparisons[platform];
+  if (!comparison.file || !comparison.url || comparison.price === null) {
+    notification.warning(t('rfq.priceComparison.required', { platforms: t(`rfq.priceComparison.${platform}`) }));
+    return;
+  }
+
+  uploading.value = true;
+  try {
+    const result = await uploadPriceComparison(
+      props.rfqId,
+      platform,
+      comparison.file,
+      comparison.price,
+      comparison.url
+    );
+
+    comparison.uploaded = true;
+    comparison.uploadedData = result;
+    notification.success(t('rfq.priceComparison.uploadSuccess', { platform: t(`rfq.priceComparison.${platform}`) }) || `${platform}�۸�Ա��ϴ��ɹ�`);
+  } catch (error: any) {
+    notification.error(error.message || t('rfq.priceComparison.uploadError'));
+  } finally {
+    uploading.value = false;
+  }
+};
+
+
+
+
+</script>
+
+<style scoped>
+.rfq-quote-comparison {
+  padding: 24px;
+  background: white;
+  border-radius: 8px;
+}
+
+.uploaded-info {
+  margin-bottom: 12px;
+  padding: 8px;
+  background: #f5f7fa;
+  border-radius: 4px;
+}
+
+.uploaded-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.uploaded-item + .uploaded-item {
+  margin-top: 8px;
+}
+
+.uploaded-meta {
+  font-size: 12px;
+  color: #666;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.uploaded-meta--timestamp {
+  color: #909399;
+}
+.comparison-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.comparison-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #303133;
+}
+
+.empty-state {
+  padding: 40px 0;
+}
+
+.comparison-content {
+  margin-top: 16px;
+}
+
+.supplier-cell {
+  display: flex;
+  align-items: center;
+}
+
+.price-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.comparison-summary {
+  margin-top: 24px;
+}
+
+.summary-card {
+  text-align: center;
+  padding: 8px 0;
+}
+
+.summary-label {
+  font-size: 12px;
+  color: #909399;
+  margin-bottom: 8px;
+}
+
+.summary-value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #409eff;
+}
+
+.quote-detail {
+  padding: 8px 0;
+}
+
+.item-name {
+  font-weight: 600;
+  color: #303133;
+}
+
+.item-spec {
+  font-size: 12px;
+  color: #909399;
+}
+
+:deep(.el-table .selected-row) {
+  background-color: #f0f9ff;
+}
+
+:deep(.el-table .lowest-price-row) {
+  background-color: #f0f9f0;
+}
+
+:deep(.el-table .el-table__row) {
+  cursor: pointer;
+}
+
+:deep(.el-table .el-table__row:hover) {
+  background-color: #f5f7fa;
+}
+
+.price-comparison-section {
+  margin-top: 32px;
+}
+
+.standard-cost-cell {
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.standard-cost-cell .price-meta {
+  font-size: 12px;
+  color: #606266;
+}
+
+.tariff-detail-value {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: #303133;
+}
+
+.tariff-detail-meta {
+  font-size: 12px;
+  color: #606266;
+}
+
+:deep(.el-table .lowest-standard-row) {
+  background-color: #fff8e1;
+}
+
+:deep(.el-table .special-tariff-row) {
+  border-left: 3px solid #f56c6c;
+}
+
+.platform-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.platform-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.uploaded-card {
+  border: 2px solid #67c23a;
+  background-color: #f0f9ff;
+}
+
+/* Quote Comparison Cards Styles */
+.quote-cards-section {
+  margin: 24px 0;
+  padding: 24px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #fafbfc 100%);
+  border-radius: 12px;
+  border: 1px solid #e4e7ed;
+}
+
+.cards-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.detail-button-container {
+  flex-shrink: 0;
+  padding-top: 50px;
+}
+
+.supplier-cards-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.supplier-card {
+  position: relative;
+  width: 150px;
+  padding: 20px 16px;
+  border: 2px solid #dcdfe6;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #fafafa;
+}
+
+.supplier-card:hover {
+  border-color: #409eff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(64, 158, 255, 0.2);
+}
+
+.supplier-card.selected {
+  border-color: #409eff;
+  background-color: #ecf5ff;
+  box-shadow: 0 4px 12px rgba(64, 158, 255, 0.3);
+}
+
+.supplier-card.has-special-tariff {
+  border-left-width: 4px;
+  border-left-color: #f56c6c;
+}
+
+.supplier-card .company-name {
+  font-size: 13px;
+  color: #606266;
+  margin-bottom: 16px;
+  line-height: 1.5;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
+.supplier-card .unit-price-display {
+  font-size: 20px;
+  font-weight: 700;
+  color: #303133;
+  margin-bottom: 16px;
+  line-height: 1.3;
+  font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+  letter-spacing: -0.5px;
+}
+
+.supplier-card .radio-dot {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #c0c4cc;
+  border-radius: 50%;
+  margin: 0 auto;
+  transition: all 0.25s;
+}
+
+.supplier-card .radio-dot.selected {
+  border-color: #409eff;
+  background-color: #409eff;
+  position: relative;
+}
+
+.supplier-card .radio-dot.selected::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.supplier-card .tariff-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+/* Quote Detail Comparison Dialog */
+:deep(.quote-detail-comparison-dialog) {
+  .best-value {
+    color: #67c23a;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .el-table th {
+    background-color: #f5f7fa;
+  }
+}
+
+/* Standard Cost Comparison Section */
+.standard-cost-comparison {
+  margin-top: 32px;
+}
+
+.cost-cards-container {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 0;
+}
+
+.cost-card {
+  position: relative;
+  padding: 20px;
+  border: 2px solid #e4e7ed;
+  border-radius: 8px;
+  background-color: #fff;
+  min-width: 200px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.cost-card:hover {
+  border-color: #409eff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cost-card.recommended {
+  border-color: #67c23a;
+  background-color: #f0f9ff;
+}
+
+.cost-card .recommend-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.cost-card .supplier-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #303133;
+  margin-bottom: 12px;
+}
+
+.cost-card .cost-amount {
+  margin: 16px 0;
+}
+
+.cost-card .usd-cost {
+  font-size: 20px;
+  font-weight: 700;
+  color: #409eff;
+  margin-bottom: 4px;
+}
+
+.cost-card .local-cost {
+  font-size: 13px;
+  color: #909399;
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
