@@ -1,0 +1,1 @@
+SupplierSystem/sql/backup/*.bak filter=lfs diff=lfs merge=lfs -text
