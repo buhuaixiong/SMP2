@@ -1,0 +1,13 @@
+{
+  "title": "Invoices",
+  "upload": "Upload Invoice",
+  "number": "Invoice Number",
+  "amount": "Amount",
+  "dueDate": "Due Date",
+  "status": {
+    "pending": "Pending",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "paid": "Paid"
+  }
+}

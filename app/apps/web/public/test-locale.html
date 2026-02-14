@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>语言设置测试</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+      border-bottom: 3px solid #409eff;
+      padding-bottom: 10px;
+    }
+    .status {
+      padding: 15px;
+      border-radius: 6px;
+      margin: 15px 0;
+      font-weight: bold;
+    }
+    .success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .info {
+      background: #d1ecf1;
+      color: #0c5460;
+      border: 1px solid #bee5eb;
+    }
+    .warning {
+      background: #fff3cd;
+      color: #856404;
+      border: 1px solid #ffeeba;
+    }
+    button {
+      background: #409eff;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px 5px;
+    }
+    button:hover {
+      background: #66b1ff;
+    }
+    button.secondary {
+      background: #67c23a;
+    }
+    button.secondary:hover {
+      background: #85ce61;
+    }
+    pre {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 6px;
+      overflow-x: auto;
+      border-left: 4px solid #409eff;
+    }
+    .result {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>✅ I18N 默认语言已修复</h1>
+
+    <div class="status success">
+      <strong>✓ 修复完成</strong><br>
+      默认语言已从 "en" (英文) 更改为 "zh" (中文)
+    </div>
+
+    <div class="status info">
+      <strong>ℹ️ 修改内容</strong><br>
+      文件: <code>src/i18n.ts</code><br>
+      <pre>export const DEFAULT_LOCALE: SupportedLocale = "zh"; // 默认语言：中文
+export const FALLBACK_LOCALE: SupportedLocale = "en"; // 回退语言：英文</pre>
+    </div>
+
+    <h2>📋 下一步操作</h2>
+
+    <div class="result">
+      <p><strong>1. 清除浏览器设置（可选但推荐）</strong></p>
+      <button onclick="clearSettings()">清除localStorage</button>
+      <button class="secondary" onclick="setChineseAndReload()">设置中文并刷新</button>
+    </div>
+
+    <div class="result">
+      <p><strong>2. 重启开发服务器</strong></p>
+      <pre>cd C:\supplier-system\apps\web
+npm run dev</pre>
+    </div>
+
+    <div class="result">
+      <p><strong>3. 访问RFQ管理页面</strong></p>
+      <p>新用户首次访问时，将自动使用中文界面</p>
+    </div>
+
+    <h2>🔍 当前浏览器状态</h2>
+    <div id="status" class="result">
+      <p>正在检测...</p>
+    </div>
+
+    <button onclick="checkStatus()">重新检测</button>
+    <button onclick="window.location.href='/'">返回主页</button>
+  </div>
+
+  <script>
+    function checkStatus() {
+      const stored = localStorage.getItem('supplier-system.locale');
+      const browser = navigator.language;
+
+      let html = '<table style="width: 100%; border-collapse: collapse;">';
+      html += '<tr style="border-bottom: 1px solid #ddd;"><td style="padding: 10px;"><strong>localStorage语言</strong></td><td>' + (stored || '(未设置 - 将使用默认中文)') + '</td></tr>';
+      html += '<tr style="border-bottom: 1px solid #ddd;"><td style="padding: 10px;"><strong>浏览器语言</strong></td><td>' + browser + '</td></tr>';
+      html += '<tr style="border-bottom: 1px solid #ddd;"><td style="padding: 10px;"><strong>默认语言</strong></td><td>zh (中文) ✅</td></tr>';
+      html += '<tr><td style="padding: 10px;"><strong>回退语言</strong></td><td>en (英文)</td></tr>';
+      html += '</table>';
+
+      if (!stored) {
+        html += '<div class="status success" style="margin-top: 15px;">✓ 完美！未设置localStorage，将使用新的默认中文</div>';
+      } else if (stored === 'zh') {
+        html += '<div class="status success" style="margin-top: 15px;">✓ 很好！已设置为中文</div>';
+      } else {
+        html += '<div class="status warning" style="margin-top: 15px;">⚠ localStorage设置为 "' + stored + '"，点击下方按钮修复</div>';
+      }
+
+      document.getElementById('status').innerHTML = html;
+    }
+
+    function clearSettings() {
+      localStorage.removeItem('supplier-system.locale');
+      sessionStorage.removeItem('supplier-system.locale');
+      alert('✓ 已清除语言设置\n\n现在将使用新的默认中文');
+      checkStatus();
+    }
+
+    function setChineseAndReload() {
+      localStorage.setItem('supplier-system.locale', 'zh');
+      alert('✓ 已设置为中文\n\n即将刷新页面');
+      setTimeout(() => window.location.reload(), 500);
+    }
+
+    // 页面加载时自动检测
+    window.onload = function() {
+      checkStatus();
+      console.log('%c✅ I18N 修复完成', 'color: #67c23a; font-size: 16px; font-weight: bold;');
+      console.log('默认语言: zh (中文)');
+      console.log('回退语言: en (英文)');
+    };
+  </script>
+</body>
+</html>

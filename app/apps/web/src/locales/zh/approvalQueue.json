@@ -1,0 +1,41 @@
+{
+  "title": "供应商审批",
+  "noSuppliers": "暂无待审批的供应商",
+  "contact": "联系信息",
+  "status": "状态",
+  "openSupplier": "打开供应商",
+  "subtitle": "审批已有供应商的状态变更和资质审核。",
+  "actions": {
+    "viewDetails": "查看详情",
+    "approveStep": "通过当前环节",
+    "requestInfo": "退回补充资料",
+    "reject": "驳回注册"
+  },
+  "drawer": {
+    "title": "注册详情",
+    "summary": "申请概览",
+    "noHistory": "暂无审批记录",
+    "missingRequirements": "待补充要求"
+  },
+  "dialog": {
+    "commentLabel": "审批意见",
+    "rejectPlaceholder": "请说明驳回原因。",
+    "requestInfoPlaceholder": "请填写需要供应商补充的内容。",
+    "approvePlaceholder": "请填写审批意见（可选）。",
+    "rejectTitle": "驳回注册",
+    "requestInfoTitle": "退回补充资料",
+    "approveTitle": "通过审批"
+  },
+  "notifications": {
+    "approved": "注册已进入下一审批环节。",
+    "requestedInfo": "已向供应商发起补充资料要求。",
+    "rejected": "注册已被驳回。"
+  },
+  "validation": {
+    "commentRequired": "请先填写审批意见。"
+  },
+  "errors": {
+    "loadStatus": "注册审批状态加载失败。",
+    "noStatus": "暂无可用的注册审批状态。"
+  }
+}

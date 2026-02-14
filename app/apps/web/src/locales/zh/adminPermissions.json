@@ -1,0 +1,174 @@
+{
+  "title": "角色与访问控制",
+  "subtitle": "配置内部角色并分配面向供应商的权限。",
+  "selectRole": "选择角色",
+  "permissions": "权限",
+  "description": "描述",
+  "grant": "授予",
+  "revoke": "撤销",
+  "selectAll": "全选",
+  "deselectAll": "取消全选",
+  "saveChanges": "保存修改",
+  "saving": "正在保存...",
+  "success": "权限更新成功！",
+  "error": "权限更新失败",
+  "categories": {
+    "supplier": "供应商管理",
+    "approval": "审批管理",
+    "rfq": "询价管理",
+    "contract": "合同管理",
+    "document": "文档管理",
+    "audit": "审计管理",
+    "system": "系统管理"
+  },
+  "tabs": {
+    "internal": "内部角色",
+    "delegations": "供应商授权"
+  },
+  "actions": {
+    "refresh": "刷新",
+    "createUser": "创建用户",
+    "reloadBuyers": "重新加载采购员",
+    "saveChanges": "保存修改",
+    "saving": "正在保存...",
+    "search": "搜索",
+    "searching": "正在搜索...",
+    "add": "添加",
+    "remove": "移除",
+    "resetPassword": "重置密码",
+    "resetting": "正在重置...",
+    "freeze": "冻结",
+    "freezing": "正在冻结...",
+    "unfreeze": "解冻",
+    "unfreezing": "正在解冻...",
+    "delete": "删除",
+    "deleting": "正在删除...",
+    "filter": "筛选",
+    "clearFilters": "清除筛选"
+  },
+  "internal": {
+    "availableRoles": "可用角色",
+    "users": "用户",
+    "loading": "正在加载...",
+    "managedAutomatically": "系统会自动为供应商管理其角色",
+    "table": {
+      "userId": "用户 ID",
+      "name": "姓名",
+      "role": "角色",
+      "email": "Email",
+      "emailPlaceholder": "绑定工作邮箱",
+      "status": "状态",
+      "lastLogin": "最后登录",
+      "changeRole": "更改角色",
+      "actions": "操作"
+    },
+    "status": {
+      "active": "活跃",
+      "frozen": "已冻结",
+      "deleted": "已删除"
+    },
+    "filters": {
+      "all": "全部",
+      "active": "活跃用户",
+      "frozen": "已冻结",
+      "deleted": "已删除",
+      "byRole": "按角色筛选",
+      "searchPlaceholder": "搜索用户 ID、姓名或邮箱"
+    }
+  },
+  "delegations": {
+    "title": "采购员授权",
+    "noBuyers": "暂无采购员。请先为内部账号分配采购员角色。",
+    "instructions": "为采购员分配供应商并选择所需的权限。",
+    "responsibleSuppliers": "负责的供应商",
+    "loadingAssignments": "正在加载授权...",
+    "noAssignments": "尚未分配供应商。",
+    "profileAccess": "访问供应商档案",
+    "contractAlert": "合同到期提醒",
+    "addSuppliers": "添加供应商",
+    "searchPlaceholder": "按名称或编码搜索",
+    "noResults": "未找到符合条件的供应商。",
+    "selectPrompt": "请选择一位采购员以管理供应商授权。",
+    "buyerStats": "{suppliers} 家供应商 | {profiles} 个档案 | {alerts} 条提醒"
+  },
+  "dialogs": {
+    "createUser": {
+      "title": "创建用户",
+      "fields": {
+        "userId": "用户 ID",
+        "name": "姓名",
+        "role": "角色",
+        "password": "密码",
+        "email": "邮箱（可选）",
+        "supplierId": "供应商 ID（可选）"
+      },
+      "submit": "创建用户",
+      "submitting": "正在创建..."
+    },
+    "resetPassword": {
+      "title": "重置密码",
+      "description": "为用户重置密码：",
+      "fields": {
+        "password": "新密码",
+        "passwordPlaceholder": "输入至少 6 个字符的新密码",
+        "confirm": "确认密码",
+        "confirmPlaceholder": "再次输入新密码"
+      },
+      "submit": "重置密码",
+      "submitting": "正在重置..."
+    },
+    "freezeUser": {
+      "title": "冻结用户",
+      "description": "确定要冻结此用户吗？",
+      "userName": "用户：",
+      "fields": {
+        "reason": "冻结原因（可选）",
+        "reasonPlaceholder": "请输入冻结原因"
+      },
+      "submit": "确认冻结",
+      "submitting": "正在冻结..."
+    },
+    "deleteUser": {
+      "title": "删除用户",
+      "description": "确定要删除此用户吗？此操作不可恢复。",
+      "userName": "用户：",
+      "warning": "警告：删除用户后，该用户将无法登录系统，但历史记录仍会保留。",
+      "submit": "确认删除",
+      "submitting": "正在删除..."
+    }
+  },
+  "validation": {
+    "passwordRequired": "请输入密码",
+    "passwordMismatch": "两次输入的密码不一致",
+    "credentialsRequired": "请输入用户 ID 和密码",
+    "invalidEmail": "请输入有效的邮箱地址"
+  },
+  "notifications": {
+    "loadPermissionsFailure": "加载权限数据失败",
+    "passwordResetSuccess": "密码重置成功",
+    "passwordResetFailure": "密码重置失败",
+    "userCreated": "用户创建成功",
+    "userCreateFailure": "用户创建失败",
+    "supplierRoleManaged": "供应商角色由系统自动管理。",
+    "supplierRoleNotAllowed": "不可手动分配供应商角色。",
+    "roleUpdated": "角色更新成功",
+    "roleUpdateFailure": "角色更新失败",
+    "loadBuyersFailure": "加载采购员失败",
+    "loadAssignmentsFailure": "加载授权失败",
+    "selectBuyerFirst": "请先选择一位采购员",
+    "searchSuppliersFailure": "搜索供应商失败",
+    "assignmentsUpdated": "授权更新成功",
+    "assignmentsUpdateFailure": "授权更新失败",
+    "emailUpdateSuccess": "邮箱更新成功",
+    "emailUpdateFailure": "邮箱更新失败",
+    "userFrozen": "用户已冻结",
+    "userFreezeFailure": "冻结用户失败",
+    "userUnfrozen": "用户已解冻",
+    "userUnfreezeFailure": "解冻用户失败",
+    "userDeleted": "用户已删除",
+    "userDeleteFailure": "删除用户失败",
+    "cannotDeleteSelf": "无法删除自己的账号",
+    "cannotFreezeSelf": "无法冻结自己的账号"
+  }
+}
+

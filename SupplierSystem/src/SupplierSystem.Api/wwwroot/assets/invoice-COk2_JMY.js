@@ -1,0 +1,1 @@
+const e="ใบแจ้งหนี้",t="อัปโหลดใบแจ้งหนี้",a="หมายเลขใบแจ้งหนี้",d="จำนวนเงิน",p="วันครบกำหนด",u={pending:"รอดำเนินการ",approved:"อนุมัติแล้ว",rejected:"ปฏิเสธแล้ว",paid:"ชำระแล้ว"},n={title:e,upload:t,number:a,amount:d,dueDate:p,status:u};export{d as amount,n as default,p as dueDate,a as number,u as status,e as title,t as upload};

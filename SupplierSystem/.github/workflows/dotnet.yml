@@ -1,0 +1,88 @@
+name: .NET CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  DOTNET_VERSION: '9.0.x'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore dependencies
+        run: dotnet restore SupplierSystem/SupplierSystem.sln
+
+      - name: Build
+        run: dotnet build SupplierSystem/SupplierSystem.sln --no-restore -c Release
+
+      - name: Run dotnet format
+        run: |
+          dotnet format SupplierSystem/SupplierSystem.sln --severity info --no-restore
+          # Check for unformatted files
+          dotnet format SupplierSystem/SupplierSystem.sln --verify-no-changes --no-restore
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore dependencies
+        run: dotnet restore SupplierSystem/SupplierSystem.sln
+
+      - name: Build
+        run: dotnet build SupplierSystem/SupplierSystem.sln --no-restore
+
+      - name: Run tests
+        run: dotnet test SupplierSystem/SupplierSystem.sln --no-build --verbosity normal --collect:"XPlat Code Coverage" --datacollector:Cobertura
+        env:
+          ConnectionStrings__SupplierSystem: 'Server=localhost;Database=SupplierSystemTest;Trusted_Connection=True;TrustServerCertificate=True'
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage/coverage.cobertura.xml
+          fail_ci_if_error: false
+
+  sonarcloud:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore dependencies
+        run: dotnet restore SupplierSystem/SupplierSystem.sln
+
+      - name: Build
+        run: dotnet build SupplierSystem/SupplierSystem.sln --no-restore -c Release
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          projectBaseDir: SupplierSystem
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

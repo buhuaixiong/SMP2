@@ -1,0 +1,73 @@
+{
+  "title": "供应商管理",
+  "pageTitle": "供应商目录",
+  "myProfileTitle": "我的供应商档案",
+  "searchPlaceholder": "搜索供应商...",
+  "filters": {
+    "title": "筛选",
+    "search": "搜索",
+    "status": "状态",
+    "stage": "阶段",
+    "category": "类别",
+    "region": "地区",
+    "importance": "重要性",
+    "tag": "标签",
+    "completeness": "完整度",
+    "advancedFilters": "高级筛选",
+    "clearFilters": "清除筛选"
+  },
+  "filterChips": {
+    "search": "搜索：{value}",
+    "status": "状态：{value}",
+    "stage": "阶段：{value}",
+    "category": "类别：{value}",
+    "region": "地区：{value}",
+    "importance": "重要性：{value}",
+    "tag": "标签：{value}",
+    "progress": "进度：{value}",
+    "missing": "缺失：{value}"
+  },
+  "summaryCards": {
+    "totalSuppliers": "供应商总数",
+    "needsAttention": "需要关注",
+    "pendingApprovals": "待审批",
+    "highPriority": "高优先级"
+  },
+  "table": {
+    "contact": "联系信息",
+    "profile": "档案",
+    "completion": "完成度",
+    "outstandingRequirements": "待完成要求",
+    "noPhone": "未提供电话",
+    "stage": "阶段",
+    "importance": "重要性",
+    "unknown": "未知",
+    "notSet": "未设置"
+  },
+  "tabs": {
+    "overview": "概览",
+    "documents": "文档",
+    "history": "历史",
+    "analytics": "分析"
+  },
+  "fields": {
+    "registrationId": "注册ID",
+    "notSpecified": "未指定",
+    "profileCompletion": "档案 {percent}%",
+    "documentCompletion": "文档 {percent}%"
+  },
+  "stageOptions": {
+    "all": "所有阶段",
+    "temporary": "临时",
+    "official": "正式"
+  },
+  "statusOptions": {
+    "all": "所有状态"
+  },
+  "notifications": {
+    "profileCompleted": "档案完成成功！",
+    "profileUpdateFailed": "保存档案失败，请重试。",
+    "draftSaved": "草稿保存成功！",
+    "draftSaveFailed": "保存草稿失败，请重试。"
+  }
+}

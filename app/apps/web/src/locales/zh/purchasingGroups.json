@@ -1,0 +1,183 @@
+{
+  "title": "采购组管理",
+  "subtitle": "组织采购员并为采购组分配供应商",
+  "createGroup": "新建采购组",
+  "editGroup": "编辑采购组",
+  "deleteGroup": "删除采购组",
+  "groupName": "采购组名称",
+  "description": "描述",
+  "leader": "组长",
+  "members": "成员",
+  "suppliers": "供应商",
+  "assignPurchaser": "分配采购员",
+  "assignSupplier": "分配供应商",
+  "removeMember": "移除成员",
+  "saveGroup": "保存采购组",
+  "cancelEdit": "取消编辑",
+  "confirmDelete": "确定要删除该采购组吗？",
+  "empty": "暂无采购组",
+  "filters": {
+    "search": "按名称、编码或描述搜索采购组...",
+    "category": "类别",
+    "allCategories": "全部分类",
+    "region": "地区",
+    "allRegions": "全部地区",
+    "status": "状态",
+    "allStatus": "全部状态"
+  },
+  "status": {
+    "active": "启用",
+    "inactive": "停用"
+  },
+  "table": {
+    "columns": {
+      "code": "编码",
+      "name": "名称",
+      "category": "类别",
+      "region": "地区",
+      "members": "成员",
+      "suppliers": "供应商",
+      "status": "状态",
+      "actions": "操作"
+    }
+  },
+  "tabs": {
+    "members": "成员 (采购员)",
+    "suppliers": "供应商",
+    "assignments": "指派记录"
+  },
+  "sections": {
+    "members": "采购组成员",
+    "suppliers": "已分配供应商",
+    "assignments": "供应商指派"
+  },
+  "actions": {
+    "manage": "管理",
+    "create": "创建",
+    "update": "更新",
+    "addMembers": "添加成员",
+    "addSuppliers": "添加供应商",
+    "assignSuppliers": "指派供应商"
+  },
+  "fields": {
+    "code": {
+      "label": "编码",
+      "placeholder": "例如：PG-001"
+    },
+    "name": {
+      "label": "名称",
+      "placeholder": "例如：电子采购组"
+    },
+    "description": {
+      "label": "描述",
+      "placeholder": "简要说明此组的用途"
+    },
+    "category": {
+      "label": "类别",
+      "placeholder": "例如：电子、五金"
+    },
+    "region": {
+      "label": "地区",
+      "placeholder": "例如：华东地区"
+    },
+    "isActive": {
+      "label": "启用"
+    },
+    "buyers": {
+      "label": "采购员",
+      "placeholder": "选择要添加的采购员"
+    },
+    "role": "角色",
+    "notes": "备注",
+    "suppliers": {
+      "label": "供应商",
+      "placeholder": "选择要添加的供应商"
+    },
+    "primary": {
+      "label": "主要",
+      "hint": "标记为主要供应商"
+    },
+    "assignmentBuyer": {
+      "label": "采购员",
+      "placeholder": "请选择采购员"
+    },
+    "assignmentSuppliers": {
+      "label": "供应商",
+      "placeholder": "请选择需要指派的供应商"
+    }
+  },
+  "groupRole": {
+    "leader": "组长",
+    "member": "成员"
+  },
+  "tableMembers": {
+    "buyerName": "采购员姓名",
+    "buyerRole": "角色",
+    "groupRole": "组内角色"
+  },
+  "tableSuppliers": {
+    "companyName": "公司名称",
+    "companyId": "公司ID"
+  },
+  "dialogs": {
+    "createTitle": "新建采购组",
+    "editTitle": "编辑采购组",
+    "manageTitle": "管理组：{name}",
+    "addMembersTitle": "向组中添加成员",
+    "addSuppliersTitle": "向组中添加供应商"
+  },
+  "confirmDeleteDialog": {
+    "title": "确认删除",
+    "message": "您确定要删除组“{name}”吗？此操作无法撤销。",
+    "confirm": "删除",
+    "cancel": "取消"
+  },
+  "removeMemberConfirm": "从组中移除该成员？",
+  "removeSupplierConfirm": "从组中移除该供应商？",
+  "validation": {
+    "codeRequired": "采购组编码为必填项",
+    "nameRequired": "采购组名称为必填项",
+    "selectBuyer": "请至少选择一位采购员",
+    "selectSupplier": "请至少选择一家供应商",
+    "selectAssignmentBuyer": "请选择采购员",
+    "selectAssignmentSupplier": "请至少选择一个供应商"
+  },
+  "notifications": {
+    "createSuccess": "采购组创建成功",
+    "updateSuccess": "采购组更新成功",
+    "deleteSuccess": "采购组删除成功",
+    "addMembersSuccess": "成员添加成功",
+    "addSuppliersSuccess": "供应商添加成功",
+    "removeMemberSuccess": "成员移除成功",
+    "removeSupplierSuccess": "供应商移除成功",
+    "assignSuppliersSuccess": "已成功指派 {count} 个供应商",
+    "removeAssignmentSuccess": "已移除该指派"
+  },
+  "errors": {
+    "loadBuyersFailure": "加载采购员列表失败",
+    "loadFailure": "加载组详情失败",
+    "deleteFailure": "删除组失败",
+    "saveFailure": "保存组失败",
+    "addMembersFailure": "添加成员失败",
+    "addSuppliersFailure": "添加供应商失败",
+    "removeMemberFailure": "移除成员失败",
+    "removeSupplierFailure": "移除供应商失败",
+    "loadSuppliersFailure": "供应商搜索失败",
+    "assignSuppliersFailure": "指派供应商失败",
+    "removeAssignmentFailure": "移除指派失败",
+    "manageAccessDenied": "您没有管理该采购组的权限。"
+  },
+  "removeAssignmentConfirm": "确定要移除该供应商指派吗？",
+  "tableAssignments": {
+    "buyer": "采购员",
+    "supplier": "供应商",
+    "supplierCode": "供应商编码",
+    "assignedAt": "指派时间"
+  },
+  "hints": {
+    "managerControlsSuppliers": "只有采购经理可以在采购组中新增或移除供应商，组长只能在已有供应商中进行指派。"
+  },
+  "labels": {
+    "noAccess": "无权限"
+  }
+}

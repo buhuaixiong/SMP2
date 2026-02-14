@@ -1,0 +1,21 @@
+{
+  "name": "supplier-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/common/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "dev:web": "npm run dev -w apps/web",
+    "dev:all": "echo 'Starting Vue Frontend on http://localhost:5173' && start npm run dev:web & echo 'Starting .NET API on http://localhost:5001' && cd ../SupplierSystem && dotnet run & wait",
+    "test": "npm run test --workspaces --if-present",
+    "test:web": "npm run test -w apps/web",
+    "build": "npm run build --workspaces --if-present",
+    "analyze:messagebox": "node scripts/analyze-messagebox-usage.js"
+  },
+  "devDependencies": {
+    "@octokit/rest": "^21.1.1",
+    "jscpd": "^4.0.5"
+  }
+}

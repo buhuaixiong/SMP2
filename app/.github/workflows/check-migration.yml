@@ -1,0 +1,50 @@
+name: Check Migration Progress
+
+on:
+  pull_request:
+    branches:
+      - "*"
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  legacy-notification-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install --ignore-scripts
+
+      - name: Scan for legacy Element Plus notifications
+        run: node tools/scripts/scan-notifications.js apps/web/src
+
+      - name: Validate scan report
+        run: |
+          node - <<'NODE'
+          const fs = require("node:fs");
+          const path = require("node:path");
+          const reportPath = path.join(process.cwd(), "var/migration/notification-usage.json");
+          if (!fs.existsSync(reportPath)) {
+            console.error("Notification scan report not found:", reportPath);
+            process.exit(1);
+          }
+          const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
+          const offenders = report.findings.filter(
+            (item) => item.file !== "apps/web/src/services/notification.ts",
+          );
+          if (offenders.length > 0) {
+            console.error("Legacy Element Plus notifications detected:");
+            offenders.forEach((item) => console.error(` - ${item.file} (${item.occurrences})`));
+            process.exit(1);
+          }
+          console.log("No legacy Element Plus notifications detected outside the notification service.");
+          NODE

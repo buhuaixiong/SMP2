@@ -1,0 +1,40 @@
+{
+  "title": "การเปรียบเทียบราคาตลาด",
+  "platform": "แพลตฟอร์ม",
+  "onlinePrice": "ราคาออนไลน์",
+  "quotePrice": "ราคาเสนอ",
+  "priceVariance": "ความแตกต่างของราคา",
+  "screenshot": "ภาพหน้าจอ",
+  "productUrl": "URL สินค้า",
+  "notes": "หมายเหตุ",
+  "comparedAt": "เปรียบเทียบเมื่อ",
+  "comparedBy": "เปรียบเทียบโดย",
+  "addComparison": "เพิ่มการเปรียบเทียบราคา",
+  "viewProduct": "ดูสินค้า",
+  "platforms": {
+    "1688": "1688",
+    "zhenkunxing": "Zhenkunxing (震坤行)",
+    "jd": "JD.com (京东)",
+    "taobao": "Taobao (淘宝)",
+    "other": "อื่นๆ"
+  },
+  "form": {
+    "selectPlatform": "เลือกแพลตฟอร์ม",
+    "enterPrice": "ป้อนราคาออนไลน์",
+    "enterUrl": "ป้อน URL สินค้า",
+    "uploadScreenshot": "อัปโหลดภาพหน้าจอ",
+    "screenshotTip": "อัปโหลดภาพหน้าจอ (JPG, PNG, สูงสุด 5MB)",
+    "optionalNotes": "หมายเหตุเพิ่มเติมเกี่ยวกับการเปรียบเทียบนี้"
+  },
+  "validation": {
+    "platformRequired": "กรุณาเลือกแพลตฟอร์ม",
+    "priceRequired": "กรุณาป้อนราคาออนไลน์",
+    "priceMin": "ราคาต้องมากกว่า 0",
+    "screenshotSize": "ภาพหน้าจอต้องมีขนาดเล็กกว่า 5MB"
+  },
+  "notifications": {
+    "addSuccess": "เพิ่มการเปรียบเทียบราคาสำเร็จ",
+    "loadError": "ไม่สามารถโหลดการเปรียบเทียบราคาได้"
+  },
+  "empty": "ยังไม่มีการเปรียบเทียบราคา"
+}

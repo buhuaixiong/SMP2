@@ -1,0 +1,1 @@
+const e="发生错误",r="网络错误，请检查您的连接",o="您无权执行此操作",a="未找到资源",n="服务器错误，请稍后重试",t="验证失败，请检查您的输入",d={general:e,network:r,unauthorized:o,notFound:a,serverError:n,validationFailed:t};export{d as default,e as general,r as network,a as notFound,n as serverError,o as unauthorized,t as validationFailed};

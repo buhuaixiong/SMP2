@@ -1,0 +1,57 @@
+{
+  "title": "Tag Management",
+  "subtitle": "Create and manage supplier tags for categorization",
+  "createTag": "Create Tag",
+  "tagName": "Tag Name",
+  "tagColor": "Tag Color",
+  "description": "Description",
+  "editTag": "Edit Tag",
+  "deleteTag": "Delete Tag",
+  "saveTag": "Save Tag",
+  "cancelEdit": "Cancel Edit",
+  "confirmDelete": "Are you sure you want to delete this tag?",
+  "empty": "No tags available",
+  "preview": "Preview",
+  "suppliersUsing": "Suppliers using this tag",
+  "notifications": {
+    "createSuccess": "Tag created successfully",
+    "updateSuccess": "Tag updated successfully",
+    "deleteSuccess": "Tag deleted successfully",
+    "editUnsupported": "Tag editing is not yet supported. Please delete and recreate the tag.",
+    "deleteFailure": "Failed to delete tag",
+    "saveFailure": "Failed to save tag",
+    "loadFailure": "Failed to load tags",
+    "loadSuppliersFailure": "Failed to load suppliers",
+    "addSuppliersSuccess": "Successfully added tag \"{tagName}\" to {count} supplier(s)",
+    "addSuppliersFailure": "Failed to add suppliers",
+    "removeSupplierSuccess": "Successfully removed tag \"{tagName}\"",
+    "removeSupplierFailure": "Failed to remove supplier"
+  },
+  "searchPlaceholder": "Search tags by name or description...",
+  "createFirstTag": "Create Your First Tag",
+  "noDescription": "No description provided",
+  "usedBySuppliers": "Used by {count} suppliers",
+  "colorHelper": "Optional: Choose a color to identify this tag",
+  "confirmDeleteTitle": "Confirm Delete",
+  "confirmDeleteInUse": "This tag is currently used by {count} supplier(s). Deleting it will remove the tag from all suppliers. This action cannot be undone.",
+  "confirmDeleteWithName": "Are you sure you want to delete the tag \"{name}\"? This action cannot be undone.",
+  "placeholders": {
+    "tagName": "e.g., High Priority",
+    "description": "Brief description of this tag's purpose"
+  },
+  "actions": {
+    "create": "Create",
+    "update": "Update"
+  },
+  "validation": {
+    "nameRequired": "Tag name is required",
+    "nameLength": "Tag name should be 2-50 characters"
+  },
+  "manageSuppliers": "Manage Suppliers",
+  "manageSuppliersForTag": "Manage Suppliers for Tag: {tagName}",
+  "currentSuppliers": "Current Suppliers",
+  "noSuppliersWithTag": "No suppliers are using this tag",
+  "addSuppliers": "Add Suppliers",
+  "searchSuppliersPlaceholder": "Search suppliers...",
+  "addSelectedSuppliers": "Add Selected Suppliers ({count})"
+}

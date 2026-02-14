@@ -1,0 +1,1 @@
+const e=e=>{if(!e)return"-";const t=new Date(e);return Number.isNaN(t.getTime())?e:t.toLocaleString()},t=e=>!Number.isFinite(e)||e<=0?"-":e<1024?`${e} B`:e<1048576?`${(e/1024).toFixed(1)} KB`:e<1073741824?`${(e/1048576).toFixed(2)} MB`:`${(e/1073741824).toFixed(2)} GB`;export{t as a,e as f};

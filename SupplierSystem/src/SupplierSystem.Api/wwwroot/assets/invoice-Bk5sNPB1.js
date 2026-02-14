@@ -1,0 +1,1 @@
+const e="Invoices",t="Upload Invoice",d="Invoice Number",a="Amount",n="Due Date",o={pending:"Pending",approved:"Approved",rejected:"Rejected",paid:"Paid"},p={title:e,upload:t,number:d,amount:a,dueDate:n,status:o};export{a as amount,p as default,n as dueDate,d as number,o as status,e as title,t as upload};

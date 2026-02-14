@@ -1,0 +1,235 @@
+# =============================================
+# Dependencies
+# =============================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json.bak
+
+# =============================================
+# Environment Variables (CRITICAL - Never commit)
+# =============================================
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+!.env.example
+
+# =============================================
+# Database Files (CRITICAL - Never commit)
+# =============================================
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+supplier-backend/supplier.db*
+supplier.db*
+
+# =============================================
+# Build Output
+# =============================================
+dist/
+dist-ssr/
+build/
+.next/
+out/
+
+# =============================================
+# Logs
+# =============================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Backend-specific logs (runtime generated)
+supplier-backend/backend*.log
+supplier-backend/*.log
+
+# =============================================
+# Uploaded Files (CRITICAL - User data)
+# =============================================
+uploads/*
+!supplier-backend/uploads/*.gitkeep
+!supplier-backend/uploads/*README.md
+supplier-backend/uploads/*
+!supplier-backend/uploads/*.gitkeep
+!supplier-backend/uploads/*README.md
+*.pdf
+*.doc
+*.docx
+*.xls
+*.xlsx
+# Allow sample files in docs
+!docs/**/*.pdf
+!docs/**/*.xlsx
+
+# =============================================
+# Backup Files
+# =============================================
+backups/*
+!supplier-backend/backups/*.gitkeep
+!supplier-backend/backups/*README.md
+*.bak
+*.backup
+*.old
+
+# Database backups (specific pattern)
+*.backup-*
+database.db.backup-*
+supplier-backend/*.backup-*
+
+# =============================================
+# IDE & Editor Files
+# =============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# =============================================
+# Testing
+# =============================================
+coverage/
+.nyc_output/
+*.lcov
+test-results/
+playwright-report/
+
+# =============================================
+# Temporary Files
+# =============================================
+tmp/*
+!supplier-backend/tmp/*.gitkeep
+!supplier-backend/tmp/*README.md
+temp/
+*.tmp
+.cache/
+.parcel-cache/
+.vite/
+
+# Temporary development files (scripts and components)
+tmp_*.py
+tmp_*.vue
+tmp_*.js
+tmp-*.js
+temp_*.py
+temp_*.vue
+
+# =============================================
+# OS Files
+# =============================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =============================================
+# Archives (might contain sensitive data)
+# =============================================
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# =============================================
+# Project-Specific
+# =============================================
+# Legacy/backup directories
+legacy/
+extracted_backend/
+temp.txt
+test.txt
+tmp.py
+nul
+[0-9]
+index.html.txt
+
+# Audit archives (runtime generated, contains sensitive data)
+audit-archive/*
+!supplier-backend/audit-archive/*.gitkeep
+!supplier-backend/audit-archive/*README.md
+supplier-backend/audit-archive/*
+!supplier-backend/audit-archive/*.gitkeep
+!supplier-backend/audit-archive/*README.md
+!supplier-backend/audit-archive/*.gitkeep
+!supplier-backend/audit-archive/*README.md
+
+# Cleanup and analysis reports (generated)
+cleanup-analysis-*.json
+migration-report.json
+
+# Batch scripts (platform-specific development utilities)
+*.bat
+
+# Documentation that's auto-generated
+auto-imports.d.ts
+components.d.ts
+
+# =============================================
+# Security & Certificates
+# =============================================
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+ssl/
+certs/
+
+# =============================================
+# Docker
+# =============================================
+.dockerignore
+# Keep Dockerfile but ignore build artifacts
+docker-compose.override.yml
+.docker/
+
+# =============================================
+# Compiled Files
+# =============================================
+*.pyc
+*.pyo
+*.class
+*.o
+*.so
+
+# =============================================
+# Package Manager
+# =============================================
+.pnpm-store/
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+
+
+
+
+
+

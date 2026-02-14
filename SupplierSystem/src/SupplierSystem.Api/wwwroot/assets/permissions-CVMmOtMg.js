@@ -1,0 +1,1 @@
+const s="สิทธิ์",e="จัดการสิทธิ์",i="สิทธิ์ของบทบาท",a="กำหนดสิทธิ์",n={title:s,manage:e,rolePermissions:i,assignPermissions:a};export{a as assignPermissions,n as default,e as manage,i as rolePermissions,s as title};

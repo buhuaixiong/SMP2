@@ -1,0 +1,20 @@
+# Build artifacts
+artifacts/
+SupplierSystem/TestResults/
+SupplierSystem/src/**/bin/
+SupplierSystem/src/**/obj/
+SupplierSystem/tests/**/bin/
+SupplierSystem/tests/**/obj/
+
+# Databases and backups
+*.bak
+*.db
+SupplierSystem/sql/backup/
+app/var/db/
+
+# Logs and temp files
+*.log
+*.out
+*.tmp
+tmp/
+temp/

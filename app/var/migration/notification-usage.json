@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2025-11-16T10:47:26.236Z",
+  "targetDir": "apps/web/src",
+  "totalFiles": 1,
+  "totalOccurrences": 10,
+  "findings": [
+    {
+      "file": "apps/web/src/services/notification.ts",
+      "occurrences": 10,
+      "samples": [
+        {
+          "line": 1,
+          "match": "import { ElMessage, ElMessageBox, ElNotification } from \"element-plus\";"
+        },
+        {
+          "line": 51,
+          "match": "ElNotification(withDefaults(\"success\", message, title, options));"
+        },
+        {
+          "line": 54,
+          "match": "ElNotification(withDefaults(\"warning\", message, title, options));"
+        },
+        {
+          "line": 57,
+          "match": "ElNotification(withDefaults(\"info\", message, title, options));"
+        },
+        {
+          "line": 65,
+          "match": "ElNotification(payload);"
+        },
+        {
+          "line": 68,
+          "match": "ElNotification(options);"
+        },
+        {
+          "line": 71,
+          "match": "return ElMessage({"
+        },
+        {
+          "line": 78,
+          "match": "return ElMessageBox.confirm(message, title, {"
+        },
+        {
+          "line": 86,
+          "match": "return ElMessageBox.prompt(message, title, {"
+        },
+        {
+          "line": 96,
+          "match": "return ElMessageBox.alert(message, title, {"
+        }
+      ]
+    }
+  ]
+}

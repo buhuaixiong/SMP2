@@ -1,0 +1,1 @@
+const s="Permissions",i="Manage Permissions",e="Role Permissions",n="Assign Permissions",o={title:s,manage:i,rolePermissions:e,assignPermissions:n};export{n as assignPermissions,o as default,i as manage,e as rolePermissions,s as title};

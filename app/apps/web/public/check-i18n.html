@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I18N 诊断工具</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+      margin-top: 0;
+    }
+    h2 {
+      color: #666;
+      font-size: 18px;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 8px;
+    }
+    .status {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .status.success {
+      background: #d4edda;
+      color: #155724;
+    }
+    .status.error {
+      background: #f8d7da;
+      color: #721c24;
+    }
+    .status.warning {
+      background: #fff3cd;
+      color: #856404;
+    }
+    pre {
+      background: #f8f9fa;
+      padding: 12px;
+      border-radius: 4px;
+      overflow-x: auto;
+      border-left: 3px solid #007bff;
+    }
+    code {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+    }
+    .section {
+      margin: 16px 0;
+    }
+    .label {
+      font-weight: bold;
+      color: #555;
+      margin-right: 8px;
+    }
+    button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    button.secondary {
+      background: #6c757d;
+    }
+    button.secondary:hover {
+      background: #545b62;
+    }
+    .info-box {
+      background: #e7f3ff;
+      border-left: 4px solid #2196F3;
+      padding: 12px;
+      margin: 16px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🔍 I18N 运行时诊断工具</h1>
+    <p>此工具用于诊断供应商系统RFQ管理页面的国际化配置</p>
+  </div>
+
+  <div class="card">
+    <h2>📊 诊断结果</h2>
+    <div id="results">
+      <p>请打开浏览器控制台 (F12) 查看详细信息，或点击下方按钮开始诊断</p>
+      <button onclick="runDiagnostics()">开始诊断</button>
+      <button class="secondary" onclick="fixLocalStorage()">修复语言设置</button>
+      <button class="secondary" onclick="clearCache()">清除缓存</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📝 诊断步骤说明</h2>
+    <div class="info-box">
+      <p><strong>如何使用此工具：</strong></p>
+      <ol>
+        <li>打开浏览器开发者工具（按 F12）</li>
+        <li>切换到 Console（控制台）标签</li>
+        <li>在此页面点击"开始诊断"按钮</li>
+        <li>查看控制台输出的详细信息</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    function runDiagnostics() {
+      console.clear();
+      console.log('%c🔍 I18N 诊断工具', 'font-size: 20px; font-weight: bold; color: #007bff;');
+      console.log('='.repeat(60));
+
+      const results = [];
+
+      // 1. 检查 localStorage
+      console.log('\n📦 1. 检查 LocalStorage');
+      console.log('─'.repeat(60));
+      const storedLocale = localStorage.getItem('supplier-system.locale');
+      console.log('存储的语言:', storedLocale || '(未设置)');
+
+      if (!storedLocale) {
+        results.push({
+          type: 'warning',
+          message: 'localStorage 中未设置语言，将使用浏览器默认语言'
+        });
+      } else if (storedLocale !== 'zh') {
+        results.push({
+          type: 'error',
+          message: `当前语言设置为 "${storedLocale}"，不是中文 (zh)`
+        });
+      } else {
+        results.push({
+          type: 'success',
+          message: '语言设置正确 (zh)'
+        });
+      }
+
+      // 2. 检查浏览器语言
+      console.log('\n🌐 2. 检查浏览器语言偏好');
+      console.log('─'.repeat(60));
+      console.log('浏览器语言:', navigator.language);
+      console.log('语言列表:', navigator.languages);
+
+      // 3. 检查是否在供应商系统域名
+      console.log('\n🔗 3. 检查当前页面');
+      console.log('─'.repeat(60));
+      console.log('URL:', window.location.href);
+      console.log('域名:', window.location.hostname);
+      console.log('路径:', window.location.pathname);
+
+      // 4. 模拟检查 i18n 实例 (实际应用中会有)
+      console.log('\n⚙️ 4. I18N 配置检查');
+      console.log('─'.repeat(60));
+      console.log('预期的翻译key路径:');
+      console.log('  - rfq.management.title');
+      console.log('  - rfq.management.createRfq');
+      console.log('  - rfq.management.supplierInvitations.*');
+      console.log('  - rfq.management.pendingRequisitions.*');
+
+      // 5. 检查可能的缓存问题
+      console.log('\n🗂️ 5. 缓存状态');
+      console.log('─'.repeat(60));
+      console.log('页面是否从缓存加载:', performance.getEntriesByType('navigation')[0]?.['type'] === 'back_forward' ? '是' : '否');
+
+      // 总结
+      console.log('\n' + '='.repeat(60));
+      console.log('%c📊 诊断总结', 'font-size: 16px; font-weight: bold; color: #28a745;');
+      console.log('='.repeat(60));
+
+      results.forEach(result => {
+        const icon = result.type === 'success' ? '✓' : result.type === 'error' ? '✗' : '⚠';
+        const color = result.type === 'success' ? '#28a745' : result.type === 'error' ? '#dc3545' : '#ffc107';
+        console.log(`%c${icon} ${result.message}`, `color: ${color}; font-weight: bold;`);
+      });
+
+      console.log('\n💡 建议的解决方案:');
+      console.log('1. 如果语言设置不正确，点击"修复语言设置"按钮');
+      console.log('2. 如果是缓存问题，按 Ctrl+Shift+R 强制刷新');
+      console.log('3. 如果问题持续，检查网络请求中的翻译文件是否正确加载');
+      console.log('4. 在RFQ管理页面打开控制台，输入: window.__VUE_I18N__');
+
+      // 显示在页面上
+      const resultsDiv = document.getElementById('results');
+      let html = '<div class="section">';
+
+      results.forEach(result => {
+        html += `<div class="section">
+          <span class="status ${result.type}">${result.type === 'success' ? '✓' : result.type === 'error' ? '✗' : '⚠'}</span>
+          ${result.message}
+        </div>`;
+      });
+
+      html += '</div><p><strong>详细信息请查看浏览器控制台</strong></p>';
+      html += '<button onclick="runDiagnostics()">重新诊断</button>';
+      html += '<button class="secondary" onclick="fixLocalStorage()">修复语言设置</button>';
+      html += '<button class="secondary" onclick="clearCache()">清除缓存</button>';
+
+      resultsDiv.innerHTML = html;
+    }
+
+    function fixLocalStorage() {
+      localStorage.setItem('supplier-system.locale', 'zh');
+      alert('✓ 已将语言设置为中文 (zh)\n\n请刷新页面使更改生效');
+      console.log('%c✓ 语言设置已修复为中文 (zh)', 'color: #28a745; font-weight: bold;');
+    }
+
+    function clearCache() {
+      if (confirm('确定要清除浏览器缓存吗？这将重新加载所有资源。')) {
+        // 清除可能的应用缓存
+        if ('caches' in window) {
+          caches.keys().then(names => {
+            names.forEach(name => caches.delete(name));
+          });
+        }
+        // 建议用户硬刷新
+        alert('请按 Ctrl+Shift+R (Windows) 或 Cmd+Shift+R (Mac) 进行硬刷新');
+        console.log('%c✓ 缓存清除指令已执行', 'color: #28a745; font-weight: bold;');
+      }
+    }
+
+    // 页面加载时自动运行诊断
+    window.addEventListener('load', () => {
+      console.log('%c💡 提示：此诊断工具已准备就绪', 'color: #17a2b8; font-weight: bold;');
+      console.log('点击页面上的"开始诊断"按钮，或在控制台输入 runDiagnostics() 开始诊断');
+    });
+  </script>
+</body>
+</html>

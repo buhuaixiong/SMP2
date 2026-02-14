@@ -1,0 +1,18 @@
+{
+  "title": "Approvals",
+  "queue": "Approval Queue",
+  "dashboard": "Approval Dashboard",
+  "pending": "Pending Approvals",
+  "history": "Approval History",
+  "approve": "Approve",
+  "reject": "Reject",
+  "comment": "Comment",
+  "addComment": "Add Comment",
+  "decision": "Decision",
+  "decisionDate": "Decision Date",
+  "approver": "Approver",
+  "notifications": {
+    "approveSuccess": "Approved successfully",
+    "rejectSuccess": "Rejected successfully"
+  }
+}

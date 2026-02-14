@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node:*)",
+      "Bash(sqlite3:*)",
+      "Bash(npm install:*)",
+      "Bash(test:*)",
+      "Bash(cat:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(curl:*)",
+      "Bash(python3:*)",
+      "Bash(powershell -Command \"Get-NetTCPConnection -LocalPort 3001 -ErrorAction SilentlyContinue | Select-Object State, OwningProcess\")",
+      "Bash(find supplier-backend -name \"*rfq*.js\" -type f ! -path \"*/node_modules/*\" ! -path \"*/dist/*\" -exec wc -l {} +)",
+      "Bash(npm test -- tests/unit/services/rfqQuoteService.test.js)",
+      "Bash(npm test -- tests/unit/services/rfqQuoteService.test.js --verbose)",
+      "Bash(npm test -- tests/unit/services/rfqQuoteService.test.js --coverage --collectCoverageFrom=\"services/rfq/rfqQuoteService.js\")",
+      "Bash(npm test -- tests/unit/services/rfqService.test.js)",
+      "Bash(npm run build)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

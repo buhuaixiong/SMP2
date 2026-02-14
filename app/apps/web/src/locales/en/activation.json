@@ -1,0 +1,40 @@
+{
+  "title": "Activate Your Account",
+  "subtitle": "Set up your password to complete your supplier registration",
+  "form": {
+    "token": "Activation Token",
+    "tokenPlaceholder": "Enter your activation token",
+    "tokenFromUrl": "Token loaded from activation link",
+    "password": "Password",
+    "passwordPlaceholder": "Create a secure password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Re-enter your password",
+    "passwordRequirements": "Password must contain:",
+    "minLength": "At least 8 characters",
+    "hasUppercase": "At least one uppercase letter",
+    "hasLowercase": "At least one lowercase letter",
+    "hasNumber": "At least one number",
+    "hasSpecialChar": "At least one special character",
+    "submit": "Activate Account"
+  },
+  "validation": {
+    "tokenRequired": "Activation token is required",
+    "passwordRequired": "Password is required",
+    "passwordInvalid": "Password does not meet requirements",
+    "confirmPasswordRequired": "Please confirm your password",
+    "passwordMismatch": "Passwords do not match"
+  },
+  "success": {
+    "title": "Account Activated Successfully!",
+    "subtitle": "Your supplier account has been activated. You can now log in with your credentials.",
+    "username": "Username",
+    "role": "Account Type",
+    "goToLogin": "Go to Login",
+    "message": "Account activated successfully"
+  },
+  "error": {
+    "failed": "Failed to activate account. Please check your token and try again.",
+    "tokenExpired": "Activation token has expired. Please contact support.",
+    "tokenInvalid": "Invalid activation token"
+  }
+}

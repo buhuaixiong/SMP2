@@ -1,0 +1,9 @@
+{
+  "title": "Workflow",
+  "status": {
+    "pending": "Pending",
+    "inProgress": "In Progress",
+    "completed": "Completed",
+    "rejected": "Rejected"
+  }
+}

@@ -1,0 +1,1 @@
+const t="บันทึกการตรวจสอบ",a="การกระทำ",e="ผู้กระทำ",i="เวลา",s="เอนทิตี",c="การเปลี่ยนแปลง",n="รายละเอียด",o={title:t,action:a,actor:e,timestamp:i,entity:s,changes:c,details:n};export{a as action,e as actor,c as changes,o as default,n as details,s as entity,i as timestamp,t as title};

@@ -1,0 +1,183 @@
+{
+  "title": "การจัดการกลุ่มจัดซื้อ",
+  "subtitle": "จัดระเบียบผู้ซื้อและมอบหมายซัพพลายเออร์ให้กับกลุ่มจัดซื้อ",
+  "createGroup": "สร้างกลุ่ม",
+  "editGroup": "แก้ไขกลุ่ม",
+  "deleteGroup": "ลบกลุ่ม",
+  "groupName": "ชื่อกลุ่ม",
+  "description": "คำอธิบาย",
+  "leader": "หัวหน้ากลุ่ม",
+  "members": "สมาชิก",
+  "suppliers": "ซัพพลายเออร์",
+  "assignPurchaser": "มอบหมายผู้จัดซื้อ",
+  "assignSupplier": "มอบหมายซัพพลายเออร์",
+  "removeMember": "ลบสมาชิก",
+  "saveGroup": "บันทึกกลุ่ม",
+  "cancelEdit": "ยกเลิกการแก้ไข",
+  "confirmDelete": "คุณแน่ใจหรือไม่ว่าต้องการลบกลุ่มนี้?",
+  "empty": "ไม่มีกลุ่มจัดซื้อ",
+  "filters": {
+    "search": "ค้นหากลุ่มด้วยชื่อ, รหัส, หรือคำอธิบาย...",
+    "category": "หมวดหมู่",
+    "allCategories": "ทุกหมวดหมู่",
+    "region": "ภูมิภาค",
+    "allRegions": "ทุกภูมิภาค",
+    "status": "สถานะ",
+    "allStatus": "ทุกสถานะ"
+  },
+  "status": {
+    "active": "ใช้งาน",
+    "inactive": "ไม่ใช้งาน"
+  },
+  "table": {
+    "columns": {
+      "code": "รหัส",
+      "name": "ชื่อ",
+      "category": "หมวดหมู่",
+      "region": "ภูมิภาค",
+      "members": "สมาชิก",
+      "suppliers": "ซัพพลายเออร์",
+      "status": "สถานะ",
+      "actions": "การกระทำ"
+    }
+  },
+  "tabs": {
+    "members": "สมาชิก (ผู้ซื้อ)",
+    "suppliers": "ซัพพลายเออร์",
+    "assignments": "การมอบหมาย"
+  },
+  "sections": {
+    "members": "สมาชิกในกลุ่ม",
+    "suppliers": "ซัพพลายเออร์ที่ได้รับมอบหมาย",
+    "assignments": "การมอบหมายซัพพลายเออร์"
+  },
+  "actions": {
+    "manage": "จัดการ",
+    "create": "สร้าง",
+    "update": "อัปเดต",
+    "addMembers": "เพิ่มสมาชิก",
+    "addSuppliers": "เพิ่มซัพพลายเออร์",
+    "assignSuppliers": "มอบหมายซัพพลายเออร์"
+  },
+  "fields": {
+    "code": {
+      "label": "รหัส",
+      "placeholder": "เช่น PG-001"
+    },
+    "name": {
+      "label": "ชื่อ",
+      "placeholder": "เช่น การจัดซื้ออิเล็กทรอนิกส์"
+    },
+    "description": {
+      "label": "คำอธิบาย",
+      "placeholder": "คำอธิบายสั้น ๆ เกี่ยวกับวัตถุประสงค์ของกลุ่มนี้"
+    },
+    "category": {
+      "label": "หมวดหมู่",
+      "placeholder": "เช่น อิเล็กทรอนิกส์, ฮาร์ดแวร์"
+    },
+    "region": {
+      "label": "ภูมิภาค",
+      "placeholder": "เช่น อเมริกาเหนือ, เอเชีย"
+    },
+    "isActive": {
+      "label": "ใช้งาน"
+    },
+    "buyers": {
+      "label": "ผู้ซื้อ",
+      "placeholder": "เลือกผู้ซื้อที่จะเพิ่ม"
+    },
+    "role": "บทบาท",
+    "notes": "หมายเหตุ",
+    "suppliers": {
+      "label": "ซัพพลายเออร์",
+      "placeholder": "เลือกซัพพลายเออร์ที่จะเพิ่ม"
+    },
+    "primary": {
+      "label": "หลัก",
+      "hint": "ทำเครื่องหมายเป็นซัพพลายเออร์หลัก"
+    },
+    "assignmentBuyer": {
+      "label": "ผู้ซื้อ",
+      "placeholder": "เลือกผู้ซื้อ"
+    },
+    "assignmentSuppliers": {
+      "label": "ซัพพลายเออร์",
+      "placeholder": "เลือกซัพพลายเออร์เพื่อมอบหมาย"
+    }
+  },
+  "groupRole": {
+    "leader": "หัวหน้า",
+    "member": "สมาชิก"
+  },
+  "tableMembers": {
+    "buyerName": "ชื่อผู้ซื้อ",
+    "buyerRole": "บทบาท",
+    "groupRole": "บทบาทในกลุ่ม"
+  },
+  "tableSuppliers": {
+    "companyName": "ชื่อบริษัท",
+    "companyId": "รหัสบริษัท"
+  },
+  "dialogs": {
+    "createTitle": "สร้างกลุ่มจัดซื้อ",
+    "editTitle": "แก้ไขกลุ่มจัดซื้อ",
+    "manageTitle": "จัดการกลุ่ม: {name}",
+    "addMembersTitle": "เพิ่มสมาชิกในกลุ่ม",
+    "addSuppliersTitle": "เพิ่มซัพพลายเออร์ในกลุ่ม"
+  },
+  "confirmDeleteDialog": {
+    "title": "ยืนยันการลบ",
+    "message": "คุณแน่ใจหรือไม่ว่าต้องการลบกลุ่ม \"{name}\"? การกระทำนี้ไม่สามารถยกเลิกได้",
+    "confirm": "ลบ",
+    "cancel": "ยกเลิก"
+  },
+  "removeMemberConfirm": "ลบสมาชิกนี้ออกจากกลุ่มหรือไม่?",
+  "removeSupplierConfirm": "ลบซัพพลายเออร์นี้ออกจากกลุ่มหรือไม่?",
+  "validation": {
+    "codeRequired": "ต้องระบุรหัสกลุ่ม",
+    "nameRequired": "ต้องระบุชื่อกลุ่ม",
+    "selectBuyer": "กรุณาเลือกผู้ซื้ออย่างน้อยหนึ่งคน",
+    "selectSupplier": "กรุณาเลือกซัพพลายเออร์อย่างน้อยหนึ่งราย",
+    "selectAssignmentBuyer": "กรุณาเลือกผู้ซื้อ",
+    "selectAssignmentSupplier": "กรุณาเลือกซัพพลายเออร์อย่างน้อยหนึ่งราย"
+  },
+  "notifications": {
+    "createSuccess": "สร้างกลุ่มจัดซื้อสำเร็จ",
+    "updateSuccess": "อัปเดตกลุ่มจัดซื้อสำเร็จ",
+    "deleteSuccess": "ลบกลุ่มจัดซื้อสำเร็จ",
+    "addMembersSuccess": "เพิ่มสมาชิกสำเร็จ",
+    "addSuppliersSuccess": "เพิ่มซัพพลายเออร์สำเร็จ",
+    "removeMemberSuccess": "ลบสมาชิกสำเร็จ",
+    "removeSupplierSuccess": "ลบซัพพลายเออร์สำเร็จ",
+    "assignSuppliersSuccess": "มอบหมายซัพพลายเออร์ {count} รายสำเร็จแล้ว",
+    "removeAssignmentSuccess": "ยกเลิกการมอบหมายเรียบร้อยแล้ว"
+  },
+  "errors": {
+    "loadBuyersFailure": "โหลดรายชื่อผู้ซื้อไม่สำเร็จ",
+    "loadFailure": "ไม่สามารถโหลดรายละเอียดกลุ่มได้",
+    "deleteFailure": "ไม่สามารถลบกลุ่มได้",
+    "saveFailure": "ไม่สามารถบันทึกกลุ่มได้",
+    "addMembersFailure": "ไม่สามารถเพิ่มสมาชิกได้",
+    "addSuppliersFailure": "ไม่สามารถเพิ่มซัพพลายเออร์ได้",
+    "removeMemberFailure": "ไม่สามารถลบสมาชิกได้",
+    "removeSupplierFailure": "ไม่สามารถลบซัพพลายเออร์ได้",
+    "loadSuppliersFailure": "ไม่สามารถค้นหาซัพพลายเออร์ได้",
+    "assignSuppliersFailure": "ไม่สามารถมอบหมายซัพพลายเออร์ได้",
+    "removeAssignmentFailure": "ไม่สามารถยกเลิกการมอบหมายได้",
+    "manageAccessDenied": "คุณไม่มีสิทธิ์จัดการกลุ่มจัดซื้อกลุ่มนี้"
+  },
+  "removeAssignmentConfirm": "ต้องการลบการมอบหมายซัพพลายเออร์นี้หรือไม่?",
+  "tableAssignments": {
+    "buyer": "ผู้ซื้อ",
+    "supplier": "ซัพพลายเออร์",
+    "supplierCode": "รหัสซัพพลายเออร์",
+    "assignedAt": "วันที่มอบหมาย"
+  },
+  "hints": {
+    "managerControlsSuppliers": "เฉพาะผู้จัดการจัดซื้อเท่านั้นที่สามารถเพิ่มหรือลบซัพพลายเออร์ในกลุ่มได้ หัวหน้ากลุ่มสามารถมอบหมายซัพพลายเออร์ที่มีอยู่ให้ผู้ซื้อได้เท่านั้น"
+  },
+  "labels": {
+    "noAccess": "ไม่มีสิทธิ์"
+  }
+}

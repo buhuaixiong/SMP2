@@ -1,0 +1,81 @@
+{
+  "title": "Registration Approval",
+  "pendingApplications": "Pending Applications",
+  "noApplications": "No pending applications at this time",
+  "table": {
+    "id": "ID",
+    "companyName": "Company Name",
+    "supplierCode": "Supplier Code",
+    "contactEmail": "Contact Email",
+    "submittedAt": "Submitted At"
+  },
+  "actions": {
+    "title": "Approval Actions",
+    "review": "Review",
+    "approve": "Approve",
+    "reject": "Reject",
+    "requestInfo": "Request Info",
+    "comment": "Comments (Optional)",
+    "commentPlaceholder": "Add your comments or approval notes..."
+  },
+  "detail": {
+    "title": "Application Details"
+  },
+  "reject": {
+    "title": "Reject Application",
+    "reason": "Rejection Reason",
+    "reasonPlaceholder": "Please provide detailed reason for rejection...",
+    "confirm": "Confirm Rejection"
+  },
+  "requestInfo": {
+    "title": "Request Additional Information",
+    "message": "Message to Supplier",
+    "messagePlaceholder": "Please describe what additional information is needed...",
+    "confirm": "Send Request"
+  },
+  "bind": {
+    "title": "Bind Supplier Code",
+    "openButton": "Bind Supplier Code & Activate",
+    "description": "This step will finalize the supplier onboarding and activate their account.",
+    "steps": {
+      "generateCode": "Generate or bind the supplier code",
+      "createProfile": "Create a temporary supplier profile",
+      "convertAccount": "Convert the tracking account to a supplier account",
+      "activate": "Activate the account so the supplier can log in"
+    },
+    "modeLabel": "Code generation method",
+    "autoGenerate": "Auto generate (recommended)",
+    "manualInput": "Manual input",
+    "codeLabel": "Supplier code",
+    "codePlaceholder": "Enter 6-digit code",
+    "codeFormat": "Format: 6 digits (e.g. 810001)",
+    "previewLabel": "Auto-generation preview",
+    "previewHint": "System will choose a code based on supplier classification and currency",
+    "warningTitle": "Important Notice",
+    "warning": "Once a supplier code is bound it cannot be changed. Please verify carefully before confirming.",
+    "confirmTitle": "Confirm Binding & Activation",
+    "confirmMessage": "Bind the supplier code and activate this account? This action cannot be undone.",
+    "confirmButton": "Confirm & Activate",
+    "nextStepMessage": "Approval complete. Please bind the supplier code.",
+    "success": "Supplier code bound successfully",
+    "error": "Failed to bind supplier code",
+    "codeRequired": "Please enter a supplier code before binding",
+    "codeFormatError": "Supplier code must be a 6-digit number"
+  },
+  "confirm": {
+    "approveTitle": "Confirm Approval",
+    "approveMessage": "Are you sure you want to approve this registration application? This will move it to the next approval step."
+  },
+  "success": {
+    "approved": "Application approved successfully",
+    "rejected": "Application rejected successfully",
+    "requestedInfo": "Information request sent successfully"
+  },
+  "error": {
+    "loadFailed": "Failed to load pending applications",
+    "detailFailed": "Failed to load application details",
+    "approveFailed": "Failed to approve application",
+    "rejectFailed": "Failed to reject application",
+    "requestInfoFailed": "Failed to send information request"
+  }
+}

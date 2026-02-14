@@ -1,0 +1,19 @@
+{
+  "requesting_department": "Engineering",
+  "required_date": "2025-11-15",
+  "priority": "normal",
+  "notes": "Test without PR number",
+  "items": [
+    {
+      "item_type": "equipment",
+      "item_subtype": "standard",
+      "item_name": "Test Item Without PR",
+      "quantity": 50,
+      "unit": "PCS",
+      "item_description": "Testing auto-generated requisition number",
+      "specifications": null,
+      "estimated_budget": 500,
+      "currency": "CNY"
+    }
+  ]
+}

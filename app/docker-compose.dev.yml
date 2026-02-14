@@ -1,0 +1,28 @@
+version: '3.8'
+
+# =============================================
+# Development Environment with Hot Reload
+# =============================================
+
+services:
+  frontend:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+      target: development
+    container_name: supplier-frontend-dev
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+      - VITE_API_BASE_URL=http://localhost:5001
+    volumes:
+      - ./apps/web:/app
+      - ./tools:/tools
+      - /app/node_modules
+    networks:
+      - supplier-network-dev
+
+networks:
+  supplier-network-dev:
+    driver: bridge

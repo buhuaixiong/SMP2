@@ -1,0 +1,382 @@
+{
+  "title": "ซัพพลายเออร์",
+  "directory": "ไดเรกทอรีซัพพลายเออร์",
+  "registration": "ลงทะเบียนซัพพลายเออร์",
+  "details": "รายละเอียดซัพพลายเออร์",
+  "addNew": "เพิ่มซัพพลายเออร์ใหม่",
+  "import": "นำเข้าซัพพลายเออร์",
+  "export": "ส่งออกซัพพลายเออร์",
+  "search": "ค้นหาซัพพลายเออร์...",
+  "companyName": "ชื่อบริษัท",
+  "companyId": "รหัสซัพพลายเออร์",
+  "category": "หมวดหมู่",
+  "region": "ภูมิภาค",
+  "stage": "ขั้นตอน",
+  "filters": {
+    "title": "ตัวกรอง",
+    "status": "สถานะ",
+    "category": "หมวดหมู่",
+    "region": "ภูมิภาค",
+    "completeness": "ความสมบูรณ์",
+    "all": "ทั้งหมด",
+    "complete": "สมบูรณ์",
+    "mostlyComplete": "ใกล้สมบูรณ์",
+    "needsAttention": "ต้องดูแล"
+  },
+  "status": {
+    "potential": "ศักยภาพ",
+    "underReview": "อยู่ระหว่างตรวจสอบ",
+    "pendingPurchaser": "รอเจ้าหน้าที่จัดซื้อ",
+    "pendingPurchaseManager": "รอผู้จัดการจัดซื้อ",
+    "pendingFinanceManager": "รอผู้จัดการการเงิน",
+    "approved": "อนุมัติแล้ว",
+    "qualified": "ผ่านการรับรอง",
+    "rejected": "ปฏิเสธแล้ว",
+    "disqualified": "ตัดสิทธิ์แล้ว",
+    "suspended": "ระงับแล้ว",
+    "terminated": "ยกเลิกแล้ว"
+  },
+  "fields": {
+    "companyName": "ชื่อบริษัท",
+    "companyId": "รหัสบริษัท",
+    "contactPerson": "ผู้ติดต่อ",
+    "contactPhone": "เบอร์โทรติดต่อ",
+    "contactEmail": "อีเมลติดต่อ",
+    "category": "หมวดหมู่",
+    "address": "ที่อยู่",
+    "businessRegistrationNumber": "เลขทะเบียนธุรกิจ",
+    "taxId": "เลขประจำตัวผู้เสียภาษี",
+    "paymentTerms": "เงื่อนไขการชำระเงิน",
+    "paymentCurrency": "สกุลเงิน",
+    "bankAccount": "บัญชีธนาคาร",
+    "bankName": "ชื่อธนาคาร",
+    "shipCode": "Incoterms",
+    "region": "ภูมิภาค",
+    "website": "เว็บไซต์",
+    "description": "คำอธิบาย",
+    "notes": "หมายเหตุ"
+  },
+  "profile": {
+    "completion": "ความสมบูรณ์ของโปรไฟล์",
+    "completionPercent": "สมบูรณ์ {percent}%",
+    "missingItems": "รายการที่ขาดหาย",
+    "requiredFields": "ฟิลด์ที่จำเป็น",
+    "requiredDocuments": "เอกสารที่จำเป็น"
+  },
+  "documents": {
+    "title": "เอกสาร",
+    "upload": "อัปโหลดเอกสาร",
+    "download": "ดาวน์โหลด",
+    "delete": "ลบ",
+    "category": "หมวดหมู่",
+    "fileName": "ชื่อไฟล์",
+    "uploadDate": "วันที่อัปโหลด",
+    "expiryDate": "วันหมดอายุ",
+    "status": "สถานะ",
+    "expired": "หมดอายุแล้ว",
+    "expiringSoon": "กำลังหมดอายุ",
+    "valid": "ใช้ได้",
+    "categories": {
+      "businessLicense": "ใบอนุญาตธุรกิจ",
+      "taxCertificate": "ใบรับรองภาษี",
+      "bankInformation": "ข้อมูลธนาคาร",
+      "qualityCertificate": "ใบรับรองคุณภาพ",
+      "insurance": "ประกันภัย",
+      "other": "อื่นๆ"
+    }
+  },
+  "contracts": {
+    "title": "สัญญา",
+    "addNew": "เพิ่มสัญญาใหม่",
+    "contractNumber": "หมายเลขสัญญา",
+    "contractType": "ประเภทสัญญา",
+    "startDate": "วันที่เริ่มต้น",
+    "endDate": "วันที่สิ้นสุด",
+    "value": "มูลค่าสัญญา",
+    "status": "สถานะ",
+    "version": "เวอร์ชัน",
+    "reminders": "การเตือน"
+  },
+  "ratings": {
+    "title": "การให้คะแนน",
+    "overall": "คะแนนโดยรวม",
+    "quality": "คุณภาพ",
+    "delivery": "การจัดส่ง",
+    "service": "บริการ",
+    "price": "ราคา",
+    "compliance": "การปฏิบัติตามกฎ",
+    "addRating": "เพิ่มการให้คะแนน",
+    "ratingHistory": "ประวัติการให้คะแนน"
+  },
+  "tags": {
+    "title": "แท็ก",
+    "addTag": "เพิ่มแท็ก",
+    "removeTag": "ลบแท็ก",
+    "manageTags": "จัดการแท็ก"
+  },
+  "notifications": {
+    "createSuccess": "สร้างซัพพลายเออร์สำเร็จ",
+    "updateSuccess": "อัปเดตซัพพลายเออร์สำเร็จ",
+    "deleteSuccess": "ลบซัพพลายเออร์สำเร็จ",
+    "approveSuccess": "อนุมัติซัพพลายเออร์สำเร็จ",
+    "rejectSuccess": "ปฏิเสธซัพพลายเออร์แล้ว",
+    "documentUploadSuccess": "อัปโหลดเอกสารสำเร็จ",
+    "documentDeleteSuccess": "ลบเอกสารสำเร็จ"
+  },
+  "form": {
+    "sections": {
+      "coreProfile": {
+        "title": "Core Profile",
+        "description": "Capture the supplier's identity and primary contact details."
+      },
+      "companyType": {
+        "title": "Company Type",
+        "description": "Select the company structure and provide the related details."
+      },
+      "registration": {
+        "title": "Registration & Addresses"
+      },
+      "contacts": {
+        "title": "Contact Directory"
+      },
+      "business": {
+        "title": "Business Information"
+      },
+      "payments": {
+        "title": "Settlement & Payments"
+      },
+      "bank": {
+        "title": "Bank Details"
+      },
+      "notes": {
+        "title": "Additional Notes"
+      }
+    },
+    "fields": {
+      "companyName": {
+        "label": "Primary Display Name"
+      },
+      "companyId": {
+        "label": "Registration ID"
+      },
+      "stage": {
+        "label": "Stage"
+      },
+      "englishName": {
+        "label": "English Name"
+      },
+      "chineseName": {
+        "label": "Chinese Name"
+      },
+      "category": {
+        "label": "Supplier Category",
+        "placeholder": "e.g. Raw materials, tooling, services"
+      },
+      "contactPerson": {
+        "label": "Primary Contact"
+      },
+      "contactPhone": {
+        "label": "Primary Phone"
+      },
+      "contactEmail": {
+        "label": "Primary Email"
+      },
+      "purchaserEmail": {
+        "label": "Purchaser Email",
+        "placeholder": "buyer@company.com",
+        "hint": "Enter the email of the purchaser responsible for this supplier, system will auto-assign"
+      },
+      "companyType": {
+        "label": "Company Type"
+      },
+      "companyTypeOther": {
+        "label": "Other Type Detail"
+      },
+      "authorizedCapital": {
+        "label": "Authorized Capital"
+      },
+      "issuedCapital": {
+        "label": "Issued Capital"
+      },
+      "directors": {
+        "label": "Directors / Legal Representatives",
+        "placeholder": "Separate multiple names with commas or new lines"
+      },
+      "owners": {
+        "label": "Owners / Partners",
+        "placeholder": "Separate multiple names with commas or new lines"
+      },
+      "registeredOffice": {
+        "label": "Registered Office"
+      },
+      "businessRegistrationNumber": {
+        "label": "Business Registration Number"
+      },
+      "businessAddress": {
+        "label": "Operational Address"
+      },
+      "mailingAddress": {
+        "label": "Mailing Address"
+      },
+      "telephone": {
+        "label": "Telephone"
+      },
+      "fax": {
+        "label": "Fax"
+      },
+      "businessNature": {
+        "label": "Nature of Business"
+      },
+      "operatingCurrency": {
+        "label": "Operating Currency",
+        "placeholder": "e.g. CNY, USD"
+      },
+      "deliveryLocation": {
+        "label": "Delivery Location"
+      },
+      "productOrigin": {
+        "label": "Product Origin"
+      },
+      "shipCode": {
+        "label": "Ship Code"
+      },
+      "productsForEci": {
+        "label": "Products Sold to ECI"
+      },
+      "establishedYear": {
+        "label": "Year Established"
+      },
+      "employeeCount": {
+        "label": "Number of Employees"
+      },
+      "qualityCertifications": {
+        "label": "Quality Certifications"
+      },
+      "invoiceType": {
+        "label": "Invoice Type"
+      },
+      "paymentTermsDays": {
+        "label": "Payment Terms (days)"
+      },
+      "paymentTermsNotes": {
+        "label": "Payment Terms Notes"
+      },
+      "paymentCurrency": {
+        "label": "Payment Currency",
+        "placeholder": "e.g. CNY"
+      },
+      "paymentMethods": {
+        "label": "Payment Methods"
+      },
+      "paymentMethodsOther": {
+        "label": "Other Method Detail"
+      },
+      "bankName": {
+        "label": "Bank Name"
+      },
+      "bankAddress": {
+        "label": "Bank Address"
+      },
+      "bankAccountNumber": {
+        "label": "Bank Account Number"
+      },
+      "swiftCode": {
+        "label": "Swift Code"
+      },
+      "notes": {
+        "placeholder": "Add any internal remarks or contextual notes"
+      }
+    },
+    "stage": {
+      "temporary": "Temporary supplier",
+      "official": "Official supplier"
+    },
+    "companyType": {
+      "limited": "Limited company",
+      "soleProprietor": "Sole proprietor",
+      "partnership": "Partnership",
+      "other": "Other"
+    },
+    "paymentMethod": {
+      "cash": "Cash",
+      "cheque": "Cheque / Banker draft",
+      "wire": "Wire transfer",
+      "other": "Other"
+    },
+    "shipCode": {
+      "EXW": "EXW - Ex Works",
+      "FOB": "FOB - Free On Board",
+      "CIF": "CIF - Cost, Insurance and Freight",
+      "CFR": "CFR - Cost and Freight",
+      "DDP": "DDP - Delivered Duty Paid",
+      "DDU": "DDU - Delivered Duty Unpaid",
+      "DAP": "DAP - Delivered At Place",
+      "DAT": "DAT - Delivered At Terminal",
+      "FCA": "FCA - Free Carrier",
+      "CPT": "CPT - Carriage Paid To",
+      "CIP": "CIP - Carriage and Insurance Paid To"
+    },
+    "contacts": {
+      "sales": "Sales",
+      "finance": "Finance",
+      "customerService": "Customer Service",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone"
+    }
+  },
+  "categories": {
+    "rawMaterial": "วัตถุดิบ",
+    "it": "ไอที",
+    "services": "บริการ"
+  },
+  "errors": {
+    "completeProfileFailed": "บันทึกข้อมูลโปรไฟล์ไม่สำเร็จ",
+    "saveDraftFailed": "บันทึกฉบับร่างไม่สำเร็จ"
+  },
+  "stages": {
+    "temporary": "Temporary supplier",
+    "official": "Official supplier",
+    "null": "ยังไม่ได้กำหนด"
+  },
+  "companyCode": "รหัสซัพพลายเออร์",
+  "approvalHistory": {
+    "title": "ประวัติการอนุมัติ",
+    "sourceLabels": {
+      "file_upload": "การอนุมัติไฟล์",
+      "status_approval": "การอนุมัติสถานะ",
+      "upgrade_application": "การอนุมัติการอัพเกรด"
+    },
+    "noRecords": "ยังไม่มีบันทึกการอนุมัติ",
+    "handler": "ผู้ดำเนินการ",
+    "remark": "หมายเหตุ",
+    "timestamp": "เวลา"
+  },
+  "profilePage": {
+    "title": "โปรไฟล์บริษัทของฉัน",
+    "subtitle": "ปรับปรุงข้อมูลบริษัทเพื่อให้ขั้นตอนการอนุมัติเป็นไปอย่างราบรื่น",
+    "statusCard": {
+      "title": "ภาพรวมโปรไฟล์",
+      "status": "สถานะ",
+      "missingFields": "ข้อมูลที่ยังขาด",
+      "missingDocuments": "เอกสารที่ยังขาด",
+      "noMissingFields": "กรอกข้อมูลที่จำเป็นครบถ้วนแล้ว",
+      "noMissingDocuments": "อัปโหลดเอกสารที่จำเป็นครบถ้วนแล้ว"
+    },
+    "documentsCard": {
+      "title": "สรุปเอกสาร",
+      "uploadCta": "ไปยังหน้าจัดการไฟล์"
+    },
+    "formCard": {
+      "title": "อัปเดตรายละเอียดโปรไฟล์",
+      "description": "การเปลี่ยนแปลงอาจต้องได้รับการอนุมัติจากเจ้าหน้าที่ก่อนจึงจะมีผล",
+      "submit": "ส่งคำขออัปเดต",
+      "submitting": "กำลังส่ง...",
+      "updateSuccess": "อัปเดตโปรไฟล์เรียบร้อยแล้ว",
+      "changeRequestCreated": "ส่งคำขออัปเดตเพื่อรอการตรวจสอบแล้ว",
+      "submitError": "ไม่สามารถส่งคำขออัปเดตได้"
+    },
+    "loadError": "ไม่สามารถโหลดข้อมูลโปรไฟล์ซัพพลายเออร์ได้",
+    "noSupplier": "ไม่พบข้อมูลซัพพลายเออร์ของคุณ"
+  }
+}

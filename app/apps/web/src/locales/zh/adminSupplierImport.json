@@ -1,0 +1,129 @@
+{
+  "title": "供应商导入",
+  "subtitle": "上传 Excel 表，系统将自动匹配或创建供应商记录。",
+  "actions": {
+    "viewSuppliers": "查看供应商"
+  },
+  "upload": {
+    "title": "上传 Excel 文件",
+    "description": "请选择格式正确的 Excel 文件，文件内应包含供应商信息。",
+    "button": "选择文件",
+    "template": "下载模板",
+    "templateDescription": "下载规范模板，确保数据格式正确",
+    "supportedFormats": "支持 .xls / .xlsx 文件格式。* 字段为必填。",
+    "selectFile": "选择文件",
+    "noFileSelected": "未选择文件",
+    "start": "开始导入",
+    "importing": "正在导入...",
+    "clear": "清除选择",
+    "importNote": "已存在的供应商会原地更新；系统会填充缺失的档案信息，但不会覆盖有效信息。"
+  },
+  "fields": {
+    "vendorCode": {
+      "label": "供应商编码 / 代码 *",
+      "note": "必须是唯一的；用于匹配供应商记录。"
+    },
+    "supplierName": {
+      "label": "供应商名称 *",
+      "note": "公司的法定名称。"
+    },
+    "contact": {
+      "label": "联系人",
+      "note": "主要联系人。"
+    },
+    "phone": {
+      "label": "电话",
+      "note": "联系电话或手机号码。"
+    },
+    "email": {
+      "label": "邮箱",
+      "note": "联系邮箱地址。"
+    },
+    "address": {
+      "label": "地址1 / 地址2",
+      "note": "注册地址。使用地址2填写额外行。"
+    },
+    "paymentTerm": {
+      "label": "付款条款",
+      "note": "示例：NET30 或 NET45。"
+    },
+    "currency": {
+      "label": "币种",
+      "note": "示例：USD 或 CNY。"
+    },
+    "tax": {
+      "label": "税号 / 增值税号",
+      "note": "税务或注册标识符。"
+    },
+    "fax": {
+      "label": "传真",
+      "note": "（可选）"
+    }
+  },
+  "summary": {
+    "title": "导入摘要",
+    "untitledSheet": "未命名工作表",
+    "runAt": "执行于：{time}",
+    "stats": {
+      "rowsScanned": "扫描行数",
+      "imported": "成功导入",
+      "newSuppliers": "新增供应商",
+      "updated": "已更新",
+      "skipped": "跳过",
+      "passwordsReset": "密码重置"
+    },
+    "passwordHint": "新创建或密码重置的供应商账号会生成初始默认密码（默认为 666666），出于安全考虑，请务必告知供应商登录后及时修改。",
+    "successTable": {
+      "title": "成功行",
+      "headers": {
+        "excelRow": "Excel 行",
+        "action": "操作",
+        "supplierCode": "供应商编码",
+        "supplierName": "供应商名称",
+        "systemId": "系统 ID",
+        "defaultPassword": "默认密码"
+      },
+      "tags": {
+        "created": "已创建",
+        "updated": "已更新"
+      }
+    },
+    "errors": {
+      "title": "错误项",
+      "headers": {
+        "excelRow": "Excel 行",
+        "reason": "原因"
+      },
+      "hint": "请在您的Excel文件中修正以上行，然后重新运行导入。"
+    }
+  },
+  "notifications": {
+    "sessionExpired": "会话已过期。请重新登录。",
+    "noFile": "请选择一个 Excel 文件。",
+    "importFinished": "导入完成：共处理 {count} 行。",
+    "importFailed": "导入失败，请重试。"
+  },
+  "validation": {
+    "title": "校验结果",
+    "validRows": "有效行数",
+    "invalidRows": "无效行数",
+    "totalRows": "总行数",
+    "reviewErrors": "查看错误",
+    "proceed": "继续导入",
+    "cancel": "取消"
+  },
+  "import": {
+    "title": "导入进度",
+    "importing": "正在导入...",
+    "completed": "导入完成",
+    "success": "成功导入 {count} 家供应商",
+    "failed": "导入失败 {count} 家供应商",
+    "viewResults": "查看结果"
+  },
+  "errors": {
+    "fileRequired": "请选择需要导入的文件",
+    "invalidFormat": "文件格式无效。请使用提供的模板。",
+    "fileTooLarge": "文件大小超过10MB限制",
+    "uploadFailed": "上传文件失败"
+  }
+}

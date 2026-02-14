@@ -1,0 +1,41 @@
+{
+  "title": "Supplier Approvals",
+  "noSuppliers": "No suppliers pending review",
+  "contact": "Contact",
+  "status": "Status",
+  "openSupplier": "Open supplier",
+  "subtitle": "Review and approve status changes for existing suppliers.",
+  "actions": {
+    "viewDetails": "View details",
+    "approveStep": "Approve current step",
+    "requestInfo": "Request information",
+    "reject": "Reject registration"
+  },
+  "drawer": {
+    "title": "Registration details",
+    "summary": "Application overview",
+    "noHistory": "No approval history yet",
+    "missingRequirements": "Outstanding requirements"
+  },
+  "dialog": {
+    "commentLabel": "Comment",
+    "rejectPlaceholder": "Explain the reason for rejection.",
+    "requestInfoPlaceholder": "Describe the information needed from the supplier.",
+    "approvePlaceholder": "Enter approval comment (optional).",
+    "rejectTitle": "Reject registration",
+    "requestInfoTitle": "Request additional information",
+    "approveTitle": "Approve registration"
+  },
+  "notifications": {
+    "approved": "Registration moved to the next step.",
+    "requestedInfo": "Requested additional information from the supplier.",
+    "rejected": "Registration rejected."
+  },
+  "validation": {
+    "commentRequired": "Please enter a comment before submitting."
+  },
+  "errors": {
+    "loadStatus": "Failed to load registration status.",
+    "noStatus": "Registration status is not available."
+  }
+}

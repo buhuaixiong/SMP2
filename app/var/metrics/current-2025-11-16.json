@@ -1,0 +1,11 @@
+{
+  "capturedAt": "2025-11-16T10:50:00.000Z",
+  "duplicateCodeRate": 0.5,
+  "notificationCalls": 10,
+  "serviceLayerCalls": 200,
+  "migrationRate": 95.2,
+  "composablesCount": 12,
+  "servicesCount": 6,
+  "totalFiles": 208,
+  "totalLines": 13758
+}

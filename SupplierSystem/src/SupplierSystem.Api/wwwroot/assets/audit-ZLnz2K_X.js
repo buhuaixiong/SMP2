@@ -1,0 +1,1 @@
+const t="Audit Log",a="Action",e="Actor",i="Timestamp",s="Entity",n="Changes",o="Details",c={title:t,action:a,actor:e,timestamp:i,entity:s,changes:n,details:o};export{a as action,e as actor,n as changes,c as default,o as details,s as entity,i as timestamp,t as title};

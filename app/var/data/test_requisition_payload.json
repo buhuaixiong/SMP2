@@ -1,0 +1,20 @@
+{
+  "requesting_department": "IT",
+  "required_date": "2025-09-20",
+  "priority": "normal",
+  "notes": "Imported from PR HZ_IT_202509001",
+  "pr_number": "HZ_IT_202509001",
+  "items": [
+    {
+      "item_type": "equipment",
+      "item_subtype": "standard",
+      "item_name": "Test Item 1",
+      "quantity": 100,
+      "unit": "EA",
+      "item_description": "Test description",
+      "specifications": null,
+      "estimated_budget": 1000,
+      "currency": "CNY"
+    }
+  ]
+}

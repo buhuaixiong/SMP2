@@ -1,0 +1,289 @@
+{
+  "total": 45,
+  "byCategory": {
+    "high": 23,
+    "medium": 1,
+    "low": 21,
+    "unknown": 0
+  },
+  "details": {
+    "high": [
+      {
+        "file": "/components/I18nDebugger.vue",
+        "lineNumber": 240,
+        "context": "ElMessageBox.confirm(\n'语言已更改，建议刷新页面以确保所有内容正确显示',\n'提示',\n{\nconfirmButtonText: '刷新页面',\ncancelButtonText: '稍后刷新',\ntype: 'info',\n}\n)",
+        "functionName": "fixLanguage"
+      },
+      {
+        "file": "/components/I18nDebugger.vue",
+        "lineNumber": 288,
+        "context": "await ElMessageBox.confirm(\n'这将清除所有I18N相关设置并重新加载页面。是否继续？',\n'警告',\n{\nconfirmButtonText: '确定',\ncancelButtonText: '取消',\ntype: 'warning',\n}\n);",
+        "functionName": "resetAll"
+      },
+      {
+        "file": "/components/ProfileWizard.vue",
+        "lineNumber": 580,
+        "context": "await ElMessageBox.confirm(\n\"Are you sure you want to submit this profile?\",\n\"Confirm Submission\",\n{\nconfirmButtonText: \"Submit\",\ncancelButtonText: \"Cancel\",\ntype: \"info\",\n},\n);",
+        "functionName": "isValid"
+      },
+      {
+        "file": "/components/ProfileWizard.vue",
+        "lineNumber": 603,
+        "context": "ElMessageBox.confirm(\n\"Your progress will be lost. Save as draft before closing?\",\n\"Unsaved Changes\",\n{\nconfirmButtonText: \"Save Draft\",\ncancelButtonText: \"Discard\",\ndistinguishCancelAndClose: true,\ntype: \"warning\",\n},\n)",
+        "functionName": "handleClose"
+      },
+      {
+        "file": "/views/admin/FileUploadConfigView.vue",
+        "lineNumber": 281,
+        "context": "await ElMessageBox.confirm(t(\"fileUpload.messages.deleteConfirm\", { name: row.scenario_name }), t(\"common.confirm\"), {\nconfirmButtonText: t(\"common.confirm\"),",
+        "functionName": "handleDelete"
+      },
+      {
+        "file": "/views/AdminExchangeRateManagementView.vue",
+        "lineNumber": 371,
+        "context": "await ElMessageBox.confirm(\nt('exchangeRate.confirmDeleteMessage'),",
+        "functionName": "handleDelete"
+      },
+      {
+        "file": "/views/EmailSettingsView.vue",
+        "lineNumber": 440,
+        "context": "await ElMessageBox.confirm(\"删除配置后，系统将无法发送邮件通知。确定要删除吗？\", \"确认删除\", {\nconfirmButtonText: \"确定\",\ncancelButtonText: \"取消\",\ntype: \"warning\",\n});",
+        "functionName": "handleDelete"
+      },
+      {
+        "file": "/views/FileUploadApprovalView.vue",
+        "lineNumber": 274,
+        "context": "await ElMessageBox.confirm(\n`确定${approvalForm.decision === \"approved\" ? \"批准\" : \"拒绝\"}此文件上传申请吗?`,\n\"确认审批\",\n{\ntype: \"warning\",\nconfirmButtonText: \"确定\",\ncancelButtonText: \"取消\",\n},\n);",
+        "functionName": "handleSubmitApproval"
+      },
+      {
+        "file": "/views/FileUploadApprovalView.vue",
+        "lineNumber": 307,
+        "context": "await ElMessageBox.confirm(\"确定要向供应商发送文件过期提醒邮件吗?\", \"确认发送\", {\ntype: \"warning\",\nconfirmButtonText: \"确定\",\ncancelButtonText: \"取消\",\n});",
+        "functionName": "handleSendReminder"
+      },
+      {
+        "file": "/views/FinanceAccountantInvoiceView.vue",
+        "lineNumber": 644,
+        "context": "await ElMessageBox.confirm(\nt(\"financeInvoice.messages.deleteConfirm\"),",
+        "functionName": "confirmDelete"
+      },
+      {
+        "file": "/views/OrganizationalUnitsView.vue",
+        "lineNumber": 876,
+        "context": "await ElMessageBox.confirm(`确认删除组织单元 “${unit.name}” 吗？此操作不可撤销。`, \"确认删除\", {\ntype: \"warning\",\n});",
+        "functionName": "check"
+      },
+      {
+        "file": "/views/OrganizationalUnitsView.vue",
+        "lineNumber": 966,
+        "context": "await ElMessageBox.confirm(\"确认移除该成员吗？\", \"提示\", { type: \"warning\" });\nawait orgUnitsStore.removeMember(currentUnit.value.id, userId);",
+        "functionName": "removeMember"
+      },
+      {
+        "file": "/views/OrganizationalUnitsView.vue",
+        "lineNumber": 981,
+        "context": "await ElMessageBox.confirm(\"确认移除该供应商吗？\", \"提示\", { type: \"warning\" });\nawait orgUnitsStore.removeSupplier(currentUnit.value.id, supplierId);",
+        "functionName": "removeSupplier"
+      },
+      {
+        "file": "/views/PurchasingGroupsView.vue",
+        "lineNumber": 865,
+        "context": "ElMessageBox.confirm(\nt(\"purchasingGroups.confirmDeleteDialog.message\", { name: group.name }),",
+        "functionName": "confirmDelete"
+      },
+      {
+        "file": "/views/PurchasingGroupsView.vue",
+        "lineNumber": 1016,
+        "context": "await ElMessageBox.confirm(t(\"purchasingGroups.removeMemberConfirm\"), t(\"common.confirm\"), {\nconfirmButtonText: t(\"common.remove\"),",
+        "functionName": "removeMember"
+      },
+      {
+        "file": "/views/PurchasingGroupsView.vue",
+        "lineNumber": 1035,
+        "context": "await ElMessageBox.confirm(t(\"purchasingGroups.removeSupplierConfirm\"), t(\"common.confirm\"), {\nconfirmButtonText: t(\"common.remove\"),",
+        "functionName": "removeSupplier"
+      },
+      {
+        "file": "/views/PurchasingGroupsView.vue",
+        "lineNumber": 1056,
+        "context": "await ElMessageBox.confirm(\nt(\"purchasingGroups.removeAssignmentConfirm\"),",
+        "functionName": "removeAssignment"
+      },
+      {
+        "file": "/views/RfqManagementView.vue",
+        "lineNumber": 627,
+        "context": "await ElMessageBox.confirm(t(\"rfq.management.deleteConfirm\"), t(\"common.warning\"), {\nconfirmButtonText: t(\"common.confirm\"),",
+        "functionName": "deleteRfq"
+      },
+      {
+        "file": "/views/SupplierChangeApprovalView.vue",
+        "lineNumber": 314,
+        "context": "await ElMessageBox.confirm(\n`确认${approvalForm.decision === \"approved\" ? \"批准\" : \"拒绝\"}此变更申请?`,\n\"确认操作\",\n{\nconfirmButtonText: \"确认\",\ncancelButtonText: \"取消\",\ntype: approvalForm.decision === \"approved\" ? \"success\" : \"warning\",\n},\n);",
+        "functionName": "submitApproval"
+      },
+      {
+        "file": "/views/SupplierChangeApprovalView.vue",
+        "lineNumber": 349,
+        "context": "ElMessageBox.confirm(\"您有未提交的审批决定,确定关闭?\", \"提示\", {\nconfirmButtonText: \"确定\",\ncancelButtonText: \"取消\",\n})",
+        "functionName": "handleCloseApprovalDialog"
+      },
+      {
+        "file": "/views/SupplierWhitelistBlacklistView.vue",
+        "lineNumber": 581,
+        "context": "await ElMessageBox.confirm(\nt(\"whitelistBlacklist.whitelist.messages.deleteConfirm\"),",
+        "functionName": "handleDeleteWhitelist"
+      },
+      {
+        "file": "/views/SupplierWhitelistBlacklistView.vue",
+        "lineNumber": 679,
+        "context": "await ElMessageBox.confirm(\nt(\"whitelistBlacklist.blacklist.messages.deleteConfirm\"),",
+        "functionName": "handleDeleteBlacklist"
+      },
+      {
+        "file": "/views/UpgradeManagementView.vue",
+        "lineNumber": 1126,
+        "context": "await ElMessageBox.confirm(t(\"upgradeManagement.upload.confirmDelete\"), t(\"common.confirm\"), {\ntype: \"warning\",\n});",
+        "functionName": "handleDeleteDocument"
+      }
+    ],
+    "medium": [
+      {
+        "file": "/components/ApprovalWorkflow.vue",
+        "lineNumber": 380,
+        "context": "await ElMessageBox.confirm(t(\"rfq.approval.confirmReject\"), t(\"common.confirm\"), {\nconfirmButtonText: t(\"common.confirm\"),",
+        "functionName": "handleReject"
+      }
+    ],
+    "low": [
+      {
+        "file": "/components/ApprovalWorkflow.vue",
+        "lineNumber": 346,
+        "context": "await ElMessageBox.confirm(t(\"rfq.approval.confirmApprove\"), t(\"common.confirm\"), {\nconfirmButtonText: t(\"common.confirm\"),",
+        "functionName": "handleApprove"
+      },
+      {
+        "file": "/components/DepartmentConfirmPanel.vue",
+        "lineNumber": 177,
+        "context": "await ElMessageBox.confirm(confirmMessage, t(\"common.confirm\"), {\nconfirmButtonText: t(\"common.confirm\"),",
+        "functionName": "handleSubmit"
+      },
+      {
+        "file": "/components/PRFillForm.vue",
+        "lineNumber": 195,
+        "context": "await ElMessageBox.confirm(\nt(\"rfq.pr.confirmSubmit\", { prNumber: formData.prNumber }),",
+        "functionName": "handleSubmit"
+      },
+      {
+        "file": "/components/PurchaserReviewPanel.vue",
+        "lineNumber": 251,
+        "context": "await ElMessageBox.confirm(t(\"rfq.review.confirmSubmit\"), t(\"common.confirm\"), {\nconfirmButtonText: t(\"common.confirm\"),",
+        "functionName": "handleSubmitReview"
+      },
+      {
+        "file": "/views/AdminAuditLogView.vue",
+        "lineNumber": 458,
+        "context": "await ElMessageBox.confirm(\nt(\"adminAuditLog.messages.verifyChainConfirm\"),",
+        "functionName": "verifyChain"
+      },
+      {
+        "file": "/views/AdminAuditLogView.vue",
+        "lineNumber": 495,
+        "context": "await ElMessageBox.confirm(\nt(\"adminAuditLog.messages.exportConfirm\"),",
+        "functionName": "exportLogs"
+      },
+      {
+        "file": "/views/AdminEmergencyLockdownView.vue",
+        "lineNumber": 237,
+        "context": "await ElMessageBox.confirm(\nt(\"lockdown.admin.activate.confirmMessage\"),",
+        "functionName": "handleActivate"
+      },
+      {
+        "file": "/views/AdminEmergencyLockdownView.vue",
+        "lineNumber": 275,
+        "context": "await ElMessageBox.confirm(\nt(\"lockdown.admin.deactivate.confirmMessage\"),",
+        "functionName": "handleDeactivate"
+      },
+      {
+        "file": "/views/AdminExchangeRateManagementView.vue",
+        "lineNumber": 335,
+        "context": "await ElMessageBox.confirm(\nt('exchangeRate.confirmUpdateMessage'),",
+        "functionName": "handleUpdateRates"
+      },
+      {
+        "file": "/views/ApprovalDashboardView.vue",
+        "lineNumber": 470,
+        "context": "await ElMessageBox.confirm(\nt(\"approvalDashboard.confirmDecision\", {\ndecision: t(`approvalDashboard.decisions.${decisionForm.value.decision}`),",
+        "functionName": "submitDecision"
+      },
+      {
+        "file": "/views/MaterialRequisitionDetailView.vue",
+        "lineNumber": 436,
+        "context": "await ElMessageBox.confirm(\nt(\"requisition.detail.messages.approveConfirm\"),",
+        "functionName": "handleApprove"
+      },
+      {
+        "file": "/views/MaterialRequisitionDetailView.vue",
+        "lineNumber": 485,
+        "context": "await ElMessageBox.confirm(\nt(\"requisition.detail.materialItems.convertConfirm\"),",
+        "functionName": "handleConvertItemToRFQ"
+      },
+      {
+        "file": "/views/MaterialRequisitionFormView.vue",
+        "lineNumber": 550,
+        "context": "await ElMessageBox.confirm(\nt(\"rfq.import.confirmOverwrite\"),",
+        "functionName": "unknown"
+      },
+      {
+        "file": "/views/MaterialRequisitionListView.vue",
+        "lineNumber": 398,
+        "context": "await ElMessageBox.confirm(\nt(\"requisition.list.messages.submitConfirm\"),",
+        "functionName": "submitRequisition"
+      },
+      {
+        "file": "/views/MaterialRequisitionListView.vue",
+        "lineNumber": 423,
+        "context": "await ElMessageBox.confirm(\nt(\"requisition.list.messages.approveConfirm\", { number: req.requisition_number }),",
+        "functionName": "approveRequisitionRow"
+      },
+      {
+        "file": "/views/RegistrationApprovalView.vue",
+        "lineNumber": 332,
+        "context": "await ElMessageBox.confirm(\nt('registrationApproval.confirm.approveMessage'),",
+        "functionName": "approveApplication"
+      },
+      {
+        "file": "/views/RfqCreateView.vue",
+        "lineNumber": 712,
+        "context": "await ElMessageBox.confirm(\nt(\"rfq.import.confirmOverwrite\"),",
+        "functionName": "unknown"
+      },
+      {
+        "file": "/views/RfqDetailView.vue",
+        "lineNumber": 1069,
+        "context": "await ElMessageBox.confirm(t(\"rfq.actions.publishConfirm\"), t(\"common.confirm\"), {\nconfirmButtonText: t(\"common.confirm\"),",
+        "functionName": "publishRfq"
+      },
+      {
+        "file": "/views/SupplierWhitelistBlacklistView.vue",
+        "lineNumber": 559,
+        "context": "await ElMessageBox.confirm(\nt(\"whitelistBlacklist.whitelist.messages.deactivateConfirm\"),",
+        "functionName": "handleDeactivateWhitelist"
+      },
+      {
+        "file": "/views/SupplierWhitelistBlacklistView.vue",
+        "lineNumber": 657,
+        "context": "await ElMessageBox.confirm(\nt(\"whitelistBlacklist.blacklist.messages.deactivateConfirm\"),",
+        "functionName": "handleDeactivateBlacklist"
+      },
+      {
+        "file": "/views/UpgradeManagementView.vue",
+        "lineNumber": 1256,
+        "context": "await ElMessageBox.confirm(\nt(\"upgradeManagement.actions.confirmSubmit\"),",
+        "functionName": "names"
+      }
+    ],
+    "unknown": []
+  },
+  "generatedAt": "2025-11-09T07:34:43.747Z"
+}

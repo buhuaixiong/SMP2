@@ -1,0 +1,2314 @@
+{
+  "generatedAt": "2025-11-16T08:30:35.126Z",
+  "targetDir": "apps/web/src",
+  "totalFiles": 67,
+  "totalOccurrences": 1474,
+  "findings": [
+    {
+      "file": "apps/web/src/api/changeRequests.ts",
+      "occurrences": 14,
+      "samples": [
+        {
+          "line": 25,
+          "text": "workflow?: WorkflowStep[];"
+        },
+        {
+          "line": 32,
+          "text": "approvalHistory: ApprovalRecord[];"
+        },
+        {
+          "line": 34,
+          "text": "workflow: WorkflowStep[];"
+        },
+        {
+          "line": 38,
+          "text": "export interface ApprovalRecord {"
+        },
+        {
+          "line": 42,
+          "text": "approverId: string;"
+        },
+        {
+          "line": 43,
+          "text": "approverName: string;"
+        },
+        {
+          "line": 44,
+          "text": "decision: \"approved\" | \"rejected\";"
+        },
+        {
+          "line": 49,
+          "text": "export interface WorkflowStep {"
+        },
+        {
+          "line": 86,
+          "text": "* 获取我的待审批列表"
+        },
+        {
+          "line": 88,
+          "text": "export async function getMyPendingApprovals(params?: {"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/api/fileUploads.ts",
+      "occurrences": 17,
+      "samples": [
+        {
+          "line": 3,
+          "text": "export interface WorkflowStep {"
+        },
+        {
+          "line": 27,
+          "text": "export interface FileApprovalRecord {"
+        },
+        {
+          "line": 32,
+          "text": "approverId: string | null;"
+        },
+        {
+          "line": 33,
+          "text": "approverName: string | null;"
+        },
+        {
+          "line": 40,
+          "text": "approvalHistory: FileApprovalRecord[];"
+        },
+        {
+          "line": 42,
+          "text": "workflow: WorkflowStep[];"
+        },
+        {
+          "line": 53,
+          "text": "export interface ApproveFilePayload {"
+        },
+        {
+          "line": 54,
+          "text": "decision: \"approved\" | \"rejected\";"
+        },
+        {
+          "line": 59,
+          "text": "* Upload file and create approval workflow"
+        },
+        {
+          "line": 61,
+          "text": "export async function uploadFileForApproval(payload: UploadFilePayload) {"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/api/lineItemWorkflow.ts",
+      "occurrences": 26,
+      "samples": [
+        {
+          "line": 2,
+          "text": "* Line Item Workflow API"
+        },
+        {
+          "line": 7,
+          "text": "export interface LineItemApprovalRequest {"
+        },
+        {
+          "line": 9,
+          "text": "decision?: 'approved' | 'rejected' | 'confirmed' | 'refused'"
+        },
+        {
+          "line": 14,
+          "text": "export interface LineItemApproval {"
+        },
+        {
+          "line": 18,
+          "text": "approverId: string"
+        },
+        {
+          "line": 19,
+          "text": "approverName: string"
+        },
+        {
+          "line": 20,
+          "text": "approverRole: string"
+        },
+        {
+          "line": 42,
+          "text": "currentApproverRole?: string"
+        },
+        {
+          "line": 52,
+          "text": "* Submit line item for manager approval"
+        },
+        {
+          "line": 66,
+          "text": "* Manager approve line item"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/api/public.ts",
+      "occurrences": 13,
+      "samples": [
+        {
+          "line": 135,
+          "text": "type: \"registration\" | \"approval\";"
+        },
+        {
+          "line": 139,
+          "text": "approver?: string | null;"
+        },
+        {
+          "line": 151,
+          "text": "currentApprover: string | null;"
+        },
+        {
+          "line": 218,
+          "text": "currentApprover: string | null;"
+        },
+        {
+          "line": 259,
+          "text": "// Registration Approval APIs"
+        },
+        {
+          "line": 260,
+          "text": "export interface ApprovalApplicationListItem {"
+        },
+        {
+          "line": 271,
+          "text": "export interface ApproveApplicationPayload {"
+        },
+        {
+          "line": 275,
+          "text": "export interface ApproveApplicationResponse {"
+        },
+        {
+          "line": 299,
+          "text": "apiFetch<{ data: ApprovalApplicationListItem[] }>(\"/supplier-registrations/pending\").then("
+        },
+        {
+          "line": 308,
+          "text": "export const approveRegistration = (id: number, payload: ApproveApplicationPayload) =>"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/api/requisitions.ts",
+      "occurrences": 4,
+      "samples": [
+        {
+          "line": 75,
+          "text": "// Submit requisition for approval"
+        },
+        {
+          "line": 82,
+          "text": "// Approve requisition (procurement roles)"
+        },
+        {
+          "line": 83,
+          "text": "export async function approveRequisition(id: number): Promise<void> {"
+        },
+        {
+          "line": 84,
+          "text": "await apiFetch(`/requisitions/${id}/approve`, {"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/api/rfq.ts",
+      "occurrences": 46,
+      "samples": [
+        {
+          "line": 349,
+          "text": "// RFQ Workflow Functions (New Line-Item Based Workflow)"
+        },
+        {
+          "line": 352,
+          "text": "export interface RfqWorkflowCreatePayload {"
+        },
+        {
+          "line": 385,
+          "text": "* Create RFQ with line items (new workflow)"
+        },
+        {
+          "line": 387,
+          "text": "export async function createRfqWorkflow(payload: RfqWorkflowCreatePayload): Promise<Rfq> {"
+        },
+        {
+          "line": 388,
+          "text": "const response = await apiFetch<{ data: Rfq }>(\"/rfq-workflow/create\", {"
+        },
+        {
+          "line": 396,
+          "text": "* Get RFQ with line items (new workflow)"
+        },
+        {
+          "line": 398,
+          "text": "export async function fetchRfqWorkflow(id: number): Promise<Rfq> {"
+        },
+        {
+          "line": 399,
+          "text": "const response = await apiFetch<{ data: Rfq }>(`/rfq-workflow/${id}`);"
+        },
+        {
+          "line": 404,
+          "text": "* Publish RFQ (new workflow)"
+        },
+        {
+          "line": 406,
+          "text": "export async function publishRfqWorkflow(id: number): Promise<{ message: string }> {"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/api/suppliers.ts",
+      "occurrences": 15,
+      "samples": [
+        {
+          "line": 7,
+          "text": "ApprovalRecord,"
+        },
+        {
+          "line": 165,
+          "text": "currentApprover?: string | null;"
+        },
+        {
+          "line": 176,
+          "text": "export const approveSupplier = ("
+        },
+        {
+          "line": 179,
+          "text": "decision: \"approved\" | \"rejected\";"
+        },
+        {
+          "line": 180,
+          "text": "approver: string;"
+        },
+        {
+          "line": 185,
+          "text": "apiFetch<Supplier>(`/suppliers/${id}/approve`, {"
+        },
+        {
+          "line": 259,
+          "text": "approvalHistory: ApprovalRecord[];"
+        },
+        {
+          "line": 296,
+          "text": "export interface ApprovalPreviewStep {"
+        },
+        {
+          "line": 306,
+          "text": "export interface ApprovalRiskFlag {"
+        },
+        {
+          "line": 312,
+          "text": "export interface ApprovalPreview {"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/api/upgrade.ts",
+      "occurrences": 2,
+      "samples": [
+        {
+          "line": 8,
+          "text": "workflow?: unknown;"
+        },
+        {
+          "line": 99,
+          "text": "decision: \"approved\" | \"rejected\";"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/api/workflows.ts",
+      "occurrences": 15,
+      "samples": [
+        {
+          "line": 2,
+          "text": "import type { WorkflowInstance } from \"@/types\";"
+        },
+        {
+          "line": 4,
+          "text": "export interface WorkflowFilters {"
+        },
+        {
+          "line": 10,
+          "text": "export interface WorkflowPayload {"
+        },
+        {
+          "line": 11,
+          "text": "workflowType: string;"
+        },
+        {
+          "line": 29,
+          "text": "export const listWorkflows = (filters: WorkflowFilters = {}) => {"
+        },
+        {
+          "line": 37,
+          "text": "return apiFetch<WorkflowInstance[]>(`/workflows${query ? `?${query}` : \"\"}`);"
+        },
+        {
+          "line": 40,
+          "text": "export const getWorkflow = (id: number) => apiFetch<WorkflowInstance>(`/workflows/${id}`);"
+        },
+        {
+          "line": 42,
+          "text": "export const createWorkflow = (payload: WorkflowPayload) =>"
+        },
+        {
+          "line": 43,
+          "text": "apiFetch<WorkflowInstance>(\"/workflows\", {"
+        },
+        {
+          "line": 48,
+          "text": "export const updateWorkflow = ("
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/ApprovalWorkflow.vue",
+      "occurrences": 79,
+      "samples": [
+        {
+          "line": 2,
+          "text": "<div class=\"approval-workflow\">"
+        },
+        {
+          "line": 6,
+          "text": "<h3>{{ t(\"rfq.approval.rfqInfo\") }}</h3>"
+        },
+        {
+          "line": 17,
+          "text": "<el-descriptions-item :label=\"t('rfq.approval.selectedSupplier')\">"
+        },
+        {
+          "line": 54,
+          "text": "<el-table-column :label=\"t('rfq.approval.quotePrice')\" width=\"140\">"
+        },
+        {
+          "line": 65,
+          "text": "<h3>{{ t(\"rfq.approval.priceComparison\") }}</h3>"
+        },
+        {
+          "line": 94,
+          "text": "<!-- 审批流程 -->"
+        },
+        {
+          "line": 95,
+          "text": "<el-card class=\"approval-steps-card\">"
+        },
+        {
+          "line": 97,
+          "text": "<h3>{{ t(\"rfq.approval.approvalProcess\") }}</h3>"
+        },
+        {
+          "line": 102,
+          "text": "v-for=\"approval in approvals\""
+        },
+        {
+          "line": 103,
+          "text": ":key=\"approval.id\""
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/AuditHistory.vue",
+      "occurrences": 2,
+      "samples": [
+        {
+          "line": 200,
+          "text": "approve: '#67C23A',"
+        },
+        {
+          "line": 212,
+          "text": "approve: 'success',"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/ChangeRequestTimeline.vue",
+      "occurrences": 39,
+      "samples": [
+        {
+          "line": 19,
+          "text": "<div v-if=\"step.approverName\" class=\"timeline-content\">"
+        },
+        {
+          "line": 20,
+          "text": "<p><strong>审批人:</strong> {{ step.approverName }}</p>"
+        },
+        {
+          "line": 24,
+          "text": ":type=\"step.decision === 'approved' ? 'success' : 'danger'\""
+        },
+        {
+          "line": 28,
+          "text": "{{ step.decision === \"approved\" ? \"批准\" : \"拒绝\" }}"
+        },
+        {
+          "line": 36,
+          "text": "<span>等待审批中...</span>"
+        },
+        {
+          "line": 50,
+          "text": "finalStatus === 'approved' ? 'success' : finalStatus === 'rejected' ? 'danger' : 'info'"
+        },
+        {
+          "line": 72,
+          "text": "import type { ApprovalRecord, WorkflowStep } from \"@/api/changeRequests\";"
+        },
+        {
+          "line": 75,
+          "text": "workflow: WorkflowStep[];"
+        },
+        {
+          "line": 76,
+          "text": "approvalHistory: ApprovalRecord[];"
+        },
+        {
+          "line": 85,
+          "text": "purchaser: \"采购员审批\","
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/DepartmentConfirmationPanel.vue",
+      "occurrences": 27,
+      "samples": [
+        {
+          "line": 33,
+          "text": "v-if=\"!hasDirectorApprovedQuotes\""
+        },
+        {
+          "line": 34,
+          "text": "title=\"Waiting for procurement director approval\""
+        },
+        {
+          "line": 40,
+          "text": "<p>Only procurement director approved quotes can be sent for department confirmation.</p>"
+        },
+        {
+          "line": 41,
+          "text": "<p>Please finish the approval workflow or have the director approve the quote first.</p>"
+        },
+        {
+          "line": 50,
+          "text": ":disabled=\"!hasDirectorApprovedQuotes\""
+        },
+        {
+          "line": 123,
+          "text": "@click=\"showDecisionDialog('approve')\""
+        },
+        {
+          "line": 125,
+          "text": "Approve Order"
+        },
+        {
+          "line": 183,
+          "text": ":disabled=\"!hasDirectorApprovedQuotes\""
+        },
+        {
+          "line": 187,
+          "text": "v-for=\"quote in directorApprovedQuotes\""
+        },
+        {
+          "line": 193,
+          "text": "<div v-if=\"!hasDirectorApprovedQuotes\" class=\"form-tip\">"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/DepartmentConfirmPanel.vue",
+      "occurrences": 4,
+      "samples": [
+        {
+          "line": 22,
+          "text": "<el-descriptions-item :label=\"t('rfq.approval.selectedSupplier')\">"
+        },
+        {
+          "line": 30,
+          "text": "<el-descriptions-item :label=\"t('rfq.pr.approvalStatus')\">"
+        },
+        {
+          "line": 31,
+          "text": "<el-tag type=\"success\">{{ t(\"rfq.approval.status.approved\") }}</el-tag>"
+        },
+        {
+          "line": 50,
+          "text": "<el-table-column :label=\"t('rfq.approval.quotePrice')\" width=\"140\">"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/DocumentUploadWidget.vue",
+      "occurrences": 1,
+      "samples": [
+        {
+          "line": 566,
+          "text": "case \"approved\":"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/FileUploadTimeline.vue",
+      "occurrences": 28,
+      "samples": [
+        {
+          "line": 16,
+          "text": "<div v-if=\"step.approvalRecord\" class=\"timeline-content\">"
+        },
+        {
+          "line": 17,
+          "text": "<p v-if=\"step.approvalRecord.approverName\">"
+        },
+        {
+          "line": 18,
+          "text": "<strong>{{ t(\"fileUpload.timeline.approver\") }}:</strong> {{ step.approvalRecord.approverName }}"
+        },
+        {
+          "line": 20,
+          "text": "<p v-if=\"step.approvalRecord.createdAt\">"
+        },
+        {
+          "line": 21,
+          "text": "<strong>{{ t(\"fileUpload.timeline.approvedAt\") }}:</strong> {{ formatTime(step.approvalRecord.createdAt) }}"
+        },
+        {
+          "line": 23,
+          "text": "<p v-if=\"step.approvalRecord.decision\">"
+        },
+        {
+          "line": 26,
+          "text": ":type=\"step.approvalRecord.decision === 'approved' ? 'success' : 'danger'\""
+        },
+        {
+          "line": 29,
+          "text": "{{ getDecisionLabel(step.approvalRecord.decision) }}"
+        },
+        {
+          "line": 32,
+          "text": "<p v-if=\"step.approvalRecord.comments\" class=\"comments\">"
+        },
+        {
+          "line": 33,
+          "text": "<strong>{{ t(\"fileUpload.timeline.comments\") }}:</strong> {{ step.approvalRecord.comments }}"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/PRFillForm.vue",
+      "occurrences": 3,
+      "samples": [
+        {
+          "line": 21,
+          "text": "<el-descriptions-item :label=\"t('rfq.approval.selectedSupplier')\">"
+        },
+        {
+          "line": 29,
+          "text": "<el-descriptions-item :label=\"t('rfq.pr.approvalStatus')\">"
+        },
+        {
+          "line": 30,
+          "text": "<el-tag type=\"success\">{{ t(\"rfq.approval.status.approved\") }}</el-tag>"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/PriceComparisonCell.vue",
+      "occurrences": 1,
+      "samples": [
+        {
+          "line": 34,
+          "text": "{{ t('rfq.lineItemWorkflow.uploadMarketPrice') }}"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/ProfileCompletionWidget.vue",
+      "occurrences": 1,
+      "samples": [
+        {
+          "line": 132,
+          "text": "<li>Speed up approval processes</li>"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/ProfileHistoryTimeline.vue",
+      "occurrences": 22,
+      "samples": [
+        {
+          "line": 17,
+          "text": "<el-option label=\"Approvals\" value=\"approval\" />"
+        },
+        {
+          "line": 156,
+          "text": "<!-- Approval Events -->"
+        },
+        {
+          "line": 157,
+          "text": "<div v-if=\"event.action === 'approval'\" class=\"approval-event\">"
+        },
+        {
+          "line": 158,
+          "text": "<div class=\"approval-decision\" :class=\"event.decision\">"
+        },
+        {
+          "line": 159,
+          "text": "<el-icon v-if=\"event.decision === 'approved'\"><circle-check /></el-icon>"
+        },
+        {
+          "line": 161,
+          "text": "<span>{{ event.decision === \"approved\" ? \"Approved\" : \"Rejected\" }}</span>"
+        },
+        {
+          "line": 163,
+          "text": "<div v-if=\"event.comments\" class=\"approval-comments\">"
+        },
+        {
+          "line": 250,
+          "text": "decision?: \"approved\" | \"rejected\";"
+        },
+        {
+          "line": 344,
+          "text": "case \"approval\":"
+        },
+        {
+          "line": 345,
+          "text": "return event.action === \"approval\";"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/PurchaserReviewPanel.vue",
+      "occurrences": 5,
+      "samples": [
+        {
+          "line": 108,
+          "text": "<!-- Price comparison upload moved to RfqApprovalOperationPanel in line item workflow mode -->"
+        },
+        {
+          "line": 261,
+          "text": "`http://localhost:3001/api/rfq-workflow/${props.rfqId}/select-quote`,"
+        },
+        {
+          "line": 279,
+          "text": "// 2. 提交评审（发起审批）"
+        },
+        {
+          "line": 281,
+          "text": "`http://localhost:3001/api/rfq-workflow/${props.rfqId}/submit-review`,"
+        },
+        {
+          "line": 420,
+          "text": "/* Price comparison styles removed - functionality moved to RfqApprovalOperationPanel */"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/RfqApprovalHistoryTimeline.vue",
+      "occurrences": 21,
+      "samples": [
+        {
+          "line": 2,
+          "text": "<div class=\"approval-history-timeline\" v-loading=\"loading\">"
+        },
+        {
+          "line": 17,
+          "text": "{{ $t(`rfq.lineItemWorkflow.decisions.${item.decision}`) }}"
+        },
+        {
+          "line": 20,
+          "text": "{{ $t(`rfq.lineItemWorkflow.steps.${item.step}`) }}"
+        },
+        {
+          "line": 23,
+          "text": "<div class=\"approver-info\">"
+        },
+        {
+          "line": 24,
+          "text": "<span class=\"approver-name\">{{ item.approverName }}</span>"
+        },
+        {
+          "line": 25,
+          "text": "<span class=\"approver-role\">"
+        },
+        {
+          "line": 26,
+          "text": "({{ $t(`roles.${item.approverRole}`) }})"
+        },
+        {
+          "line": 38,
+          "text": ":title=\"$t('rfq.lineItemWorkflow.quoteChanged')\""
+        },
+        {
+          "line": 44,
+          "text": "<div>{{ $t('rfq.lineItemWorkflow.previousQuote') }}: #{{ item.previousQuoteId }}</div>"
+        },
+        {
+          "line": 45,
+          "text": "<div>{{ $t('rfq.lineItemWorkflow.newQuote') }}: #{{ item.newQuoteId }}</div>"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/RfqApprovalOperationPanel.vue",
+      "occurrences": 82,
+      "samples": [
+        {
+          "line": 2,
+          "text": "<div class=\"approval-operation-panel\">"
+        },
+        {
+          "line": 4,
+          "text": "<h4>{{ $t('rfq.lineItemWorkflow.approvalOperations') }}</h4>"
+        },
+        {
+          "line": 6,
+          "text": "{{ $t(`rfq.lineItemWorkflow.statuses.${lineItem.status}`) }}"
+        },
+        {
+          "line": 33,
+          "text": "<!-- Purchaser: Submit for approval (draft/rejected) -->"
+        },
+        {
+          "line": 35,
+          "text": "<h5>{{ $t('rfq.lineItemWorkflow.submitForApproval') }}</h5>"
+        },
+        {
+          "line": 37,
+          "text": ":title=\"$t('rfq.lineItemWorkflow.selectQuoteHint')\""
+        },
+        {
+          "line": 47,
+          "text": ":text=\"$t('rfq.lineItemWorkflow.submitToManager')\""
+        },
+        {
+          "line": 48,
+          "text": ":confirm-text=\"$t('rfq.lineItemWorkflow.confirmSubmit')\""
+        },
+        {
+          "line": 54,
+          "text": "<!-- Manager: Approve/Reject -->"
+        },
+        {
+          "line": 55,
+          "text": "<div v-else-if=\"canManagerApprove\" class=\"operation-section\">"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/RfqApprovalWorkflow.vue",
+      "occurrences": 120,
+      "samples": [
+        {
+          "line": 2,
+          "text": "<el-card class=\"approval-workflow-card\" shadow=\"never\" v-if=\"approvals.length > 0\">"
+        },
+        {
+          "line": 5,
+          "text": "<span class=\"card-title\">{{ t(\"rfq.approval.workflowTitle\") }}</span>"
+        },
+        {
+          "line": 6,
+          "text": "<el-tag :type=\"getApprovalStatusType(overallStatus)\" size=\"large\">"
+        },
+        {
+          "line": 7,
+          "text": "{{ t(`rfq.approval.status.${overallStatus}`) }}"
+        },
+        {
+          "line": 14,
+          "text": "v-for=\"approval in approvals\""
+        },
+        {
+          "line": 15,
+          "text": ":key=\"approval.id\""
+        },
+        {
+          "line": 16,
+          "text": ":type=\"getTimelineType(approval.status)\""
+        },
+        {
+          "line": 17,
+          "text": ":icon=\"getTimelineIcon(approval.status)\""
+        },
+        {
+          "line": 18,
+          "text": ":size=\"approval.status === 'pending' ? 'large' : 'normal'\""
+        },
+        {
+          "line": 20,
+          "text": "<div class=\"approval-step\">"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/RfqLineItemWorkflowLayout.vue",
+      "occurrences": 44,
+      "samples": [
+        {
+          "line": 2,
+          "text": "<div class=\"rfq-line-item-workflow\" v-loading=\"loading\">"
+        },
+        {
+          "line": 24,
+          "text": "<div class=\"workflow-header\">"
+        },
+        {
+          "line": 25,
+          "text": "<h3>{{ $t('rfq.lineItemWorkflow.title') }}</h3>"
+        },
+        {
+          "line": 28,
+          "text": "{{ $t('rfq.lineItemWorkflow.totalItems', { count: lineItems.length }) }}"
+        },
+        {
+          "line": 31,
+          "text": "{{ $t('rfq.lineItemWorkflow.pendingItems', { count: pendingCount }) }}"
+        },
+        {
+          "line": 34,
+          "text": "{{ $t('rfq.lineItemWorkflow.completedItems', { count: completedCount }) }}"
+        },
+        {
+          "line": 50,
+          "text": "<div class=\"workflow-content\">"
+        },
+        {
+          "line": 64,
+          "text": "<!-- Right: Approval Operations (40%) -->"
+        },
+        {
+          "line": 65,
+          "text": "<div class=\"approval-operation-section\">"
+        },
+        {
+          "line": 66,
+          "text": "<RfqApprovalOperationPanel"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/RfqPriceComparisonSection.vue",
+      "occurrences": 20,
+      "samples": [
+        {
+          "line": 4,
+          "text": "<h4>{{ $t('rfq.lineItemWorkflow.priceComparison') }}</h4>"
+        },
+        {
+          "line": 56,
+          "text": "<el-table-column :label=\"$t('rfq.lineItemWorkflow.status')\" width=\"140\">"
+        },
+        {
+          "line": 59,
+          "text": "{{ $t(`rfq.lineItemWorkflow.statuses.${row.status}`) }}"
+        },
+        {
+          "line": 65,
+          "text": ":label=\"$t('rfq.lineItemWorkflow.currentApprover')\""
+        },
+        {
+          "line": 69,
+          "text": "<span>{{ getApproverLabel(row) }}</span>"
+        },
+        {
+          "line": 77,
+          "text": "<h4>{{ $t('rfq.lineItemWorkflow.quoteComparison') }}</h4>"
+        },
+        {
+          "line": 118,
+          "text": "{{ $t('rfq.lineItemWorkflow.purchaserSelected') }}"
+        },
+        {
+          "line": 172,
+          "text": "? $t('rfq.lineItemWorkflow.purchaserSelected')"
+        },
+        {
+          "line": 175,
+          "text": "? $t('rfq.lineItemWorkflow.viewOnly')"
+        },
+        {
+          "line": 195,
+          "text": ":description=\"$t('rfq.lineItemWorkflow.noQuotes')\""
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/RfqPriceComparisonTable.vue",
+      "occurrences": 2,
+      "samples": [
+        {
+          "line": 82,
+          "text": "<!-- Market price columns removed - functionality moved to RfqApprovalOperationPanel -->"
+        },
+        {
+          "line": 401,
+          "text": "// Market price comparison removed - functionality moved to RfqApprovalOperationPanel"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/RolePermissionsTable.vue",
+      "occurrences": 13,
+      "samples": [
+        {
+          "line": 156,
+          "text": "<li class=\"section-item\">{{ t(\"rolePermissions.roles.quality.ratings.approve\") }}</li>"
+        },
+        {
+          "line": 187,
+          "text": "{{ t(\"rolePermissions.roles.procurementManager.approval.module\") }}"
+        },
+        {
+          "line": 191,
+          "text": "{{ t(\"rolePermissions.roles.procurementManager.approval.suppliers\") }}"
+        },
+        {
+          "line": 194,
+          "text": "{{ t(\"rolePermissions.roles.procurementManager.approval.contracts\") }}"
+        },
+        {
+          "line": 197,
+          "text": "{{ t(\"rolePermissions.roles.procurementManager.approval.upgrades\") }}"
+        },
+        {
+          "line": 223,
+          "text": "{{ t(\"rolePermissions.roles.procurementDirector.finalApproval.module\") }}"
+        },
+        {
+          "line": 227,
+          "text": "{{ t(\"rolePermissions.roles.procurementDirector.finalApproval.suppliers\") }}"
+        },
+        {
+          "line": 230,
+          "text": "{{ t(\"rolePermissions.roles.procurementDirector.finalApproval.contracts\") }}"
+        },
+        {
+          "line": 233,
+          "text": "{{ t(\"rolePermissions.roles.procurementDirector.finalApproval.upgrades\") }}"
+        },
+        {
+          "line": 308,
+          "text": "{{ t(\"rolePermissions.roles.financeDirector.approval.module\") }}"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/Sidebar.vue",
+      "occurrences": 23,
+      "samples": [
+        {
+          "line": 134,
+          "text": "// Check if supplier is in registration workflow (has relatedApplicationId or is in registration status)"
+        },
+        {
+          "line": 183,
+          "text": "{ path: \"/approvals\", label: \"sidebar.registrationApprovals\", icon: Checked },"
+        },
+        {
+          "line": 184,
+          "text": "{ path: \"/approval/upgrades\", label: \"sidebar.upgradeApproval\", icon: TrendCharts },"
+        },
+        {
+          "line": 185,
+          "text": "{ path: \"/approval/supplier-changes\", label: \"sidebar.changeApproval\", icon: EditPen },"
+        },
+        {
+          "line": 186,
+          "text": "{ path: \"/approval/file-uploads\", label: \"sidebar.fileApproval\", icon: Files },"
+        },
+        {
+          "line": 204,
+          "text": "{ path: \"/registration-approvals\", label: \"sidebar.registrationApprovals\", icon: Checked },"
+        },
+        {
+          "line": 205,
+          "text": "{ path: \"/approval/upgrades\", label: \"sidebar.upgradeApproval\", icon: TrendCharts },"
+        },
+        {
+          "line": 206,
+          "text": "{ path: \"/approval/supplier-changes\", label: \"sidebar.changeApproval\", icon: EditPen },"
+        },
+        {
+          "line": 207,
+          "text": "{ path: \"/approval/file-uploads\", label: \"sidebar.fileApproval\", icon: Files },"
+        },
+        {
+          "line": 208,
+          "text": "{ path: \"/approvals\", label: \"sidebar.supplierApprovals\", icon: CircleCheck },"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/supplier-directory/SummaryCards.vue",
+      "occurrences": 6,
+      "samples": [
+        {
+          "line": 27,
+          "text": ":class=\"{ active: pendingApprovalsActive }\""
+        },
+        {
+          "line": 32,
+          "text": "<div class=\"card-value\">{{ pendingApprovalsCount }}</div>"
+        },
+        {
+          "line": 33,
+          "text": "<div class=\"card-label\">Pending Approvals</div>"
+        },
+        {
+          "line": 57,
+          "text": "pendingApprovalsCount: number;"
+        },
+        {
+          "line": 60,
+          "text": "pendingApprovalsActive?: boolean;"
+        },
+        {
+          "line": 65,
+          "text": "pendingApprovalsActive: false,"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/supplier-registration/shared/CategoryBadge.vue",
+      "occurrences": 1,
+      "samples": [
+        {
+          "line": 32,
+          "text": "return props.tooltip || t(\"supplierRegistration.categoryA.tooltip\", \"Editing this field after registration will trigger full approval chain\");"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/supplier-registration/SupplierRegistrationPreviewPanel.vue",
+      "occurrences": 10,
+      "samples": [
+        {
+          "line": 7,
+          "text": "\"supplierRegistration.actions.previewApproval\","
+        },
+        {
+          "line": 8,
+          "text": "\"Preview Approval Flow\","
+        },
+        {
+          "line": 23,
+          "text": "<div v-if=\"approvalPreview\" class=\"preview-result\">"
+        },
+        {
+          "line": 24,
+          "text": "<h3>{{ approvalPreview.templateLabel }}</h3>"
+        },
+        {
+          "line": 32,
+          "text": "<strong>{{ approvalPreview.estimatedWorkingDays }}</strong>"
+        },
+        {
+          "line": 42,
+          "text": "<li v-for=\"step in approvalPreview.steps\" :key=\"step.key\">"
+        },
+        {
+          "line": 49,
+          "text": "<div v-if=\"approvalPreview.riskFlags.length\" class=\"preview-risks\">"
+        },
+        {
+          "line": 60,
+          "text": "v-for=\"flag in approvalPreview.riskFlags\""
+        },
+        {
+          "line": 73,
+          "text": "import type { ApprovalPreview } from \"@/api/suppliers\";"
+        },
+        {
+          "line": 79,
+          "text": "approvalPreview: ApprovalPreview | null;"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/supplier-registration/SupplierRegistrationStepDocuments.vue",
+      "occurrences": 3,
+      "samples": [
+        {
+          "line": 150,
+          "text": ":approval-preview=\"approvalPreview\""
+        },
+        {
+          "line": 160,
+          "text": "import type { ApprovalPreview } from \"@/api/suppliers\";"
+        },
+        {
+          "line": 178,
+          "text": "approvalPreview: ApprovalPreview | null;"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/supplier-registration/SupplierRegistrationSubmissionCard.vue",
+      "occurrences": 1,
+      "samples": [
+        {
+          "line": 16,
+          "text": "\"Thank you. We have received your registration and started the approval process.\","
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/supplier-registration/SupplierRegistrationWizardFooter.vue",
+      "occurrences": 2,
+      "samples": [
+        {
+          "line": 40,
+          "text": "\"supplierRegistration.actions.previewApproval\","
+        },
+        {
+          "line": 41,
+          "text": "\"Preview Approval Flow\","
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/SupplierChangeRequestForm.vue",
+      "occurrences": 5,
+      "samples": [
+        {
+          "line": 10,
+          "text": "Updates to mandatory fields will start the full approval workflow (Purchaser → Quality →"
+        },
+        {
+          "line": 15,
+          "text": "Changes take effect only after approval. If any step rejects the request, please resubmit."
+        },
+        {
+          "line": 254,
+          "text": "<strong>{{ changedRequiredCount }}</strong> mandatory field(s) will follow the approval"
+        },
+        {
+          "line": 255,
+          "text": "workflow."
+        },
+        {
+          "line": 440,
+          "text": ": \"Change request submitted and awaiting approvals.\";"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/SupplierDashboardPanel.vue",
+      "occurrences": 4,
+      "samples": [
+        {
+          "line": 44,
+          "text": "{{ t(\"dashboard.supplierPanel.cards.registrationApplication.description\", \"Track your registration approval progress\") }}"
+        },
+        {
+          "line": 437,
+          "text": "return status === 'pending' || status === 'under_review' || status === 'pending_approval';"
+        },
+        {
+          "line": 451,
+          "text": "case \"approved\":"
+        },
+        {
+          "line": 458,
+          "text": "case \"pending_approval\":"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/SupplierFileUploadDialog.vue",
+      "occurrences": 12,
+      "samples": [
+        {
+          "line": 3,
+          "text": "<el-alert title=\"审批流程说明\" type=\"warning\" :closable=\"false\" style=\"margin-bottom: 20px\">"
+        },
+        {
+          "line": 4,
+          "text": "<p>文件上传后将进入<strong>5级审批流程</strong>:</p>"
+        },
+        {
+          "line": 6,
+          "text": "<li>采购员审批</li>"
+        },
+        {
+          "line": 7,
+          "text": "<li>品质审批</li>"
+        },
+        {
+          "line": 8,
+          "text": "<li>采购经理审批</li>"
+        },
+        {
+          "line": 9,
+          "text": "<li>采购总监审批</li>"
+        },
+        {
+          "line": 10,
+          "text": "<li>财务总监审批</li>"
+        },
+        {
+          "line": 13,
+          "text": "文件审批完成后才能生效。如任何步骤被拒绝,需重新提交。"
+        },
+        {
+          "line": 91,
+          "text": "上传并提交审批"
+        },
+        {
+          "line": 103,
+          "text": "import { uploadFileForApproval } from \"@/api/fileUploads\";"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/components/SupplierQuoteForm.vue",
+      "occurrences": 2,
+      "samples": [
+        {
+          "line": 1050,
+          "text": "? `http://localhost:3001/api/rfq-workflow/${props.rfq.id}/quotes/${props.existingQuote.id}`"
+        },
+        {
+          "line": 1051,
+          "text": ": `http://localhost:3001/api/rfq-workflow/${props.rfq.id}/quotes`;"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/router/index.ts",
+      "occurrences": 19,
+      "samples": [
+        {
+          "line": 68,
+          "text": "path: \"/approvals\","
+        },
+        {
+          "line": 69,
+          "text": "name: \"approvals\","
+        },
+        {
+          "line": 70,
+          "text": "component: () => import(\"@/views/ApprovalQueueView.vue\"),"
+        },
+        {
+          "line": 84,
+          "text": "path: \"/registration-approvals\","
+        },
+        {
+          "line": 85,
+          "text": "name: \"registration-approvals\","
+        },
+        {
+          "line": 86,
+          "text": "component: () => import(\"@/views/RegistrationApprovalView.vue\"),"
+        },
+        {
+          "line": 291,
+          "text": "path: \"/approval/supplier-changes\","
+        },
+        {
+          "line": 292,
+          "text": "name: \"supplier-change-approvals\","
+        },
+        {
+          "line": 293,
+          "text": "component: () => import(\"@/views/SupplierChangeApprovalView.vue\"),"
+        },
+        {
+          "line": 303,
+          "text": "title: \"Supplier Change Approvals\","
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/stores/supplier.ts",
+      "occurrences": 18,
+      "samples": [
+        {
+          "line": 12,
+          "text": "approveSupplier as apiApproveSupplier,"
+        },
+        {
+          "line": 128,
+          "text": "approvalHistory: supplier.approvalHistory ?? [],"
+        },
+        {
+          "line": 129,
+          "text": "fileApprovals: supplier.fileApprovals ?? [],"
+        },
+        {
+          "line": 293,
+          "text": "const approvedSuppliers = computed(() =>"
+        },
+        {
+          "line": 295,
+          "text": "[SupplierStatus.APPROVED, SupplierStatus.QUALIFIED].includes(supplier.status),"
+        },
+        {
+          "line": 579,
+          "text": "extras: { currentApprover?: string | null; notes?: string | null } = {},"
+        },
+        {
+          "line": 583,
+          "text": "currentApprover: extras.currentApprover,"
+        },
+        {
+          "line": 592,
+          "text": "const approveSupplier = async ("
+        },
+        {
+          "line": 594,
+          "text": "decision: \"approved\" | \"rejected\","
+        },
+        {
+          "line": 597,
+          "text": "const result = await apiApproveSupplier(id, {"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/types/index.ts",
+      "occurrences": 34,
+      "samples": [
+        {
+          "line": 24,
+          "text": "APPROVED = \"approved\","
+        },
+        {
+          "line": 73,
+          "text": "export interface ApprovalRecord {"
+        },
+        {
+          "line": 76,
+          "text": "approver: string;"
+        },
+        {
+          "line": 78,
+          "text": "result: \"approved\" | \"rejected\";"
+        },
+        {
+          "line": 415,
+          "text": "status: \"pending\" | \"approved\" | \"rejected\";"
+        },
+        {
+          "line": 429,
+          "text": "status: \"pending\" | \"approved\" | \"rejected\";"
+        },
+        {
+          "line": 474,
+          "text": "currentApprover: string | null;"
+        },
+        {
+          "line": 594,
+          "text": "approvalHistory: ApprovalRecord[];"
+        },
+        {
+          "line": 596,
+          "text": "fileApprovals: FileApprovalReview[];"
+        },
+        {
+          "line": 799,
+          "text": "export interface UpgradeWorkflowStep {"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/utils/approval.ts",
+      "occurrences": 8,
+      "samples": [
+        {
+          "line": 4,
+          "text": "export interface ApprovalOptions {"
+        },
+        {
+          "line": 5,
+          "text": "approver: string;"
+        },
+        {
+          "line": 6,
+          "text": "decision: \"approved\" | \"rejected\";"
+        },
+        {
+          "line": 13,
+          "text": "decision: \"approved\" | \"rejected\","
+        },
+        {
+          "line": 24,
+          "text": "return SupplierStatus.APPROVED;"
+        },
+        {
+          "line": 30,
+          "text": "export const handleApproval = (supplier: Supplier, options: ApprovalOptions): Supplier => {"
+        },
+        {
+          "line": 34,
+          "text": "approver: options.approver,"
+        },
+        {
+          "line": 43,
+          "text": "approvalHistory: [historyRecord, ...supplier.approvalHistory],"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/utils/helpers.ts",
+      "occurrences": 1,
+      "samples": [
+        {
+          "line": 35,
+          "text": "[SupplierStatus.APPROVED]: \"success\","
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/utils/mock-data.ts",
+      "occurrences": 14,
+      "samples": [
+        {
+          "line": 23,
+          "text": "\"approve_supplier\","
+        },
+        {
+          "line": 31,
+          "text": "permissions: [\"view_own\", \"create_supplier\", \"approve_supplier\"],"
+        },
+        {
+          "line": 38,
+          "text": "permissions: [\"view_all\", \"approve_supplier\"],"
+        },
+        {
+          "line": 45,
+          "text": "permissions: [\"view_all\", \"approve_supplier\"],"
+        },
+        {
+          "line": 59,
+          "text": "status: SupplierStatus.APPROVED,"
+        },
+        {
+          "line": 61,
+          "text": "currentApprover: null,"
+        },
+        {
+          "line": 64,
+          "text": "approvalHistory: ["
+        },
+        {
+          "line": 67,
+          "text": "approver: \"pur001\","
+        },
+        {
+          "line": 68,
+          "text": "result: \"approved\","
+        },
+        {
+          "line": 70,
+          "text": "comments: \"Documentation verified. Recommended for approval.\","
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/utils/supplierChangeRules.ts",
+      "occurrences": 5,
+      "samples": [
+        {
+          "line": 161,
+          "text": "purchaser: \"Purchaser approval\","
+        },
+        {
+          "line": 163,
+          "text": "purchase_manager: \"Purchasing manager approval\","
+        },
+        {
+          "line": 164,
+          "text": "purchase_director: \"Purchasing director approval\","
+        },
+        {
+          "line": 165,
+          "text": "finance_director: \"Finance director approval\","
+        },
+        {
+          "line": 183,
+          "text": "export const buildApprovalSteps = ("
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/AdminBulkDocumentImportView.vue",
+      "occurrences": 1,
+      "samples": [
+        {
+          "line": 426,
+          "text": "approved: \"success\","
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/ApprovalDashboardView.vue",
+      "occurrences": 77,
+      "samples": [
+        {
+          "line": 2,
+          "text": "<div class=\"approval-dashboard-container\">"
+        },
+        {
+          "line": 6,
+          "text": "<h2>{{ t(\"approvalDashboard.title\") }}</h2>"
+        },
+        {
+          "line": 7,
+          "text": "<p class=\"subtitle\">{{ t(\"approvalDashboard.subtitle\") }}</p>"
+        },
+        {
+          "line": 19,
+          "text": "<div class=\"stat-label\">{{ t(\"approvalDashboard.stats.total\") }}</div>"
+        },
+        {
+          "line": 23,
+          "text": "<div class=\"stat-label\">{{ t(\"approvalDashboard.stats.urgent\") }}</div>"
+        },
+        {
+          "line": 27,
+          "text": "<div class=\"stat-label\">{{ t(\"approvalDashboard.stats.thisWeek\") }}</div>"
+        },
+        {
+          "line": 31,
+          "text": "<div class=\"stat-label\">{{ t(\"approvalDashboard.stats.avgCompleteness\") }}</div>"
+        },
+        {
+          "line": 38,
+          "text": "<el-form-item :label=\"t('approvalDashboard.filters.status')\">"
+        },
+        {
+          "line": 48,
+          "text": "<el-form-item :label=\"t('approvalDashboard.filters.urgency')\">"
+        },
+        {
+          "line": 50,
+          "text": "<el-option :label=\"t('approvalDashboard.urgency.urgent')\" value=\"urgent\" />"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/ApprovalQueueView.vue",
+      "occurrences": 38,
+      "samples": [
+        {
+          "line": 2,
+          "text": "<div class=\"approval-view\">"
+        },
+        {
+          "line": 3,
+          "text": "<PageHeader :title=\"t('approvalQueue.title')\" :subtitle=\"t('approvalQueue.subtitle')\" />"
+        },
+        {
+          "line": 6,
+          "text": "<!-- 待审批列表 -->"
+        },
+        {
+          "line": 7,
+          "text": "<el-card class=\"approval-card\" shadow=\"never\">"
+        },
+        {
+          "line": 10,
+          "text": "<span>待我审批 ({{ applications.length }})</span>"
+        },
+        {
+          "line": 61,
+          "text": "{{ t(\"approvalQueue.actions.viewDetails\") }}"
+        },
+        {
+          "line": 68,
+          "text": "<el-empty :description=\"t('approvalQueue.noSuppliers')\" />"
+        },
+        {
+          "line": 76,
+          "text": ":title=\"selectedApplication?.companyName || t('approvalQueue.drawer.title')\""
+        },
+        {
+          "line": 84,
+          "text": "<el-empty :description=\"t('approvalQueue.errors.noStatus')\" />"
+        },
+        {
+          "line": 286,
+          "text": "<!-- 审批决定 -->"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/DashboardView.vue",
+      "occurrences": 5,
+      "samples": [
+        {
+          "line": 72,
+          "text": "<router-link class=\"quick-link\" :to=\"{ name: 'approvals' }\">{{"
+        },
+        {
+          "line": 73,
+          "text": "t(\"dashboard.quickLinks.approvalQueue\")"
+        },
+        {
+          "line": 148,
+          "text": "const { suppliers, pendingSuppliers, approvedSuppliers, stats, loading, changeRequests } ="
+        },
+        {
+          "line": 161,
+          "text": "const completed = approvedSuppliers.value.length;"
+        },
+        {
+          "line": 250,
+          "text": "if (status === \"approved\" || status === \"qualified\") return \"status-success\";"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/FileUploadApprovalView.vue",
+      "occurrences": 73,
+      "samples": [
+        {
+          "line": 2,
+          "text": "<div class=\"approval-page\">"
+        },
+        {
+          "line": 4,
+          "text": "title=\"文件上传审批\""
+        },
+        {
+          "line": 5,
+          "text": "subtitle=\"审批供应商上传的文件\""
+        },
+        {
+          "line": 9,
+          "text": "<el-button @click=\"fetchPendingApprovals\">"
+        },
+        {
+          "line": 17,
+          "text": "<!-- Pending Approvals List -->"
+        },
+        {
+          "line": 21,
+          "text": "<span>待审批文件 ({{ pendingApprovals.length }})</span>"
+        },
+        {
+          "line": 22,
+          "text": "<el-tag v-if=\"pendingApprovals.length > 0\" type=\"warning\">"
+        },
+        {
+          "line": 23,
+          "text": "{{ pendingApprovals.length }} 个待处理"
+        },
+        {
+          "line": 28,
+          "text": "<el-empty v-if=\"!loading && pendingApprovals.length === 0\" description=\"暂无待审批文件\" />"
+        },
+        {
+          "line": 30,
+          "text": "<el-table v-else v-loading=\"loading\" :data=\"pendingApprovals\" stripe style=\"width: 100%\">"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/MaterialRequisitionDetailView.vue",
+      "occurrences": 24,
+      "samples": [
+        {
+          "line": 162,
+          "text": "<section v-if=\"showApprovalInfo\" class=\"info-section\">"
+        },
+        {
+          "line": 163,
+          "text": "<h3>{{ t(\"requisition.detail.sections.approval\") }}</h3>"
+        },
+        {
+          "line": 172,
+          "text": "v-if=\"requisition.approved_at\""
+        },
+        {
+          "line": 173,
+          "text": ":label=\"t('requisition.detail.fields.approvedAt')\""
+        },
+        {
+          "line": 175,
+          "text": "{{ formatDateTime(requisition.approved_at) }}"
+        },
+        {
+          "line": 178,
+          "text": "v-if=\"requisition.approved_by_name\""
+        },
+        {
+          "line": 179,
+          "text": ":label=\"t('requisition.detail.fields.approvedBy')\""
+        },
+        {
+          "line": 181,
+          "text": "{{ requisition.approved_by_name }}"
+        },
+        {
+          "line": 216,
+          "text": "<section v-if=\"showApprovalActions\" class=\"info-section\">"
+        },
+        {
+          "line": 219,
+          "text": "<el-button type=\"success\" size=\"large\" :loading=\"approving\" @click=\"handleApprove\">"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/MaterialRequisitionFormView.vue",
+      "occurrences": 3,
+      "samples": [
+        {
+          "line": 279,
+          "text": "<el-button type=\"success\" :loading=\"submitting\" @click=\"handleSubmitForApproval\">"
+        },
+        {
+          "line": 692,
+          "text": "async function handleSubmitForApproval() {"
+        },
+        {
+          "line": 782,
+          "text": "handleSubmitForApproval();"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/MaterialRequisitionListView.vue",
+      "occurrences": 15,
+      "samples": [
+        {
+          "line": 142,
+          "text": "v-if=\"canApprove(row)\""
+        },
+        {
+          "line": 146,
+          "text": "@click=\"approveRequisitionRow(row)\""
+        },
+        {
+          "line": 148,
+          "text": "{{ t(\"requisition.list.actions.approve\") }}"
+        },
+        {
+          "line": 214,
+          "text": "approveRequisition as apiApproveRequisition,"
+        },
+        {
+          "line": 252,
+          "text": "{ value: RequisitionStatus.APPROVED, label: getStatusLabel(RequisitionStatus.APPROVED) },"
+        },
+        {
+          "line": 271,
+          "text": "case RequisitionStatus.APPROVED:"
+        },
+        {
+          "line": 347,
+          "text": "function canApprove(req: MaterialRequisition): boolean {"
+        },
+        {
+          "line": 352,
+          "text": "return canApprove(req);"
+        },
+        {
+          "line": 421,
+          "text": "async function approveRequisitionRow(req: MaterialRequisition) {"
+        },
+        {
+          "line": 424,
+          "text": "t(\"requisition.list.messages.approveConfirm\", { number: req.requisition_number }),"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/PrConfirmationView.vue",
+      "occurrences": 3,
+      "samples": [
+        {
+          "line": 94,
+          "text": "getPendingApprovals,"
+        },
+        {
+          "line": 97,
+          "text": "} from '@/api/lineItemWorkflow'"
+        },
+        {
+          "line": 134,
+          "text": "records.value[tab] = await getPendingApprovals(statusParam)"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/RegistrationApprovalView.vue",
+      "occurrences": 85,
+      "samples": [
+        {
+          "line": 2,
+          "text": "<div class=\"approval-view\">"
+        },
+        {
+          "line": 4,
+          "text": "<template #title>{{ t('registrationApproval.title') }}</template>"
+        },
+        {
+          "line": 10,
+          "text": "<el-breadcrumb-item>{{ t('registrationApproval.title') }}</el-breadcrumb-item>"
+        },
+        {
+          "line": 15,
+          "text": "<main class=\"approval-content\">"
+        },
+        {
+          "line": 16,
+          "text": "<el-card class=\"approval-card\">"
+        },
+        {
+          "line": 19,
+          "text": "<h3>{{ t('registrationApproval.pendingApplications') }}</h3>"
+        },
+        {
+          "line": 41,
+          "text": ":description=\"t('registrationApproval.noApplications')\""
+        },
+        {
+          "line": 53,
+          "text": ":label=\"t('registrationApproval.table.id')\""
+        },
+        {
+          "line": 58,
+          "text": ":label=\"t('registrationApproval.table.companyName')\""
+        },
+        {
+          "line": 63,
+          "text": ":label=\"t('registrationApproval.table.supplierCode')\""
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/RegistrationStatusView.vue",
+      "occurrences": 5,
+      "samples": [
+        {
+          "line": 46,
+          "text": "<span class=\"summary-label\">{{ t(\"registrationStatus.fields.currentApprover\") }}</span>"
+        },
+        {
+          "line": 47,
+          "text": "<span class=\"summary-value\">{{ status.currentApprover || \"-\" }}</span>"
+        },
+        {
+          "line": 67,
+          "text": ":type=\"item.type === 'approval' ? 'primary' : 'success'\""
+        },
+        {
+          "line": 180,
+          "text": "case \"approved\":"
+        },
+        {
+          "line": 279,
+          "text": "? `${item.step ?? \"approval\"} (${item.status ?? \"-\"})`"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/RfqCreateView.vue",
+      "occurrences": 3,
+      "samples": [
+        {
+          "line": 324,
+          "text": "import { createRfqWorkflow, importRfqFromExcel } from \"@/api/rfq\";"
+        },
+        {
+          "line": 433,
+          "text": "// Use new workflow API"
+        },
+        {
+          "line": 455,
+          "text": "const rfq = await createRfqWorkflow(payload);"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/RfqDetailView.vue",
+      "occurrences": 39,
+      "samples": [
+        {
+          "line": 341,
+          "text": "<!-- Line Item Independent Workflow (Internal Staff Only - Line Item Mode) -->"
+        },
+        {
+          "line": 342,
+          "text": "<el-card v-if=\"showLineItemWorkflow\" class=\"line-item-workflow-card\" shadow=\"never\">"
+        },
+        {
+          "line": 343,
+          "text": "<RfqLineItemWorkflowLayout"
+        },
+        {
+          "line": 350,
+          "text": "<el-card v-if=\"!isSupplier && !showLineItemWorkflow\" class=\"quotes-card\" shadow=\"never\">"
+        },
+        {
+          "line": 363,
+          "text": "{{ t(\"rfq.detail.submitForApproval\") }}"
+        },
+        {
+          "line": 400,
+          "text": "<!-- Approval Workflow (Traditional Mode Only) -->"
+        },
+        {
+          "line": 401,
+          "text": "<RfqApprovalWorkflow"
+        },
+        {
+          "line": 402,
+          "text": "v-if=\"!isSupplier && rfq?.id && !showLineItemWorkflow\""
+        },
+        {
+          "line": 404,
+          "text": ":approvals=\"approvals\""
+        },
+        {
+          "line": 421,
+          "text": ":title=\"t('rfq.review.submitForApprovalTitle')\""
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/SupplierChangeApprovalView.vue",
+      "occurrences": 70,
+      "samples": [
+        {
+          "line": 2,
+          "text": "<div class=\"approval-view\">"
+        },
+        {
+          "line": 4,
+          "text": "title=\"供应商资料变更审批\""
+        },
+        {
+          "line": 5,
+          "text": "subtitle=\"审批供应商提交的资料修改申请\""
+        },
+        {
+          "line": 9,
+          "text": "<!-- 待审批列表 -->"
+        },
+        {
+          "line": 10,
+          "text": "<el-card class=\"approval-card\" shadow=\"never\">"
+        },
+        {
+          "line": 13,
+          "text": "<span>待我审批 ({{ pendingRequests.length }})</span>"
+        },
+        {
+          "line": 72,
+          "text": "<el-button type=\"primary\" size=\"small\" @click=\"handleApprove(row)\"> 审批 </el-button>"
+        },
+        {
+          "line": 79,
+          "text": "<el-empty description=\"暂无待审批的变更申请\" />"
+        },
+        {
+          "line": 84,
+          "text": "<!-- 审批对话框 -->"
+        },
+        {
+          "line": 86,
+          "text": "v-model=\"approvalDialogVisible\""
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/SupplierChangeRequestsView.vue",
+      "occurrences": 27,
+      "samples": [
+        {
+          "line": 5,
+          "text": "subtitle=\"查看您提交的资料修改审批记录\""
+        },
+        {
+          "line": 18,
+          "text": "<div class=\"stat-label\">审批中</div>"
+        },
+        {
+          "line": 24,
+          "text": "<div class=\"stat-icon approved\">"
+        },
+        {
+          "line": 28,
+          "text": "<div class=\"stat-value\">{{ stats.approved }}</div>"
+        },
+        {
+          "line": 181,
+          "text": "<!-- 审批进度 -->"
+        },
+        {
+          "line": 182,
+          "text": "<el-divider content-position=\"left\">审批进度</el-divider>"
+        },
+        {
+          "line": 185,
+          "text": ":workflow=\"requestDetails.workflow\""
+        },
+        {
+          "line": 186,
+          "text": ":approval-history=\"requestDetails.approvalHistory\""
+        },
+        {
+          "line": 191,
+          "text": "加载审批进度中..."
+        },
+        {
+          "line": 205,
+          "text": "<!-- 审批流程说明 -->"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/SupplierDirectoryView.vue",
+      "occurrences": 43,
+      "samples": [
+        {
+          "line": 41,
+          "text": ":pending-approvals-count=\"pendingApprovalsCount\""
+        },
+        {
+          "line": 44,
+          "text": ":pending-approvals-active=\"isPendingFilterActive\""
+        },
+        {
+          "line": 47,
+          "text": "@filter-pending=\"togglePendingApprovalsFilter\""
+        },
+        {
+          "line": 554,
+          "text": "<!-- Approval History Section -->"
+        },
+        {
+          "line": 555,
+          "text": "<section v-if=\"mergedApprovals.length > 0\" class=\"detail-section\">"
+        },
+        {
+          "line": 556,
+          "text": "<h3 class=\"section-title\">{{ t('supplier.approvalHistory.title') }}</h3>"
+        },
+        {
+          "line": 558,
+          "text": "<el-timeline class=\"approval-timeline\">"
+        },
+        {
+          "line": 560,
+          "text": "v-for=\"item in mergedApprovals\""
+        },
+        {
+          "line": 572,
+          "text": "{{ t(`supplier.approvalHistory.sourceLabels.${item.source}`) }}"
+        },
+        {
+          "line": 577,
+          "text": "<p class=\"timeline-actor\">{{ t('supplier.approvalHistory.handler') }}: {{ item.actor || '—' }}</p>"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/SupplierFileUploadsView.vue",
+      "occurrences": 22,
+      "samples": [
+        {
+          "line": 5,
+          "text": "subtitle=\"上传文件并查看审批状态\""
+        },
+        {
+          "line": 41,
+          "text": "<p class=\"stat-label\">审批中</p>"
+        },
+        {
+          "line": 54,
+          "text": "<p class=\"stat-value\">{{ approvedCount }}</p>"
+        },
+        {
+          "line": 224,
+          "text": "<el-divider content-position=\"left\">审批进度</el-divider>"
+        },
+        {
+          "line": 227,
+          "text": ":workflow=\"selectedUploadDetails.workflow\""
+        },
+        {
+          "line": 230,
+          "text": ":approval-history=\"selectedUploadDetails.approvalHistory\""
+        },
+        {
+          "line": 277,
+          "text": "const approvedCount = computed(() => {"
+        },
+        {
+          "line": 278,
+          "text": "return uploads.value.filter((u) => u.status === \"approved\").length;"
+        },
+        {
+          "line": 287,
+          "text": "pending_purchaser: \"待采购员审批\","
+        },
+        {
+          "line": 288,
+          "text": "pending_quality_manager: \"待品质审批\","
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/SupplierRegistrationView.vue",
+      "occurrences": 17,
+      "samples": [
+        {
+          "line": 97,
+          "text": ":approval-preview=\"approvalPreview\""
+        },
+        {
+          "line": 163,
+          "text": "'Use the credentials below to track your approval progress.',"
+        },
+        {
+          "line": 270,
+          "text": "previewApprovalFlow,"
+        },
+        {
+          "line": 272,
+          "text": "type ApprovalPreview,"
+        },
+        {
+          "line": 350,
+          "text": "\"Confirm bank details and preview approvals.\","
+        },
+        {
+          "line": 376,
+          "text": "const approvalPreview = ref<ApprovalPreview | null>(null);"
+        },
+        {
+          "line": 470,
+          "text": "\"Use the credentials below to track your approval progress.\","
+        },
+        {
+          "line": 518,
+          "text": "\"Editing after registration triggers full approval.\","
+        },
+        {
+          "line": 697,
+          "text": "approvalPreview.value = null;"
+        },
+        {
+          "line": 927,
+          "text": "const preview = await previewApprovalFlow({"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/SupplierView.vue",
+      "occurrences": 56,
+      "samples": [
+        {
+          "line": 50,
+          "text": "v-if=\"canApprove(supplier)\""
+        },
+        {
+          "line": 53,
+          "text": "@click=\"openApprovalDialog(supplier)\""
+        },
+        {
+          "line": 55,
+          "text": "{{ t(\"approval.review\") }}"
+        },
+        {
+          "line": 148,
+          "text": "<div v-if=\"showApprovalDialog\" class=\"modal-overlay\" @click=\"closeApprovalDialog\">"
+        },
+        {
+          "line": 151,
+          "text": "<h2>{{ t(\"approvalQueue.title\") }}</h2>"
+        },
+        {
+          "line": 152,
+          "text": "<button class=\"close-btn\" type=\"button\" @click=\"closeApprovalDialog\">x</button>"
+        },
+        {
+          "line": 169,
+          "text": "<label>{{ t(\"approval.decision\") }} *</label>"
+        },
+        {
+          "line": 172,
+          "text": "<input v-model=\"approvalForm.decision\" type=\"radio\" value=\"approved\" />"
+        },
+        {
+          "line": 173,
+          "text": "<span>{{ t(\"approval.approve\") }}</span>"
+        },
+        {
+          "line": 176,
+          "text": "<input v-model=\"approvalForm.decision\" type=\"radio\" value=\"rejected\" />"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/UnifiedDashboard.vue",
+      "occurrences": 3,
+      "samples": [
+        {
+          "line": 177,
+          "text": "// Check if supplier user is still in registration/approval phase"
+        },
+        {
+          "line": 178,
+          "text": "// Even formal supplier code accounts should only see registration status during approval"
+        },
+        {
+          "line": 188,
+          "text": "// Supplier still in approval process - redirect to registration status"
+        }
+      ]
+    },
+    {
+      "file": "apps/web/src/views/UpgradeManagementView.vue",
+      "occurrences": 31,
+      "samples": [
+        {
+          "line": 520,
+          "text": "<span>{{ t(\"upgradeManagement.workflow.title\") }}</span>"
+        },
+        {
+          "line": 539,
+          "text": "文件审批"
+        },
+        {
+          "line": 552,
+          "text": "<p>{{ t(\"upgradeManagement.workflow.handler\") }}: {{ item.actor || \"—\" }}</p>"
+        },
+        {
+          "line": 554,
+          "text": "{{ t(\"upgradeManagement.workflow.remark\") }}: {{ item.remark }}"
+        },
+        {
+          "line": 604,
+          "text": "FileApprovalReview,"
+        },
+        {
+          "line": 628,
+          "text": "source?: string;  // Approval source: 'file_upload' | 'upgrade_application'"
+        },
+        {
+          "line": 652,
+          "text": "approved: \"success\","
+        },
+        {
+          "line": 663,
+          "text": "approved: \"success\","
+        },
+        {
+          "line": 687,
+          "text": "workflow: null as UpgradeStatus[\"workflow\"],"
+        },
+        {
+          "line": 689,
+          "text": "fileApprovals: [] as FileApprovalReview[],"
+        }
+      ]
+    }
+  ]
+}

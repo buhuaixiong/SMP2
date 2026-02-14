@@ -1,0 +1,17 @@
+{
+  "showing": "显示 {start}-{end}，共 {total} 家供应商",
+  "noMatch": "没有符合当前筛选条件的供应商",
+  "perPage": "每页",
+  "page": "第 {current} 页，共 {total} 页",
+  "loading": "加载供应商中...",
+  "noData": "暂无供应商数据",
+  "hideDetails": "隐藏详情",
+  "showDetails": "显示详情",
+  "columns": {
+    "company": "公司",
+    "category": "类别",
+    "region": "地区",
+    "importance": "重要程度",
+    "completion": "完整度"
+  }
+}

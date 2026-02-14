@@ -1,0 +1,1 @@
+const e="合同",t="添加新合同",d="编辑合同",i="合同详情",s="版本",n="版本历史",a={title:"提醒",add:"添加提醒",leadTime:"提前时间（天）",sent:"已发送",pending:"待发送"},r={title:"合同",addNew:t,edit:d,details:i,version:"版本",versionHistory:n,reminders:a};export{t as addNew,r as default,i as details,d as edit,a as reminders,e as title,s as version,n as versionHistory};

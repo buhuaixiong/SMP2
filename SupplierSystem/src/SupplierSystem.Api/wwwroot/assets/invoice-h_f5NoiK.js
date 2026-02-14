@@ -1,0 +1,1 @@
+const e="发票",t="上传发票",a="发票号码",d="金额",p="到期日",u={pending:"待处理",approved:"已批准",rejected:"已拒绝",paid:"已支付"},n={title:"发票",upload:t,number:a,amount:"金额",dueDate:"到期日",status:u};export{d as amount,n as default,p as dueDate,a as number,u as status,e as title,t as upload};

@@ -1,0 +1,37 @@
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwdXJjaDAwMSIsInJvbGUiOiJwdXJjaGFzZXIiLCJzdXBwbGllcklkIjpudWxsLCJ0ZW5hbnRJZCI6InRlbmFudC1kZWZhdWx0IiwiaWF0IjoxNzYyNDI4NzU2LCJleHAiOjE3NjI0NTc1NTZ9.3bqd8Mwpf5fcVe746dxrC1bm3CJzouUb06x7rRp8w5I",
+    "expiresIn": 1762457556,
+    "expiresInReadable": "8h",
+    "user": {
+        "id": "purch001",
+        "name": "Piper Purchaser",
+        "role": "purchaser",
+        "supplierId": null,
+        "tenantId": "tenant-default",
+        "email": null,
+        "tempAccountId": null,
+        "permissions": [
+            "supplier.segment.manage",
+            "rfq.short.manage",
+            "supplier.upgrade.init",
+            "finance.invoice.support",
+            "registration.approve.purchaser",
+            "rfq.short.participate",
+            "supplier.create",
+            "rfq.create",
+            "rfq.edit",
+            "rfq.view",
+            "rfq.view.quotes",
+            "rfq.publish",
+            "rfq.invite.suppliers",
+            "rfq.close"
+        ],
+        "orgUnits": [],
+        "adminUnits": [],
+        "isOrgUnitAdmin": false,
+        "functions": [],
+        "purchasingGroups": [],
+        "isPurchasingGroupLeader": false
+    },
+    "mustChangePassword": true
+}

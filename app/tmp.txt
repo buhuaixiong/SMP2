@@ -1,0 +1,1 @@
+"node"   "C:\supplier-backend\node_modules\.bin\\..\vite\bin\vite.js" 

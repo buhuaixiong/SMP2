@@ -1,0 +1,18 @@
+{
+  "title": "审批",
+  "queue": "审批队列",
+  "dashboard": "审批仪表盘",
+  "pending": "待审批",
+  "history": "审批历史",
+  "approve": "批准",
+  "reject": "拒绝",
+  "comment": "评论",
+  "addComment": "添加评论",
+  "decision": "决定",
+  "decisionDate": "决定日期",
+  "approver": "审批人",
+  "notifications": {
+    "approveSuccess": "批准成功",
+    "rejectSuccess": "拒绝成功"
+  }
+}

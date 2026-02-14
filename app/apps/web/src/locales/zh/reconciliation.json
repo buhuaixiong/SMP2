@@ -1,0 +1,114 @@
+{
+  "title": "对账管理",
+  "dashboard": {
+    "title": "对账管理中心"
+  },
+  "buttons": {
+    "generateReport": "生成报表",
+    "reject": "驳回",
+    "generate": "生成"
+  },
+  "stats": {
+    "totalRecords": "总记录数",
+    "matched": "已匹配",
+    "varianceRecords": "差异记录",
+    "unconfirmed": "待确认"
+  },
+  "status": {
+    "all": "全部",
+    "matched": "已匹配",
+    "variance": "存在差异",
+    "unmatched": "未匹配"
+  },
+  "table": {
+    "warehouseOrderNo": "仓库订单号",
+    "supplier": "供应商",
+    "receivedDate": "收货日期",
+    "reconAmount": "对账金额",
+    "reconciliationAmount": "对账金额",
+    "quantity": "数量",
+    "status": "状态",
+    "varianceAmount": "差异金额",
+    "invoiceAmount": "发票金额",
+    "invoiceNumber": "发票号",
+    "accountantConfirmed": "财务已确认",
+    "operations": "操作",
+    "notUploaded": "未上传",
+    "variance": "差异",
+    "confirmStatus": "确认状态"
+  },
+  "confirmStatus": {
+    "confirmed": "已确认",
+    "unconfirmed": "待确认",
+    "pending": "处理中"
+  },
+  "uploadInvoice": "上传发票",
+  "viewWarehouseReceipt": "查看收货单",
+  "uploadInvoiceDialog": {
+    "title": "上传发票",
+    "reconciliationNo": "对账单号",
+    "invoiceNo": "发票号",
+    "invoiceDate": "发票日期",
+    "invoiceAmount": "发票金额",
+    "invoiceFile": "发票文件",
+    "selectFile": "选择文件",
+    "supportedFormats": "支持 PDF、DOC、DOCX、XLS、XLSX、JPG、PNG 等格式，文件大小不超过 10MB"
+  },
+  "detailsDialog": {
+    "title": "对账详情",
+    "varianceAmount": "差异金额",
+    "varianceAnalysis": "差异分析",
+    "variancePercentage": "差异百分比",
+    "varianceReason": "差异原因",
+    "noReason": "无"
+  },
+  "warehouseDialog": {
+    "title": "收货单详情",
+    "receiptNo": "收货单号",
+    "receiptDate": "收货日期",
+    "warehouseLocation": "仓库位置",
+    "receivedBy": "收货人",
+    "totalItems": "总项目数",
+    "notSpecified": "未指定"
+  },
+  "reportDialog": {
+    "title": "生成报表",
+    "reportType": "报表类型",
+    "types": {
+      "summary": "汇总报表",
+      "variance": "差异分析报表",
+      "supplierPerformance": "供应商绩效报表"
+    }
+  },
+  "messages": {
+    "fetchDataFailed": "加载对账数据失败",
+    "loadFailed": "加载对账数据失败",
+    "uploadSuccess": "发票上传成功",
+    "uploadFailed": "发票上传失败",
+    "fetchDetailsFailed": "加载详情失败",
+    "detailsLoadFailed": "加载对账详情失败",
+    "receiptLoadFailed": "加载收货单失败",
+    "receiptNotFound": "未找到收货单",
+    "confirmSuccess": "确认成功",
+    "rejectSuccess": "驳回成功",
+    "confirmFailed": "确认失败",
+    "rejectFailed": "驳回失败",
+    "reportGeneratedSuccess": "报表生成成功",
+    "reportGeneratedFailed": "报表生成失败"
+  },
+  "prompts": {
+    "confirmNotes": "请输入确认备注（可选）",
+    "confirmTitle": "确认对账",
+    "notesPlaceholder": "输入备注",
+    "rejectReason": "请输入驳回原因",
+    "rejectTitle": "驳回对账",
+    "rejectReasonPlaceholder": "输入驳回原因"
+  },
+  "validation": {
+    "invoiceNoRequired": "请输入发票号",
+    "invoiceDateRequired": "请选择发票日期",
+    "invoiceAmountRequired": "请输入发票金额",
+    "invoiceFileRequired": "请上传发票文件",
+    "rejectReasonRequired": "驳回原因不能为空"
+  }
+}

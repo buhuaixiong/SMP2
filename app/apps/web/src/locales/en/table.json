@@ -1,0 +1,17 @@
+{
+  "showing": "Showing {start}-{end} of {total} suppliers",
+  "noMatch": "No suppliers match the current filters",
+  "perPage": "Per page",
+  "page": "Page {current} of {total}",
+  "loading": "Loading suppliers...",
+  "noData": "No suppliers to display.",
+  "hideDetails": "Hide details",
+  "showDetails": "Show details",
+  "columns": {
+    "company": "Company",
+    "category": "Category",
+    "region": "Region",
+    "importance": "Importance",
+    "completion": "Completion"
+  }
+}

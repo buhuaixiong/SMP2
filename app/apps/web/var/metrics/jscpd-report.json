@@ -1,0 +1,1477 @@
+{
+  "statistics": {
+    "detectionDate": "2025-11-16T11:00:39.999Z",
+    "formats": {
+      "typescript": {
+        "sources": {
+          "src/core/services/types.ts": {
+            "lines": 56,
+            "tokens": 540,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/core/services/ServiceManager.ts": {
+            "lines": 226,
+            "tokens": 2174,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/core/services/index.ts": {
+            "lines": 34,
+            "tokens": 326,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/core/registry/types.ts": {
+            "lines": 20,
+            "tokens": 165,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/core/registry/Registry.ts": {
+            "lines": 114,
+            "tokens": 1066,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/core/registry/index.ts": {
+            "lines": 6,
+            "tokens": 55,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/core/hooks/useService.ts": {
+            "lines": 35,
+            "tokens": 387,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/components/supplier-registration/formState.ts": {
+            "lines": 78,
+            "tokens": 643,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/utils/supplierChangeRules.ts": {
+            "lines": 205,
+            "tokens": 1785,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/utils/security.ts": {
+            "lines": 19,
+            "tokens": 161,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/utils/roleMapping.ts": {
+            "lines": 145,
+            "tokens": 1050,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/utils/mock-data.ts": {
+            "lines": 145,
+            "tokens": 1164,
+            "sources": 1,
+            "clones": 3,
+            "duplicatedLines": 71,
+            "duplicatedTokens": 571,
+            "percentage": 48.97,
+            "percentageTokens": 49.05,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/utils/intl.ts": {
+            "lines": 80,
+            "tokens": 941,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/utils/helpers.ts": {
+            "lines": 38,
+            "tokens": 366,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/utils/formatting.ts": {
+            "lines": 19,
+            "tokens": 307,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/utils/fileDownload.ts": {
+            "lines": 149,
+            "tokens": 1001,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/utils/approval.ts": {
+            "lines": 48,
+            "tokens": 424,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/types/fileUpload.ts": {
+            "lines": 69,
+            "tokens": 505,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/stores/upgrade.ts": {
+            "lines": 118,
+            "tokens": 1052,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/stores/templateLibrary.ts": {
+            "lines": 73,
+            "tokens": 611,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/stores/supplier.ts": {
+            "lines": 753,
+            "tokens": 7589,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 20,
+            "duplicatedTokens": 211,
+            "percentage": 2.66,
+            "percentageTokens": 2.78,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/stores/search.ts": {
+            "lines": 45,
+            "tokens": 411,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/stores/purchasingGroups.ts": {
+            "lines": 334,
+            "tokens": 3378,
+            "sources": 1,
+            "clones": 5,
+            "duplicatedLines": 51,
+            "duplicatedTokens": 550,
+            "percentage": 15.27,
+            "percentageTokens": 16.28,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/stores/permissions.ts": {
+            "lines": 214,
+            "tokens": 2326,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 20,
+            "duplicatedTokens": 286,
+            "percentage": 9.35,
+            "percentageTokens": 12.3,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/stores/organizationalUnits.ts": {
+            "lines": 251,
+            "tokens": 1774,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/stores/notifications.ts": {
+            "lines": 78,
+            "tokens": 738,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/stores/lockdown.ts": {
+            "lines": 285,
+            "tokens": 2232,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/stores/locale.ts": {
+            "lines": 36,
+            "tokens": 288,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/stores/contractReminders.ts": {
+            "lines": 107,
+            "tokens": 917,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/stores/auth.ts": {
+            "lines": 272,
+            "tokens": 2947,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/services/permission.ts": {
+            "lines": 80,
+            "tokens": 924,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/services/notification.ts": {
+            "lines": 102,
+            "tokens": 1145,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/services/index.ts": {
+            "lines": 40,
+            "tokens": 406,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/services/http.ts": {
+            "lines": 74,
+            "tokens": 969,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/services/cache.ts": {
+            "lines": 86,
+            "tokens": 883,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/services/audit.ts": {
+            "lines": 133,
+            "tokens": 1431,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/router/index.ts": {
+            "lines": 425,
+            "tokens": 3852,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/directives/permission.ts": {
+            "lines": 91,
+            "tokens": 1037,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 16,
+            "duplicatedTokens": 160,
+            "percentage": 17.58,
+            "percentageTokens": 15.43,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/constants/permissions.ts": {
+            "lines": 290,
+            "tokens": 1652,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/composables/useTodoItems.ts": {
+            "lines": 38,
+            "tokens": 309,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/composables/useTableActions.ts": {
+            "lines": 62,
+            "tokens": 533,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/composables/useSupplierDirectoryFilters.ts": {
+            "lines": 73,
+            "tokens": 541,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/composables/useSupplierCompletion.ts": {
+            "lines": 83,
+            "tokens": 820,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/composables/usePermission.ts": {
+            "lines": 31,
+            "tokens": 373,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/composables/usePagination.ts": {
+            "lines": 111,
+            "tokens": 947,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/composables/useNotification.ts": {
+            "lines": 5,
+            "tokens": 51,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/composables/useFormValidation.ts": {
+            "lines": 74,
+            "tokens": 849,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/composables/useFileValidation.ts": {
+            "lines": 201,
+            "tokens": 1743,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/composables/useFileUpload.ts": {
+            "lines": 91,
+            "tokens": 879,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/composables/useApprovalWorkflow.ts": {
+            "lines": 188,
+            "tokens": 1908,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/composables/index.ts": {
+            "lines": 5,
+            "tokens": 52,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/workflows.ts": {
+            "lines": 72,
+            "tokens": 670,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 16,
+            "duplicatedTokens": 236,
+            "percentage": 22.22,
+            "percentageTokens": 35.22,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/whitelistBlacklist.ts": {
+            "lines": 171,
+            "tokens": 1100,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/users.ts": {
+            "lines": 23,
+            "tokens": 160,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/upgrade.ts": {
+            "lines": 136,
+            "tokens": 1136,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/templates.ts": {
+            "lines": 27,
+            "tokens": 306,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/tariffs.ts": {
+            "lines": 60,
+            "tokens": 449,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/system.ts": {
+            "lines": 97,
+            "tokens": 694,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/suppliers.ts": {
+            "lines": 414,
+            "tokens": 4141,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/supplierDocuments.ts": {
+            "lines": 75,
+            "tokens": 885,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/search.ts": {
+            "lines": 4,
+            "tokens": 61,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/rfq.ts": {
+            "lines": 774,
+            "tokens": 6206,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/requisitions.ts": {
+            "lines": 133,
+            "tokens": 973,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/reconciliation.ts": {
+            "lines": 165,
+            "tokens": 1142,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/ratings.ts": {
+            "lines": 44,
+            "tokens": 419,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 8,
+            "duplicatedTokens": 118,
+            "percentage": 18.18,
+            "percentageTokens": 28.16,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/purchasingGroups.ts": {
+            "lines": 163,
+            "tokens": 1055,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/purchaseOrder.ts": {
+            "lines": 120,
+            "tokens": 902,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/public.ts": {
+            "lines": 329,
+            "tokens": 3077,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/permissions.ts": {
+            "lines": 176,
+            "tokens": 1878,
+            "sources": 1,
+            "clones": 3,
+            "duplicatedLines": 27,
+            "duplicatedTokens": 313,
+            "percentage": 15.34,
+            "percentageTokens": 16.67,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/organizationalUnits.ts": {
+            "lines": 256,
+            "tokens": 1792,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/notifications.ts": {
+            "lines": 20,
+            "tokens": 194,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/lineItemWorkflow.ts": {
+            "lines": 160,
+            "tokens": 1102,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/invoices.ts": {
+            "lines": 160,
+            "tokens": 1284,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/http.ts": {
+            "lines": 249,
+            "tokens": 2464,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/fileUploads.ts": {
+            "lines": 193,
+            "tokens": 1469,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/fileUploadConfig.ts": {
+            "lines": 126,
+            "tokens": 867,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/exchangeRates.ts": {
+            "lines": 77,
+            "tokens": 641,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/emailSettings.ts": {
+            "lines": 111,
+            "tokens": 738,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/documents.ts": {
+            "lines": 102,
+            "tokens": 995,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/dashboard.ts": {
+            "lines": 34,
+            "tokens": 255,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/contracts.ts": {
+            "lines": 126,
+            "tokens": 1240,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 8,
+            "duplicatedTokens": 118,
+            "percentage": 6.35,
+            "percentageTokens": 9.52,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/changeRequests.ts": {
+            "lines": 136,
+            "tokens": 1014,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/buyerAssignments.ts": {
+            "lines": 70,
+            "tokens": 479,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/api/audit.ts": {
+            "lines": 262,
+            "tokens": 2452,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 7,
+            "duplicatedTokens": 103,
+            "percentage": 2.67,
+            "percentageTokens": 4.2,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/main.ts": {
+            "lines": 32,
+            "tokens": 279,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/i18n.ts": {
+            "lines": 200,
+            "tokens": 1950,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "src/env.d.ts": {
+            "lines": 15,
+            "tokens": 112,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 11647,
+          "tokens": 103208,
+          "sources": 87,
+          "clones": 11,
+          "duplicatedLines": 122,
+          "duplicatedTokens": 1333,
+          "percentage": 1.05,
+          "percentageTokens": 1.29,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      }
+    },
+    "total": {
+      "lines": 11647,
+      "tokens": 103208,
+      "sources": 87,
+      "clones": 11,
+      "duplicatedLines": 122,
+      "duplicatedTokens": 1333,
+      "percentage": 1.05,
+      "percentageTokens": 1.29,
+      "newDuplicatedLines": 0,
+      "newClones": 0
+    }
+  },
+  "duplicates": [
+    {
+      "format": "typescript",
+      "lines": 30,
+      "fragment": ",\r\n    tags: [],\r\n    documents: [],\r\n    ratingsSummary: createRatingsSummary(),\r\n    latestRating: null,\r\n    contracts: [],\r\n    files: [],\r\n    fileApprovals: [],\r\n    pendingChangeRequest: null,\r\n    profileCompletion: 100,\r\n    documentCompletion: 100,\r\n    completionScore: 100,\r\n    completionStatus: \"complete\",\r\n    missingRequirements: [],\r\n    complianceSummary: {\r\n      requiredProfileFields: [],\r\n      missingProfileFields: [],\r\n      requiredDocumentTypes: [],\r\n      missingDocumentTypes: [],\r\n      isProfileComplete: true,\r\n      isDocumentComplete: true,\r\n      isComplete: true,\r\n      profileScore: 100,\r\n      documentScore: 100,\r\n      overallScore: 100,\r\n      completionCategory: \"complete\",\r\n      missingItems: [],\r\n    },\r\n  },\r\n]",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src\\utils\\mock-data.ts",
+        "start": 117,
+        "end": 146,
+        "startLoc": {
+          "line": 117,
+          "column": 37,
+          "position": 931
+        },
+        "endLoc": {
+          "line": 146,
+          "column": 2,
+          "position": 1164
+        }
+      },
+      "secondFile": {
+        "name": "src\\utils\\mock-data.ts",
+        "start": 73,
+        "end": 102,
+        "startLoc": {
+          "line": 73,
+          "column": 40,
+          "position": 572
+        },
+        "endLoc": {
+          "line": 102,
+          "column": 2,
+          "position": 806
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 14,
+      "fragment": "{\r\n  requiredProfileFields: [],\r\n  missingProfileFields: [],\r\n  requiredDocumentTypes: [],\r\n  missingDocumentTypes: [],\r\n  isProfileComplete: true,\r\n  isDocumentComplete: true,\r\n  isComplete: true,\r\n  profileScore: 100,\r\n  documentScore: 100,\r\n  overallScore: 100,\r\n  completionCategory: \"complete\",\r\n  missingItems: [],\r\n};",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src\\stores\\supplier.ts",
+        "start": 54,
+        "end": 67,
+        "startLoc": {
+          "line": 54,
+          "column": 2,
+          "position": 452
+        },
+        "endLoc": {
+          "line": 67,
+          "column": 2,
+          "position": 557
+        }
+      },
+      "secondFile": {
+        "name": "src\\utils\\mock-data.ts",
+        "start": 87,
+        "end": 100,
+        "startLoc": {
+          "line": 87,
+          "column": 2,
+          "position": 691
+        },
+        "endLoc": {
+          "line": 100,
+          "column": 2,
+          "position": 797
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 8,
+      "fragment": "const unwrap = <T>(payload: T | { data: T }): T => {\r\n  if (payload && typeof payload === \"object\" && \"data\" in payload) {\r\n    return (payload as { data: T }).data;\r\n  }\r\n  return payload as T;\r\n};\r\n\r\nexport",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src\\stores\\purchasingGroups.ts",
+        "start": 31,
+        "end": 38,
+        "startLoc": {
+          "line": 31,
+          "column": 1,
+          "position": 271
+        },
+        "endLoc": {
+          "line": 38,
+          "column": 7,
+          "position": 377
+        }
+      },
+      "secondFile": {
+        "name": "src\\stores\\supplier.ts",
+        "start": 47,
+        "end": 54,
+        "startLoc": {
+          "line": 47,
+          "column": 1,
+          "position": 337
+        },
+        "endLoc": {
+          "line": 54,
+          "column": 6,
+          "position": 443
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 12,
+      "fragment": ");\r\n      // Update group member count\r\n      const groupIndex = groups.value.findIndex((g) => g.id === groupId);\r\n      if (groupIndex !== -1) {\r\n        groups.value[groupIndex].memberCount = members.value.length;\r\n      }\r\n    } finally {\r\n      loadingMembers.value = false;\r\n    }\r\n  }\r\n\r\n  async function fetchSuppliers",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src\\stores\\purchasingGroups.ts",
+        "start": 181,
+        "end": 192,
+        "startLoc": {
+          "line": 181,
+          "column": 8,
+          "position": 2039
+        },
+        "endLoc": {
+          "line": 192,
+          "column": 15,
+          "position": 2150
+        }
+      },
+      "secondFile": {
+        "name": "src\\stores\\purchasingGroups.ts",
+        "start": 166,
+        "end": 177,
+        "startLoc": {
+          "line": 166,
+          "column": 8,
+          "position": 1853
+        },
+        "endLoc": {
+          "line": 177,
+          "column": 13,
+          "position": 1964
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 12,
+      "fragment": ");\r\n      // Update group supplier count\r\n      const groupIndex = groups.value.findIndex((g) => g.id === groupId);\r\n      if (groupIndex !== -1) {\r\n        groups.value[groupIndex].supplierCount = suppliers.value.length;\r\n      }\r\n    } finally {\r\n      loadingSuppliers.value = false;\r\n    }\r\n  }\r\n\r\n  async function fetchWorkloadAnalysis",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src\\stores\\purchasingGroups.ts",
+        "start": 259,
+        "end": 270,
+        "startLoc": {
+          "line": 259,
+          "column": 11,
+          "position": 2858
+        },
+        "endLoc": {
+          "line": 270,
+          "column": 22,
+          "position": 2969
+        }
+      },
+      "secondFile": {
+        "name": "src\\stores\\purchasingGroups.ts",
+        "start": 208,
+        "end": 219,
+        "startLoc": {
+          "line": 208,
+          "column": 8,
+          "position": 2312
+        },
+        "endLoc": {
+          "line": 219,
+          "column": 22,
+          "position": 2423
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 11,
+      "fragment": ");\r\n    buyerAssignments.value = {\r\n      ...buyerAssignments.value,\r\n      [buyerId]: data,\r\n    };\r\n    const summary = buyers.value.find((buyer) => buyer.id === buyerId);\r\n    if (summary) {\r\n      summary.assignmentCount = data.length;\r\n      summary.contractAlertCount = data.filter((item) => item.contractAlert).length;\r\n      summary.profileAccessCount = data.filter((item) => item.profileAccess).length;\r\n    }",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src\\stores\\permissions.ts",
+        "start": 159,
+        "end": 169,
+        "startLoc": {
+          "line": 159,
+          "column": 8,
+          "position": 1859
+        },
+        "endLoc": {
+          "line": 169,
+          "column": 2,
+          "position": 2002
+        }
+      },
+      "secondFile": {
+        "name": "src\\stores\\permissions.ts",
+        "start": 136,
+        "end": 146,
+        "startLoc": {
+          "line": 136,
+          "column": 8,
+          "position": 1556
+        },
+        "endLoc": {
+          "line": 146,
+          "column": 3,
+          "position": 1699
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 9,
+      "fragment": "(el, binding) {\n      const service = getService(binding);\n      if (!service) {\n        toggleElement(el as HTMLElement, false);\n        return;\n      }\n      toggleElement(el as HTMLElement, checker(service, binding.value));\n    },\n  }",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src\\directives\\permission.ts",
+        "start": 63,
+        "end": 71,
+        "startLoc": {
+          "line": 63,
+          "column": 8,
+          "position": 755
+        },
+        "endLoc": {
+          "line": 71,
+          "column": 2,
+          "position": 835
+        }
+      },
+      "secondFile": {
+        "name": "src\\directives\\permission.ts",
+        "start": 55,
+        "end": 63,
+        "startLoc": {
+          "line": 55,
+          "column": 8,
+          "position": 674
+        },
+        "endLoc": {
+          "line": 63,
+          "column": 8,
+          "position": 754
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 9,
+      "fragment": "= {}) => {\n  const params = new URLSearchParams();\n  Object.entries(filters).forEach(([key, value]) => {\n    if (value !== undefined && value !== null && value !== \"\") {\n      params.append(key, String(value));\n    }\n  });\n  const query = params.toString();\n  return apiFetch<SupplierRating",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src\\api\\ratings.ts",
+        "start": 24,
+        "end": 32,
+        "startLoc": {
+          "line": 24,
+          "column": 2,
+          "position": 181
+        },
+        "endLoc": {
+          "line": 32,
+          "column": 15,
+          "position": 299
+        }
+      },
+      "secondFile": {
+        "name": "src\\api\\workflows.ts",
+        "start": 29,
+        "end": 37,
+        "startLoc": {
+          "line": 29,
+          "column": 2,
+          "position": 213
+        },
+        "endLoc": {
+          "line": 37,
+          "column": 17,
+          "position": 331
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 11,
+      "fragment": ",\r\n  );\r\n  const data = unwrap(response);\r\n  const meta =\r\n    response && typeof response === \"object\" && \"meta\" in response\r\n      ? (response as { meta?: BuyerAssignmentResponseMeta }).meta\r\n      : undefined;\r\n  return { data, meta };\r\n};\r\n\r\nexport const searchAssignableSuppliers",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src\\api\\permissions.ts",
+        "start": 126,
+        "end": 136,
+        "startLoc": {
+          "line": 126,
+          "column": 2,
+          "position": 1344
+        },
+        "endLoc": {
+          "line": 136,
+          "column": 26,
+          "position": 1449
+        }
+      },
+      "secondFile": {
+        "name": "src\\api\\permissions.ts",
+        "start": 107,
+        "end": 117,
+        "startLoc": {
+          "line": 107,
+          "column": 14,
+          "position": 1135
+        },
+        "endLoc": {
+          "line": 117,
+          "column": 23,
+          "position": 1240
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 9,
+      "fragment": "= {}) => {\n  const params = new URLSearchParams();\n  Object.entries(filters).forEach(([key, value]) => {\n    if (value !== undefined && value !== null && value !== \"\") {\n      params.append(key, String(value));\n    }\n  });\n  const query = params.toString();\n  return apiFetch<Contract",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src\\api\\contracts.ts",
+        "start": 35,
+        "end": 43,
+        "startLoc": {
+          "line": 35,
+          "column": 2,
+          "position": 268
+        },
+        "endLoc": {
+          "line": 43,
+          "column": 9,
+          "position": 386
+        }
+      },
+      "secondFile": {
+        "name": "src\\api\\workflows.ts",
+        "start": 29,
+        "end": 37,
+        "startLoc": {
+          "line": 29,
+          "column": 2,
+          "position": 213
+        },
+        "endLoc": {
+          "line": 37,
+          "column": 17,
+          "position": 331
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 8,
+      "fragment": "const unwrap = <T>(payload: { data: T } | T): T => {\n  if (payload && typeof payload === \"object\" && \"data\" in payload) {\n    return (payload as { data: T }).data;\n  }\n  return payload as T;\n};\n\nexport const listAuditLogs",
+      "tokens": 0,
+      "firstFile": {
+        "name": "src\\api\\audit.ts",
+        "start": 155,
+        "end": 162,
+        "startLoc": {
+          "line": 155,
+          "column": 1,
+          "position": 1101
+        },
+        "endLoc": {
+          "line": 162,
+          "column": 14,
+          "position": 1204
+        }
+      },
+      "secondFile": {
+        "name": "src\\api\\permissions.ts",
+        "start": 28,
+        "end": 35,
+        "startLoc": {
+          "line": 28,
+          "column": 1,
+          "position": 194
+        },
+        "endLoc": {
+          "line": 35,
+          "column": 10,
+          "position": 304
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "admin": "ผู้ดูแลระบบ",
+  "purchaser": "ผู้จัดซื้อ",
+  "procurementManager": "ผู้จัดการจัดซื้อ",
+  "procurementDirector": "ผู้อำนวยการจัดซื้อ",
+  "qualityManager": "ผู้จัดการคุณภาพ",
+  "financeAccountant": "นักบัญชีการเงิน",
+  "financeDirector": "ผู้อำนวยการฝ่ายการเงิน",
+  "financeCashier": "แคชเชียร์การเงิน",
+  "tempSupplier": "ซัพพลายเออร์ชั่วคราว",
+  "formalSupplier": "ซัพพลายเออร์อย่างเป็นทางการ",
+  "departmentUser": "ผู้ใช้แผนก"
+}
