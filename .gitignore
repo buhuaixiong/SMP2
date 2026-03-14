@@ -22,6 +22,8 @@ SupplierSystem/src/SupplierSystem.Api/appsettings.*.secrets.json
 .claude/
 .config/
 .vs/
+AGENTS.md
+CLAUDE.md
 .worktrees/
 artifacts/
 tmp/
