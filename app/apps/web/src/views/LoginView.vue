@@ -66,6 +66,7 @@ import { useI18n } from "vue-i18n";
 import { useAuthStore } from "@/stores/auth";
 import { useNotification } from "@/composables";
 import { getPostLoginNavigation } from "@/utils/authPasswordChangeRouting";
+import { getLoginErrorMessageKey } from "@/utils/authLoginError";
 
 defineOptions({ name: "LoginView" });
 
@@ -97,9 +98,7 @@ const handleLogin = async () => {
     const redirect = typeof route.query.redirect === "string" ? route.query.redirect : "/";
     await router.replace(getPostLoginNavigation(result.user, redirect));
   } catch (error) {
-    notification.error(
-      error instanceof Error && error.message ? error.message : t("auth.notifications.failure"),
-    );
+    notification.error(t(getLoginErrorMessageKey(error)));
   } finally {
     loginForm.password = "";
     loading.value = false;
