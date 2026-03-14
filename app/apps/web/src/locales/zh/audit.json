@@ -1,0 +1,36 @@
+{
+  "history": "审计历史",
+  "export": "导出",
+  "system": "系统",
+  "viewDetails": "查看详情",
+  "viewRawChanges": "查看原始变更",
+  "rawChanges": "原始变更数据",
+  "noHistory": "暂无审计记录",
+  "loadError": "加载审计日志失败",
+  "exportNotImplemented": "导出功能开发中",
+  "field": "字段",
+  "oldValue": "原值",
+  "newValue": "新值",
+  "changeType": "变更类型",
+  "empty": "空",
+  "relatedItemsChanges": "关联项目变更",
+  "itemsAdded": "新增 {count} 项",
+  "itemsModified": "修改 {count} 项",
+  "itemsRemoved": "删除 {count} 项",
+  "actions": {
+    "create": "创建",
+    "update": "更新",
+    "delete": "删除",
+    "publish": "发布",
+    "approve": "批准",
+    "reject": "拒绝",
+    "submit": "提交",
+    "cancel": "取消",
+    "close": "关闭"
+  },
+  "changeTypes": {
+    "added": "新增",
+    "modified": "修改",
+    "removed": "删除"
+  }
+}

@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <!-- Work around intermittent restore graph task failures on SDK 9.0.311. -->
+    <BuildInParallel>false</BuildInParallel>
+  </PropertyGroup>
+</Project>

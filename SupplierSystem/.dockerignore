@@ -1,0 +1,8 @@
+# Build outputs
+**/bin/
+**/obj/
+
+# VCS and IDE
+.git/
+.vs/
+.vscode/

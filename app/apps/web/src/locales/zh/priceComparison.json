@@ -1,0 +1,40 @@
+{
+  "title": "市场价格比较",
+  "platform": "平台",
+  "onlinePrice": "线上价格",
+  "quotePrice": "报价",
+  "priceVariance": "价格差异",
+  "screenshot": "截图",
+  "productUrl": "产品链接",
+  "notes": "备注",
+  "comparedAt": "比较时间",
+  "comparedBy": "比较人",
+  "addComparison": "添加价格比较",
+  "viewProduct": "查看产品",
+  "platforms": {
+    "1688": "1688",
+    "zhenkunxing": "震坤行",
+    "jd": "京东",
+    "taobao": "淘宝",
+    "other": "其他"
+  },
+  "form": {
+    "selectPlatform": "选择平台",
+    "enterPrice": "输入线上价格",
+    "enterUrl": "输入产品链接",
+    "uploadScreenshot": "上传截图",
+    "screenshotTip": "上传截图（JPG, PNG, 最大5MB）",
+    "optionalNotes": "关于此次比较的可选备注"
+  },
+  "validation": {
+    "platformRequired": "请选择平台",
+    "priceRequired": "请输入线上价格",
+    "priceMin": "价格必须大于0",
+    "screenshotSize": "截图必须小于5MB"
+  },
+  "notifications": {
+    "addSuccess": "价格比较添加成功",
+    "loadError": "加载价格比较失败"
+  },
+  "empty": "暂无价格比较记录"
+}

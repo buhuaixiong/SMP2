@@ -1,0 +1,508 @@
+/* ==========================================================================
+   Enhanced Notification Styles - 美化通知组件
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Notification 容器优化 - 右上角固定栏布局
+   -------------------------------------------------------------------------- */
+.el-notification {
+  /* 基础样式重置 */
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12) !important;
+  border: none !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+
+  /* 位置调整 - 右上角 */
+  right: 20px !important;
+  top: 60px !important;
+
+  /* 宽度优化 */
+  width: 380px !important;
+  max-width: calc(100vw - 40px) !important;
+
+  /* 初始状态用于动画 */
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.el-notification.el-notification--top-right {
+  right: 20px !important;
+}
+
+.el-notification.el-notification--bottom-right {
+  right: 20px !important;
+  bottom: 20px !important;
+  top: auto !important;
+}
+
+/* 入场动画 */
+.el-notification.fade-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 出场动画 */
+.el-notification.fade-leave-active {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+/* --------------------------------------------------------------------------
+   Notification 头部区域
+   -------------------------------------------------------------------------- */
+.el-notification__group {
+  display: flex !important;
+  align-items: flex-start !important;
+  padding: 16px !important;
+  gap: 12px !important;
+}
+
+/* 图标容器 */
+.el-notification__icon {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+}
+
+.el-notification__icon .el-icon {
+  font-size: 18px !important;
+  color: inherit !important;
+}
+
+/* 成功状态 - 柔和绿色 */
+.el-notification--success .el-notification__icon {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
+}
+
+.el-notification--success .el-notification__icon .el-icon {
+  color: #10b981 !important;
+}
+
+/* 警告状态 - 柔和橙色 */
+.el-notification--warning .el-notification__icon {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%) !important;
+}
+
+.el-notification--warning .el-notification__icon .el-icon {
+  color: #f59e0b !important;
+}
+
+/* 错误状态 - 柔和红色 */
+.el-notification--error .el-notification__icon {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%) !important;
+}
+
+.el-notification--error .el-notification__icon .el-icon {
+  color: #ef4444 !important;
+}
+
+/* 信息状态 - 柔和蓝色 */
+.el-notification--info .el-notification__icon {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%) !important;
+}
+
+.el-notification--info .el-notification__icon .el-icon {
+  color: #3b82f6 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Notification 内容区域
+   -------------------------------------------------------------------------- */
+.el-notification__content {
+  flex: 1 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.el-notification__title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #1f2937 !important;
+  line-height: 1.4 !important;
+  margin-bottom: 4px !important;
+}
+
+.el-notification__title.is-bold {
+  font-weight: 600 !important;
+}
+
+.el-notification__content p {
+  font-size: 14px !important;
+  color: #6b7280 !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   关闭按钮
+   -------------------------------------------------------------------------- */
+.el-notification__closeBtn {
+  position: absolute !important;
+  top: 12px !important;
+  right: 12px !important;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #9ca3af !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  font-size: 14px !important;
+}
+
+.el-notification__closeBtn:hover {
+  background: #f3f4f6 !important;
+  color: #6b7280 !important;
+}
+
+/* --------------------------------------------------------------------------
+   进度条 - 显示剩余时间
+   -------------------------------------------------------------------------- */
+.el-notification__progress {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  height: 3px !important;
+  width: 100% !important;
+  background: transparent !important;
+  overflow: hidden !important;
+}
+
+.el-notification__progress-bar {
+  height: 100% !important;
+  border-radius: 0 !important;
+  transition: width 0.1s linear !important;
+}
+
+.el-notification--success .el-notification__progress-bar {
+  background: linear-gradient(90deg, #10b981 0%, #34d399 100%) !important;
+}
+
+.el-notification--warning .el-notification__progress-bar {
+  background: linear-gradient(90deg, #f59e0b 0%, #fbbf24 100%) !important;
+}
+
+.el-notification--error .el-notification__progress-bar {
+  background: linear-gradient(90deg, #ef4444 0%, #f87171 100%) !important;
+}
+
+.el-notification--info .el-notification__progress-bar {
+  background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%) !important;
+}
+
+/* 鼠标悬停时暂停进度条 */
+.el-notification:hover .el-notification__progress-bar {
+  animation-play-state: paused !important;
+}
+
+/* ==========================================================================
+   Message (Toast) 样式优化
+   ========================================================================== */
+
+.el-message {
+  /* 基础样式 */
+  background: #ffffff !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+  border: none !important;
+  padding: 0 !important;
+
+  /* 位置 - 顶部居中 */
+  top: 20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 9999 !important;
+
+  /* 入场动画 */
+  animation: message-fade-in 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.el-message.el-message--success {
+  border-left: 4px solid #10b981 !important;
+}
+
+.el-message.el-message--warning {
+  border-left: 4px solid #f59e0b !important;
+}
+
+.el-message.el-message--error {
+  border-left: 4px solid #ef4444 !important;
+}
+
+.el-message.el-message--info {
+  border-left: 4px solid #3b82f6 !important;
+}
+
+/* Message 内容 */
+.el-message__content {
+  font-size: 14px !important;
+  color: #374151 !important;
+  padding: 12px 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+/* Message 图标 */
+.el-message .el-message__icon {
+  width: 20px !important;
+  height: 20px !important;
+  margin: 0 !important;
+}
+
+.el-message .el-message__icon .el-icon {
+  font-size: 18px !important;
+}
+
+.el-message--success .el-message__icon .el-icon {
+  color: #10b981 !important;
+}
+
+.el-message--warning .el-message__icon .el-icon {
+  color: #f59e0b !important;
+}
+
+.el-message--error .el-message__icon .el-icon {
+  color: #ef4444 !important;
+}
+
+.el-message--info .el-message__icon .el-icon {
+  color: #3b82f6 !important;
+}
+
+/* Message 关闭按钮 */
+.el-message__closeBtn {
+  color: #9ca3af !important;
+  font-size: 14px !important;
+  transition: color 0.2s !important;
+}
+
+.el-message__closeBtn:hover {
+  color: #6b7280 !important;
+}
+
+/* Message 出场动画 */
+.el-message.fade-leave-active {
+  animation: message-fade-out 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+}
+
+/* ==========================================================================
+   动画关键帧
+   ========================================================================== */
+
+@keyframes message-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes message-fade-out {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+}
+
+/* Notification 滑入动画 */
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-right {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* ==========================================================================
+   响应式适配
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .el-notification {
+    right: 10px !important;
+    left: 10px !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  .el-message {
+    left: 10px !important;
+    right: 10px !important;
+    transform: none !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  .el-message__content {
+    padding: 10px 14px !important;
+  }
+
+  @keyframes message-fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes message-fade-out {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+}
+
+/* ==========================================================================
+   MessageBox (确认对话框) 样式优化
+   ========================================================================== */
+
+.el-message-box {
+  border-radius: 16px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15) !important;
+  border: none !important;
+  padding: 0 !important;
+  max-width: 420px !important;
+}
+
+.el-message-box__header {
+  padding: 20px 24px 12px !important;
+}
+
+.el-message-box__title {
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  color: #1f2937 !important;
+}
+
+.el-message-box__headerbtn {
+  top: 16px !important;
+  right: 16px !important;
+  width: 28px !important;
+  height: 28px !important;
+  background: #f3f4f6 !important;
+  border-radius: 6px !important;
+}
+
+.el-message-box__headerbtn:hover {
+  background: #e5e7eb !important;
+}
+
+.el-message-box__content {
+  padding: 8px 24px 20px !important;
+}
+
+.el-message-box__message p {
+  font-size: 14px !important;
+  color: #6b7280 !important;
+  line-height: 1.6 !important;
+}
+
+.el-message-box__btns {
+  padding: 8px 24px 20px !important;
+  gap: 12px !important;
+}
+
+.el-message-box__btns .el-button {
+  border-radius: 8px !important;
+  padding: 8px 20px !important;
+  font-weight: 500 !important;
+}
+
+.el-message-box__btns .el-button--primary {
+  background: #3b82f6 !important;
+  border-color: #3b82f6 !important;
+}
+
+.el-message-box__btns .el-button--primary:hover {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+}
+
+.el-message-box__btns .el-button--default {
+  background: #f3f4f6 !important;
+  border-color: #e5e7eb !important;
+  color: #374151 !important;
+}
+
+.el-message-box__btns .el-button--default:hover {
+  background: #e5e7eb !important;
+  border-color: #d1d5db !important;
+}
+
+/* Success 类型 MessageBox */
+.el-message-box--success .el-message-box__header {
+  background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%) !important;
+  margin: -1px -1px 0 -1px !important;
+  border-radius: 16px 16px 0 0 !important;
+  padding: 20px 24px 16px !important;
+}
+
+.el-message-box--success .el-message-box__title {
+  color: #065f46 !important;
+}
+
+/* Error 类型 MessageBox */
+.el-message-box--error .el-message-box__header {
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%) !important;
+  margin: -1px -1px 0 -1px !important;
+  border-radius: 16px 16px 0 0 !important;
+  padding: 20px 24px 16px !important;
+}
+
+.el-message-box--error .el-message-box__title {
+  color: #991b1b !important;
+}
+
+/* Warning 类型 MessageBox */
+.el-message-box--warning .el-message-box__header {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%) !important;
+  margin: -1px -1px 0 -1px !important;
+  border-radius: 16px 16px 0 0 !important;
+  padding: 20px 24px 16px !important;
+}
+
+.el-message-box--warning .el-message-box__title {
+  color: #92400e !important;
+}

@@ -1,0 +1,57 @@
+{
+  "title": "การจัดการแท็ก",
+  "subtitle": "สร้างและจัดการแท็กซัพพลายเออร์สำหรับการจัดหมวดหมู่",
+  "createTag": "สร้างแท็ก",
+  "tagName": "ชื่อแท็ก",
+  "tagColor": "สีแท็ก",
+  "description": "คำอธิบาย",
+  "editTag": "แก้ไขแท็ก",
+  "deleteTag": "ลบแท็ก",
+  "saveTag": "บันทึกแท็ก",
+  "cancelEdit": "ยกเลิกการแก้ไข",
+  "confirmDelete": "คุณแน่ใจหรือไม่ว่าต้องการลบแท็กนี้?",
+  "empty": "ไม่มีแท็ก",
+  "preview": "ดูตัวอย่าง",
+  "suppliersUsing": "ซัพพลายเออร์ที่ใช้แท็กนี้",
+  "notifications": {
+    "createSuccess": "สร้างแท็กสำเร็จ",
+    "updateSuccess": "อัปเดตแท็กสำเร็จ",
+    "deleteSuccess": "ลบแท็กสำเร็จ",
+    "editUnsupported": "ยังไม่รองรับการแก้ไขแท็ก กรุณาลบและสร้างใหม่",
+    "deleteFailure": "ลบแท็กล้มเหลว",
+    "saveFailure": "บันทึกแท็กล้มเหลว",
+    "loadFailure": "โหลดแท็กล้มเหลว",
+    "loadSuppliersFailure": "โหลดซัพพลายเออร์ล้มเหลว",
+    "addSuppliersSuccess": "เพิ่มแท็ก \"{tagName}\" ให้กับซัพพลายเออร์ {count} รายสำเร็จ",
+    "addSuppliersFailure": "เพิ่มซัพพลายเออร์ล้มเหลว",
+    "removeSupplierSuccess": "ลบแท็ก \"{tagName}\" สำเร็จ",
+    "removeSupplierFailure": "ลบซัพพลายเออร์ล้มเหลว"
+  },
+  "searchPlaceholder": "Search tags by name or description...",
+  "createFirstTag": "Create your first tag",
+  "noDescription": "No description provided",
+  "usedBySuppliers": "Used by {count} suppliers",
+  "colorHelper": "Optional: Choose a color to identify this tag",
+  "confirmDeleteTitle": "Confirm delete",
+  "confirmDeleteInUse": "This tag is currently used by {count} supplier(s). Deleting it will remove the tag from all suppliers and cannot be undone.",
+  "confirmDeleteWithName": "Delete the tag \"{name}\"? This action cannot be undone.",
+  "placeholders": {
+    "tagName": "e.g., High Priority",
+    "description": "Brief description of this tag's purpose"
+  },
+  "actions": {
+    "create": "Create",
+    "update": "Update"
+  },
+  "validation": {
+    "nameRequired": "ต้องระบุชื่อแท็ก",
+    "nameLength": "ชื่อแท็กควรมีความยาว 2-50 ตัวอักษร"
+  },
+  "manageSuppliers": "จัดการซัพพลายเออร์",
+  "manageSuppliersForTag": "จัดการซัพพลายเออร์สำหรับแท็ก: {tagName}",
+  "currentSuppliers": "ซัพพลายเออร์ปัจจุบัน",
+  "noSuppliersWithTag": "ไม่มีซัพพลายเออร์ใช้แท็กนี้",
+  "addSuppliers": "เพิ่มซัพพลายเออร์",
+  "searchSuppliersPlaceholder": "ค้นหาซัพพลายเออร์...",
+  "addSelectedSuppliers": "เพิ่มซัพพลายเออร์ที่เลือก ({count})"
+}

@@ -1,0 +1,42 @@
+{
+  "pageTitle": "Supplier Management System Modules Overview",
+  "subtitle": "Quickly understand the platform's core business domains and key functions",
+  "modules": {
+    "userManagement": {
+      "name": "User Management Module",
+      "features": [
+        "Authentication & Authorization (JWT + Spring Security)",
+        "Role & Permission Management (RBAC)",
+        "Operation Audit Log"
+      ]
+    },
+    "supplierManagement": {
+      "name": "Supplier Management Module",
+      "features": [
+        "Supplier Registration/Profile Maintenance",
+        "Supplier Classification (Temporary/Formal)",
+        "Profile Change Approval"
+      ]
+    },
+    "documentManagement": {
+      "name": "Document Management Module",
+      "features": ["File Upload/Download", "Validity Period Management", "Expiry Reminders"]
+    },
+    "rfqModule": {
+      "name": "RFQ Quote Module",
+      "features": ["RFQ Management", "Quote Management", "Three-way Price Comparison"]
+    },
+    "workflowModule": {
+      "name": "Approval Workflow Module",
+      "features": ["Process Definition", "Process Instance", "To-Do Items"]
+    },
+    "reconciliationModule": {
+      "name": "Reconciliation Module",
+      "features": ["Invoice Management", "Warehouse Data", "Data Export"]
+    },
+    "notificationModule": {
+      "name": "Notification Module",
+      "features": ["Email Notifications", "System Messages", "To-Do Reminders"]
+    }
+  }
+}

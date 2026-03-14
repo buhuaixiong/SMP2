@@ -1,0 +1,12 @@
+{
+  "required": "此字段为必填项",
+  "email": "请输入有效的电子邮件地址",
+  "phone": "请输入有效的电话号码",
+  "url": "请输入有效的URL",
+  "minLength": "最小长度为 {min} 个字符",
+  "maxLength": "最大长度为 {max} 个字符",
+  "numeric": "请输入有效的数字",
+  "dateInvalid": "请输入有效的日期",
+  "fileSize": "文件大小不能超过 {size}",
+  "fileType": "无效的文件类型"
+}

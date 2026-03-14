@@ -1,0 +1,174 @@
+{
+  "title": "Role & Access Control",
+  "subtitle": "Configure internal roles and delegate supplier-facing permissions.",
+  "selectRole": "Select Role",
+  "permissions": "Permissions",
+  "description": "Description",
+  "grant": "Grant",
+  "revoke": "Revoke",
+  "selectAll": "Select All",
+  "deselectAll": "Deselect All",
+  "saveChanges": "Save Changes",
+  "saving": "Saving...",
+  "success": "Permissions updated successfully!",
+  "error": "Failed to update permissions",
+  "categories": {
+    "supplier": "Supplier Management",
+    "approval": "Approval Management",
+    "rfq": "RFQ Management",
+    "contract": "Contract Management",
+    "document": "Document Management",
+    "audit": "Audit Management",
+    "system": "System Administration"
+  },
+  "tabs": {
+    "internal": "Internal roles",
+    "delegations": "Supplier authorizations"
+  },
+  "actions": {
+    "refresh": "Refresh",
+    "createUser": "Create user",
+    "reloadBuyers": "Reload buyers",
+    "saveChanges": "Save changes",
+    "saving": "Saving...",
+    "search": "Search",
+    "searching": "Searching...",
+    "add": "Add",
+    "remove": "Remove",
+    "resetPassword": "Reset Password",
+    "resetting": "Resetting...",
+    "freeze": "Freeze",
+    "freezing": "Freezing...",
+    "unfreeze": "Unfreeze",
+    "unfreezing": "Unfreezing...",
+    "delete": "Delete",
+    "deleting": "Deleting...",
+    "filter": "Filter",
+    "clearFilters": "Clear filters"
+  },
+  "internal": {
+    "availableRoles": "Available roles",
+    "users": "Users",
+    "loading": "Loading...",
+    "managedAutomatically": "Managed automatically for suppliers",
+    "table": {
+      "userId": "User ID",
+      "name": "Name",
+      "role": "Role",
+      "email": "Email",
+      "emailPlaceholder": "Bind work email",
+      "status": "Status",
+      "lastLogin": "Last Login",
+      "changeRole": "Change role",
+      "actions": "Actions"
+    },
+    "status": {
+      "active": "Active",
+      "frozen": "Frozen",
+      "deleted": "Deleted"
+    },
+    "filters": {
+      "all": "All",
+      "active": "Active users",
+      "frozen": "Frozen",
+      "deleted": "Deleted",
+      "byRole": "Filter by role",
+      "searchPlaceholder": "Search user ID, name or email"
+    }
+  },
+  "delegations": {
+    "title": "Buyer delegations",
+    "noBuyers": "No buyers available. Assign the purchaser role to an internal account first.",
+    "instructions": "Assign suppliers and choose the privileges this buyer holds.",
+    "responsibleSuppliers": "Responsible suppliers",
+    "loadingAssignments": "Loading assignments...",
+    "noAssignments": "No suppliers assigned yet.",
+    "profileAccess": "Supplier profile access",
+    "contractAlert": "Contract expiry alerts",
+    "addSuppliers": "Add suppliers",
+    "searchPlaceholder": "Search by name or code",
+    "noResults": "No suppliers found for that query.",
+    "selectPrompt": "Select a buyer to manage supplier authorizations.",
+    "buyerStats": "{suppliers} suppliers | {profiles} profiles | {alerts} alerts"
+  },
+  "dialogs": {
+    "createUser": {
+      "title": "Create user",
+      "fields": {
+        "userId": "User ID",
+        "name": "Name",
+        "role": "Role",
+        "password": "Password",
+        "email": "Email (optional)",
+        "supplierId": "Supplier ID (optional)"
+      },
+      "submit": "Create user",
+      "submitting": "Creating..."
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "description": "Reset password for user:",
+      "fields": {
+        "password": "New Password",
+        "passwordPlaceholder": "Enter new password (min 6 characters)",
+        "confirm": "Confirm Password",
+        "confirmPlaceholder": "Confirm new password"
+      },
+      "submit": "Reset Password",
+      "submitting": "Resetting..."
+    },
+    "freezeUser": {
+      "title": "Freeze User",
+      "description": "Are you sure you want to freeze this user?",
+      "userName": "User:",
+      "fields": {
+        "reason": "Freeze Reason (optional)",
+        "reasonPlaceholder": "Enter reason for freezing"
+      },
+      "submit": "Confirm Freeze",
+      "submitting": "Freezing..."
+    },
+    "deleteUser": {
+      "title": "Delete User",
+      "description": "Are you sure you want to delete this user? This action cannot be undone.",
+      "userName": "User:",
+      "warning": "Warning: After deleting, the user will not be able to login, but historical records will be preserved.",
+      "submit": "Confirm Delete",
+      "submitting": "Deleting..."
+    }
+  },
+  "validation": {
+    "passwordRequired": "Password is required",
+    "passwordMismatch": "Passwords do not match",
+    "credentialsRequired": "User id and password are required",
+    "invalidEmail": "Please enter a valid email address"
+  },
+  "notifications": {
+    "loadPermissionsFailure": "Failed to load permissions data",
+    "passwordResetSuccess": "Password reset successfully",
+    "passwordResetFailure": "Failed to reset password",
+    "userCreated": "User created",
+    "userCreateFailure": "Failed to create user",
+    "supplierRoleManaged": "Supplier roles are managed automatically.",
+    "supplierRoleNotAllowed": "Supplier roles cannot be assigned manually.",
+    "roleUpdated": "Role updated",
+    "roleUpdateFailure": "Failed to update role",
+    "loadBuyersFailure": "Failed to load buyers",
+    "loadAssignmentsFailure": "Failed to load assignments",
+    "selectBuyerFirst": "Select a buyer first",
+    "searchSuppliersFailure": "Failed to search suppliers",
+    "assignmentsUpdated": "Assignments updated",
+    "assignmentsUpdateFailure": "Failed to update assignments",
+    "emailUpdateSuccess": "Email updated",
+    "emailUpdateFailure": "Failed to update email",
+    "userFrozen": "User frozen successfully",
+    "userFreezeFailure": "Failed to freeze user",
+    "userUnfrozen": "User unfrozen successfully",
+    "userUnfreezeFailure": "Failed to unfreeze user",
+    "userDeleted": "User deleted successfully",
+    "userDeleteFailure": "Failed to delete user",
+    "cannotDeleteSelf": "You cannot delete your own account",
+    "cannotFreezeSelf": "You cannot freeze your own account"
+  }
+}
+

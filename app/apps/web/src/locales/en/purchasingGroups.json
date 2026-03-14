@@ -1,0 +1,183 @@
+{
+  "title": "Purchasing Groups Management",
+  "subtitle": "Organize buyers and assign suppliers to purchasing groups",
+  "createGroup": "Create Group",
+  "editGroup": "Edit Group",
+  "deleteGroup": "Delete Group",
+  "groupName": "Group Name",
+  "description": "Description",
+  "leader": "Group Leader",
+  "members": "Members",
+  "suppliers": "Suppliers",
+  "assignPurchaser": "Assign Purchaser",
+  "assignSupplier": "Assign Supplier",
+  "removeMember": "Remove Member",
+  "saveGroup": "Save Group",
+  "cancelEdit": "Cancel Edit",
+  "confirmDelete": "Are you sure you want to delete this group?",
+  "empty": "No purchasing groups available",
+  "filters": {
+    "search": "Search groups by name, code, or description...",
+    "category": "Category",
+    "allCategories": "All Categories",
+    "region": "Region",
+    "allRegions": "All Regions",
+    "status": "Status",
+    "allStatus": "All Status"
+  },
+  "status": {
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "table": {
+    "columns": {
+      "code": "Code",
+      "name": "Name",
+      "category": "Category",
+      "region": "Region",
+      "members": "Members",
+      "suppliers": "Suppliers",
+      "status": "Status",
+      "actions": "Actions"
+    }
+  },
+  "tabs": {
+    "members": "Members (Buyers)",
+    "suppliers": "Suppliers",
+    "assignments": "Assignments"
+  },
+  "sections": {
+    "members": "Group Members",
+    "suppliers": "Assigned Suppliers",
+    "assignments": "Supplier Assignments"
+  },
+  "actions": {
+    "manage": "Manage",
+    "create": "Create",
+    "update": "Update",
+    "addMembers": "Add Members",
+    "addSuppliers": "Add Suppliers",
+    "assignSuppliers": "Assign Suppliers"
+  },
+  "fields": {
+    "code": {
+      "label": "Code",
+      "placeholder": "e.g., PG-001"
+    },
+    "name": {
+      "label": "Name",
+      "placeholder": "e.g., Electronics Purchasing"
+    },
+    "description": {
+      "label": "Description",
+      "placeholder": "Brief description of this group's purpose"
+    },
+    "category": {
+      "label": "Category",
+      "placeholder": "e.g., Electronics, Hardware"
+    },
+    "region": {
+      "label": "Region",
+      "placeholder": "e.g., North America, Asia"
+    },
+    "isActive": {
+      "label": "Active"
+    },
+    "buyers": {
+      "label": "Buyers",
+      "placeholder": "Select buyers to add"
+    },
+    "role": "Role",
+    "notes": "Notes",
+    "suppliers": {
+      "label": "Suppliers",
+      "placeholder": "Select suppliers to add"
+    },
+    "primary": {
+      "label": "Primary",
+      "hint": "Mark as primary suppliers"
+    },
+    "assignmentBuyer": {
+      "label": "Buyer",
+      "placeholder": "Select a buyer"
+    },
+    "assignmentSuppliers": {
+      "label": "Suppliers",
+      "placeholder": "Select suppliers to assign"
+    }
+  },
+  "groupRole": {
+    "leader": "Leader",
+    "member": "Member"
+  },
+  "tableMembers": {
+    "buyerName": "Buyer Name",
+    "buyerRole": "Role",
+    "groupRole": "Group Role"
+  },
+  "tableSuppliers": {
+    "companyName": "Company Name",
+    "companyId": "Company ID"
+  },
+  "dialogs": {
+    "createTitle": "Create Purchasing Group",
+    "editTitle": "Edit Purchasing Group",
+    "manageTitle": "Manage Group: {name}",
+    "addMembersTitle": "Add Members to Group",
+    "addSuppliersTitle": "Add Suppliers to Group"
+  },
+  "confirmDeleteDialog": {
+    "title": "Confirm Delete",
+    "message": "Are you sure you want to delete the group \"{name}\"? This action cannot be undone.",
+    "confirm": "Delete",
+    "cancel": "Cancel"
+  },
+  "removeMemberConfirm": "Remove this member from the group?",
+  "removeSupplierConfirm": "Remove this supplier from the group?",
+  "validation": {
+    "codeRequired": "Group code is required",
+    "nameRequired": "Group name is required",
+    "selectBuyer": "Please select at least one buyer",
+    "selectSupplier": "Please select at least one supplier",
+    "selectAssignmentBuyer": "Please select a buyer",
+    "selectAssignmentSupplier": "Please select at least one supplier"
+  },
+  "notifications": {
+    "createSuccess": "Purchasing group created successfully",
+    "updateSuccess": "Purchasing group updated successfully",
+    "deleteSuccess": "Purchasing group deleted successfully",
+    "addMembersSuccess": "Members added successfully",
+    "addSuppliersSuccess": "Suppliers added successfully",
+    "removeMemberSuccess": "Member removed successfully",
+    "removeSupplierSuccess": "Supplier removed successfully",
+    "assignSuppliersSuccess": "Assigned {count} supplier(s) successfully",
+    "removeAssignmentSuccess": "Assignment removed successfully"
+  },
+  "errors": {
+    "loadBuyersFailure": "Failed to load buyers",
+    "loadFailure": "Failed to load group details",
+    "deleteFailure": "Failed to delete group",
+    "saveFailure": "Failed to save group",
+    "addMembersFailure": "Failed to add members",
+    "addSuppliersFailure": "Failed to add suppliers",
+    "removeMemberFailure": "Failed to remove member",
+    "removeSupplierFailure": "Failed to remove supplier",
+    "loadSuppliersFailure": "Failed to search suppliers",
+    "assignSuppliersFailure": "Failed to assign suppliers",
+    "removeAssignmentFailure": "Failed to remove assignment",
+    "manageAccessDenied": "You do not have permission to manage this purchasing group."
+  },
+  "removeAssignmentConfirm": "Remove this supplier assignment?",
+  "tableAssignments": {
+    "buyer": "Buyer",
+    "supplier": "Supplier",
+    "supplierCode": "Supplier Code",
+    "assignedAt": "Assigned At"
+  },
+  "hints": {
+    "managerControlsSuppliers": "Only purchasing managers can add or remove suppliers from the group. Group leaders can only assign existing suppliers to buyers."
+  },
+  "labels": {
+    "noAccess": "No access"
+  }
+}

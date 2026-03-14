@@ -1,0 +1,70 @@
+{
+  "banner": {
+    "title": "系统处于只读模式",
+    "defaultAnnouncement": "系统暂时进入只读模式以进行维护，所有写入操作已停用。",
+    "manageButton": "管理紧急锁定"
+  },
+  "admin": {
+    "title": "紧急锁定控制",
+    "subtitle": "启用系统级只读模式，阻止所有上传、下载和删除操作",
+    "status": {
+      "active": "锁定已启用",
+      "inactive": "系统正常"
+    },
+    "activatedAt": "启用时间",
+    "activatedBy": "启用人",
+    "reason": "内部原因",
+    "announcement": "公告",
+    "noReason": "未提供原因",
+    "noAnnouncement": "未提供公告",
+    "activate": {
+      "title": "启用紧急锁定",
+      "warning": "警告：启用锁定后将立即阻止除管理员外所有用户的写入操作（上传、下载、删除）。仅在检测到病毒、勒索攻击或数据泄露等紧急情况下启用。",
+      "button": "启用锁定",
+      "confirmTitle": "确认启用紧急锁定",
+      "confirmMessage": "确定要启用紧急锁定吗？这将立即阻止所有非管理员用户的写入操作。",
+      "success": "紧急锁定已成功启用",
+      "error": "启用锁定失败"
+    },
+    "deactivate": {
+      "title": "解除紧急锁定",
+      "description": "系统当前处于锁定模式，点击下方按钮可恢复正常操作。",
+      "button": "解除锁定",
+      "confirmTitle": "确认解除",
+      "confirmMessage": "确定要解除紧急锁定吗？这将恢复所有用户的写入操作。",
+      "success": "紧急锁定已成功解除",
+      "error": "解除锁定失败"
+    },
+    "form": {
+      "reason": "内部原因",
+      "reasonPlaceholder": "请描述触发锁定的内部原因（仅内部使用，不对用户展示）",
+      "reasonRequired": "请填写锁定原因",
+      "reasonMinLength": "原因至少需要 10 个字符",
+      "announcement": "公开公告",
+      "announcementPlaceholder": "填写将展示给所有用户的公告，说明系统为何进入只读模式",
+      "announcementRequired": "公告为必填项",
+      "announcementMinLength": "公告至少需要 20 个字符"
+    },
+    "history": {
+      "title": "锁定历史",
+      "refresh": "刷新",
+      "action": "操作",
+      "actor": "执行人",
+      "timestamp": "时间",
+      "ipAddress": "IP 地址",
+      "details": "详情",
+      "empty": "暂无锁定记录",
+      "error": "加载锁定历史失败",
+      "activated": "启用",
+      "deactivated": "解除"
+    }
+  },
+  "dialog": {
+    "title": "紧急锁定已启用",
+    "description": "系统已切换到只读模式，上传、下载和删除请求暂时不可用。",
+    "announcementLabel": "公告内容",
+    "activatedAt": "启用时间",
+    "contact": "如需紧急协助，请联系系统管理员。",
+    "confirm": "我已知悉"
+  }
+}

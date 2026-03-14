@@ -1,0 +1,114 @@
+{
+  "title": "Reconciliation Management",
+  "dashboard": {
+    "title": "Reconciliation Management Center"
+  },
+  "buttons": {
+    "generateReport": "Generate Report",
+    "reject": "Reject",
+    "generate": "Generate"
+  },
+  "stats": {
+    "totalRecords": "Total Records",
+    "matched": "Matched",
+    "varianceRecords": "Variance Records",
+    "unconfirmed": "Unconfirmed"
+  },
+  "status": {
+    "all": "All",
+    "matched": "Matched",
+    "variance": "Variance",
+    "unmatched": "Unmatched"
+  },
+  "table": {
+    "warehouseOrderNo": "Warehouse Order No",
+    "supplier": "Supplier",
+    "receivedDate": "Received Date",
+    "reconAmount": "Recon. Amount",
+    "reconciliationAmount": "Reconciliation Amount",
+    "quantity": "Quantity",
+    "status": "Status",
+    "varianceAmount": "Variance Amount",
+    "invoiceAmount": "Invoice Amount",
+    "invoiceNumber": "Invoice No.",
+    "accountantConfirmed": "Accountant Confirmed",
+    "operations": "Operations",
+    "notUploaded": "Not Uploaded",
+    "variance": "Variance",
+    "confirmStatus": "Confirm Status"
+  },
+  "confirmStatus": {
+    "confirmed": "Confirmed",
+    "unconfirmed": "Unconfirmed",
+    "pending": "Pending"
+  },
+  "uploadInvoice": "Upload Invoice",
+  "viewWarehouseReceipt": "View Receipt",
+  "uploadInvoiceDialog": {
+    "title": "Upload Invoice",
+    "reconciliationNo": "Reconciliation No.",
+    "invoiceNo": "Invoice No.",
+    "invoiceDate": "Invoice Date",
+    "invoiceAmount": "Invoice Amount",
+    "invoiceFile": "Invoice File",
+    "selectFile": "Select File",
+    "supportedFormats": "Supports PDF, DOC, DOCX, XLS, XLSX, JPG, PNG formats, file size up to 10MB"
+  },
+  "detailsDialog": {
+    "title": "Reconciliation Details",
+    "varianceAmount": "Variance Amount",
+    "varianceAnalysis": "Variance Analysis",
+    "variancePercentage": "Variance Percentage",
+    "varianceReason": "Variance Reason",
+    "noReason": "None"
+  },
+  "warehouseDialog": {
+    "title": "Warehouse Receipt Details",
+    "receiptNo": "Receipt No.",
+    "receiptDate": "Receipt Date",
+    "warehouseLocation": "Warehouse Location",
+    "receivedBy": "Received By",
+    "totalItems": "Total Items",
+    "notSpecified": "Not Specified"
+  },
+  "reportDialog": {
+    "title": "Generate Report",
+    "reportType": "Report Type",
+    "types": {
+      "summary": "Summary Report",
+      "variance": "Variance Analysis",
+      "supplierPerformance": "Supplier Performance"
+    }
+  },
+  "messages": {
+    "fetchDataFailed": "Failed to load reconciliation data",
+    "loadFailed": "Failed to load reconciliation data",
+    "uploadSuccess": "Invoice uploaded successfully",
+    "uploadFailed": "Failed to upload invoice",
+    "fetchDetailsFailed": "Failed to load details",
+    "detailsLoadFailed": "Failed to load reconciliation details",
+    "receiptLoadFailed": "Failed to load warehouse receipt",
+    "receiptNotFound": "Warehouse receipt not found",
+    "confirmSuccess": "Confirmed successfully",
+    "rejectSuccess": "Rejected successfully",
+    "confirmFailed": "Confirmation failed",
+    "rejectFailed": "Rejection failed",
+    "reportGeneratedSuccess": "Report generated successfully",
+    "reportGeneratedFailed": "Failed to generate report"
+  },
+  "prompts": {
+    "confirmNotes": "Please enter confirmation notes (optional)",
+    "confirmTitle": "Confirm Reconciliation",
+    "notesPlaceholder": "Enter notes",
+    "rejectReason": "Please enter reason for rejection",
+    "rejectTitle": "Reject Reconciliation",
+    "rejectReasonPlaceholder": "Enter rejection reason"
+  },
+  "validation": {
+    "invoiceNoRequired": "Please enter invoice number",
+    "invoiceDateRequired": "Please select invoice date",
+    "invoiceAmountRequired": "Please enter invoice amount",
+    "invoiceFileRequired": "Please upload invoice file",
+    "rejectReasonRequired": "Rejection reason is required"
+  }
+}

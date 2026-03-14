@@ -1,0 +1,64 @@
+# =============================================
+# .dockerignore for .NET API
+# =============================================
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Build outputs
+bin/
+obj/
+*.dll
+*.pdb
+*.user
+*.cache
+*.suo
+
+# IDE
+.vs/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Test
+TestResults/
+coverage/
+
+# Documentation
+*.md
+docs/
+
+# IDE specific files
+.idea/
+*.dotSettings
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+Temp/
+
+# Windows specific
+Thumbs.db
+Desktop.ini
+
+# Backup files
+*.bak
+*.backup
+
+# Exclude whole directories
+**/node_modules/
+**/uploads/
+**/backups/

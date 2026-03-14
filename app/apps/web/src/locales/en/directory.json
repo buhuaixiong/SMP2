@@ -1,0 +1,73 @@
+{
+  "title": "Supplier Management",
+  "pageTitle": "Supplier Directory",
+  "myProfileTitle": "My Supplier Profile",
+  "searchPlaceholder": "Search suppliers...",
+  "filters": {
+    "title": "Filters",
+    "search": "Search",
+    "status": "Status",
+    "stage": "Stage",
+    "category": "Category",
+    "region": "Region",
+    "importance": "Importance",
+    "tag": "Tag",
+    "completeness": "Completeness",
+    "advancedFilters": "Advanced Filters",
+    "clearFilters": "Clear Filters"
+  },
+  "filterChips": {
+    "search": "Search: {value}",
+    "status": "Status: {value}",
+    "stage": "Stage: {value}",
+    "category": "Category: {value}",
+    "region": "Region: {value}",
+    "importance": "Importance: {value}",
+    "tag": "Tag: {value}",
+    "progress": "Progress: {value}",
+    "missing": "Missing: {value}"
+  },
+  "summaryCards": {
+    "totalSuppliers": "Total suppliers",
+    "needsAttention": "Needs attention",
+    "pendingApprovals": "Pending approvals",
+    "highPriority": "High priority"
+  },
+  "table": {
+    "contact": "Contact",
+    "profile": "Profile",
+    "completion": "Completion",
+    "outstandingRequirements": "Outstanding requirements",
+    "noPhone": "No phone provided",
+    "stage": "Stage",
+    "importance": "Importance",
+    "unknown": "Unknown",
+    "notSet": "Not set"
+  },
+  "tabs": {
+    "overview": "Overview",
+    "documents": "Documents",
+    "history": "History",
+    "analytics": "Analytics"
+  },
+  "fields": {
+    "registrationId": "Registration ID",
+    "notSpecified": "Not specified",
+    "profileCompletion": "Profile {percent}%",
+    "documentCompletion": "Documents {percent}%"
+  },
+  "stageOptions": {
+    "all": "All stages",
+    "temporary": "Temporary",
+    "official": "Official"
+  },
+  "statusOptions": {
+    "all": "All statuses"
+  },
+  "notifications": {
+    "profileCompleted": "Profile completed successfully!",
+    "profileUpdateFailed": "Failed to save profile. Please try again.",
+    "draftSaved": "Draft saved successfully!",
+    "draftSaveFailed": "Failed to save draft. Please try again."
+  }
+}

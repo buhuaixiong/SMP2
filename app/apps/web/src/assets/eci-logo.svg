@@ -1,0 +1,12 @@
+<svg width="467" height="111" viewBox="0 0 467 111" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="eciTitle eciDesc">
+  <title id="eciTitle">Electrical Components International</title>
+  <desc id="eciDesc">Logo with stylised circular mark and text</desc>
+  <rect width="467" height="111" rx="12" fill="#1f1f23" />
+  <g transform="translate(28 28)">
+    <path d="M40 55c-20 0-36-16-36-36s16-36 36-36" fill="none" stroke="#33a6ff" stroke-width="12" stroke-linecap="round" />
+    <path d="M40 55c-11 0-20-9-20-20s9-20 20-20" fill="none" stroke="#f7c948" stroke-width="12" stroke-linecap="round" />
+    <path d="M40 55c-5 0-9-4-9-9s4-9 9-9" fill="none" stroke="#28c76f" stroke-width="12" stroke-linecap="round" />
+  </g>
+  <text x="128" y="56" fill="#ffffff" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="600">Electrical Components</text>
+  <text x="128" y="86" fill="#ffffff" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="26" font-weight="600">International</text>
+</svg>

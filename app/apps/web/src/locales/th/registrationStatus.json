@@ -1,0 +1,81 @@
+{
+  "title": "Registration Status",
+  "subtitle": "Follow the progress of your supplier registration and temporary account access.",
+  "empty": "Registration status information is not available yet.",
+  "fields": {
+    "applicationId": "Application ID",
+    "supplierCode": "Supplier Code",
+    "status": "Approval Status",
+    "stage": "Supplier Stage",
+    "currentApprover": "Current Approver",
+    "lastUpdated": "Last Updated"
+  },
+  "stage": {
+    "pending": "Pending Assignment",
+    "potential": "Prospective Supplier",
+    "temporary": "Temporary Supplier",
+    "official": "Official Supplier",
+    "qualified": "Qualified Supplier",
+    "disqualified": "Disqualified Supplier",
+    "suspended": "Suspended Supplier",
+    "terminated": "Terminated Supplier"
+  },
+  "statuses": {
+    "pending": "Pending Submission",
+    "pending_info": "Awaiting More Information",
+    "pending_review": "Pending Review",
+    "under_review": "Under Review",
+    "pending_purchaser": "Purchaser Review",
+    "pending_purchase_manager": "Procurement Manager Review",
+    "pending_purchase_director": "Procurement Director Review",
+    "pending_quality_review": "Quality Review",
+    "pending_finance_manager": "Finance Review",
+    "pending_finance_director": "Finance Director Review",
+    "pending_code_binding": "Supplier Code Binding",
+    "pending_cashier": "Finance Cashier Review",
+    "approved": "Approved",
+    "completed": "Completed",
+    "qualified": "Qualified",
+    "rejected": "Rejected",
+    "disqualified": "Disqualified",
+    "suspended": "Suspended",
+    "terminated": "Terminated"
+  },
+  "history": {
+    "title": "Approval Timeline",
+    "empty": "No approval history is available yet.",
+    "submitted": "Registration submitted",
+    "steps": {
+      "submission": "Submission Received",
+      "purchaser_review": "Purchaser Review",
+      "procurement_manager": "Procurement Manager Approval",
+      "procurement_director": "Procurement Director Approval",
+      "quality_manager": "Quality Manager Review",
+      "finance_accountant": "Finance Accountant Review",
+      "finance_director": "Finance Director Approval",
+      "code_binding": "Supplier Code Binding",
+      "pending_cashier": "Finance Cashier Review",
+      "finalisation": "Account Finalisation",
+      "finalization": "Account Finalisation",
+      "auto_accept": "Auto Acceptance"
+    }
+  },
+  "tempAccount": {
+    "title": "Temporary Account",
+    "expiresAt": "Expires",
+    "lastLogin": "Last Login",
+    "statuses": {
+      "unknown": "Status unavailable",
+      "pending_issue": "Pending issuance",
+      "active": "Active",
+      "revoked": "Revoked",
+      "finalized": "Finalised"
+    }
+  },
+  "actions": {
+    "copied": "{label} copied to clipboard."
+  },
+  "errors": {
+    "noIdentifier": "We could not determine which registration application to display."
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "stats": {
+    "pendingCount": "待我审批",
+    "urgentCount": "即将超时",
+    "monthlyApproved": "本月已审",
+    "avgTimeHours": "平均审批时长",
+    "total": "待审批总数",
+    "urgent": "紧急申请",
+    "thisWeek": "本周提交",
+    "avgCompleteness": "平均完整度"
+  },
+  "filters": {
+    "status": "状态",
+    "supplierName": "供应商名称",
+    "allStatuses": "全部状态",
+    "pending": "待审批",
+    "urgent": "即将超时",
+    "overdue": "已超时",
+    "urgency": "紧急程度",
+    "search": "搜索"
+  },
+  "list": {
+    "title": "待审批列表",
+    "submittedAt": "提交时间",
+    "submittedBy": "提交人",
+    "deadline": "截止时间",
+    "completeness": "资料完整度",
+    "approve": "审批",
+    "details": "详情",
+    "empty": "暂无待审批事项"
+  },
+  "sections": {
+    "pending": "待我审批",
+    "approved": "已审批项"
+  },
+  "dialog": {
+    "title": "审批供应商升级申请",
+    "supplierName": "供应商名称",
+    "submittedAt": "提交时间",
+    "submittedBy": "提交人",
+    "currentStep": "当前步骤",
+    "timeRemaining": "剩余时间",
+    "documentsTitle": "资质文件",
+    "uploaded": "已上传",
+    "pending": "待上传",
+    "viewFile": "查看文件",
+    "decisionTitle": "审批决策",
+    "decision": "审批决策",
+    "approve": "通过",
+    "reject": "退回",
+    "comments": "审批意见",
+    "commentsPlaceholder": "请输入审批意见（退回时必填）",
+    "submit": "提交审批",
+    "cancel": "取消"
+  },
+  "stepLabels": {
+    "procurement_review": "采购员审批",
+    "quality_review": "品质审批",
+    "procurement_manager_review": "采购经理审批",
+    "procurement_director_review": "采购总监审批",
+    "finance_director_review": "财务总监审批"
+  },
+  "title": "供应商升级审批",
+  "subtitle": "审批待处理的供应商升级申请",
+  "noApplications": "暂无待审批申请",
+  "noApprovedApplications": "暂无已审批事项",
+  "loadError": "加载申请列表失败",
+  "loadDetailError": "加载申请详情失败",
+  "urgency": {
+    "urgent": "紧急",
+    "normal": "普通"
+  },
+  "searchPlaceholder": "搜索供应商名称或提交人",
+  "viewDetails": "查看详情",
+  "currentStep": "当前步骤",
+  "documents": "上传文档",
+  "uploadedDocuments": "已上传文档",
+  "uploaded": "已上传",
+  "notUploaded": "未上传",
+  "applicationDetails": "申请详情",
+  "supplierName": "供应商名称",
+  "applicationId": "申请编号",
+  "status": "状态",
+  "submittedBy": "提交人",
+  "submittedAt": "提交时间",
+  "dueDate": "截止日期",
+  "completeness": "文档完整度",
+  "approvalHistory": "审批历史",
+  "noHistory": "暂无审批记录",
+  "makeDecision": "审批决定",
+  "decision": "决定",
+  "approve": "批准",
+  "reject": "拒绝",
+  "comments": "审批意见",
+  "commentsPlaceholder": "请输入审批意见（选填）",
+  "submitDecision": "提交审批",
+  "confirmDecision": "确定要{decision}该申请吗？",
+  "decisionSuccess": "审批提交成功",
+  "decisionError": "审批提交失败",
+  "urgent": "紧急",
+  "statuses": {
+    "draft": "草稿",
+    "pending_procurement_review": "待采购员审批",
+    "pending_quality_review": "待品质审批",
+    "pending_procurement_manager_review": "待采购经理审批",
+    "pending_procurement_director_review": "待采购总监审批",
+    "pending_finance_director_review": "待财务总监审批",
+    "approved": "已批准",
+    "rejected": "已拒绝",
+    "returned": "已退回"
+  },
+  "decisions": {
+    "approved": "批准",
+    "rejected": "拒绝"
+  },
+  "table": {
+    "documentName": "文档名称",
+    "status": "状态",
+    "validityPeriod": "有效期",
+    "uploadedAt": "上传时间"
+  },
+  "time": {
+    "hours": "小时",
+    "minutes": "分",
+    "lessThanOneMinute": "不足1分",
+    "overdue": "已超时 {time}"
+  },
+  "messages": {
+    "incompleteDocWarning": "资料未完整，确认仍要审批通过吗？",
+    "hint": "提示",
+    "stillApprove": "仍要通过",
+    "letMeCheck": "我再看看",
+    "confirmApprove": "确认通过该供应商的升级申请？",
+    "confirmReject": "确认退回该供应商的升级申请？供应商需重新提交。",
+    "confirmTitle": "确认审批",
+    "approveSuccess": "审批成功",
+    "rejectSuccess": "退回成功",
+    "approveFailed": "审批失败，请稍后重试",
+    "loadFailed": "加载失败，请稍后重试",
+    "fileNotFound": "文件未找到，无法预览",
+    "missingParams": "缺少必要参数",
+    "overdueAlert": "{supplier} 的升级申请已超时，请尽快处理。",
+    "urgentAlert": "{supplier} 的申请还剩约 {minutes} 分钟即将超时。"
+  },
+  "validation": {
+    "decisionRequired": "请选择审批决策",
+    "commentsRequiredOnReject": "退回时必须填写意见"
+  }
+}

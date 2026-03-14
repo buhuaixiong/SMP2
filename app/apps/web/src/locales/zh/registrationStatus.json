@@ -1,0 +1,81 @@
+{
+  "title": "注册状态",
+  "subtitle": "跟踪供应商注册和临时账号访问的进度。",
+  "empty": "暂无注册状态信息。",
+  "fields": {
+    "applicationId": "申请编号",
+    "supplierCode": "供应商编码",
+    "status": "审批状态",
+    "stage": "供应商阶段",
+    "currentApprover": "当前审批人",
+    "lastUpdated": "最后更新"
+  },
+  "stage": {
+    "pending": "待分配",
+    "potential": "潜在供应商",
+    "temporary": "临时供应商",
+    "official": "正式供应商",
+    "qualified": "合格供应商",
+    "disqualified": "不合格供应商",
+    "suspended": "暂停合作",
+    "terminated": "终止合作"
+  },
+  "statuses": {
+    "pending": "待提交",
+    "pending_info": "待补充信息",
+    "pending_review": "待审核",
+    "under_review": "审核中",
+    "pending_purchaser": "采购员审核",
+    "pending_purchase_manager": "采购经理审核",
+    "pending_purchase_director": "采购总监审核",
+    "pending_quality_review": "质量审核",
+    "pending_finance_manager": "财务审核",
+    "pending_finance_director": "财务总监审核",
+    "pending_code_binding": "供应商编码绑定",
+    "pending_cashier": "财务出纳审核",
+    "approved": "已批准",
+    "completed": "已完成",
+    "qualified": "合格",
+    "rejected": "已拒绝",
+    "disqualified": "不合格",
+    "suspended": "已暂停",
+    "terminated": "已终止"
+  },
+  "history": {
+    "title": "审批时间线",
+    "empty": "暂无审批记录。",
+    "submitted": "已提交注册",
+    "steps": {
+      "submission": "提交受理",
+      "purchaser_review": "采购员审核",
+      "procurement_manager": "采购经理审批",
+      "procurement_director": "采购总监审批",
+      "quality_manager": "SQE审核",
+      "finance_accountant": "财务会计审核",
+      "finance_director": "财务总监审批",
+      "code_binding": "供应商编码绑定",
+      "pending_cashier": "财务出纳审核",
+      "finalisation": "账号最终确认",
+      "finalization": "账号最终确认",
+      "auto_accept": "自动通过"
+    }
+  },
+  "tempAccount": {
+    "title": "临时账号",
+    "expiresAt": "到期时间",
+    "lastLogin": "上次登录",
+    "statuses": {
+      "unknown": "状态未知",
+      "pending_issue": "待发放",
+      "active": "已启用",
+      "revoked": "已撤销",
+      "finalized": "已完成"
+    }
+  },
+  "actions": {
+    "copied": "{label} 已复制到剪贴板。"
+  },
+  "errors": {
+    "noIdentifier": "无法确定要显示的注册申请。"
+  }
+}

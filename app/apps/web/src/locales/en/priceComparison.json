@@ -1,0 +1,40 @@
+{
+  "title": "Market Price Comparison",
+  "platform": "Platform",
+  "onlinePrice": "Online Price",
+  "quotePrice": "Quote Price",
+  "priceVariance": "Price Variance",
+  "screenshot": "Screenshot",
+  "productUrl": "Product URL",
+  "notes": "Notes",
+  "comparedAt": "Compared At",
+  "comparedBy": "Compared By",
+  "addComparison": "Add Price Comparison",
+  "viewProduct": "View Product",
+  "platforms": {
+    "1688": "1688",
+    "zhenkunxing": "Zhenkunxing (震坤行)",
+    "jd": "JD.com (京东)",
+    "taobao": "Taobao (淘宝)",
+    "other": "Other"
+  },
+  "form": {
+    "selectPlatform": "Select platform",
+    "enterPrice": "Enter online price",
+    "enterUrl": "Enter product URL",
+    "uploadScreenshot": "Upload screenshot",
+    "screenshotTip": "Upload screenshot (JPG, PNG, max 5MB)",
+    "optionalNotes": "Optional notes about this comparison"
+  },
+  "validation": {
+    "platformRequired": "Please select platform",
+    "priceRequired": "Please enter online price",
+    "priceMin": "Price must be greater than 0",
+    "screenshotSize": "Screenshot must be smaller than 5MB"
+  },
+  "notifications": {
+    "addSuccess": "Price comparison added successfully",
+    "loadError": "Failed to load price comparisons"
+  },
+  "empty": "No price comparisons yet"
+}

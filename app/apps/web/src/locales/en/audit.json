@@ -1,0 +1,9 @@
+{
+  "title": "Audit Log",
+  "action": "Action",
+  "actor": "Actor",
+  "timestamp": "Timestamp",
+  "entity": "Entity",
+  "changes": "Changes",
+  "details": "Details"
+}

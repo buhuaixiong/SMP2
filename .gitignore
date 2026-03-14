@@ -1,0 +1,77 @@
+# Sensitive environment files
+.env
+.env.*
+!.env.example
+!.env.production.example
+
+# Frontend env files
+app/.env
+app/.env.*
+!app/.env.example
+!app/.env.production.example
+app/apps/web/.env
+app/apps/web/.env.*
+
+# Backend local secret configuration
+SupplierSystem/src/SupplierSystem.Api/appsettings.Local.json
+SupplierSystem/src/SupplierSystem.Api/appsettings.*.local.json
+SupplierSystem/src/SupplierSystem.Api/appsettings.Secrets.json
+SupplierSystem/src/SupplierSystem.Api/appsettings.*.secrets.json
+
+# Build and editor artifacts
+.claude/
+.config/
+.vs/
+.worktrees/
+artifacts/
+tmp/
+tmp/**
+TestResults/
+**/TestResults/
+**/bin/
+**/obj/
+**/.vs/
+**/.vscode/
+**/node_modules/
+**/dist/
+**/playwright-report/
+**/test-results/
+**/coverage/
+**/var/
+
+# Logs and transient output
+*.log
+*.out
+*.err
+*.pid
+*.tmp
+*.bak
+*.orig
+*.baseline.log
+
+# Backup and temporary files
+*.backup
+*.backup-*
+*.db.backup*
+*~
+~$*
+*.csproj.user
+*diag*.txt
+*restore-walk*.txt
+*test-output*.txt
+
+# Local/archive content not intended for git
+app/archive/backups/
+app/archive/api/backups/
+app/archive/api/data/
+app/archive/backups/temp-scripts/
+app/archive/
+app/legacy/
+app/temp.txt
+app/tmp.txt
+app/tmp.xlsx
+docs/~$*
+docs/*.xlsm
+SupplierSystem/src/SupplierSystem.Api/wwwroot/
+SupplierSystem/src/SupplierSystem.Api/uploads/
+SupplierSystem/tests/app/apps/api/audit-archive/

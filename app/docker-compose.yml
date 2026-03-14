@@ -1,0 +1,120 @@
+version: '3.8'
+
+# =============================================
+# Supplier Management System - Docker Compose
+# =============================================
+# Usage:
+#   Development: docker-compose -f docker-compose.yml up
+#   Production:  docker-compose -f docker-compose.yml up -d
+
+services:
+  # =============================================
+  # SQL Server Database
+  # =============================================
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: supplier-mssql
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=${SA_PASSWORD:-Supplier123!}
+      - MSSQL_PID=Express
+      - MSSQL_COLLATION=Chinese_PRC_CI_AS
+    ports:
+      - "${MSSQL_PORT:-1433}:1433"
+    volumes:
+      - mssql-data:/var/opt/mssql
+      - mssql-backups:/var/opt/mssql/backups
+    networks:
+      - supplier-network
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P '${SA_PASSWORD:-Supplier123!}' -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    mem_limit: 2g
+    shm_size: 512m
+
+  # =============================================
+  # .NET API Service (Port 80 external, 5001 internal)
+  # =============================================
+  dotnet-api:
+    build:
+      context: ../SupplierSystem
+      dockerfile: src/SupplierSystem.Api/Dockerfile
+    container_name: supplier-dotnet-api
+    restart: unless-stopped
+    ports:
+      - "${DOTNET_PORT:-8080}:5001"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:5001
+      - ConnectionStrings__SupplierSystem=Server=mssql,1433;Database=SupplierSystemDev;User Id=sa;Password=${SA_PASSWORD:-Supplier123!};TrustServerCertificate=True;MultipleActiveResultSets=true
+      - JwtSettings__Secret=${JWT_SECRET}
+      - JwtSettings__Issuer=supplier-system
+      - JwtSettings__Audience=supplier-system
+      - NodeJwt__Secret=${NODE_JWT_SECRET}
+      - CORS_ORIGINS=${CORS_ORIGINS:-http://localhost:5173,http://127.0.0.1:5173,http://localhost}
+      - AllowedHosts=*
+      - "BACKUP_DAILY_SCHEDULE=${BACKUP_DAILY_SCHEDULE:-0 0 * * *}"
+      - "BACKUP_DIFFERENTIAL_SCHEDULE=${BACKUP_DIFFERENTIAL_SCHEDULE:-0 0 * * *}"
+      - "BACKUP_DIFFERENTIAL_ENABLED=${BACKUP_DIFFERENTIAL_ENABLED:-true}"
+    depends_on:
+      mssql:
+        condition: service_healthy
+    networks:
+      - supplier-network
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5001/health/healthz || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    volumes:
+      - dotnet-uploads:/app/uploads
+      - dotnet-logs:/app/logs
+    mem_limit: 1g
+
+  # =============================================
+  # Frontend Web Service (Port 80) - Using pre-built static files
+  # =============================================
+  frontend:
+    image: nginx:alpine
+    container_name: supplier-frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-80}:80"
+    volumes:
+      - ../artifacts/publish/wwwroot:/usr/share/nginx/html:ro
+    networks:
+      - supplier-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+
+# =============================================
+# Networks
+# =============================================
+networks:
+  supplier-network:
+    driver: bridge
+
+# =============================================
+# Volumes
+# =============================================
+volumes:
+  # SQL Server
+  mssql-data:
+    driver: local
+  mssql-backups:
+    driver: local
+
+  # .NET API
+  dotnet-uploads:
+    driver: local
+  dotnet-logs:
+    driver: local
+

@@ -1,0 +1,13 @@
+{
+  "admin": "管理员",
+  "purchaser": "采购员",
+  "procurementManager": "采购经理",
+  "procurementDirector": "采购总监",
+  "qualityManager": "SQE",
+  "financeAccountant": "财务会计",
+  "financeDirector": "财务总监",
+  "financeCashier": "财务出纳",
+  "tempSupplier": "临时供应商",
+  "formalSupplier": "正式供应商",
+  "departmentUser": "部门用户"
+}

@@ -1,0 +1,8 @@
+{
+  "general": "发生错误",
+  "network": "网络错误，请检查您的连接",
+  "unauthorized": "您无权执行此操作",
+  "notFound": "未找到资源",
+  "serverError": "服务器错误，请稍后重试",
+  "validationFailed": "验证失败，请检查您的输入"
+}

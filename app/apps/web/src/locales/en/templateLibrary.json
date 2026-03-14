@@ -1,0 +1,50 @@
+{
+  "title": "Template Library",
+  "subtitle": "Download standard contract and quality templates",
+  "search": "Search templates...",
+  "categories": {
+    "all": "All Categories",
+    "contract": "Contract Templates",
+    "quality": "Quality Templates",
+    "compliance": "Compliance Templates"
+  },
+  "download": "Download",
+  "preview": "Preview",
+  "upload": "Upload Template",
+  "editTemplate": "Edit Template",
+  "deleteTemplate": "Delete Template",
+  "fileName": "File Name",
+  "category": "Category",
+  "description": "Description",
+  "version": "Version",
+  "uploadedBy": "Uploaded By",
+  "uploadDate": "Upload Date",
+  "downloadCount": "Downloads",
+  "empty": "No templates available",
+  "notifications": {
+    "loadFailure": "Failed to load templates",
+    "uploadSuccess": "Template uploaded successfully",
+    "updateSuccess": "Template updated successfully",
+    "deleteSuccess": "Template deleted successfully"
+  },
+  "admin": {
+    "title": "Contract Template Management",
+    "subtitle": "Upload the latest standard contract templates to provide a unified download portal for suppliers.",
+    "loading": "Loading templates...",
+    "showHistory": "View history",
+    "hideHistory": "Collapse history",
+    "currentVersion": "Current version:",
+    "noFileUploaded": "No template file uploaded yet.",
+    "uploadNewVersion": "Upload new version",
+    "uploading": "Uploading...",
+    "uploadHint": "Uploading will automatically replace the current version, historical versions can still be traced.",
+    "historyLoading": "Loading history...",
+    "noHistory": "No history available.",
+    "active": "Active",
+    "updatedAt": "Updated on",
+    "errors": {
+      "historyLoadFailed": "Failed to load history",
+      "uploadFailed": "Template upload failed"
+    }
+  }
+}

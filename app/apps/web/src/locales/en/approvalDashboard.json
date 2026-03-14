@@ -1,0 +1,149 @@
+{
+  "stats": {
+    "pendingCount": "Pending My Approval",
+    "urgentCount": "Near Timeout",
+    "monthlyApproved": "Approved This Month",
+    "avgTimeHours": "Avg. Approval Time",
+    "total": "Total Pending Approvals",
+    "urgent": "Urgent Applications",
+    "thisWeek": "Submitted This Week",
+    "avgCompleteness": "Avg. Completeness"
+  },
+  "filters": {
+    "status": "Status",
+    "supplierName": "Supplier Name",
+    "allStatuses": "All Statuses",
+    "pending": "Pending",
+    "urgent": "Near Timeout",
+    "overdue": "Overdue",
+    "urgency": "Urgency Level",
+    "search": "Search"
+  },
+  "list": {
+    "title": "Pending Approval List",
+    "submittedAt": "Submitted At",
+    "submittedBy": "Submitted By",
+    "deadline": "Deadline",
+    "completeness": "Document Completeness",
+    "approve": "Approve",
+    "details": "Details",
+    "empty": "No pending approvals"
+  },
+  "sections": {
+    "pending": "Pending My Approval",
+    "approved": "Reviewed Items"
+  },
+  "dialog": {
+    "title": "Review Supplier Upgrade Application",
+    "supplierName": "Supplier Name",
+    "submittedAt": "Submitted At",
+    "submittedBy": "Submitted By",
+    "currentStep": "Current Step",
+    "timeRemaining": "Time Remaining",
+    "documentsTitle": "Qualification Documents",
+    "uploaded": "Uploaded",
+    "pending": "Pending Upload",
+    "viewFile": "View File",
+    "decisionTitle": "Approval Decision",
+    "decision": "Decision",
+    "approve": "Approve",
+    "reject": "Reject",
+    "comments": "Comments",
+    "commentsPlaceholder": "Enter comments (required when rejecting)",
+    "submit": "Submit Approval",
+    "cancel": "Cancel"
+  },
+  "stepLabels": {
+    "procurement_review": "Purchaser Review",
+    "quality_review": "Quality Review",
+    "procurement_manager_review": "Procurement Manager Review",
+    "procurement_director_review": "Procurement Director Review",
+    "finance_director_review": "Finance Director Review"
+  },
+  "title": "Supplier Upgrade Approval",
+  "subtitle": "Review and approve pending supplier upgrade applications",
+  "noApplications": "No pending applications",
+  "noApprovedApplications": "No reviewed items",
+  "loadError": "Failed to load applications",
+  "loadDetailError": "Failed to load application details",
+  "urgency": {
+    "urgent": "Urgent",
+    "normal": "Normal"
+  },
+  "searchPlaceholder": "Search supplier name or submitter",
+  "viewDetails": "View Details",
+  "currentStep": "Current Step",
+  "documents": "Documents",
+  "uploadedDocuments": "Uploaded Documents",
+  "uploaded": "Uploaded",
+  "notUploaded": "Not Uploaded",
+  "applicationDetails": "Application Details",
+  "supplierName": "Supplier Name",
+  "applicationId": "Application ID",
+  "status": "Status",
+  "submittedBy": "Submitted By",
+  "submittedAt": "Submitted At",
+  "dueDate": "Due Date",
+  "completeness": "Document Completeness",
+  "approvalHistory": "Approval History",
+  "noHistory": "No approval records yet",
+  "makeDecision": "Make Decision",
+  "decision": "Decision",
+  "approve": "Approve",
+  "reject": "Reject",
+  "comments": "Comments",
+  "commentsPlaceholder": "Enter your comments (optional)",
+  "submitDecision": "Submit Decision",
+  "confirmDecision": "Are you sure you want to {decision} this application?",
+  "decisionSuccess": "Decision submitted successfully",
+  "decisionError": "Failed to submit decision",
+  "urgent": "Urgent",
+  "statuses": {
+    "draft": "Draft",
+    "pending_procurement_review": "Pending Purchaser Review",
+    "pending_quality_review": "Pending Quality Review",
+    "pending_procurement_manager_review": "Pending Procurement Manager Review",
+    "pending_procurement_director_review": "Pending Procurement Director Review",
+    "pending_finance_director_review": "Pending Finance Director Review",
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "returned": "Returned"
+  },
+  "decisions": {
+    "approved": "Approved",
+    "rejected": "Rejected"
+  },
+  "table": {
+    "documentName": "Document Name",
+    "status": "Status",
+    "validityPeriod": "Validity Period",
+    "uploadedAt": "Uploaded At"
+  },
+  "time": {
+    "hours": "hours",
+    "minutes": "minutes",
+    "lessThanOneMinute": "Less than 1 minute",
+    "overdue": "Overdue {time}"
+  },
+  "messages": {
+    "incompleteDocWarning": "Documents not complete, confirm approval anyway?",
+    "hint": "Hint",
+    "stillApprove": "Still Approve",
+    "letMeCheck": "Let Me Check",
+    "confirmApprove": "Confirm approval of this supplier's upgrade application?",
+    "confirmReject": "Confirm rejection of this supplier's upgrade application? Supplier will need to resubmit.",
+    "confirmTitle": "Confirm Approval",
+    "approveSuccess": "Approval successful",
+    "rejectSuccess": "Rejection successful",
+    "approveFailed": "Approval failed, please try again",
+    "loadFailed": "Failed to load, please try again",
+    "fileNotFound": "File not found, cannot preview",
+    "missingParams": "Missing required parameters",
+    "overdueAlert": "{supplier}'s upgrade application is past deadline, please process urgently.",
+    "urgentAlert": "{supplier}'s application has about {minutes} minutes remaining."
+  },
+  "validation": {
+    "decisionRequired": "Please select approval decision",
+    "commentsRequiredOnReject": "Comments required when rejecting"
+  }
+}

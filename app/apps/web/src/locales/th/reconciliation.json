@@ -1,0 +1,114 @@
+{
+  "title": "การจัดการการกระทบยอด",
+  "dashboard": {
+    "title": "ศูนย์การจัดการกระทบยอด"
+  },
+  "buttons": {
+    "generateReport": "สร้างรายงาน",
+    "reject": "ปฏิเสธ",
+    "generate": "สร้าง"
+  },
+  "stats": {
+    "totalRecords": "จำนวนรายการทั้งหมด",
+    "matched": "ตรงกัน",
+    "varianceRecords": "รายการที่มีส่วนต่าง",
+    "unconfirmed": "ยังไม่ยืนยัน"
+  },
+  "status": {
+    "all": "ทั้งหมด",
+    "matched": "ตรงกัน",
+    "variance": "มีส่วนต่าง",
+    "unmatched": "ไม่ตรงกัน"
+  },
+  "table": {
+    "warehouseOrderNo": "เลขที่คำสั่งคลังสินค้า",
+    "supplier": "ผู้จัดจำหน่าย",
+    "receivedDate": "วันที่รับ",
+    "reconAmount": "ยอดกระทบยอด",
+    "reconciliationAmount": "ยอดกระทบยอดที่ยืนยัน",
+    "quantity": "จำนวน",
+    "status": "สถานะ",
+    "varianceAmount": "จำนวนส่วนต่าง",
+    "invoiceAmount": "ยอดใบแจ้งหนี้",
+    "invoiceNumber": "เลขที่ใบแจ้งหนี้",
+    "accountantConfirmed": "นักบัญชียืนยันแล้ว",
+    "operations": "การดำเนินการ",
+    "notUploaded": "ยังไม่อัปโหลด",
+    "variance": "ส่วนต่าง",
+    "confirmStatus": "สถานะการยืนยัน"
+  },
+  "confirmStatus": {
+    "confirmed": "ยืนยันแล้ว",
+    "unconfirmed": "ยังไม่ยืนยัน",
+    "pending": "รอดำเนินการ"
+  },
+  "uploadInvoice": "อัปโหลดใบแจ้งหนี้",
+  "viewWarehouseReceipt": "ดูใบรับคลังสินค้า",
+  "uploadInvoiceDialog": {
+    "title": "อัปโหลดใบแจ้งหนี้",
+    "reconciliationNo": "เลขที่กระทบยอด",
+    "invoiceNo": "เลขที่ใบแจ้งหนี้",
+    "invoiceDate": "วันที่ออกใบแจ้งหนี้",
+    "invoiceAmount": "ยอดใบแจ้งหนี้",
+    "invoiceFile": "ไฟล์ใบแจ้งหนี้",
+    "selectFile": "เลือกไฟล์",
+    "supportedFormats": "รองรับไฟล์ PDF, DOC, DOCX, XLS, XLSX, JPG, PNG ขนาดไม่เกิน 10MB"
+  },
+  "detailsDialog": {
+    "title": "รายละเอียดการกระทบยอด",
+    "varianceAmount": "จำนวนส่วนต่าง",
+    "varianceAnalysis": "การวิเคราะห์ส่วนต่าง",
+    "variancePercentage": "เปอร์เซ็นต์ส่วนต่าง",
+    "varianceReason": "สาเหตุของส่วนต่าง",
+    "noReason": "ไม่มี"
+  },
+  "warehouseDialog": {
+    "title": "รายละเอียดใบรับคลังสินค้า",
+    "receiptNo": "เลขที่ใบรับ",
+    "receiptDate": "วันที่ใบรับ",
+    "warehouseLocation": "คลังสินค้า",
+    "receivedBy": "ผู้รับ",
+    "totalItems": "จำนวนรายการทั้งหมด",
+    "notSpecified": "ไม่ได้ระบุ"
+  },
+  "reportDialog": {
+    "title": "สร้างรายงาน",
+    "reportType": "ประเภทของรายงาน",
+    "types": {
+      "summary": "รายงานสรุป",
+      "variance": "วิเคราะห์ส่วนต่าง",
+      "supplierPerformance": "ประสิทธิภาพผู้จัดจำหน่าย"
+    }
+  },
+  "messages": {
+    "fetchDataFailed": "โหลดข้อมูลการกระทบยอดไม่สำเร็จ",
+    "loadFailed": "โหลดข้อมูลการกระทบยอดไม่สำเร็จ",
+    "uploadSuccess": "อัปโหลดใบแจ้งหนี้สำเร็จ",
+    "uploadFailed": "อัปโหลดใบแจ้งหนี้ไม่สำเร็จ",
+    "fetchDetailsFailed": "โหลดรายละเอียดไม่สำเร็จ",
+    "detailsLoadFailed": "โหลดรายละเอียดการกระทบยอดไม่สำเร็จ",
+    "receiptLoadFailed": "โหลดใบรับคลังสินค้าไม่สำเร็จ",
+    "receiptNotFound": "ไม่พบใบรับคลังสินค้า",
+    "confirmSuccess": "ยืนยันสำเร็จ",
+    "rejectSuccess": "ปฏิเสธสำเร็จ",
+    "confirmFailed": "ยืนยันไม่สำเร็จ",
+    "rejectFailed": "ปฏิเสธไม่สำเร็จ",
+    "reportGeneratedSuccess": "สร้างรายงานสำเร็จ",
+    "reportGeneratedFailed": "สร้างรายงานไม่สำเร็จ"
+  },
+  "prompts": {
+    "confirmNotes": "กรุณากรอกหมายเหตุก่อนยืนยัน (ไม่บังคับ)",
+    "confirmTitle": "ยืนยันการกระทบยอด",
+    "notesPlaceholder": "กรอกหมายเหตุ",
+    "rejectReason": "กรุณากรอกเหตุผลในการปฏิเสธ",
+    "rejectTitle": "ปฏิเสธการกระทบยอด",
+    "rejectReasonPlaceholder": "กรอกเหตุผลในการปฏิเสธ"
+  },
+  "validation": {
+    "invoiceNoRequired": "กรุณากรอกเลขที่ใบแจ้งหนี้",
+    "invoiceDateRequired": "กรุณาเลือกวันที่ออกใบแจ้งหนี้",
+    "invoiceAmountRequired": "กรุณากรอกยอดใบแจ้งหนี้",
+    "invoiceFileRequired": "กรุณาอัปโหลดไฟล์ใบแจ้งหนี้",
+    "rejectReasonRequired": "กรุณาระบุเหตุผลในการปฏิเสธ"
+  }
+}

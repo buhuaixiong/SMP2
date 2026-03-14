@@ -1,0 +1,256 @@
+{
+  "welcome": "Welcome back, {userName}",
+  "coreModules": "Core Business Modules",
+  "supportingModules": "Supporting Functions",
+  "enterModule": "Enter Module",
+  "viewNow": "View Now",
+  "comingSoon": "Coming Soon",
+  "roles": {
+    "purchaser": {
+      "title": "Purchaser Workspace",
+      "description": "Quick access to core procurement processes to ensure efficient collaboration.",
+      "modules": {
+        "requisitions": {
+          "label": "Material Requisitions",
+          "description": "Manage department material requests and approval workflow."
+        },
+        "rfq": {
+          "label": "RFQ Quote Management",
+          "description": "Initiate and track quotations, evaluate supplier responses."
+        },
+        "approval": {
+          "label": "Registration Approvals",
+          "description": "Handle supplier registration approval workflow."
+        },
+        "documents": {
+          "label": "Supplier Document Management Module",
+          "description": "View supplier credentials and documentation, ensure compliance."
+        }
+      }
+    },
+    "tempSupplier": {
+      "title": "Temporary Supplier Workspace",
+      "description": "Handle daily quotation responses, contract materials, and the process to upgrade to formal supplier status.",
+      "modules": {
+        "rfq": {
+          "label": "RFQ Quote Management",
+          "description": "View and respond to latest quotation requests, maintain consistent quote records."
+        },
+        "contracts": {
+          "label": "Contract Document Management",
+          "description": "Upload and maintain contract documents, ensure complete information."
+        },
+        "profile": {
+          "label": "Data Management",
+          "description": "Maintain business profile, update compliance information in real-time."
+        },
+        "upgrade": {
+          "label": "Registration Upgrade Management",
+          "description": "Track registration progress, submit materials required for upgrade."
+        }
+      }
+    },
+    "formalSupplier": {
+      "title": "Formal Supplier Workspace",
+      "description": "Focus on delivery and collaboration, respond to procurement needs timely and maintain financial records.",
+      "modules": {
+        "rfq": {
+          "label": "RFQ Quote Management",
+          "description": "Participate in formal quotation process, stay coordinated with procurement team."
+        },
+        "contracts": {
+          "label": "Contract Document Management",
+          "description": "Centrally manage contracts and supplementary agreements, support compliance checks."
+        },
+        "profile": {
+          "label": "Data Management",
+          "description": "Update business qualifications and contact information, ensure accuracy."
+        },
+        "settlement": {
+          "label": "Reconciliation Module",
+          "description": "View receivable statements and historical settlement records."
+        },
+        "templates": {
+          "label": "Contract Templates",
+          "description": "Download latest template files, ensure complete documentation."
+        }
+      }
+    },
+    "supplier": {
+      "title": "Supplier Workspace",
+      "description": "Centralized display of supply cooperation progress and key matters.",
+      "modules": {
+        "rfq": {
+          "label": "RFQ Quote Management",
+          "description": "View and handle quotation tasks."
+        },
+        "contracts": {
+          "label": "Contract Document Management",
+          "description": "Maintain contract attachments and version records."
+        },
+        "profile": {
+          "label": "Data Management",
+          "description": "Update entity information and business qualifications anytime."
+        },
+        "settlement": {
+          "label": "Reconciliation Module",
+          "description": "Verify account status and payment milestones."
+        }
+      }
+    },
+    "procurementManager": {
+      "title": "Procurement Manager Workspace",
+      "description": "Coordinate procurement execution, monitor overall progress of reviews and approvals.",
+      "modules": {
+        "requisitions": {
+          "label": "Material Requisitions",
+          "description": "Review and approve department material requests."
+        },
+        "purchasingGroups": {
+          "label": "Purchasing Group Management",
+          "description": "Manage purchasing groups, assign purchasers and suppliers."
+        },
+        "tagManagement": {
+          "label": "Tag Management",
+          "description": "Create and manage supplier tags for easy categorization."
+        },
+        "rfqManagement": {
+          "label": "RFQ Management",
+          "description": "Organize review meetings and track review conclusions."
+        },
+        "approval": {
+          "label": "Approval Module",
+          "description": "Approve key milestones, ensure business compliance."
+        },
+        "documents": {
+          "label": "Supplier Document Management Module",
+          "description": "Review supplier materials and update archives."
+        }
+      }
+    },
+    "qualityManager": {
+      "title": "SQE Workspace",
+      "description": "Focus on supplier quality documentation and complete upgrade milestone approvals.",
+      "modules": {
+        "upgradeReview": {
+          "label": "Upgrade Approval",
+          "description": "Review supplier upgrade materials and provide improvement feedback."
+        },
+        "documents": {
+          "label": "Document Library",
+          "description": "View quality-related documents submitted by suppliers."
+        }
+      }
+    },
+    "procurementDirector": {
+      "title": "Procurement Director Workspace",
+      "description": "Focus on strategic approvals and data monitoring to drive procurement decisions.",
+      "modules": {
+        "strategyApproval": {
+          "label": "Strategic Approval Management",
+          "description": "Control approval process for major procurement matters."
+        },
+        "analytics": {
+          "label": "Data Monitoring and Decision Making",
+          "description": "View key metrics and trends to support strategic judgment."
+        }
+      }
+    },
+    "financeAccountant": {
+      "title": "Finance Accountant Workspace",
+      "description": "Manage invoices and settlements, ensure accurate and timely accounting.",
+      "modules": {
+        "invoice": {
+          "label": "Invoice Audit Management",
+          "description": "Review supplier invoices and invoice attachments."
+        },
+        "settlement": {
+          "label": "Reconciliation and Settlement Management",
+          "description": "Process settlement statements, track payment status."
+        }
+      }
+    },
+    "financeDirector": {
+      "title": "Finance Director Workspace",
+      "description": "Strengthen financial risk control and compliance, maintain overall risk oversight.",
+      "modules": {
+        "risk": {
+          "label": "Financial Risk Management",
+          "description": "Monitor financial risk indicators and develop early warnings."
+        },
+        "compliance": {
+          "label": "Financial Compliance Management",
+          "description": "Review compliance implementation to ensure policy enforcement."
+        }
+      }
+    },
+    "admin": {
+      "title": "System Administrator Workspace",
+      "description": "Configure role permissions and monitor system operation status.",
+      "modules": {
+        "supplierManagement": {
+          "label": "Supplier Information Management",
+          "description": "Bulk import Excel supplier data, centrally maintain enterprise archives."
+        },
+        "orgUnits": {
+          "label": "Organization Unit Management",
+          "description": "Manage enterprise organizational hierarchies with support for up to five levels."
+        },
+        "purchasingGroups": {
+          "label": "Purchasing Group Management",
+          "description": "Manage purchasing groups, assign purchasers and suppliers."
+        },
+        "tagManagement": {
+          "label": "Tag Management",
+          "description": "Create and manage supplier tags for easy categorization."
+        },
+        "permissions": {
+          "label": "Role Permission Configuration",
+          "description": "Maintain role and permission mapping to ensure access security."
+        },
+        "emailSettings": {
+          "label": "Email Service Configuration",
+          "description": "Configure SMTP settings for system email notifications and reminders."
+        },
+        "auditLog": {
+          "label": "System Audit Log",
+          "description": "View all user operation records and system change history."
+        },
+        "templates": {
+          "label": "Contract Templates",
+          "description": "Upload and maintain standard contract/quality templates for supplier download."
+        }
+      },
+      "supportingModules": {
+        "overview": {
+          "label": "System Overview",
+          "description": "Key operational metrics and health checks coming soon."
+        }
+      }
+    },
+    "fallback": {
+      "title": "Workspace",
+      "description": "Please select an appropriate business module to start today's tasks.",
+      "modules": {
+        "support": {
+          "label": "Help Center",
+          "description": "No dedicated modules configured for current role, please contact administrator."
+        }
+      }
+    },
+    "departmentUser": {
+      "title": "Department User Workspace",
+      "description": "Submit material requisitions for your department and track their approval status.",
+      "modules": {
+        "myRequisitions": {
+          "label": "My Requisitions",
+          "description": "View and manage all material requisitions submitted by your department."
+        },
+        "newRequisition": {
+          "label": "New Requisition",
+          "description": "Submit a new material requisition request for approval."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Contracts",
+  "addNew": "Add New Contract",
+  "edit": "Edit Contract",
+  "details": "Contract Details",
+  "version": "Version",
+  "versionHistory": "Version History",
+  "reminders": {
+    "title": "Reminders",
+    "add": "Add Reminder",
+    "leadTime": "Lead Time (days)",
+    "sent": "Sent",
+    "pending": "Pending"
+  }
+}

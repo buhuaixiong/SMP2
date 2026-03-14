@@ -1,0 +1,3 @@
+$env:GOOGLE_GEMINI_BASE_URL="https://hk-speed-01.code-next.akclau.de"
+$env:GEMINI_API_KEY="sk-Pgg5TGBHZ09goIwIO2LJ8J3SKwEsHbVZNtc5S5sAWkTpOs0DZ"
+$env:GEMINI_MODEL="gemini-3-pro-preview"

@@ -1,0 +1,13 @@
+﻿{
+  "admin": "Administrator",
+  "purchaser": "Purchaser",
+  "procurementManager": "Procurement Manager",
+  "procurementDirector": "Procurement Director",
+  "qualityManager": "SQE",
+  "financeAccountant": "Finance Accountant",
+  "financeDirector": "Finance Director",
+  "financeCashier": "Finance Cashier",
+  "tempSupplier": "Temporary Supplier",
+  "formalSupplier": "Formal Supplier",
+  "departmentUser": "Department User"
+}

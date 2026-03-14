@@ -1,0 +1,13 @@
+{
+  "title": "发票",
+  "upload": "上传发票",
+  "number": "发票号码",
+  "amount": "金额",
+  "dueDate": "到期日",
+  "status": {
+    "pending": "待处理",
+    "approved": "已批准",
+    "rejected": "已拒绝",
+    "paid": "已支付"
+  }
+}

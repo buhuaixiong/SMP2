@@ -1,0 +1,399 @@
+{
+  "title": "供应商",
+  "directory": "供应商目录",
+  "registration": "供应商注册",
+  "details": "供应商详情",
+  "addNew": "添加新供应商",
+  "import": "导入供应商",
+  "export": "导出供应商",
+  "search": "搜索供应商...",
+  "companyName": "公司名称",
+  "companyId": "供应商代码",
+  "category": "类别",
+  "region": "地区",
+  "stage": "阶段",
+  "address": "地址",
+  "registeredCapital": "注册资本",
+  "registrationDate": "注册日期",
+  "paymentTerms": "付款条款",
+  "paymentCurrency": "付款币种",
+  "bankName": "开户银行",
+  "bankAccount": "银行账户",
+  "taxRegistrationNumber": "税务登记号",
+  "businessRegistrationNumber": "工商注册号",
+  "legalRepresentative": "法人代表",
+  "contactPerson": "联系人",
+  "contactPhone": "联系电话",
+  "contactEmail": "联系邮箱",
+  "filters": {
+    "title": "筛选",
+    "status": "状态",
+    "category": "类别",
+    "region": "地区",
+    "completeness": "完整度",
+    "all": "全部",
+    "complete": "完整",
+    "mostlyComplete": "基本完整",
+    "needsAttention": "需要关注"
+  },
+  "status": {
+    "potential": "潜在",
+    "underReview": "审核中",
+    "pendingPurchaser": "等待采购员",
+    "pendingPurchaseManager": "等待采购经理",
+    "pendingFinanceManager": "等待财务经理",
+    "approved": "已批准",
+    "qualified": "已认证",
+    "rejected": "已拒绝",
+    "disqualified": "取消资格",
+    "suspended": "已暂停",
+    "terminated": "已终止"
+  },
+  "fields": {
+    "companyName": "公司名称",
+    "companyId": "公司编号",
+    "contactPerson": "联系人",
+    "contactPhone": "联系电话",
+    "contactEmail": "联系邮箱",
+    "category": "类别",
+    "address": "地址",
+    "registeredCapital": "注册资本",
+    "registrationDate": "注册日期",
+    "businessRegistrationNumber": "工商注册号",
+    "taxRegistrationNumber": "税务登记号",
+    "taxId": "税号",
+    "legalRepresentative": "法人代表",
+    "paymentTerms": "付款条款",
+    "paymentCurrency": "付款币种",
+    "bankAccount": "银行账户",
+    "bankName": "开户银行",
+    "shipCode": "国际贸易术语",
+    "region": "地区",
+    "website": "网站",
+    "description": "描述",
+    "notes": "备注"
+  },
+  "profile": {
+    "completion": "档案完整度",
+    "completionPercent": "已完成 {percent}%",
+    "missingItems": "缺失项目",
+    "requiredFields": "必填字段",
+    "requiredDocuments": "必需文档"
+  },
+  "documents": {
+    "title": "文档",
+    "upload": "上传文档",
+    "download": "下载",
+    "delete": "删除",
+    "category": "类别",
+    "fileName": "文件名",
+    "uploadDate": "上传日期",
+    "expiryDate": "到期日期",
+    "status": "状态",
+    "expired": "已过期",
+    "expiringSoon": "即将过期",
+    "valid": "有效",
+    "categories": {
+      "businessLicense": "营业执照",
+      "taxCertificate": "税务登记证",
+      "bankInformation": "银行信息",
+      "qualityCertificate": "质量认证",
+      "insurance": "保险",
+      "other": "其他"
+    }
+  },
+  "contracts": {
+    "title": "合同",
+    "addNew": "添加新合同",
+    "contractNumber": "合同编号",
+    "contractType": "合同类型",
+    "startDate": "开始日期",
+    "endDate": "结束日期",
+    "value": "合同金额",
+    "status": "状态",
+    "version": "版本",
+    "reminders": "提醒"
+  },
+  "ratings": {
+    "title": "评级",
+    "overall": "总体评级",
+    "quality": "质量",
+    "delivery": "交付",
+    "service": "服务",
+    "price": "价格",
+    "compliance": "合规性",
+    "addRating": "添加评级",
+    "ratingHistory": "评级历史"
+  },
+  "tags": {
+    "title": "标签",
+    "addTag": "添加标签",
+    "removeTag": "移除标签",
+    "manageTags": "管理标签"
+  },
+  "notifications": {
+    "createSuccess": "供应商创建成功",
+    "updateSuccess": "供应商更新成功",
+    "deleteSuccess": "供应商删除成功",
+    "approveSuccess": "供应商批准成功",
+    "rejectSuccess": "供应商已拒绝",
+    "documentUploadSuccess": "文档上传成功",
+    "documentDeleteSuccess": "文档删除成功"
+  },
+  "form": {
+    "sections": {
+      "coreProfile": {
+        "title": "核心档案",
+        "description": "记录供应商的身份和主要联系方式"
+      },
+      "companyType": {
+        "title": "公司类型",
+        "description": "选择公司架构并提供相关详细信息"
+      },
+      "registration": {
+        "title": "注册与地址"
+      },
+      "contacts": {
+        "title": "联系人目录"
+      },
+      "business": {
+        "title": "业务信息"
+      },
+      "payments": {
+        "title": "结算与付款"
+      },
+      "bank": {
+        "title": "银行信息"
+      },
+      "notes": {
+        "title": "附加备注"
+      }
+    },
+    "fields": {
+      "companyName": {
+        "label": "主要显示名称"
+      },
+      "companyId": {
+        "label": "注册编号"
+      },
+      "stage": {
+        "label": "阶段"
+      },
+      "englishName": {
+        "label": "英文名称"
+      },
+      "chineseName": {
+        "label": "中文名称"
+      },
+      "category": {
+        "label": "供应商类别",
+        "placeholder": "例如：原材料、工具、服务"
+      },
+      "contactPerson": {
+        "label": "主要联系人"
+      },
+      "contactPhone": {
+        "label": "主要电话"
+      },
+      "contactEmail": {
+        "label": "主要邮箱"
+      },
+      "purchaserEmail": {
+        "label": "联系采购员邮箱",
+        "placeholder": "buyer@company.com",
+        "hint": "填写负责此供应商的采购员邮箱，系统将自动分配"
+      },
+      "companyType": {
+        "label": "公司类型"
+      },
+      "companyTypeOther": {
+        "label": "其他类型详情"
+      },
+      "authorizedCapital": {
+        "label": "授权资本"
+      },
+      "issuedCapital": {
+        "label": "实收资本"
+      },
+      "directors": {
+        "label": "董事/法定代表人",
+        "placeholder": "多个姓名请用逗号或换行分隔"
+      },
+      "owners": {
+        "label": "所有者/合伙人",
+        "placeholder": "多个姓名请用逗号或换行分隔"
+      },
+      "registeredOffice": {
+        "label": "注册办公室"
+      },
+      "businessRegistrationNumber": {
+        "label": "工商注册号"
+      },
+      "businessAddress": {
+        "label": "运营地址"
+      },
+      "mailingAddress": {
+        "label": "邮寄地址"
+      },
+      "telephone": {
+        "label": "电话"
+      },
+      "fax": {
+        "label": "传真"
+      },
+      "businessNature": {
+        "label": "业务性质"
+      },
+      "operatingCurrency": {
+        "label": "运营币种",
+        "placeholder": "例如：CNY, USD"
+      },
+      "deliveryLocation": {
+        "label": "交货地点"
+      },
+      "productOrigin": {
+        "label": "产品原产地"
+      },
+      "shipCode": {
+        "label": "运输代码"
+      },
+      "productsForEci": {
+        "label": "销往 ECI 的产品"
+      },
+      "establishedYear": {
+        "label": "成立年份"
+      },
+      "employeeCount": {
+        "label": "员工人数"
+      },
+      "qualityCertifications": {
+        "label": "质量认证"
+      },
+      "invoiceType": {
+        "label": "发票类型"
+      },
+      "paymentTermsDays": {
+        "label": "付款期限（天）"
+      },
+      "paymentTermsNotes": {
+        "label": "付款条款备注"
+      },
+      "paymentCurrency": {
+        "label": "付款币种",
+        "placeholder": "例如：CNY"
+      },
+      "paymentMethods": {
+        "label": "付款方式"
+      },
+      "paymentMethodsOther": {
+        "label": "其他方式详情"
+      },
+      "bankName": {
+        "label": "开户银行"
+      },
+      "bankAddress": {
+        "label": "银行地址"
+      },
+      "bankAccountNumber": {
+        "label": "银行账号"
+      },
+      "swiftCode": {
+        "label": "SWIFT 代码"
+      },
+      "notes": {
+        "placeholder": "添加任何内部备注或说明"
+      }
+    },
+    "stage": {
+      "temporary": "临时供应商",
+      "official": "正式供应商"
+    },
+    "companyType": {
+      "limited": "有限公司",
+      "soleProprietor": "个体经营",
+      "partnership": "合伙企业",
+      "other": "其他"
+    },
+    "paymentMethod": {
+      "cash": "现金",
+      "cheque": "支票/银行汇票",
+      "wire": "电汇",
+      "other": "其他"
+    },
+    "shipCode": {
+      "EXW": "EXW - 工厂交货",
+      "FOB": "FOB - 离岸价",
+      "CIF": "CIF - 成本加保险费加运费",
+      "CFR": "CFR - 成本加运费",
+      "DDP": "DDP - 完税后交货",
+      "DDU": "DDU - 未完税交货",
+      "DAP": "DAP - 目的地交货",
+      "DAT": "DAT - 目的地终点交货",
+      "FCA": "FCA - 货交承运人",
+      "CPT": "CPT - 运费付至",
+      "CIP": "CIP - 运费、保险费付至"
+    },
+    "contacts": {
+      "sales": "销售",
+      "finance": "财务",
+      "customerService": "客服",
+      "name": "姓名",
+      "email": "邮箱",
+      "phone": "电话"
+    }
+  },
+  "categories": {
+    "rawMaterial": "原材料",
+    "it": "信息技术",
+    "services": "服务"
+  },
+  "errors": {
+    "completeProfileFailed": "完善资料失败",
+    "saveDraftFailed": "保存草稿失败"
+  },
+  "stages": {
+    "temporary": "临时供应商",
+    "official": "正式供应商",
+    "null": "未设置"
+  },
+  "companyCode": "供应商编码",
+  "approvalHistory": {
+    "title": "审批历史",
+    "sourceLabels": {
+      "file_upload": "文件审批",
+      "status_approval": "状态审批",
+      "upgrade_application": "升级申请"
+    },
+    "noRecords": "暂无审批记录",
+    "handler": "处理人",
+    "remark": "备注",
+    "timestamp": "时间"
+  },
+  "profilePage": {
+    "title": "我的公司资料",
+    "subtitle": "更新公司信息，确保入驻流程顺利进行。",
+    "statusCard": {
+      "title": "资料概览",
+      "status": "状态",
+      "missingFields": "缺失字段",
+      "missingDocuments": "缺失文件",
+      "noMissingFields": "所有必填字段均已填写",
+      "noMissingDocuments": "所有必需文件均已上传"
+    },
+    "documentsCard": {
+      "title": "文件摘要",
+      "uploadCta": "前往文件上传"
+    },
+    "formCard": {
+      "title": "更新资料信息",
+      "description": "提交的修改可能需要内部审批后才会生效。",
+      "submit": "提交更新",
+      "submitting": "正在提交...",
+      "updateSuccess": "资料更新成功。",
+      "changeRequestCreated": "已提交更新请求，等待审核。",
+      "submitError": "提交更新失败，请稍后再试。"
+    },
+    "loadError": "加载供应商资料失败。",
+    "noSupplier": "未找到您的供应商记录。"
+  }
+}

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.11" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SupplierSystem.Application\SupplierSystem.Application.csproj" />
+    <ProjectReference Include="..\SupplierSystem.Domain\SupplierSystem.Domain.csproj" />
+    <ProjectReference Include="..\SupplierSystem.Infrastructure\SupplierSystem.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

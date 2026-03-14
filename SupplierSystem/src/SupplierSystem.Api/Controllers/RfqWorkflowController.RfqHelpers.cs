@@ -1,0 +1,51 @@
+using SupplierSystem.Api.Helpers;
+using SupplierSystem.Domain.Entities;
+
+namespace SupplierSystem.Api.Controllers;
+
+public sealed partial class RfqWorkflowController
+{
+    private async Task<Dictionary<string, object?>?> GetRfqWithLineItemsAsync(
+        long rfqId,
+        CancellationToken cancellationToken)
+    {
+        var rfq = await _rfqWorkflowStore.FindRfqAsync(rfqId, asNoTracking: true, cancellationToken);
+
+        if (rfq == null)
+        {
+            return null;
+        }
+
+        var rfqSnake = NodeCaseMapper.ToSnakeCaseDictionary(rfq);
+        rfqSnake["required_documents"] = ParseJsonValue(rfq.RequiredDocuments, new List<object>());
+        rfqSnake["evaluation_criteria"] = ParseJsonValue(rfq.EvaluationCriteria, new Dictionary<string, object?>());
+
+        if (rfq.IsLineItemMode)
+        {
+            var lineItems = await _rfqWorkflowStore.LoadOrderedRfqLineItemsAsync(rfqId, cancellationToken);
+
+            var attachmentGroups = await _rfqWorkflowStore.LoadRfqAttachmentGroupsAsync(
+                lineItems.Select(li => li.Id).ToList(),
+                cancellationToken);
+
+            var lineItemDicts = new List<Dictionary<string, object?>>();
+            foreach (var lineItem in lineItems)
+            {
+                var lineItemSnake = NodeCaseMapper.ToSnakeCaseDictionary(lineItem);
+                if (attachmentGroups.TryGetValue(lineItem.Id, out var attachments))
+                {
+                    lineItemSnake["attachments"] = attachments;
+                }
+                else
+                {
+                    lineItemSnake["attachments"] = new List<Dictionary<string, object?>>();
+                }
+                lineItemDicts.Add(lineItemSnake);
+            }
+
+            rfqSnake["line_items"] = lineItemDicts;
+        }
+
+        return (Dictionary<string, object?>)CaseTransform.ToCamelCase(rfqSnake)!;
+    }
+}

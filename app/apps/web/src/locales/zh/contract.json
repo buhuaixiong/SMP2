@@ -1,0 +1,15 @@
+{
+  "title": "合同",
+  "addNew": "添加新合同",
+  "edit": "编辑合同",
+  "details": "合同详情",
+  "version": "版本",
+  "versionHistory": "版本历史",
+  "reminders": {
+    "title": "提醒",
+    "add": "添加提醒",
+    "leadTime": "提前时间（天）",
+    "sent": "已发送",
+    "pending": "待发送"
+  }
+}

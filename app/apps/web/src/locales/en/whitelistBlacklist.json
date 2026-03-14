@@ -1,0 +1,240 @@
+{
+  "tabs": {
+    "whitelist": "Whitelist Management",
+    "blacklist": "Blacklist Management"
+  },
+  "whitelist": {
+    "title": "Document Exemption Whitelist",
+    "addButton": "Add Exemption",
+    "table": {
+      "supplierCode": "Supplier Code",
+      "supplierName": "Supplier Name",
+      "documentType": "Exemption Document Type",
+      "reason": "Exemption Reason",
+      "exemptedBy": "Exempted By",
+      "exemptedAt": "Exemption Time",
+      "expiresAt": "Expiration Time",
+      "neverExpires": "Never Expires",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "actions": "Actions",
+      "deactivate": "Deactivate",
+      "delete": "Delete"
+    },
+    "dialog": {
+      "title": "Add Document Exemption",
+      "supplier": "Select Supplier",
+      "selectSupplier": "Click to select supplier",
+      "chooseSupplier": "Choose",
+      "documentType": "Exemption Document Type",
+      "selectDocumentType": "Select document type",
+      "reason": "Exemption Reason",
+      "reasonPlaceholder": "Please enter exemption reason",
+      "expiresAt": "Expiration Time",
+      "selectExpirationDate": "Select expiration time (optional)",
+      "cancel": "Cancel",
+      "submit": "Confirm"
+    },
+    "supplierSelector": {
+      "title": "Select Supplier",
+      "searchPlaceholder": "Search supplier name or code",
+      "search": "Search",
+      "supplierCode": "Supplier Code",
+      "supplierName": "Supplier Name",
+      "stage": "Stage",
+      "category": "Category",
+      "cancel": "Close"
+    },
+    "documentTypes": {
+      "quality_assurance_agreement": "Quality Assurance Agreement",
+      "quality_compensation_agreement": "Quality Compensation Agreement",
+      "quality_kpi_targets": "Quality KPI Targets",
+      "incoming_packaging_transport_agreement": "Incoming Packaging Transport Agreement"
+    },
+    "messages": {
+      "loadFailed": "Failed to load whitelist data",
+      "addSuccess": "Document exemption added successfully",
+      "addFailed": "Failed to add document exemption",
+      "deactivateConfirm": "Are you sure you want to deactivate this exemption?",
+      "deactivateSuccess": "Exemption deactivated",
+      "deactivateFailed": "Failed to deactivate exemption",
+      "deleteConfirm": "Are you sure you want to delete this exemption? This action cannot be undone.",
+      "deleteSuccess": "Exemption deleted",
+      "deleteFailed": "Failed to delete exemption",
+      "confirmAction": "Confirm Operation",
+      "confirmDelete": "Confirm Delete",
+      "confirm": "Confirm",
+      "cancel": "Cancel"
+    },
+    "validation": {
+      "supplierIdRequired": "Please select supplier",
+      "documentTypeRequired": "Please select document type",
+      "reasonRequired": "Please enter exemption reason"
+    }
+  },
+  "blacklist": {
+    "title": "Registration Blacklist",
+    "addButton": "Add Blacklist",
+    "table": {
+      "type": "Blacklist Type",
+      "blacklistType": "Blacklist Type",
+      "creditCode": "Credit Code",
+      "email": "Email",
+      "value": "Blacklist Value",
+      "blacklistValue": "Blacklist Value",
+      "severity": "Severity",
+      "critical": "Critical",
+      "high": "High",
+      "medium": "Medium",
+      "reason": "Ban Reason",
+      "notes": "Notes",
+      "addedBy": "Added By",
+      "addedAt": "Added Time",
+      "expiresAt": "Expiration Time",
+      "neverExpires": "Never Expires",
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive",
+      "actions": "Actions",
+      "deactivate": "Deactivate",
+      "delete": "Delete"
+    },
+    "dialog": {
+      "title": "Add Blacklist",
+      "type": "Blacklist Type",
+      "blacklistType": "Blacklist Type",
+      "typePlaceholder": "Select blacklist type",
+      "selectBlacklistType": "Select blacklist type",
+      "creditCodeOption": "Unified Social Credit Code",
+      "creditCode": "Unified Social Credit Code",
+      "emailOption": "Email Address",
+      "email": "Email Address",
+      "value": "Blacklist Value",
+      "blacklistValue": "Blacklist Value",
+      "creditCodePlaceholder": "Enter unified social credit code",
+      "emailPlaceholder": "Enter email address",
+      "severity": "Severity",
+      "severityPlaceholder": "Select severity",
+      "selectSeverity": "Select severity",
+      "criticalOption": "Critical (Critical)",
+      "critical": "Critical (Critical)",
+      "highOption": "High (High)",
+      "high": "High (High)",
+      "mediumOption": "Medium (Medium)",
+      "medium": "Medium (Medium)",
+      "reason": "Ban Reason",
+      "reasonPlaceholder": "Please enter ban reason",
+      "notes": "Notes",
+      "notesPlaceholder": "Optional notes",
+      "expiresAt": "Expiration Time",
+      "expiresAtPlaceholder": "Select expiration time (optional)",
+      "selectExpirationDate": "Select expiration time (optional)",
+      "cancel": "Cancel",
+      "confirm": "Confirm",
+      "submit": "Confirm"
+    },
+    "messages": {
+      "loadFailed": "Failed to load blacklist data",
+      "addSuccess": "Blacklist added successfully",
+      "addFailed": "Failed to add blacklist",
+      "deactivateConfirm": "Are you sure you want to deactivate this blacklist?",
+      "deactivateTitle": "Confirm Operation",
+      "deactivateSuccess": "Blacklist deactivated",
+      "deactivateFailed": "Failed to deactivate blacklist",
+      "deleteConfirm": "Are you sure you want to delete this blacklist? This action cannot be undone.",
+      "deleteTitle": "Confirm Delete",
+      "deleteSuccess": "Blacklist deleted",
+      "deleteFailed": "Failed to delete blacklist",
+      "confirm": "Confirm",
+      "cancel": "Cancel"
+    },
+    "validation": {
+      "typeRequired": "Please select blacklist type",
+      "valueRequired": "Please enter blacklist value",
+      "reasonRequired": "Please enter ban reason",
+      "severityRequired": "Please select severity"
+    }
+  }
+,
+  "reconciliation": {
+    "title": "Reconciliation Management",
+    "dashboard": {
+      "title": "Reconciliation Management Center"
+    },
+    "stats": {
+      "totalRecords": "Total Reconciliation Records",
+      "matched": "Matched",
+      "varianceRecords": "Variance Records",
+      "unconfirmed": "Pending Confirmation"
+    },
+    "status": {
+      "all": "All",
+      "matched": "Matched",
+      "variance": "Variance",
+      "unmatched": "Unmatched"
+    },
+    "confirmStatus": {
+      "confirmed": "Confirmed",
+      "unconfirmed": "Pending Confirmation"
+    },
+    "table": {
+      "warehouseOrderNo": "Warehouse Order No.",
+      "receivedDate": "Received Date",
+      "reconciliationAmount": "Reconciliation Amount",
+      "quantity": "Quantity",
+      "status": "Status",
+      "varianceAmount": "Variance Amount",
+      "invoiceNumber": "Invoice No.",
+      "accountantConfirmed": "Accountant Confirmed",
+      "operations": "Operations"
+    },
+    "uploadInvoice": "Upload Invoice",
+    "viewWarehouseReceipt": "View Receipt",
+    "uploadInvoiceDialog": {
+      "title": "Upload Invoice",
+      "reconciliationNo": "Reconciliation No.",
+      "invoiceNo": "Invoice No.",
+      "invoiceDate": "Invoice Date",
+      "invoiceAmount": "Invoice Amount",
+      "invoiceFile": "Invoice File",
+      "selectFile": "Select File",
+      "supportedFormats": "Supports PDF, DOC, DOCX, XLS, XLSX, JPG, PNG files up to 10MB"
+    },
+    "detailsDialog": {
+      "title": "Reconciliation Details",
+      "varianceAnalysis": "Variance Analysis",
+      "varianceReason": "Variance Reason",
+      "variancePercentage": "Variance Percentage",
+      "noReason": "None"
+    },
+    "warehouseDialog": {
+      "title": "Receipt Details",
+      "receiptNo": "Receipt No.",
+      "receiptDate": "Receipt Date",
+      "warehouseLocation": "Warehouse Location",
+      "receivedBy": "Received By",
+      "totalItems": "Total Items",
+      "notSpecified": "Not specified"
+    },
+    "validation": {
+      "invoiceNoRequired": "Please enter invoice number",
+      "invoiceDateRequired": "Please select invoice date",
+      "invoiceAmountRequired": "Please enter invoice amount",
+      "invoiceFileRequired": "Please upload invoice file"
+    },
+    "messages": {
+      "loadFailed": "Failed to load reconciliation data",
+      "uploadSuccess": "Invoice uploaded successfully",
+      "uploadFailed": "Failed to upload invoice",
+      "detailsLoadFailed": "Failed to load reconciliation details",
+      "receiptLoadFailed": "Failed to load receipt",
+      "receiptNotFound": "Receipt information not found"
+    }
+  },
+  "templateLibrary": {
+    "pageTitle": "Contract Template Downloads",
+    "pageDescription": "View and download the latest contract and quality management templates to keep information aligned.",
+    "lastUpload": "Latest Upload"
+  }
+}

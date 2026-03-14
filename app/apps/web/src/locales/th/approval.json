@@ -1,0 +1,18 @@
+{
+  "title": "การอนุมัติ",
+  "queue": "คิวการอนุมัติ",
+  "dashboard": "แดชบอร์ดการอนุมัติ",
+  "pending": "รอการอนุมัติ",
+  "history": "ประวัติการอนุมัติ",
+  "approve": "อนุมัติ",
+  "reject": "ปฏิเสธ",
+  "comment": "ความคิดเห็น",
+  "addComment": "เพิ่มความคิดเห็น",
+  "decision": "การตัดสินใจ",
+  "decisionDate": "วันที่ตัดสินใจ",
+  "approver": "ผู้อนุมัติ",
+  "notifications": {
+    "approveSuccess": "อนุมัติสำเร็จ",
+    "rejectSuccess": "ปฏิเสธสำเร็จ"
+  }
+}

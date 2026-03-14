@@ -1,0 +1,8 @@
+{
+  "general": "An error occurred",
+  "network": "Network error. Please check your connection",
+  "unauthorized": "You are not authorized to perform this action",
+  "notFound": "Resource not found",
+  "serverError": "Server error. Please try again later",
+  "validationFailed": "Validation failed. Please check your input"
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>ECI Favicon</title>
+  <rect width="64" height="64" rx="12" fill="#1f1f23" />
+  <path d="M32 52c-11 0-20-9-20-20s9-20 20-20" fill="none" stroke="#33a6ff" stroke-width="6" stroke-linecap="round" />
+  <path d="M32 52c-6 0-12-6-12-12s6-12 12-12" fill="none" stroke="#f7c948" stroke-width="6" stroke-linecap="round" />
+  <path d="M32 52c-3 0-6-3-6-6s3-6 6-6" fill="none" stroke="#28c76f" stroke-width="6" stroke-linecap="round" />
+</svg>
