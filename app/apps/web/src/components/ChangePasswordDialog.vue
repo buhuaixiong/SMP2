@@ -1,7 +1,7 @@
 <template>
   <el-dialog
     v-model="visible"
-    title="Change Password"
+    :title="t('auth.changePassword.title')"
     width="500px"
     :close-on-click-modal="false"
     :close-on-press-escape="false"
@@ -14,7 +14,7 @@
       show-icon
       style="margin-bottom: 20px"
     >
-      For security reasons, you must change your password before continuing.
+      {{ t("auth.changePassword.requiredMessage") }}
     </el-alert>
 
     <el-form
@@ -24,31 +24,41 @@
       label-width="140px"
       @submit.prevent="handleSubmit"
     >
-      <el-form-item label="Current Password" prop="currentPassword">
+      <el-form-item
+        :label="t('auth.changePassword.fields.currentPassword')"
+        prop="currentPassword"
+        :error="serverErrors.currentPassword"
+      >
         <el-input
           v-model="form.currentPassword"
           type="password"
-          placeholder="Enter current password"
+          :placeholder="t('auth.changePassword.placeholders.currentPassword')"
           show-password
           autocomplete="current-password"
+          @input="serverErrors.currentPassword = ''"
         />
       </el-form-item>
 
-      <el-form-item label="New Password" prop="newPassword">
+      <el-form-item
+        :label="t('auth.changePassword.fields.newPassword')"
+        prop="newPassword"
+        :error="serverErrors.newPassword"
+      >
         <el-input
           v-model="form.newPassword"
           type="password"
-          placeholder="Enter new password (min 6 characters)"
+          :placeholder="t('auth.changePassword.placeholders.newPassword')"
           show-password
           autocomplete="new-password"
+          @input="serverErrors.newPassword = ''"
         />
       </el-form-item>
 
-      <el-form-item label="Confirm Password" prop="confirmPassword">
+      <el-form-item :label="t('auth.changePassword.fields.confirmPassword')" prop="confirmPassword">
         <el-input
           v-model="form.confirmPassword"
           type="password"
-          placeholder="Re-enter new password"
+          :placeholder="t('auth.changePassword.placeholders.confirmPassword')"
           show-password
           autocomplete="new-password"
         />
@@ -57,9 +67,11 @@
 
     <template #footer>
       <span class="dialog-footer">
-        <el-button v-if="!required" @click="handleCancel">Cancel</el-button>
+        <el-button v-if="!required" @click="handleCancel">{{
+          t("auth.changePassword.actions.cancel")
+        }}</el-button>
         <el-button type="primary" :loading="submitting" @click="handleSubmit">
-          Change Password
+          {{ t("auth.changePassword.actions.submit") }}
         </el-button>
       </span>
     </template>
@@ -67,18 +79,19 @@
 </template>
 
 <script setup lang="ts">
-
-
-
-
-import { ref, reactive, watch } from "vue";
+import { computed, ref, reactive, watch } from "vue";
 import { type FormInstance, type FormRules } from "element-plus";
 import { apiFetch } from "@/api/http";
-
+import { useI18n } from "vue-i18n";
 
 import { useNotification } from "@/composables";
+import {
+  createChangePasswordRules,
+  getChangePasswordServerErrors,
+} from "@/components/changePasswordDialog";
 
 const notification = useNotification();
+const { t } = useI18n();
 defineOptions({ name: "ChangePasswordDialog" });
 
 interface Props {
@@ -107,32 +120,12 @@ const form = reactive({
   confirmPassword: "",
 });
 
-const validateConfirmPassword = (
-  _rule: unknown,
-  value: unknown,
-  callback: (error?: string | Error) => void,
-) => {
-  const normalizedValue = typeof value === "string" ? value : "";
+const serverErrors = reactive({
+  currentPassword: "",
+  newPassword: "",
+});
 
-  if (normalizedValue === "") {
-    callback(new Error("Please confirm your new password"));
-  } else if (normalizedValue !== form.newPassword) {
-    callback(new Error("Passwords do not match"));
-  } else {
-    callback();
-  }
-};
-
-const rules: FormRules = {
-  currentPassword: [
-    { required: true, message: "Please enter your current password", trigger: "blur" },
-  ],
-  newPassword: [
-    { required: true, message: "Please enter a new password", trigger: "blur" },
-    { min: 6, message: "Password must be at least 6 characters", trigger: "blur" },
-  ],
-  confirmPassword: [{ required: true, validator: validateConfirmPassword, trigger: "blur" }],
-};
+const rules = computed<FormRules>(() => createChangePasswordRules(form, t));
 
 watch(
   () => props.modelValue,
@@ -152,6 +145,8 @@ const resetForm = () => {
   form.currentPassword = "";
   form.newPassword = "";
   form.confirmPassword = "";
+  serverErrors.currentPassword = "";
+  serverErrors.newPassword = "";
   formRef.value?.clearValidate();
 };
 
@@ -172,6 +167,8 @@ const handleSubmit = async () => {
   }
 
   submitting.value = true;
+  serverErrors.currentPassword = "";
+  serverErrors.newPassword = "";
 
   try {
     await apiFetch("/auth/change-password", {
@@ -182,20 +179,20 @@ const handleSubmit = async () => {
       }),
     });
 
-    notification.success("Password changed successfully");
+    notification.success(t("auth.changePassword.notifications.success"));
     visible.value = false;
     emit("success");
   } catch (error) {
-    const message = error instanceof Error ? error.message : "Failed to change password";
-    notification.error(message);
+    const message =
+      error instanceof Error ? error.message : t("auth.changePassword.notifications.failure");
+    const mappedErrors = getChangePasswordServerErrors(message, t);
+    serverErrors.currentPassword = mappedErrors.currentPassword ?? "";
+    serverErrors.newPassword = mappedErrors.newPassword ?? "";
+    notification.error(mappedErrors.currentPassword ?? mappedErrors.newPassword ?? message);
   } finally {
     submitting.value = false;
   }
 };
-
-
-
-
 </script>
 
 <style scoped>

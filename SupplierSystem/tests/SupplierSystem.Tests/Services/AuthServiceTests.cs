@@ -466,6 +466,31 @@ public class AuthServiceTests
             service.ChangePasswordAsync("user-012", request));
 
         exception.Status.Should().Be(400);
+        exception.Value.Should().NotBeNull();
+        exception.Value!.ToString().Should().Contain("at least 8 characters");
+    }
+
+    [Fact]
+    public async Task ChangePasswordAsync_WithSameAsCurrentPassword_ShouldThrow400()
+    {
+        var user = CreateTestUser(
+            id: "user-012b",
+            username: "pwduser3b",
+            password: "samepassword",
+            role: "admin");
+
+        await _dbContext.Users.AddAsync(user);
+        await _dbContext.SaveChangesAsync();
+
+        var service = CreateAuthService();
+        var request = new ChangePasswordRequest { CurrentPassword = "samepassword", NewPassword = "samepassword" };
+
+        var exception = await Assert.ThrowsAsync<HttpResponseException>(() =>
+            service.ChangePasswordAsync("user-012b", request));
+
+        exception.Status.Should().Be(400);
+        exception.Value.Should().NotBeNull();
+        exception.Value!.ToString().Should().Contain("different from the current password");
     }
 
     [Fact]
